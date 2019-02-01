@@ -51,6 +51,6 @@ session:
 	@ echo "Opening Mathematica (Press \"Run All Code\" in window)..."
 	@ start=$$(date +%s); mathematica -run math_script.wl && echo "\tRuntime: $$((($$(date +%s)-start)))s"
 
-experiment:
+experiment: #Deprecated...
 	@ echo "Running Mathematica Thrice..."
 	@ start=$$(date +%s); wolfram -script math_script.wl; wolfram -script math_script.wl; wolfram -script math_script.wl; echo "$(INPUT), $$?, $$((($$(date +%s)-start)/3))s" >>stats.txt && echo "\tRuntime: $$((($$(date +%s)-start)/3))s"

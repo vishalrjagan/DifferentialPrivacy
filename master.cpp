@@ -1185,7 +1185,7 @@ void generateInequalities(string s, map<string,string>& prob_map, set<string>& s
 				else
 					out<<" Print[FindInstance[(eps > 0 && ("+prob_map[s1+" "+*j]<<") > Exp["+fraction+" * eps] * ("<<prob_map[s2+" "+*j]<<")), eps, Reals]];";
 			}
-			out<<" Exit[1])]"<<endl;
+			out<<" Exit[])]"<<endl;
 			seen.insert(prob_map[s1+" "+*j]+":"+prob_map[s2+" "+*j]);
 		}
 		if(seen.find(prob_map[s2+" "+*j]+":"+prob_map[s1+" "+*j])==seen.end())
@@ -1212,7 +1212,7 @@ void generateInequalities(string s, map<string,string>& prob_map, set<string>& s
 				else
 					out<<" Print[FindInstance[(eps > 0 && ("+prob_map[s2+" "+*j]<<") > Exp["+fraction+" * eps] * ("<<prob_map[s1+" "+*j]<<")), eps, Reals]];";
 			}
-			out<<" Exit[1])]"<<endl;
+			out<<" Exit[])]"<<endl;
 			seen.insert(prob_map[s2+" "+*j]+":"+prob_map[s1+" "+*j]);
 		}
 	}
@@ -1264,6 +1264,6 @@ int main(int argc, char** argv)
 	in.close();
 	out.open("math_script.wl", ios::app);
 	out<<"Print[val]"<<endl;
-	out<<"Exit[0]"<<endl;
+	out<<"Exit[]"<<endl;
 	out.close();
 }
