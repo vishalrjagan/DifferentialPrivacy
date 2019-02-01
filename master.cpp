@@ -134,21 +134,25 @@ public:
 		adj[encoding[s1]].erase(s2);
 		adj_eq[encoding[s1]].erase(s2);
 		adj_eq[encoding[s1]].erase(s2);
+		cout<<"REMOVE_FIX_ORDER "<<s1<<"<"<<s2<<endl;
 	}
-	bool add(string s1, string s2)
+	char add(string s1, string s2)
 	{
-		cout<<"ORD "<<s1<<" "<<s2<<endl;
+		// cout<<"ORD "<<s1<<" "<<s2<<endl;
 		if(exp_val(s1)!=s1 && exp_val(s2)!=s2)
 			if(!(to_float(exp_val(s1))<to_float(exp_val(s2))))
-				return false;
+				return 'f';
 		if(DFS(s2,s1) || (DFS(s1,s2,true) && !DFS(s1,s2,false)))
-			return false;
+			return 'f';
+		if(adj[encoding[s1]].find(s2)!=adj[encoding[s1]].end())
+			return 't';
 		adj[encoding[s1]].insert(s2);
-		return true;
+		cout<<"FIX_ORDER "<<s1<<"<"<<s2<<endl;
+		return 's';
 	}
 	bool add_eq(string s1, string s2)
 	{
-		cout<<"ORD_EQ "<<s1<<" "<<s2<<endl;
+		// cout<<"ORD_EQ "<<s1<<" "<<s2<<endl;
 		if(exp_val(s1)!=s1 && exp_val(s2)!=s2)
 			if(!(to_float(exp_val(s1))==to_float(exp_val(s2))))
 				return false;
@@ -277,7 +281,7 @@ public:
 		{
 			string tmp = real_values[total_order[total_order.size()-1]];
 			string dist_type = tmp.substr(0,tmp.find('['));
-			cout<<"DIST_TYPE: "<<dist_type<<endl;
+			// cout<<"DIST_TYPE: "<<dist_type<<endl;
 			string arg1 = tmp.substr(tmp.find('[')+1, tmp.find(',')-tmp.find('[')-1);
 			string arg2 = tmp.substr(tmp.find(',')+1, tmp.find(']')-tmp.find(',')-1);
 			if(dist_type=="LaplaceDistribution")
@@ -338,6 +342,7 @@ public:
 	bool valid(vector<string> order)
 	{
 		string curr="";
+		string curr_var="";
 		cout<<"\tTest";
 		for(int i=order.size()-1;i>=0;i--)
 			cout<<"|"<<order[i];
@@ -349,11 +354,12 @@ public:
 				if(curr!="")
 				{
 					if(to_int(curr)>to_int(exp_val(order[i])))
-					{
 						return false;
-					}
+					if(to_int(curr)==to_int(exp_val(order[i])) && curr_var>order[i])
+						return false;
 				}
 				curr=exp_val(order[i]);
+				curr_var=order[i];
 			}
 		}
 		return true;
@@ -431,6 +437,8 @@ public:
 					res2+=getAssignTotalOrder(total_orders[i], math_comp, intgr_cmds, tmp_upper);
 				}
 			}
+			if(res2=="")
+				res2="0";
 			if(res.size()>0)
 				res+="*";
 			res+="("+res2+")";
@@ -589,13 +597,13 @@ bool assignment(map<string,Exp*>& vars, list<string> next, RealOrderAndTDLap& or
 			if(type=="real" && getType(vars, next.front())=="int")
 			{
 				vars[target] = new RealExp((float)(static_cast<IntExp*>(vars[next.front()])->eval));
-				cout<<(float)(static_cast<IntExp*>(vars[next.front()])->eval)<<endl;
+				// cout<<(float)(static_cast<IntExp*>(vars[next.front()])->eval)<<endl;
 				order.assign(target,to_string(static_cast<IntExp*>(vars[next.front()])->eval));
 			}
 		}
 		else
 		{
-			cout<<type<<" "<<target<<" "<<next.front()<<endl;
+			// cout<<type<<" "<<target<<" "<<next.front()<<endl;
 			if(type=="bool")
 				vars[target] = new BoolExp(next.front()=="true");
 			else
@@ -739,7 +747,7 @@ string evaluate(map<string,Exp*> vars, list<string> pgm, RealOrderAndTDLap order
 		if(vars[next.front()]->type=="int")
 		{
 			cout<<"INT_RETN"<<endl;
-			// cout<<endl<<"["<<static_cast<IntExp*>(vars[next.front()])->eval<<"]"<<"*{"<<order.print(math_comp, intgr_cmds)<<"}+";
+			cout<<endl<<"["<<static_cast<IntExp*>(vars[next.front()])->eval<<"]"<<"*{"<<order.print(math_comp, intgr_cmds)<<"}+";
 			string ret_val="";
 			while(!next.empty())
 			{
@@ -885,110 +893,131 @@ string evaluate(map<string,Exp*> vars, list<string> pgm, RealOrderAndTDLap order
 			string var2 = next.front();
 			string type = getType(vars, var1);
 			string ret_type = "";
+			char t;
 			if(op=="<")
 			{
-				if(order.add(var1,var2))
+				t=order.add(var1,var2);
+				if(t!='f')
 				{
 					vars[target] = new BoolExp(1);
 					ret_type = evaluate(vars, pgm, order, result, math_comp, intgr_cmds);
+					if(t=='s')
+						order.remove(var1, var2);
 				}
-				order.remove(var1, var2);
-				if(order.add(var2,var1))
+				t=order.add(var2,var1);
+				if(t!='f')
 				{
 					vars[target] = new BoolExp(0);
 					ret_type = evaluate(vars, pgm, order, result, math_comp, intgr_cmds);
+					if(t=='s')
+						order.remove(var2, var1);
 				}
-				order.remove(var2, var1);
 				// if(order.add_eq(var1,var2))
 				// {
 				// 	vars[target] = new BoolExp(0);
 				// 	ret_type = evaluate(vars, pgm, order, result, math_comp, intgr_cmds);
+				// 	order.remove(var1, var2);
 				// }
-				// order.remove(var1, var2);
 			}
 			if(op=="<=")
 			{
-				if(order.add(var1,var2))
+				t=order.add(var1,var2);
+				if(t!='f')
 				{
 					vars[target] = new BoolExp(1);
 					ret_type = evaluate(vars, pgm, order, result, math_comp, intgr_cmds);
+					if(t=='s')
+						order.remove(var1, var2);
 				}
-				order.remove(var1, var2);
-				if(order.add(var2,var1))
+				t=order.add(var2,var1);
+				if(t!='f')
 				{
 					vars[target] = new BoolExp(0);
 					ret_type = evaluate(vars, pgm, order, result, math_comp, intgr_cmds);
+					if(t=='s')
+						order.remove(var2, var1);
 				}
-				order.remove(var2, var1);
 				// if(order.add_eq(var1,var2))
 				// {
 				// 	vars[target] = new BoolExp(1);
 				// 	ret_type = evaluate(vars, pgm, order, result, math_comp, intgr_cmds);
+				// 	order.remove(var2, var1);
 				// }
-				// order.remove(var2, var1);
 			}
 			if(op==">")
 			{
-				if(order.add(var2,var1))
+				t=order.add(var2,var1);
+				if(t!='f')
 				{
 					vars[target] = new BoolExp(1);
 					ret_type = evaluate(vars, pgm, order, result, math_comp, intgr_cmds);
+					if(t=='s')
+						order.remove(var2, var1);
 				}
-				order.remove(var2, var1);
-				if(order.add(var1,var2))
+				t=order.add(var1,var2);
+				if(t!='f')
 				{
 					vars[target] = new BoolExp(0);
 					ret_type = evaluate(vars, pgm, order, result, math_comp, intgr_cmds);
+					if(t=='s')
+						order.remove(var1, var2);
 				}
-				order.remove(var1, var2);
 				// if(order.add_eq(var2,var1))
 				// {
 				// 	vars[target] = new BoolExp(0);
 				// 	ret_type = evaluate(vars, pgm, order, result, math_comp, intgr_cmds);
+				// 	order.remove(var2, var1);
 				// }
-				// order.remove(var2, var1);
 			}
 			if(op==">=")
 			{
-				if(order.add(var2,var1))
+				t=order.add(var2,var1);
+				if(t!='f')
 				{
 					vars[target] = new BoolExp(1);
 					ret_type = evaluate(vars, pgm, order, result, math_comp, intgr_cmds);
+					if(t=='s')
+						order.remove(var2, var1);
 				}
-				order.remove(var2, var1);
-				if(order.add(var1,var2))
+				t=order.add(var1,var2);
+				if(t!='f')
 				{
 					vars[target] = new BoolExp(0);
 					ret_type = evaluate(vars, pgm, order, result, math_comp, intgr_cmds);
+					if(t=='s')
+						order.remove(var1, var2);
 				}
-				order.remove(var1, var2);
 				// if(order.add_eq(var2,var1))
 				// {
 				// 	vars[target] = new BoolExp(1);
 				// 	ret_type = evaluate(vars, pgm, order, result, math_comp, intgr_cmds);
+				// 	order.remove(var2, var1);
 				// }
-				// order.remove(var2, var1);
 			}
 			if(op=="==")
 			{
-				if(order.add(var2,var1))
+				t=order.add(var2,var1);
+				if(t!='f')
 				{
 					vars[target] = new BoolExp(0);
 					ret_type = evaluate(vars, pgm, order, result, math_comp, intgr_cmds);
+					if(t=='s')
+						order.remove(var2, var1);
 				}
-				order.remove(var2, var1);
-				if(order.add(var1,var2))
+				t=order.add(var1,var2);
+				if(t!='f')
 				{
 					vars[target] = new BoolExp(0);
 					ret_type = evaluate(vars, pgm, order, result, math_comp, intgr_cmds);
+					if(t=='s')
+						order.remove(var1, var2);
 				}
-				order.remove(var1, var2);
 				// if(order.add_eq(var2,var1))
 				// {
 				// 	vars[target] = new BoolExp(1);
 				// 	ret_type = evaluate(vars, pgm, order, result, math_comp, intgr_cmds);
+				// 	order.remove(var2, var1);
 				// }
-				// order.remove(var2, var1);
 			}
 			cout<<"REAL_ORDER_DONE"<<endl;
 			return ret_type;
@@ -1005,7 +1034,7 @@ string evaluateWithInputs(set<string>& inputs, list<string>& pgm, RealOrderAndTD
 	for(set<string>::iterator i = inputs.begin();i!=inputs.end();i++)
 	{
 		map<string,Exp*> vars;
-		cout<<vars.size()<<endl;
+		// cout<<vars.size()<<endl;
 		list<string> pgm1(pgm);
 		string s = *i;
 		while(s.size()>0)
@@ -1094,7 +1123,7 @@ void addIntgrCmds(string s, map<string, string>& intgr_cmds, set<string>& writte
 		while(i<s.size() && (s[i]=='u' || (48<=s[i] && s[i]<=57)))
 		{
 			var=var+s[i];
-			cout<<"Variable: "<<var<<"|"<<s<<endl;
+			// cout<<"Variable: "<<var<<"|"<<s<<endl;
 			i++;
 		}
 		if(written_vars.find(var)==written_vars.end())
@@ -1111,7 +1140,7 @@ void addIntgrCmds(string s, map<string, string>& intgr_cmds, set<string>& writte
 		s = s.substr(i);
 	}
 }
-void generateInequalities(string s, map<string,string>& prob_map, set<string>& seen, set<string>& results, map<string, string>& intgr_cmds, set<string>& written_vars, char* frac, bool eps_var)
+void generateInequalities(string s, map<string,string>& prob_map, set<string>& seen, set<string>& results, map<string, string>& intgr_cmds, set<string>& written_vars, char* frac, bool eps_var, string delta)
 {
 	ofstream out;
 	string fraction(frac);
@@ -1124,24 +1153,38 @@ void generateInequalities(string s, map<string,string>& prob_map, set<string>& s
 			continue;
 		if(prob_map.find(s1+" "+*j)==prob_map.end() || prob_map.find(s2+" "+*j)==prob_map.end())
 		{
-			cout<<"OOPSY "<<s1<<": "<<s2<<": "<<*j<<endl;
+			cout<<"HARD FAIL "<<s1<<": "<<s2<<": "<<*j<<endl;
 			out.close();
 			out.open("math_script.wl", ios::out);
-			out<<"Print[False]"<<endl;
+			out<<"Print[\"P("<<*j<<"|"<<s1<<")>Exp[eps]*P("<<*j<<"|"<<s2<<")\"]"<<endl;
 			out.close();
 			exit(0);
 		}
-		cout<<s<<endl;
+		// cout<<s<<endl;
 		if(seen.find(prob_map[s1+" "+*j]+":"+prob_map[s2+" "+*j])==seen.end())
 		{
 			cout<<"COMPARE "<<s<<": "<<*j<<endl;
 			addIntgrCmds(prob_map[s2+" "+*j], intgr_cmds, written_vars);
 			addIntgrCmds(prob_map[s1+" "+*j], intgr_cmds, written_vars);
-			out<<"If[Resolve[ForAll[eps, eps > 0, (";
-			out<<"("+prob_map[s1+" "+*j]<<") \\[LessEqual] Exp["+fraction+" * eps] * ("<<prob_map[s2+" "+*j]<<"))], Reals]";
+			if(eps_var)
+				out<<"If[Resolve[ForAll[eps, eps > 0, (";
+			else
+				out<<"If[Resolve[(";
+			if(delta!="0")
+				out<<"("+prob_map[s1+" "+*j]<<") \\[LessEqual] Exp["+fraction+" * eps] * ("<<prob_map[s2+" "+*j]<<") + "+delta+")";
+			else
+				out<<"("+prob_map[s1+" "+*j]<<") \\[LessEqual] Exp["+fraction+" * eps] * ("<<prob_map[s2+" "+*j]<<"))";
+			if(eps_var)
+				out<<"]";
+			out<<", Reals]";
 			out<<",Null,(Print[\"P("<<*j<<"|"<<s1<<")>Exp[eps]*P("<<*j<<"|"<<s2<<")\"];";
 			if(eps_var)
-				out<<" Print[FindInstance[(eps > 0 && ("+prob_map[s1+" "+*j]<<") > Exp["+fraction+" * eps] * ("<<prob_map[s2+" "+*j]<<")), eps, Reals]];";
+			{
+				if(delta!="0")
+					out<<" Print[FindInstance[(eps > 0 && ("+prob_map[s1+" "+*j]<<") > Exp["+fraction+" * eps] * ("<<prob_map[s2+" "+*j]<<") + delta), eps, Reals]];";
+				else
+					out<<" Print[FindInstance[(eps > 0 && ("+prob_map[s1+" "+*j]<<") > Exp["+fraction+" * eps] * ("<<prob_map[s2+" "+*j]<<")), eps, Reals]];";
+			}
 			out<<" Exit[1])]"<<endl;
 			seen.insert(prob_map[s1+" "+*j]+":"+prob_map[s2+" "+*j]);
 		}
@@ -1150,11 +1193,25 @@ void generateInequalities(string s, map<string,string>& prob_map, set<string>& s
 			cout<<"COMPARE "<<s<<": "<<*j<<endl;
 			addIntgrCmds(prob_map[s2+" "+*j], intgr_cmds, written_vars);
 			addIntgrCmds(prob_map[s1+" "+*j], intgr_cmds, written_vars);
-			out<<"If[Resolve[ForAll[eps, eps > 0, (";
-			out<<"("+prob_map[s2+" "+*j]<<") \\[LessEqual] Exp[eps] * ("<<prob_map[s1+" "+*j]<<"))], Reals]";
+			if(eps_var)
+				out<<"If[Resolve[ForAll[eps, eps > 0, (";
+			else
+				out<<"If[Resolve[(";
+			if(delta!="0")
+				out<<"("+prob_map[s2+" "+*j]<<") \\[LessEqual] Exp["+fraction+" * eps] * ("<<prob_map[s1+" "+*j]<<") + "+delta+")";
+			else
+				out<<"("+prob_map[s2+" "+*j]<<") \\[LessEqual] Exp["+fraction+" * eps] * ("<<prob_map[s1+" "+*j]<<"))";
+			if(eps_var)
+				out<<"]";
+			out<<", Reals]";
 			out<<",Null,(Print[\"P("<<*j<<"|"<<s2<<")>Exp[eps]*P("<<*j<<"|"<<s1<<")\"];";
 			if(eps_var)
-				out<<" Print[FindInstance[(eps > 0 && ("+prob_map[s2+" "+*j]<<") > Exp[eps] * ("<<prob_map[s1+" "+*j]<<")), eps, Reals]];";
+			{
+				if(delta!="0")
+					out<<" Print[FindInstance[(eps > 0 && ("+prob_map[s2+" "+*j]<<") > Exp["+fraction+" * eps] * ("<<prob_map[s1+" "+*j]<<") + delta), eps, Reals]];";
+				else
+					out<<" Print[FindInstance[(eps > 0 && ("+prob_map[s2+" "+*j]<<") > Exp["+fraction+" * eps] * ("<<prob_map[s1+" "+*j]<<")), eps, Reals]];";
+			}
 			out<<" Exit[1])]"<<endl;
 			seen.insert(prob_map[s2+" "+*j]+":"+prob_map[s1+" "+*j]);
 		}
@@ -1165,6 +1222,7 @@ int main(int argc, char** argv)
 {
 	string s;
 	string eps(argv[2]);
+	string delta(argv[3]);
 	string pgm;
 	int t;
 	cin>>t;
@@ -1202,7 +1260,7 @@ int main(int argc, char** argv)
 	ifstream in;
 	in.open("adjacency", ios::in);
 	while(getline(in,s))
-		generateInequalities(s, prob_map, seen, results, intgr_cmds, written_vars, argv[1], eps=="0");
+		generateInequalities(s, prob_map, seen, results, intgr_cmds, written_vars, argv[1], eps=="0", delta);
 	in.close();
 	out.open("math_script.wl", ios::app);
 	out<<"Print[val]"<<endl;

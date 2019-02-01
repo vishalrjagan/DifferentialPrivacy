@@ -1,6 +1,7 @@
 INPUT?=input.txt
 FRAC?=1
 EPS?=0
+DELTA?=0
 
 level0: install level1
 
@@ -34,7 +35,7 @@ similarity:
 
 script:
 	@ echo "Writing Mathematica script..."
-	@ start=$$(date +%s); ./master.out $(FRAC) $(EPS) <Inputs/$(INPUT) >master.log 2>master.err && echo "\tRuntime: $$((($$(date +%s)-start)))s"
+	@ start=$$(date +%s); ./master.out $(FRAC) $(EPS) $(DELTA) <Inputs/$(INPUT) >master.log 2>master.err && echo "\tRuntime: $$((($$(date +%s)-start)))s"
 	@ echo -n "\tMathematica Equation Count: " && wc -l < math_script.wl
 	@ bash -c "if [[ -s master.err ]] ; then echo \"***ERRORS FOUND: Check master.err***\" ; false ; fi ;"
 
