@@ -1,0 +1,80 @@
+-5 5
+input int q0 -1 1;
+input int q1 -1 1;
+input int q2 -1 1;
+int out;
+real cnst0;
+cnst0 = -1;
+int icnst0;
+icnst0 = -1;
+real cnst1;
+cnst1 = 0;
+int icnst1;
+icnst1 = 0;
+real cnst2;
+cnst2 = 1;
+int icnst2;
+icnst2 = 1;
+real val0;
+val0 = Exp "eps / 2" q0;
+real val1;
+val1 = Exp "eps / 2" q1;
+real val2;
+val2 = Exp "eps / 2" q2;
+bool cmp0a1;
+cmp0a1 = val0 >= val1;
+bool cmp0a2;
+cmp0a2 = val0 >= val2;
+bool cmp1a0;
+cmp1a0 = val1 >= val0;
+bool cmp1a2;
+cmp1a2 = val1 >= val2;
+bool cmp2a0;
+cmp2a0 = val2 >= val0;
+bool cmp2a1;
+cmp2a1 = val2 >= val1;
+bool b;
+b = true;
+out = 0;
+b = b && cmp0a1;
+b = b && cmp0a2;
+bool d00;
+d00 = val0 <= cnst0;
+if d00 then out = icnst0;
+else 
+bool d10;
+d10 = val0 <= cnst1;
+if d10 then out = icnst1;
+else 
+out = icnst2;
+fi;
+fi;
+if b then return out; fi;
+b = true;
+out = 1;
+b = b && cmp1a0;
+b = b && cmp1a2;
+bool d01;
+d01 = val1 <= cnst0;
+if d01 then out = icnst0;
+else 
+bool d11;
+d11 = val1 <= cnst1;
+if d11 then out = icnst1;
+else 
+out = icnst2;
+fi;
+fi;
+if b then return out; fi;
+bool d02;
+d02 = val2 <= cnst0;
+if d02 then out = icnst0;
+else 
+bool d12;
+d12 = val2 <= cnst1;
+if d12 then out = icnst1;
+else 
+out = icnst2;
+fi;
+fi;
+return out;
