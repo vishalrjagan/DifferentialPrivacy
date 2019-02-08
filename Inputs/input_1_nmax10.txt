@@ -1,0 +1,29 @@
+-5 5
+input int q0 -1 1;
+int out0;
+real cnst0;
+cnst0 = -1;
+int icnst0;
+icnst0 = -1;
+real cnst1;
+cnst1 = 0;
+int icnst1;
+icnst1 = 0;
+real cnst2;
+cnst2 = 1;
+int icnst2;
+icnst2 = 1;
+real val0;
+val0 = Lap "1 / eps" q0;
+bool d00;
+d00 = val0 <= cnst0;
+if d00 then out0 = icnst0;
+else 
+bool d10;
+d10 = val0 <= cnst1;
+if d10 then out0 = icnst1;
+else 
+out0 = icnst2;
+fi;
+fi;
+return out0;
