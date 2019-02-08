@@ -1,0 +1,98 @@
+-5 5
+input int q0 0 1;
+input int q1 0 1;
+input int q2 0 1;
+int t0;
+t0 = 0;
+int t1;
+t1 = 0;
+int t2;
+t2 = 0;
+int c;
+c = 1;
+int del;
+del = 1;
+bool b;
+bool out0;
+out0 = false;
+q0 = q0 - t0;
+bool out1;
+out1 = false;
+q1 = q1 - t1;
+bool out2;
+out2 = false;
+q2 = q2 - t2;
+int one;
+one = 1;
+int zero;
+zero = 0;
+int count;
+count = 0;
+real rhs0;
+rhs0 = Lap "eps / ( 2 * c * del )" zero;
+real lhs0;
+lhs0 = Lap "eps / ( 4 )" q0;
+out0 = lhs0 >= rhs0;
+if out0 then
+count = count + one;
+b = count >= c;
+if b then return out0 out1 out2; fi;
+real rhs1;
+rhs1 = Lap "eps / ( 2 )" zero;
+real lhs1;
+lhs1 = Lap "eps / ( 4 )" q1;
+out1 = lhs1 >= rhs1;
+if out1 then
+count = count + one;
+b = count >= c;
+if b then return out0 out1 out2; fi;
+real rhs2;
+rhs2 = Lap "eps / ( 2 )" zero;
+real lhs2;
+lhs2 = Lap "eps / ( 4 )" q2;
+out2 = lhs2 >= rhs2;
+if out2 then
+count = count + one;
+b = count >= c;
+if b then return out0 out1 out2; fi;
+fi;
+else 
+real lhs2;
+lhs2 = Lap "eps / ( 4 )" q2;
+out2 = lhs2 >= rhs1;
+if out2 then
+count = count + one;
+b = count >= c;
+if b then return out0 out1 out2; fi;
+fi;
+fi;
+else 
+real lhs1;
+lhs1 = Lap "eps / ( 4 )" q1;
+out1 = lhs1 >= rhs0;
+if out1 then
+count = count + one;
+b = count >= c;
+if b then return out0 out1 out2; fi;
+real rhs1;
+rhs1 = Lap "eps / ( 2 )" zero;
+real lhs2;
+lhs2 = Lap "eps / ( 4 )" q2;
+out2 = lhs2 >= rhs1;
+if out2 then
+count = count + one;
+b = count >= c;
+if b then return out0 out1 out2; fi;
+fi;
+else 
+real lhs2;
+lhs2 = Lap "eps / ( 4 )" q2;
+out2 = lhs2 >= rhs0;
+if out2 then
+count = count + one;
+b = count >= c;
+if b then return out0 out1 out2; fi;
+fi;
+fi;
+fi;
+return out0 out1 out2; fi;
