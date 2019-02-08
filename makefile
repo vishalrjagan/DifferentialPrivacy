@@ -23,6 +23,7 @@ clean:
 	@ rm -rf *.out
 	@ rm -rf master.err
 	@ rm -rf master.log
+	@ rm -rf bin.txt
 
 master: master.cpp
 	@ echo "Compiling master.cpp..."

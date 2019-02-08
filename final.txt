@@ -1,0 +1,65 @@
+Input,              AdjTime,WritTime,  o/p, RunTime, LineCount
+--------------------------------------------------------------------------------T1
+input_3_svt1.txt,		 0s,	 0s,	 0,	 703s,	 840
+input_3_svt2.txt,		 0s,	 0s,	 0,	 783s,	 840
+input_3_svt3.txt,		 0s,	 0s,	 0,	 3686s,	 2544
+input_3_svt4.txt,		 0s,	 0s,	 1,	 294s,	 840
+input_3_svt5.txt,		 0s,	 0s,	 1,	 3s,	 70
+input_3_svt6.txt,		 0s,	 0s,	 1,	 680s,	 1437
+input_3_nmax5.txt,		 0s,	 0s,	 0,	 211s,	 386
+input_3_nmax6.txt,		 0s,	 0s,	 0,	 56s,	 386
+input_3_nmax7.txt,		 0s,	 1s,	 1,	 282s,	 1588
+input_3_nmax8.txt,		 0s,	 1s,	 1,	 32s,	 1588
+input_3_rr.txt,			 0s,	 0s,	 1,	 1s,	 17
+input_3_nmax9.txt,		 0s,	 1s,	 0,	 1443s,	 1720
+input_3_nmax10.txt,		 0s,	 0s,	 1,	 35s,	 1720
+--------------------------------------------------------------------------------T2
+input_5_svt3_01.txt,	 0s,	 19s,	 1,	 5166s,	 60646
+input_2_svt4.txt,		 0s,	 0s,	 1,	 63s,	 140
+input_2_svt5.txt,		 0s,	 0s,	 1,	 2s,	 65
+input_3_svt6.txt,		 0s,	 0s,	 1,	 711s,	 1437
+input_3_nmax7.txt,		 0s,	 0s,	 1,	 321s,	 1588
+input_1_nmax8.txt,		 0s,	 0s,	 1,	 1s,	 34
+input_1_rr.txt,			 0s,	 0s,	 1,	 1s,	 5
+input_1_nmax10.txt,		 0s,	 0s,	 1,	 2s,	 34
+--------------------------------------------------------------------------------T3
+input_1_svt1.txt,		 0s,	 0s,	 0,	 17s,	 28
+input_2_svt1.txt,		 0s,	 0s,	 0,	 116s,	 140
+input_2_svt1_c2.txt,	 0s,	 0s,	 0,	 188s,	 197
+input_3_svt1.txt,		 0s,	 0s,	 0,	 851s,	 840
+input_3_svt1_c2.txt,	 0s,	 0s,	 0,	 1129s,	 1218
+input_4_svt1.txt,		 0s,	 1s,	 0,	 4648s,	 5488
+input_4_svt1_c2.txt,	 0s,	 1s,	 0,	 6318s,	 8005
+--------------------------------------------------------------------------------T4
+input_1_svt1.txt,		 0s,	 0s,	 0,	 7s,	 29
+input_2_svt1.txt,		 0s,	 0s,	 0,	 37s,	 141
+input_2_svt1_c2.txt,	 0s,	 0s,	 0,	 80s,	 198
+input_3_svt1.txt,		 0s,	 1s,	 0,	 251s,	 841
+input_3_svt1_c2.txt,	 0s,	 1s,	 0,	 480s,	 1219
+input_4_svt1.txt,		 0s,	 0s,	 0,	 1520s,	 5489
+input_4_svt1_c2.txt,	 0s,	 0s,	 0,	 2532s,	 8006
+input_1_svt1.txt,		 0s,	 0s,	 0,	 7s,	 29
+input_2_svt1.txt,		 0s,	 0s,	 0,	 39s,	 141
+input_2_svt1_c2.txt,	 0s,	 0s,	 0,	 80s,	 198
+input_3_svt1.txt,		 0s,	 0s,	 0,	 262s,	 841
+input_3_svt1_c2.txt,	 0s,	 0s,	 0,	 499s,	 1219
+input_4_svt1.txt,		 0s,	 1s,	 0,	 1635s,	 5489
+input_4_svt1_c2.txt,	 0s,	 1s,	 0,	 2846s,	 8006
+--------------------------------------------------------------------------------T5
+input_1_svt3_01.txt,	 0s,	 0s,	 0,	 21s,	 50
+input_2_svt3_01.txt,	 0s,	 0s,	 0,	 164s,	 259
+input_3_svt3_01.txt,	 0s,	 0s,	 0,	 1470s,	 1500
+input_4_svt3_01.txt,	 0s,	 1s,	 0,	 9624s,	 9305
+input_5_svt3_01.txt,	 0s,	 14s,	 1,	 4636s,	 60646
+input_1_svt3_01.txt,	 0s,	 0s,	 0,	 13s,	 33
+input_2_svt3_01.txt,	 0s,	 0s,	 0,	 33s,	 55
+input_3_svt3_01.txt,	 0s,	 0s,	 0,	 80s,	 81
+input_4_svt3_01.txt,	 0s,	 0s,	 0,	 161s,	 111
+input_5_svt3_01.txt,	 0s,	 0s,	 1,	 111s,	 145
+--------------------------------------------------------------------------------T6
+input_3_svt7_d0.txt,	 0s,	 0s,	 1,	 55s,	 189
+input_3_svt7_d0.txt,	 0s,	 0s,	 0,	 256s,	 765
+input_3_svt7_d0.txt,	 0s,	 0s,	 1,	 211s,	 765
+input_3_svt7_c2_d0.txt,	 0s,	 0s,	 1,	 93s,	 434
+input_3_svt7_c2_d0.txt,	 0s,	 0s,	 0,	 44882s, 7154
+input_3_svt7_c2_d0.txt,	 0s,	 0s,	 1,	 659s,	 7154
