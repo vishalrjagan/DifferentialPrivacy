@@ -4,6 +4,7 @@
 	Programs: A folder containing code to generate common input programs.
 	ProgramInputs: A folder containing code to create input files to programs in Programs.
 	Bash: A folder containing shell scripts to create data for Tables in Paper.
+	DiffPrivacyManual: This folder contains Mathematica script for manual verification of counterexamples found by the tool.
 	compare.cpp: A program which uses input.cpp to generate the adjacency relation between inputs.
 	input.cpp, input1.cpp, input3.cpp: A program which contains function compare (and other variations of the function), which defines the adjacency relation.
 	makefile: A master file to run the entire directory.
