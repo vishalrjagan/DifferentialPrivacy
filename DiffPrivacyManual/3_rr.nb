@@ -1,0 +1,9 @@
+In[5]:=
+eps = 67/102
+p1 = (1+eps)/2*(1+eps)/2*(1+eps)/2
+p2 = (1+eps)/2*(1+eps)/2*(1-eps)/2
+Print[p1 <= Exp[eps]*p2]
+Out[5]= 67/102
+Out[6]= 4826809/8489664
+Out[7]= 999635/8489664
+During evaluation of In[5]:= False

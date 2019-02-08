@@ -1,0 +1,9 @@
+In[9]:=
+eps = 27/50
+p1 = Probability[q0 <= t && q1 >= t, {q0  LaplaceDistribution[-1,4/(3*eps)], q1  LaplaceDistribution[0,4/(3*eps)], t  LaplaceDistribution[0,4/(eps)]}]
+p2 = Probability[q0 <= t && q1 >= t, {q0  LaplaceDistribution[0,4/(3*eps)], q1  LaplaceDistribution[-1,4/(3*eps)], t  LaplaceDistribution[0,4/(eps)]}]
+Print[p1 <= Exp[eps]*p2]
+Out[9]= 27/50
+Out[10]= 1/112 (56-9/E^(27/50)+26/E^(81/200)-63/E^(27/200))
+Out[11]= (-9+19 E^(27/200))/(112 E^(27/50))
+During evaluation of In[9]:= False

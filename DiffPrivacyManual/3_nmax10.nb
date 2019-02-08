@@ -1,0 +1,9 @@
+In[5]:=
+eps = 9/34
+p1 = Probability[(q0 <= -1 && q1 <= -1 && q2 <= -1),  {q0  LaplaceDistribution[-1, eps], q1  LaplaceDistribution[-1, eps], q2  LaplaceDistribution[-1, eps]}]
+p2 = Probability[(q0 <= -1 && q1 <= -1 && q2 <= -1),  {q0  LaplaceDistribution[-1, eps], q1  LaplaceDistribution[-1, eps], q2  LaplaceDistribution[0, eps]}]
+Print[p1 <= Exp[eps]*p2]
+Out[5]= 9/34
+Out[6]= 1/8
+Out[7]= 1/(8 E^(34/9))
+During evaluation of In[5]:= False

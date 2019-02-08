@@ -1,0 +1,9 @@
+In[1]:=
+eps = 27
+p1 = Probability[(q0 <= -1 && q1 <= -1),  {q0  LaplaceDistribution[-1, 1/eps], q1  LaplaceDistribution[-1, 1/eps]}]
+p2 = Probability[(q0 <= -1 && q1 <= -1),  {q0  LaplaceDistribution[0, 1/eps], q1  LaplaceDistribution[0, 1/eps]}]
+Print[p1 <= Exp[eps]*p2]
+Out[1]= 27
+Out[2]= 1/4
+Out[3]= 1/(4 E^54)
+During evaluation of In[1]:= False

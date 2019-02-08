@@ -1,0 +1,9 @@
+In[1]:=
+eps = 9/34
+p1 = (1+eps)/2
+p2 = (1-eps)/2
+Print[p1 <= Exp[eps]*p2]
+Out[1]= 9/34
+Out[2]= 43/68
+Out[3]= 25/68
+During evaluation of In[1]:= False

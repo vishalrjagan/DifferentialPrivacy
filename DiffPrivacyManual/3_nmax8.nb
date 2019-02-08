@@ -1,0 +1,9 @@
+In[5]:=
+eps = 27
+p1 = Probability[(q0-1 > -1 && q0-1 <=0 && q1-1<=0 && q2-1<=0) ||(q1-1 > -1 && q0-1 <=0 && q1-1<=0 && q2-1<=0) ||(q2-1 > -1 && q0-1 <=0 && q1-1<=0 && q2-1<=0),  {q0  ExponentialDistribution[2/eps], q1  ExponentialDistribution[2/eps], q2  ExponentialDistribution[2/eps]}]
+p2 = Probability[(q0-1 > -1 && q0-1 <=0 && q1-1<=0 && q2<=0) ||(q1-1 > -1 && q0-1 <=0 && q1-1<=0 && q2<=0) ||(q2 > -1 && q0-1 <=0 && q1-1<=0 && q2<=0),  {q0  ExponentialDistribution[2/eps], q1  ExponentialDistribution[2/eps], q2  ExponentialDistribution[2/eps]}]
+Print[p1 <= Exp[eps]*p2]
+Out[5]= 27
+Out[6]= 4 (1-1/E^(2/27))^3-(3 (1-1/E^(2/27))^2 (-1+E^(2/27)))/E^(2/27)
+Out[7]= 0
+During evaluation of In[5]:= False

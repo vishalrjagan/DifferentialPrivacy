@@ -1,0 +1,9 @@
+In[1]:=
+eps=67/92
+p1=Probability[q0<t && q1<t && q2>=t,{tLaplaceDistribution[0,2/(eps)], q0LaplaceDistribution[-1,2/(eps)], q1LaplaceDistribution[-1,2/(eps)], q2LaplaceDistribution[0,2/(eps)]}]
+p2=Probability[q0<t && q1<t && q2>=t,{tLaplaceDistribution[0,2/(eps)], q0LaplaceDistribution[0,2/(eps)], q1LaplaceDistribution[0,2/(eps)], q2LaplaceDistribution[-1,2/(eps)]}]
+Print[p1<=Exp[eps]*p2]
+Out[1]= 67/92
+Out[2]= 1/2-803/(2944 E^(67/92))-385/(1104 E^(67/184))
+Out[3]= (-1+17 E^(67/92))/(192 E^(201/184))
+During evaluation of In[1]:= False
