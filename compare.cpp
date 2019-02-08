@@ -6,6 +6,7 @@
 #include <fstream>
 #include <string>
 #include <cstring>
+#include <algorithm>
 // #include "input.cpp"
 using namespace std;
 
@@ -103,8 +104,9 @@ string print(vector<int> v)
 	}
 	return res;
 }
-int main()
+int main(int argc, char** argv)
 {
+	string rnd(argv[1]);
 	string s;
 	string pgm;
 	int left, right;
@@ -115,12 +117,16 @@ int main()
 	list<string> pgmTokens = tokenize(pgm);
 	vector<vector<int>> inp_set;
 	evaluateInputs(pgmTokens, inp_set, vector<int>(), left, right, 0);
+	if(rnd!="0")
+		random_shuffle(inp_set.begin(), inp_set.end());
 	ofstream out;
 	out.open("adjacency", ios::out);
 	for(int i=0;i<inp_set.size();i++)
 	{
 		for(int j=0;j<inp_set.size();j++)
 		{
+			if(i==j)
+				continue;
 			if(compare(inp_set[i], inp_set[j]))
 				out<<print(inp_set[i])<<" ~ "<<print(inp_set[j])<<endl;
 		}

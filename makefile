@@ -2,6 +2,8 @@ INPUT?=input.txt
 FRAC?=1
 EPS?=0
 DELTA?=0
+RANDOM?=0
+RANGE?=eps > 0
 
 level0: install level1
 
@@ -10,6 +12,8 @@ level1: similarity level2
 level2: script
 
 install: master compare
+
+silent: start_sil sim_sil scr_sil res_sil
 
 clean:
 	@ echo "Cleaning files..."
@@ -31,11 +35,11 @@ compare: compare.cpp
 
 similarity:
 	@ echo "Creating adjacency relation..."
-	@ start=$$(date +%s); ./compare.out <Inputs/$(INPUT) && echo "\tRuntime: $$((($$(date +%s)-start)))s"
+	@ start=$$(date +%s); ./compare.out $(RANDOM) <Inputs/$(INPUT) && echo "\tRuntime: $$((($$(date +%s)-start)))s"
 
 script:
 	@ echo "Writing Mathematica script..."
-	@ start=$$(date +%s); ./master.out $(FRAC) $(EPS) $(DELTA) <Inputs/$(INPUT) >master.log 2>master.err && echo "\tRuntime: $$((($$(date +%s)-start)))s"
+	@ start=$$(date +%s); ./master.out $(FRAC) $(EPS) $(DELTA) "$(RANGE)"" <Inputs/$(INPUT) >master.log 2>master.err && echo "\tRuntime: $$((($$(date +%s)-start)))s"
 	@ echo -n "\tMathematica Equation Count: " && wc -l < math_script.wl
 	@ bash -c "if [[ -s master.err ]] ; then echo \"***ERRORS FOUND: Check master.err***\" ; false ; fi ;"
 
@@ -51,6 +55,37 @@ session:
 	@ echo "Opening Mathematica (Press \"Run All Code\" in window)..."
 	@ start=$$(date +%s); mathematica -run math_script.wl && echo "\tRuntime: $$((($$(date +%s)-start)))s"
 
-experiment: #Deprecated...
+experiment:
 	@ echo "Running Mathematica Thrice..."
-	@ start=$$(date +%s); wolfram -script math_script.wl; wolfram -script math_script.wl; wolfram -script math_script.wl; echo "$(INPUT), $$?, $$((($$(date +%s)-start)/3))s" >>stats.txt && echo "\tRuntime: $$((($$(date +%s)-start)/3))s"
+	@ echo $(INPUT) >>all_bin.txt
+	@ start=$$(date +%s); wolfram -script math_script.wl; wolfram -script math_script.wl; wolfram -script math_script.wl >bin.txt; grep -Fq "True" bin.txt; echo "$(INPUT), $$?, $$((($$(date +%s)-start)/3))s" >>stats.txt && echo "\tRuntime: $$((($$(date +%s)-start)/3))s"
+	@ cat bin.txt >>all_bin.txt
+	@ echo ""
+	@ echo "-----------------------------------------------------------------------------------------" >>all_bin.txt
+
+ins_sil:
+	@ rm -rf adjacency
+	@ rm -rf output.txt
+	@ rm -rf math_script.wl
+	@ rm -rf *.out
+	@ rm -rf master.err
+	@ rm -rf master.log
+	@ g++ --std=c++11 input.cpp compare.cpp -o compare.out
+	@ g++ --std=c++11 topological_sort.cpp master.cpp -o master.out
+	@ g++ --std=c++11 input.cpp compare.cpp -o compare.out
+
+start_sil:
+	@ echo -n "$(INPUT),\t "
+	@ cp -n Inputs/$(INPUT) InputsReq/$(INPUT)
+
+sim_sil:
+	@ start=$$(date +%s); ./compare.out $(RANDOM) <Inputs/$(INPUT) && echo -n "$$((($$(date +%s)-start)))s,\t "
+
+scr_sil:
+	@ start=$$(date +%s); ./master.out $(FRAC) $(EPS) $(DELTA) "$(RANGE)" <Inputs/$(INPUT) >master.log 2>master.err && echo -n "$$((($$(date +%s)-start)))s,\t "
+
+res_sil:
+	@ echo $(INPUT) >>all_bin.txt
+	@ start=$$(date +%s); wolfram -script math_script.wl >bin.txt; grep -Fq "True" bin.txt; echo "$$?,\t $$((($$(date +%s)-start)))s,\t $$(wc -l < math_script.wl)"
+	@ cat bin.txt >>all_bin.txt
+	@ echo "-----------------------------------------------------------------------------------------" >>all_bin.txt
