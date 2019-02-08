@@ -179,14 +179,6 @@ input_3_svt7_d0.txt
 True
 -----------------------------------------------------------------------------------------
 input_3_svt7_d0.txt
-
-Resolve::ratnz: Resolve was unable to eliminate quantifiers from the system with inexact coefficients. The answer was obtained by eliminating quantifiers from a corresponding exact system and numericizing the result.
-
-Resolve::ratnz: Resolve was unable to eliminate quantifiers from the system with inexact coefficients. The answer was obtained by eliminating quantifiers from a corresponding exact system and numericizing the result.
-
-Resolve::ratnz: Resolve was unable to eliminate quantifiers from the system with inexact coefficients. The answer was obtained by eliminating quantifiers from a corresponding exact system and numericizing the result.
-
-General::stop: Further output of Resolve::ratnz will be suppressed during this calculation.
 P(0;0;1|0 0 1)>Exp[eps]*P(0;0;1|1 1 0)+Exp[-4]
 {{eps -> 99/5}}
 -----------------------------------------------------------------------------------------
@@ -201,4 +193,3 @@ input_3_svt7_c2_d0.txt
 P(0;0;1|0 0 1)>Exp[eps]*P(0;0;1|1 1 0)+Exp[-4]
 {{eps -> 43/5}}
 -----------------------------------------------------------------------------------------
-input_3_svt7_c2_d0.txt
