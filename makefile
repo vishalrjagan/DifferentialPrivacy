@@ -13,7 +13,7 @@ level2: script
 
 install: master compare
 
-silent: start_sil sim_sil scr_sil res_sil
+silent: start_silentent similarity_silent script_silent result_silent
 
 clean:
 	@ echo "Cleaning files..."
@@ -64,7 +64,7 @@ experiment:
 	@ echo ""
 	@ echo "-----------------------------------------------------------------------------------------" >>all_bin.txt
 
-ins_sil:
+install_silent:
 	@ rm -rf adjacency
 	@ rm -rf output.txt
 	@ rm -rf math_script.wl
@@ -75,16 +75,16 @@ ins_sil:
 	@ g++ --std=c++11 topological_sort.cpp master.cpp -o master.out
 	@ g++ --std=c++11 input.cpp compare.cpp -o compare.out
 
-start_sil:
+start_silent:
 	@ echo -n "$(INPUT),\t "
 
-sim_sil:
+similarity_silent:
 	@ start=$$(date +%s); ./compare.out $(RANDOM) <Inputs/$(INPUT) && echo -n "$$((($$(date +%s)-start)))s,\t "
 
-scr_sil:
+script_silent:
 	@ start=$$(date +%s); ./master.out $(FRAC) $(EPS) $(DELTA) "$(RANGE)" <Inputs/$(INPUT) >master.log 2>master.err && echo -n "$$((($$(date +%s)-start)))s,\t "
 
-res_sil:
+result_silent:
 	@ echo $(INPUT) >>all_bin.txt
 	@ start=$$(date +%s); wolfram -script math_script.wl >bin.txt; grep -Fq "True" bin.txt; echo "$$?,\t $$((($$(date +%s)-start)))s,\t $$(wc -l < math_script.wl)"
 	@ cat bin.txt >>all_bin.txt
