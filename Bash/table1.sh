@@ -1,4 +1,4 @@
-make ins_sil
+make install_silent
 make silent INPUT=input_3_svt1.txt
 cp math_script.wl Scripts/math_script_3_svt1.wl
 make silent INPUT=input_3_svt2.txt
@@ -23,7 +23,7 @@ make silent INPUT=input_3_rr.txt RANGE="eps > 0 && eps < 1"
 cp math_script.wl Scripts/math_script_3_rr.wl
 mv input.cpp input2.cpp
 mv input1.cpp input.cpp
-make ins_sil
+make install_silent
 make silent INPUT=input_3_nmax9.txt
 cp math_script.wl Scripts/math_script_3_nmax9.wl
 make silent INPUT=input_3_nmax10.txt

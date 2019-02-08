@@ -24,7 +24,7 @@ int main()
 	string arr[]={"svt", "nmax", "rr"};
 	ofstream out2;
 	bool script = true;
-	out2.open("../generateInputs.sh", ios::out);
+	out2.open("generateInputs.sh", ios::out);
 	for(int i=1;i<=5;i++)
 	{
 		for(int j=2;j>0;j--)
@@ -34,7 +34,7 @@ int main()
 				for(int l=0;l<3;l++)
 				{
 					ofstream out1;
-					out1.open(toString(i)+"_"+toString(j)+"_"+toString(k+2)+"_"+arr[l]+".in", ios::out);
+					out1.open("./ProgramInputs/"+toString(i)+"_"+toString(j)+"_"+toString(k+2)+"_"+arr[l]+".in", ios::out);
 					if(l==0)
 					{
 						out1<<i<<endl<<1<<endl<<j<<endl<<k<<" "<<1<<endl<<0;

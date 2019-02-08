@@ -1,4 +1,4 @@
-make ins_sil
+make install_silent
 make silent INPUT=input_3_svt7_d0.txt FRAC=0.5 
 cp math_script.wl Scripts/math_script_3_svt7_1.wl
 make silent INPUT=input_3_svt7_d0.txt FRAC=0.5 DELTA=Exp[-1/32]
