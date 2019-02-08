@@ -76,7 +76,6 @@ ins_sil:
 
 start_sil:
 	@ echo -n "$(INPUT),\t "
-	@ cp -n Inputs/$(INPUT) InputsReq/$(INPUT)
 
 sim_sil:
 	@ start=$$(date +%s); ./compare.out $(RANDOM) <Inputs/$(INPUT) && echo -n "$$((($$(date +%s)-start)))s,\t "
