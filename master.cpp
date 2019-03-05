@@ -705,22 +705,22 @@ string evaluate(map<string,Exp*> vars, list<string> pgm, RealOrderAndTDLap order
 		cout<<"EMPTY_LINE"<<endl;
 		return evaluate(vars, pgm, order, result, math_comp, intgr_cmds);
 	}
-	else if(next.front().find("Prob[")==0) // Probabilistic statement.
+	else if(next.front().find("Prob{")==0) // Probabilistic statement.
 	{
 		cout<<"PROB_CMD"<<endl;
 		string prob = next.front();
 		string ret_type;
-		order.assign(convertToMathScript("(1-("+prob.substr(prob.find('[')+1, prob.find(']')-prob.find('[')-1)+"))", vars));
+		order.assign(convertToMathScript("(1-("+prob.substr(prob.find('{')+1, prob.find('}')-prob.find('{')-1)+"))", vars));
 		evaluate(vars, pgm, order, result, math_comp, intgr_cmds);
-		order.remove(convertToMathScript("(1-("+prob.substr(prob.find('[')+1, prob.find(']')-prob.find('[')-1)+"))", vars));
+		order.remove(convertToMathScript("(1-("+prob.substr(prob.find('{')+1, prob.find('}')-prob.find('{')-1)+"))", vars));
 		next.pop_front();
 		next.push_back("$");
-		order.assign(convertToMathScript("("+prob.substr(prob.find('[')+1, prob.find(']')-prob.find('[')-1)+")", vars));
+		order.assign(convertToMathScript("("+prob.substr(prob.find('{')+1, prob.find('}')-prob.find('{')-1)+")", vars));
 		list<string> newpgm;
 		newpgm.splice(newpgm.end(), next);
 		newpgm.splice(newpgm.end(), pgm);
 		ret_type = evaluate(vars, newpgm, order, result, math_comp, intgr_cmds);
-		order.remove(convertToMathScript("("+prob.substr(prob.find('[')+1, prob.find(']')-prob.find('[')-1)+")", vars));
+		order.remove(convertToMathScript("("+prob.substr(prob.find('{')+1, prob.find('}')-prob.find('{')-1)+")", vars));
 		return ret_type;
 	}
 	else if(next.front()=="int") // Int variable is being declared. Assuming declaration without initialisation. ***Syntax: int <var_name>;
@@ -1177,7 +1177,7 @@ void generateOutputSet(set<string>& results, set<set<string>>& all_results)
 	cout<<"POWER_SET "<<results.size()<<" "<<all_results.size()<<endl;
 	return;
 }
-void generateInequalities(string s, map<string,string>& prob_map, set<string>& seen, set<string>& results, map<string, string>& intgr_cmds, set<string>& written_vars, char* frac, bool eps_var, string delta, string range)
+void deprecated_generateInequalities(string s, map<string,string>& prob_map, set<string>& seen, set<string>& results, map<string, string>& intgr_cmds, set<string>& written_vars, char* frac, bool eps_var, string delta, string range, int unused=0)
 {
 	ofstream out;
 	string fraction(frac);
@@ -1345,6 +1345,112 @@ void generateInequalities(string s, map<string,string>& prob_map, set<string>& s
 	}
 	out.close();
 }
+void generateInequalities(string s, map<string,string>& prob_map, set<string>& seen, set<string>& results, map<string, string>& intgr_cmds, set<string>& written_vars, char* frac, bool eps_var, string delta, string range, int num)
+{
+	ofstream out;
+	string fraction(frac);
+	out.open("math_script.wl", ios::app);
+	string s1 = s.substr(0,s.find('~')-1);
+	string s2 = s.substr(s.find('~')+2);
+	if(delta!="0")\
+	{
+		out<<"sum"<<num<<"A = 0"<<endl;
+		out<<"sum"<<num<<"B = 0"<<endl;
+	}
+	for(set<string>::iterator j = results.begin();j!=results.end(); j++)
+	{
+		if(prob_map.find(s1+" "+*j)==prob_map.end() && prob_map.find(s2+" "+*j)==prob_map.end())
+			continue;
+		if(prob_map.find(s1+" "+*j)==prob_map.end() || prob_map.find(s2+" "+*j)==prob_map.end())
+		{
+			cout<<"HARD FAIL "<<s1<<": "<<s2<<": "<<*j<<endl;
+			out.close();
+			out.open("math_script.wl", ios::out);
+			out<<"Print[\"P("<<*j<<"|"<<s1<<")>Exp[eps]*P("<<*j<<"|"<<s2<<")\"]"<<endl;
+			out.close();
+			exit(0);
+		}
+		// cout<<s<<endl;
+		if(seen.find(prob_map[s1+" "+*j]+":"+prob_map[s2+" "+*j])==seen.end())
+		{
+			cout<<"COMPARE "<<s<<": "<<*j<<endl;
+			addIntgrCmds(prob_map[s2+" "+*j], intgr_cmds, written_vars);
+			addIntgrCmds(prob_map[s1+" "+*j], intgr_cmds, written_vars);
+			if(eps_var)
+				out<<"If[Resolve[ForAll[eps, "+range+", (";
+			else
+				out<<"If[Resolve[(";
+			out<<"("+prob_map[s1+" "+*j]<<") \\[LessEqual] Exp["+fraction+" * eps] * ("<<prob_map[s2+" "+*j]<<"))";
+			if(eps_var)
+				out<<"]";
+			out<<", Reals]";
+			out<<",Null,(";
+			if(delta=="0")
+			{
+				out<<"Print[\"P("<<*j<<"|"<<s1<<")>Exp[eps]*P("<<*j<<"|"<<s2<<")";
+				out<<"\"];";
+				if(eps_var)
+				{
+					out<<" Print[FindInstance[("+range+" && ("+prob_map[s1+" "+*j]<<") > Exp["+fraction+" * eps] * ("<<prob_map[s2+" "+*j]<<")), eps, Reals]];";
+				}
+				out<<" Exit[])]"<<endl;
+				seen.insert(prob_map[s1+" "+*j]+":"+prob_map[s2+" "+*j]);
+			}
+			else
+				out<<"sum"<<num<<"A = sum"<<num<<"A + Max[("<<prob_map[s1+" "+*j]<<") - Exp["+fraction+" * eps] * ("<<prob_map[s2+" "+*j]<<"), 0])]"<<endl;
+		}
+		if(seen.find(prob_map[s2+" "+*j]+":"+prob_map[s1+" "+*j])==seen.end())
+		{
+			cout<<"COMPARE "<<s<<": "<<*j<<endl;
+			addIntgrCmds(prob_map[s2+" "+*j], intgr_cmds, written_vars);
+			addIntgrCmds(prob_map[s1+" "+*j], intgr_cmds, written_vars);
+			if(eps_var)
+				out<<"If[Resolve[ForAll[eps, "+range+", (";
+			else
+				out<<"If[Resolve[(";
+			out<<"("+prob_map[s2+" "+*j]<<") \\[LessEqual] Exp["+fraction+" * eps] * ("<<prob_map[s1+" "+*j]<<"))";
+			if(eps_var)
+				out<<"]";
+			out<<", Reals]";
+			out<<",Null,(";
+			if(delta=="0")
+			{
+				out<<"Print[\"P("<<*j<<"|"<<s2<<")>Exp[eps]*P("<<*j<<"|"<<s1<<")";
+				out<<"\"];";
+				if(eps_var)
+				{
+					out<<" Print[FindInstance[("+range+" && ("+prob_map[s2+" "+*j]<<") > Exp["+fraction+" * eps] * ("<<prob_map[s1+" "+*j]<<")), eps, Reals]];";
+				}
+				out<<" Exit[])]"<<endl;
+				seen.insert(prob_map[s2+" "+*j]+":"+prob_map[s1+" "+*j]);
+			}
+			else
+				out<<"sum"<<num<<"B = sum"<<num<<"B + Max[("<<prob_map[s2+" "+*j]<<") - Exp["+fraction+" * eps] * ("<<prob_map[s1+" "+*j]<<"), 0])]"<<endl;
+		}
+	}
+	if(delta!="0")
+	{
+		if(eps_var)
+			out<<"If[Resolve[ForAll[eps, "+range+", ";
+		else
+			out<<"If[Resolve[";
+		out<<"sum"<<num<<"A \\[LessEqual] "<<delta;
+		if(eps_var)
+			out<<"]";
+		out<<", Reals],Null,(Print[\"P(Output|"<<s1<<")>Exp[eps]*P(Output|"<<s2<<")\"]; Exit[])]"<<endl;
+		if(eps_var)
+			out<<"If[Resolve[ForAll[eps, "+range+", ";
+		else
+			out<<"If[Resolve[";
+		out<<"sum"<<num<<"B \\[LessEqual] "<<delta;
+		if(eps_var)
+			out<<"]";
+		out<<", Reals],Null,(Print[\"P(Output|"<<s2<<")>Exp[eps]*P(Output|"<<s1<<")\"]; Exit[])]"<<endl;
+		out<<"Clear[sum"<<num<<"A, sum"<<num<<"B]"<<endl;
+		out<<"Print["<<num<<"]"<<endl;
+	}
+	out.close();
+}
 int main(int argc, char** argv)
 {
 	string s;
@@ -1352,6 +1458,7 @@ int main(int argc, char** argv)
 	string delta(argv[3]);
 	string range(argv[4]);
 	string pgm;
+	cout<<"!"<<endl;
 	int t;
 	cin>>t;
 	IntExp::rangeLeft = t;
@@ -1388,8 +1495,9 @@ int main(int argc, char** argv)
 	set<string> written_vars;
 	ifstream in;
 	in.open("adjacency", ios::in);
+	int i=0;
 	while(getline(in,s))
-		generateInequalities(s, prob_map, seen, results, intgr_cmds, written_vars, argv[1], eps=="0", delta, range);
+		generateInequalities(s, prob_map, seen, results, intgr_cmds, written_vars, argv[1], eps=="0", delta, range, i++);
 	in.close();
 	out.open("math_script.wl", ios::app);
 	out<<"Print[val]"<<endl;
