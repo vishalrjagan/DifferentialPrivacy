@@ -1,0 +1,6 @@
+-5 5
+input bool q0;
+bool out0;
+out0 = q0;
+Prob{1/(Exp[eps]+1)} out0 = ! q0;
+return out0;
