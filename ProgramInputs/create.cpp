@@ -27,7 +27,7 @@ int main()
 	out2.open("generateInputs.sh", ios::out);
 	for(int i=1;i<=5;i++)
 	{
-		for(int j=2;j>0;j--)
+		for(int j=3;j>0;j--)
 		{
 			for(int k=0;k>-2;k--)
 			{
@@ -89,6 +89,8 @@ int main()
 							// for(int m=5;m<11;m++)
 							{
 								out2<<"g++ Programs/rr"<<".cpp"<<endl;
+								out2<<"./a.out <ProgramInputs/"+toString(i)+"_"+toString(j)+"_"+toString(k+2)+"_"+arr[l]+".in"<<endl;
+								out2<<"g++ Programs/rr_correct"<<".cpp"<<endl;
 								out2<<"./a.out <ProgramInputs/"+toString(i)+"_"+toString(j)+"_"+toString(k+2)+"_"+arr[l]+".in"<<endl;
 							}
 						}
