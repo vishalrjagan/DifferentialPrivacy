@@ -21,7 +21,7 @@
 	To run from script file creation,
 		make level2 result INPUT=<filename> FRAC=<frac> EPS=<eps> RANGE="<eps-range>" RANDOM=<0/1> DELTA=<delta>
 	To only run till script creation, but avoid running script file on mathematica, remove the result option from the above commands, i.e., run the above commands as
-		make levelX INPUT=<filename> FRAC=<frac> EPS=<eps> RANGE="<eps-range>" RANDOM=<0/1> DELTA=<delta>
+		make levelX INPUT=<filename> FRAC=<frac> EPS=<eps> RANGE="<eps-range>" RANDOM=<0/1> DELTA=<delta> APPROACH=<approach(0/1)>
 
 ******Detailed
 	make [options] INPUT=<filename> FRAC=<frac> EPS=<eps> RANGE="<eps-range>" RANDOM=<rand_bit> DELTA=<delta>
@@ -31,6 +31,9 @@
 		eps-range: The range of epsilon to be checked for, expressed as an inequality in Mathematica Inequality, Eg: "eps>0 && eps<1". (default: "eps > 0")
 		rand_bit: Whether adjacency pairs must be produced in random order. 0 for False, 1 for True. (default: 0).
 		delta: The delta to be considered for epsilon-delta differential privacy.
+		approach: For eps-delta privacy, the tool implements two algorithms. approach defines which algorithm to use.
+				approach = 0 is a slow algorithm which generates the counterexample input pair along with the output.
+				approach = 1 is a faster algorithm which only generates the counterexample input pair, but not the corresponding output.
 
 		Options:
 			install: Installs the executables required, namely compare.out and master.out.
@@ -127,6 +130,13 @@
 				<var3> is the variable storing upper cutoff for the distribution.
 				<lin_in_eps> is a linear expression in eps, as in the Laplacian statement in (g).
 			Eg: val = TDLap "val * eps + 3" val1 val2 val3;
+
+		l) Prob{<math_exp>} <statement>
+			This is the probabilistic statement.
+				<math_exp> is a Mathematica Expression for the probability with which this statement must be executed. This probability may depend on eps
+		    	<statement> is the statement to be executed, which may be one of the previous types of statements
+			The command <statement> is executed with probability <math_exp> and not executed with probability 1-<math_exp>.
+			Eg: Prob{1/(Exp[eps]+1)} out1 = ! q1;
 
 	NOTE:
 	1) We don't have assignments of the form var1 = var2 + 3. In the arithmetic statement, both the operands must be variables. "var1 = var2 + 3" must be written as "int three; three = 3; var1 = var2 + three;"

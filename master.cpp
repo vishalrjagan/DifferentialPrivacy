@@ -1177,7 +1177,7 @@ void generateOutputSet(set<string>& results, set<set<string>>& all_results)
 	cout<<"POWER_SET "<<results.size()<<" "<<all_results.size()<<endl;
 	return;
 }
-void deprecated_generateInequalities(string s, map<string,string>& prob_map, set<string>& seen, set<string>& results, map<string, string>& intgr_cmds, set<string>& written_vars, char* frac, bool eps_var, string delta, string range, int unused=0)
+void subset_generateInequalities(string s, map<string,string>& prob_map, set<string>& seen, set<string>& results, map<string, string>& intgr_cmds, set<string>& written_vars, char* frac, bool eps_var, string delta, string range, int unused=0)
 {
 	ofstream out;
 	string fraction(frac);
@@ -1345,7 +1345,7 @@ void deprecated_generateInequalities(string s, map<string,string>& prob_map, set
 	}
 	out.close();
 }
-void generateInequalities(string s, map<string,string>& prob_map, set<string>& seen, set<string>& results, map<string, string>& intgr_cmds, set<string>& written_vars, char* frac, bool eps_var, string delta, string range, int num)
+void optimal_generateInequalities(string s, map<string,string>& prob_map, set<string>& seen, set<string>& results, map<string, string>& intgr_cmds, set<string>& written_vars, char* frac, bool eps_var, string delta, string range, int num)
 {
 	ofstream out;
 	string fraction(frac);
@@ -1447,7 +1447,7 @@ void generateInequalities(string s, map<string,string>& prob_map, set<string>& s
 			out<<"]";
 		out<<", Reals],Null,(Print[\"P(Output|"<<s2<<")>Exp[eps]*P(Output|"<<s1<<")\"]; Exit[])]"<<endl;
 		out<<"Clear[sum"<<num<<"A, sum"<<num<<"B]"<<endl;
-		out<<"Print["<<num<<"]"<<endl;
+		// out<<"Print["<<num<<"]"<<endl;
 	}
 	out.close();
 }
@@ -1457,6 +1457,7 @@ int main(int argc, char** argv)
 	string eps(argv[2]);
 	string delta(argv[3]);
 	string range(argv[4]);
+	string approach(argv[5]);
 	string pgm;
 	cout<<"!"<<endl;
 	int t;
@@ -1469,6 +1470,7 @@ int main(int argc, char** argv)
 	list<string> pgmTokens = tokenize(pgm);
 	ofstream out;
 	out.open("output.txt", ios::out);
+	out<<"HAHA:"<<argv[5]<<":HAHA"<<endl;
 	out.close();
 	out.open("math_script.wl", ios::out);
 	if(eps!="0")
@@ -1496,8 +1498,16 @@ int main(int argc, char** argv)
 	ifstream in;
 	in.open("adjacency", ios::in);
 	int i=0;
-	while(getline(in,s))
-		generateInequalities(s, prob_map, seen, results, intgr_cmds, written_vars, argv[1], eps=="0", delta, range, i++);
+	if(approach=="1")
+	{
+		while(getline(in,s))
+			optimal_generateInequalities(s, prob_map, seen, results, intgr_cmds, written_vars, argv[1], eps=="0", delta, range, i++);
+	}
+	else
+	{
+		while(getline(in,s))
+			subset_generateInequalities(s, prob_map, seen, results, intgr_cmds, written_vars, argv[1], eps=="0", delta, range, i++);
+	}
 	in.close();
 	out.open("math_script.wl", ios::app);
 	out<<"Print[val]"<<endl;

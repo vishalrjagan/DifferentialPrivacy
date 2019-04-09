@@ -4,6 +4,7 @@ EPS?=0
 DELTA?=0
 RANDOM?=0
 RANGE?=eps > 0
+APPROACH?=1
 
 level0: install level1
 
@@ -13,7 +14,7 @@ level2: script
 
 install: master compare
 
-silent: start_silentent similarity_silent script_silent result_silent
+silent: start_silent similarity_silent script_silent result_silent
 
 clean:
 	@ echo "Cleaning files..."
@@ -40,7 +41,7 @@ similarity:
 
 script:
 	@ echo "Writing Mathematica script..."
-	@ start=$$(date +%s); ./master.out $(FRAC) $(EPS) $(DELTA) "$(RANGE)" <Inputs/$(INPUT) >master.log 2>master.err && echo "\tRuntime: $$((($$(date +%s)-start)))s"
+	@ start=$$(date +%s); ./master.out $(FRAC) $(EPS) $(DELTA) "$(RANGE)" $(APPROACH) <Inputs/$(INPUT) >master.log 2>master.err && echo "\tRuntime: $$((($$(date +%s)-start)))s"
 	@ echo -n "\tMathematica Equation Count: " && wc -l < math_script.wl
 	@ bash -c "if [[ -s master.err ]] ; then echo \"***ERRORS FOUND: Check master.err***\" ; false ; fi ;"
 
@@ -82,7 +83,7 @@ similarity_silent:
 	@ start=$$(date +%s); ./compare.out $(RANDOM) <Inputs/$(INPUT) && echo -n "$$((($$(date +%s)-start)))s,\t "
 
 script_silent:
-	@ start=$$(date +%s); ./master.out $(FRAC) $(EPS) $(DELTA) "$(RANGE)" <Inputs/$(INPUT) >master.log 2>master.err && echo -n "$$((($$(date +%s)-start)))s,\t "
+	@ start=$$(date +%s); ./master.out $(FRAC) $(EPS) $(DELTA) "$(RANGE)" $(APPROACH) <Inputs/$(INPUT) >master.log 2>master.err && echo -n "$$((($$(date +%s)-start)))s,\t "
 
 result_silent:
 	@ echo $(INPUT) >>all_bin.txt
