@@ -709,11 +709,16 @@ string evaluate(map<string,Exp*> vars, list<string> pgm, RealOrderAndTDLap order
 	{
 		cout<<"PROB_CMD"<<endl;
 		string prob = next.front();
+		next.pop_front();
+		while(prob[prob.size()-1]!='}')
+		{
+			prob=prob+" "+next.front();
+			next.pop_front();
+		}
 		string ret_type;
 		order.assign(convertToMathScript("(1-("+prob.substr(prob.find('{')+1, prob.find('}')-prob.find('{')-1)+"))", vars));
 		evaluate(vars, pgm, order, result, math_comp, intgr_cmds);
 		order.remove(convertToMathScript("(1-("+prob.substr(prob.find('{')+1, prob.find('}')-prob.find('{')-1)+"))", vars));
-		next.pop_front();
 		next.push_back("$");
 		order.assign(convertToMathScript("("+prob.substr(prob.find('{')+1, prob.find('}')-prob.find('{')-1)+")", vars));
 		list<string> newpgm;
