@@ -574,7 +574,7 @@ int compute(int val1, string op, int val2)
 		return val1>val2;
 	if(op==">=")
 		return val1>=val2;
-	cerr<<"ERROR: Unrecognised operator "<<op<<endl;	
+	cerr<<"ERROR: Unrecognised operator "<<op<<endl;
 	return 0;
 }
 bool assignment(map<string,Exp*>& vars, list<string> next, RealOrderAndTDLap& order)
@@ -609,7 +609,7 @@ bool assignment(map<string,Exp*>& vars, list<string> next, RealOrderAndTDLap& or
 				vars[target] = new BoolExp(next.front()=="true");
 			else
 			{
-	    		char tmp[next.front().size()+1];  
+	    		char tmp[next.front().size()+1];
 	    		strcpy(tmp, next.front().c_str());
 				if(type=="int")
 					vars[target] = new IntExp(atoi(tmp));
@@ -1072,7 +1072,7 @@ string evaluateWithInputs(set<string>& inputs, list<string>& pgm, RealOrderAndTD
 				s="";
 			else
 				s = s.substr(input.size()+1);
-			char tmp[input.size()+1];  
+			char tmp[input.size()+1];
 			strcpy(tmp, input.c_str());
 			int val = atoi(tmp);
 			if(next.front()!="input")
@@ -1092,11 +1092,11 @@ string evaluateWithInputs(set<string>& inputs, list<string>& pgm, RealOrderAndTD
 			next.pop_front();
 			if(!next.empty())
 			{
-				char tmp1[next.front().size()+1];  
+				char tmp1[next.front().size()+1];
 				strcpy(tmp1, next.front().c_str());
 				left = atoi(tmp1);
 				next.pop_front();
-				char tmp2[next.front().size()+1];  
+				char tmp2[next.front().size()+1];
 				strcpy(tmp2, next.front().c_str());
 				right = atoi(tmp2);
 				if(val<left || val>right)
@@ -1485,6 +1485,7 @@ int main(int argc, char** argv)
 	out.close();
 	out.open("master.log", ios::out);
 	out.close();
+  // make a set of string inputs based on contents of adjacency relation
 	set<string> inputs;
 	generateInputList(inputs, "adjacency");
 	RealOrderAndTDLap order;
@@ -1492,6 +1493,7 @@ int main(int argc, char** argv)
 	map<string, string> prob_map;
 	map<string, string> intgr_cmds;
 	set<string> results;
+  // Evaluate program for all inputs in inputs
 	string ret_type = evaluateWithInputs(inputs, pgmTokens, order, prob_map, results, intgr_cmds);
 	out.open("math_script.wl", ios::app);
 	out<<"val = True"<<endl;
@@ -1503,7 +1505,9 @@ int main(int argc, char** argv)
 	ifstream in;
 	in.open("adjacency", ios::in);
 	int i=0;
-	if(approach=="1")
+  // generate differential privacy inequalities for each ordered pair
+  // of adjacent inputs
+	if(approach=="1") // don't generate output for counterexamples
 	{
 		while(getline(in,s))
 			optimal_generateInequalities(s, prob_map, seen, results, intgr_cmds, written_vars, argv[1], eps=="0", delta, range, i++);

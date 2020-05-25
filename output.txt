@@ -1,0 +1,13 @@
+HAHA:1:HAHA
+-1 0|
+((assgn6))
+-1 1|
+((assgn3))
+0 0|
+((assgn11))
+0 1|
+((assgn9))
+1 0|
+((assgn16))
+1 1|
+((assgn14))
