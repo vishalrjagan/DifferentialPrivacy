@@ -1,13 +1,13 @@
 HAHA:1:HAHA
 -1 0|
-((assgn6))
+((assgn6)*(assgn0))
 -1 1|
-((assgn3))
+((assgn3)*(assgn0))
 0 0|
-((assgn11))
+((assgn11)*(assgn0))
 0 1|
-((assgn9))
+((assgn9)*(assgn0))
 1 0|
-((assgn16))
+((assgn17)*(assgn0))
 1 1|
-((assgn14))
+((assgn14)*(assgn0))

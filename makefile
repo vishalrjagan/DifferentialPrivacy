@@ -12,7 +12,8 @@ level1: similarity level2
 
 level2: script
 
-install: master compare
+# install: master compare
+install: master compare alpha_beta deterministic_functions
 
 silent: start_silent similarity_silent script_silent result_silent
 
@@ -25,6 +26,14 @@ clean:
 	@ rm -rf master.err
 	@ rm -rf master.log
 	@ rm -rf bin.txt
+
+alpha_beta: alpha_beta.cpp
+	@ echo "Compiling alpha_beta.cpp..."
+	@ g++ --std=c++11 alpha_beta.cpp -o alpha_beta.out
+
+deterministic_functions: deterministic_functions.cpp
+	@ echo "Compiling deterministic_functions.cpp..."
+	@ g++ --std=c++11 deterministic_functions.cpp -o deterministic_functions.out
 
 master: master.cpp
 	@ echo "Compiling master.cpp..."
@@ -48,7 +57,7 @@ script:
 result:
 	@ echo "Running Mathematica..."
 	@ start=$$(date +%s); wolfram -script math_script.wl && echo "\tRuntime: $$((($$(date +%s)-start)))s"
-	
+
 terminal:
 	@ echo "Running Mathematica in terminal..."
 	@ math < math_script.wl

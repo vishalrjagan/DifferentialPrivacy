@@ -1115,7 +1115,8 @@ string evaluateWithInputs(set<string>& inputs, list<string>& pgm, RealOrderAndTD
 		s = *i;
 		for(map<string,string>::iterator j = result.begin();j!=result.end();j++)
 		{
-			string t = s+" "+j->first;
+      // USEFUL DEBUGGING REGION
+      string t = s+" "+j->first;
 			out<<t<<"|\n"<<j->second<<endl;
 			prob_map[t] = j->second;
 			results.insert(j->first);
@@ -1350,6 +1351,7 @@ void subset_generateInequalities(string s, map<string,string>& prob_map, set<str
 	}
 	out.close();
 }
+// s is a line from adjacency: in1 ... ink ~ in1' ... ink'
 void optimal_generateInequalities(string s, map<string,string>& prob_map, set<string>& seen, set<string>& results, map<string, string>& intgr_cmds, set<string>& written_vars, char* frac, bool eps_var, string delta, string range, int num)
 {
 	ofstream out;
@@ -1362,10 +1364,13 @@ void optimal_generateInequalities(string s, map<string,string>& prob_map, set<st
 		out<<"sum"<<num<<"A = 0"<<endl;
 		out<<"sum"<<num<<"B = 0"<<endl;
 	}
+  // Iteratively generate inequalities for each particular output j
 	for(set<string>::iterator j = results.begin();j!=results.end(); j++)
 	{
+    // Inputs may not ever produce output j
 		if(prob_map.find(s1+" "+*j)==prob_map.end() && prob_map.find(s2+" "+*j)==prob_map.end())
 			continue;
+    // The message in Print[...] is not true, no?
 		if(prob_map.find(s1+" "+*j)==prob_map.end() || prob_map.find(s2+" "+*j)==prob_map.end())
 		{
 			cout<<"HARD FAIL "<<s1<<": "<<s2<<": "<<*j<<endl;
@@ -1385,6 +1390,7 @@ void optimal_generateInequalities(string s, map<string,string>& prob_map, set<st
 				out<<"If[Resolve[ForAll[eps, "+range+", (";
 			else
 				out<<"If[Resolve[(";
+      // DEBUG IMPORTANCE
 			out<<"("+prob_map[s1+" "+*j]<<") \\[LessEqual] Exp["+fraction+" * eps] * ("<<prob_map[s2+" "+*j]<<"))";
 			if(eps_var)
 				out<<"]";
@@ -1456,6 +1462,125 @@ void optimal_generateInequalities(string s, map<string,string>& prob_map, set<st
 	}
 	out.close();
 }
+
+void write_accuracy_inequalities(string s, map<string,string>& prob_map, set<string>& seen, set<string>& results, map<string, string>& intgr_cmds, set<string>& written_vars, char* frac, bool eps_var, string delta, string range, int num) {
+	ofstream out;
+	out.open("math_script.wl", ios::app);
+  out<<"\n(* What follows pertains to accuracy *)"<<endl;
+  for(map<string,string>::iterator j = prob_map.begin();j!=prob_map.end();j++) {
+	out.close();
+  // 	ofstream out;
+	// string fraction(frac);
+	// out.open("math_script.wl", ios::app);
+	string s1 = s.substr(0,s.find(">")-1);
+	string s2 = s.substr(s.find(">")+2);
+  string s3 = s.substr(s.find("@")+2);
+  string s4 = s.substr(s.find("-")+2);
+  // START above, this gives suffixes, need substrings
+	if(delta!="0")\
+	{
+		out<<"sum"<<num<<"A = 0"<<endl;
+		out<<"sum"<<num<<"B = 0"<<endl;
+	}
+  // Iteratively generate inequalities for each particular output j
+	for(set<string>::iterator j = results.begin();j!=results.end(); j++)
+	{
+    // Inputs may not ever produce output j
+		if(prob_map.find(s1+" "+*j)==prob_map.end() && prob_map.find(s2+" "+*j)==prob_map.end())
+			continue;
+    // The message in Print[...] is not true, no?
+		if(prob_map.find(s1+" "+*j)==prob_map.end() || prob_map.find(s2+" "+*j)==prob_map.end())
+		{
+			cout<<"HARD FAIL "<<s1<<": "<<s2<<": "<<*j<<endl;
+			out.close();
+			out.open("math_script.wl", ios::out);
+			out<<"Print[\"P("<<*j<<"|"<<s1<<")>Exp[eps]*P("<<*j<<"|"<<s2<<")\"]"<<endl;
+			out.close();
+			exit(0);
+		}
+		// cout<<s<<endl;
+		if(seen.find(prob_map[s1+" "+*j]+":"+prob_map[s2+" "+*j])==seen.end())
+		{
+			cout<<"COMPARE "<<s<<": "<<*j<<endl;
+			addIntgrCmds(prob_map[s2+" "+*j], intgr_cmds, written_vars);
+			addIntgrCmds(prob_map[s1+" "+*j], intgr_cmds, written_vars);
+			if(eps_var)
+				out<<"If[Resolve[ForAll[eps, "+range+", (";
+			else
+				out<<"If[Resolve[(";
+      // DEBUG IMPORTANCE
+			out<<"("+prob_map[s1+" "+*j]<<") \\[LessEqual] Exp["+fraction+" * eps] * ("<<prob_map[s2+" "+*j]<<"))";
+			if(eps_var)
+				out<<"]";
+			out<<", Reals]";
+			out<<",Null,(";
+			if(delta=="0")
+			{
+				out<<"Print[\"P("<<*j<<"|"<<s1<<")>Exp[eps]*P("<<*j<<"|"<<s2<<")";
+				out<<"\"];";
+				if(eps_var)
+				{
+					out<<" Print[FindInstance[("+range+" && ("+prob_map[s1+" "+*j]<<") > Exp["+fraction+" * eps] * ("<<prob_map[s2+" "+*j]<<")), eps, Reals]];";
+				}
+				out<<" Exit[])]"<<endl;
+				seen.insert(prob_map[s1+" "+*j]+":"+prob_map[s2+" "+*j]);
+			}
+			else
+				out<<"sum"<<num<<"A = sum"<<num<<"A + Max[("<<prob_map[s1+" "+*j]<<") - Exp["+fraction+" * eps] * ("<<prob_map[s2+" "+*j]<<"), 0])]"<<endl;
+		}
+		if(seen.find(prob_map[s2+" "+*j]+":"+prob_map[s1+" "+*j])==seen.end())
+		{
+			cout<<"COMPARE "<<s<<": "<<*j<<endl;
+			addIntgrCmds(prob_map[s2+" "+*j], intgr_cmds, written_vars);
+			addIntgrCmds(prob_map[s1+" "+*j], intgr_cmds, written_vars);
+			if(eps_var)
+				out<<"If[Resolve[ForAll[eps, "+range+", (";
+			else
+				out<<"If[Resolve[(";
+			out<<"("+prob_map[s2+" "+*j]<<") \\[LessEqual] Exp["+fraction+" * eps] * ("<<prob_map[s1+" "+*j]<<"))";
+			if(eps_var)
+				out<<"]";
+			out<<", Reals]";
+			out<<",Null,(";
+			if(delta=="0")
+			{
+				out<<"Print[\"P("<<*j<<"|"<<s2<<")>Exp[eps]*P("<<*j<<"|"<<s1<<")";
+				out<<"\"];";
+				if(eps_var)
+				{
+					out<<" Print[FindInstance[("+range+" && ("+prob_map[s2+" "+*j]<<") > Exp["+fraction+" * eps] * ("<<prob_map[s1+" "+*j]<<")), eps, Reals]];";
+				}
+				out<<" Exit[])]"<<endl;
+				seen.insert(prob_map[s2+" "+*j]+":"+prob_map[s1+" "+*j]);
+			}
+			else
+				out<<"sum"<<num<<"B = sum"<<num<<"B + Max[("<<prob_map[s2+" "+*j]<<") - Exp["+fraction+" * eps] * ("<<prob_map[s1+" "+*j]<<"), 0])]"<<endl;
+		}
+	}
+	if(delta!="0")
+	{
+		if(eps_var)
+			out<<"If[Resolve[ForAll[eps, "+range+", ";
+		else
+			out<<"If[Resolve[";
+		out<<"sum"<<num<<"A \\[LessEqual] "<<delta;
+		if(eps_var)
+			out<<"]";
+		out<<", Reals],Null,(Print[\"P(Output|"<<s1<<")>Exp[eps]*P(Output|"<<s2<<")\"]; Exit[])]"<<endl;
+		if(eps_var)
+			out<<"If[Resolve[ForAll[eps, "+range+", ";
+		else
+			out<<"If[Resolve[";
+		out<<"sum"<<num<<"B \\[LessEqual] "<<delta;
+		if(eps_var)
+			out<<"]";
+		out<<", Reals],Null,(Print[\"P(Output|"<<s2<<")>Exp[eps]*P(Output|"<<s1<<")\"]; Exit[])]"<<endl;
+		out<<"Clear[sum"<<num<<"A, sum"<<num<<"B]"<<endl;
+		// out<<"Print["<<num<<"]"<<endl;
+	}
+	out.close();
+}
+
 int main(int argc, char** argv)
 {
 	string s;
@@ -1495,6 +1620,24 @@ int main(int argc, char** argv)
 	set<string> results;
   // Evaluate program for all inputs in inputs
 	string ret_type = evaluateWithInputs(inputs, pgmTokens, order, prob_map, results, intgr_cmds);
+  // inspect prob_map
+  #define DEBUG_PROB_MAP true
+  if(DEBUG_PROB_MAP) {
+    cout << "DEBUG_PROB_MAP" << "\n";
+		for(map<string,string>::iterator j = prob_map.begin();j!=prob_map.end();j++) {
+      cout << j->first << " --> " << j->second << "\n";
+    }
+  }
+  // inspect prob_map
+  // inspect results
+  #define DEBUG_RESULTS true
+  if(DEBUG_RESULTS) {
+    cout << "DEBUG_RESULTS" << "\n";
+		for(set<string>::iterator j = results.begin();j!=results.end();j++) {
+      cout << *j << "\n";
+    }
+  }
+  // inspect results
 	out.open("math_script.wl", ios::app);
 	out<<"val = True"<<endl;
 	if((++lineCount)%10==0)
@@ -1518,8 +1661,22 @@ int main(int argc, char** argv)
 			subset_generateInequalities(s, prob_map, seen, results, intgr_cmds, written_vars, argv[1], eps=="0", delta, range, i++);
 	}
 	in.close();
+
 	out.open("math_script.wl", ios::app);
+
+  #define ACCURACY true
+  if(ACCURACY) {
+    ifstream io_table;
+    io_table.open("io_table.txt", ios::in);
+    int i=0;
+    string s;
+    while(getline(io_table,s))
+      write_accuracy_inequalities(s, prob_map, seen, results, intgr_cmds, written_vars, argv[1], eps=="0", delta, range, i++);
+    io_table.close();
+  }
+
 	out<<"Print[val]"<<endl;
 	out<<"Exit[]"<<endl;
 	out.close();
+
 }
