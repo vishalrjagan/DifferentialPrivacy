@@ -13,10 +13,12 @@ type table = int list Table.t
 
 (* compute beta (as Math. string) for the sparse algorithm *)
 let beta_sparse_expression
-    (c:int) (k:int) (eps:float) (alpha:float) : float =
-  let cf = float_of_int c in
-  let kf = float_of_int k in
-  (2. *. cf) /. (exp ((eps *. alpha /. 8. *. cf) -. log kf))
+    (c:int) (k:int) (alpha:int) : string =
+  let cs = string_of_int c in
+  let ks = string_of_int k in
+  let alphas = string_of_int alpha in
+  "(2*"^cs^") / (Exp[(eps*"^alphas^" / (8*"^cs^")) - Log["^ks^"]])"
+(* (2. *. cf) /. (exp ((eps *. alpha /. 8. *. cf) -. log kf)) *)
 
 (* compute beta (as a Math. string) for the numeric sparse algorithm *)
 let beta_numeric_sparse_expression
@@ -41,7 +43,7 @@ let sparse (thresh:int) (c:int) (inp:int list) : int list =
     match l with
     | [] -> (cnt,res)
     | x::xs ->
-      if (x > thresh && cnt < c) then
+      if (x >= thresh && cnt < c) then
         help xs (cnt+1, 1::res)
       else
         help xs (cnt, 0::res) in
@@ -54,7 +56,7 @@ let numeric_sparse (thresh:int) (c:int) (inp:int list) : int list =
     match l with
     | [] -> (cnt,res)
     | x::xs ->
-      if (x > thresh && cnt < c) then
+      if (x >= thresh && cnt < c) then
         help xs (cnt+1, x::res)
       else
         help xs (cnt, 0::res) in (* careful assuming \bot=0 *)
@@ -109,35 +111,64 @@ let alphas
        let alpha = du inp inp_close in
        (out,alpha)) tab
 
+(* Custom function for du of discrete inputs for svt *)
+let svt_du
+    (inp:int list)
+    (thresh:int)
+    (c:int) : int =
+  assert(c!=0);
+  let rec help xs thresh cnt acc =
+    match xs with
+    | [] -> acc
+    | x::rest ->
+      if cnt<c then
+        let new_min = min acc (abs (x-thresh)) in
+        if x>=thresh then
+          help rest thresh (cnt+1) new_min
+        else
+          help rest thresh cnt new_min
+      else acc
+  in
+  match inp with
+  | [] -> failwith "Empty input to svt_du is not allowed"
+  | i::xs -> help inp thresh 0 (abs (i-thresh))
+
+let alphas_svt
+    (thresh:int)
+    (c:int)
+    (tab:table)
+  : (base*int) Table.t =
+  Table.mapi
+    (fun inp out ->
+       let du = svt_du inp thresh c in
+       let alpha = du in
+       (out,alpha)) tab
+
 (* Here 'beta' should be specialized to take float to float *)
 let betas
+    (c:int)
     (tab:(base*int) Table.t)
-    (beta:param) : (base*(int*precise)) Table.t =
+    (beta:int -> int -> int -> string) : (base*(int*string)) Table.t =
   Table.map
     (fun (v,alpha) ->
-       let alpha_as_float = float_of_int alpha in
-       (v,(alpha,beta alpha_as_float))) tab
+       (v,(alpha,beta_sparse_expression c (List.length v) alpha))) tab
 
-let rec int_list_to_string (l:int list) : string =
+let rec int_list_to_string (delim:string) (l:int list) : string =
   let ss = List.map (fun n -> string_of_int n) l in
-  String.concat " " ss
-  (* match l with
-   * | [] -> ""
-   * | x::xs ->
-   *   let s = int_list_to_string xs in (string_of_int x)^" "^s *)
+  String.concat delim ss
 
 (* For testing purposes *)
 let bogus_beta (x:float) : float = x
 
 (* Write an alpha-beta annotated I/O table to file filename *)
-let write_table_to_file (filename:string) (tab:(base*(int*float)) Table.t) =
+let write_table_to_file (filename:string) (tab:(base*(int*string)) Table.t) =
   let oc = open_out filename in
   Table.iter
     (fun inp (out,(alpha,beta)) ->
-       let input_string = int_list_to_string inp in
-       let output_string = int_list_to_string out in
+       let input_string = int_list_to_string " " inp in
+       let output_string = int_list_to_string ";" out in
        let alpha_string = string_of_int alpha in
-       let beta_string = string_of_float beta in
-       Printf.fprintf oc (format_of_string "%s > %s @ %s - %s\n")
-         input_string output_string alpha_string beta_string) tab;
+       (* let beta_string = string_of_float beta in *)
+       Printf.fprintf oc (format_of_string "%s > %s @ %s @@ %s\n")
+         input_string output_string alpha_string beta) tab;
   close_out oc
