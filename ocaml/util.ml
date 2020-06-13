@@ -172,3 +172,31 @@ let write_table_to_file (filename:string) (tab:(base*(int*string)) Table.t) =
        Printf.fprintf oc (format_of_string "%s > %s @ %s @@ %s\n")
          input_string output_string alpha_string beta) tab;
   close_out oc
+
+let list_arg_max
+    (inp:int list)
+    : int =
+  match inp with
+  | [] -> failwith "Empty list not allowed for noisy_max"
+  | x::[] -> failwith "Singleton list not allowed for noisy_max"
+  | x::y::rest ->
+    let max1,max2 =
+      if x > y then x,y else y,x in
+    let l,r =
+      List.fold_left
+        (fun (max1,max2) elt ->
+           if elt > max1 then elt,max1
+           else if elt > max2
+           then max1,elt
+           else max1,max2) (max1,max2) inp in
+    (l-r)
+
+
+(* Custom function for du of discrete inputs for noisy max *)
+let noisy_max_du
+    (inp:int list)
+  : int = list_arg_max inp
+
+(* compute beta (as Math. string) for the noisy max algorithm *)
+let noisy_max_expression
+    (alpha:int) : string = failwith "foo"
