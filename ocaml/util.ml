@@ -151,27 +151,29 @@ let alphas_svt
 let betas_svt
     (c:int)
     (tab:(base*int) Table.t)
-    (beta:int -> int -> int -> string) : (base*(int*string)) Table.t =
+  : (base*(int*string)) Table.t =
   Table.map
     (fun (v,alpha) ->
        (v,(alpha,beta_sparse_expression c (List.length v) alpha))) tab
 
-let rec int_list_to_string (delim:string) (l:int list) : string =
-  let ss = List.map (fun n -> string_of_int n) l in
-  String.concat delim ss
-
 
 (* NOISY MAX *)
 
-(* Check LICS paper for deterministic function *)
+(* Deterministic noisy max outputs singleton list containing the index
+   of max value in list *)
 let noisy_max
     (inp:int list)
-  : int =
+  : int list =
   match inp with
   | [] -> failwith "Noisy max fails for empty lists"
   | x::xs ->
-    List.fold_left
-      (fun acc elt -> if elt > acc then elt else acc) x inp
+    let _,argmax,_ =
+      List.fold_left
+        (fun (v,v_idx,curr_idx) elt ->
+           if elt>v
+           then (elt,curr_idx,curr_idx+1)
+           else (v,v_idx,curr_idx+1)) (x,0,0) inp
+    in [argmax]
 
 let list_arg_max
     (inp:int list)
@@ -196,13 +198,33 @@ let noisy_max_du
     (inp:int list)
   : int = list_arg_max inp
 
+let alphas_noisy_max
+    (tab:table)
+  : (base*int) Table.t =
+  Table.mapi
+    (fun inp out ->
+       let du = noisy_max_du inp in
+       let alpha = du in
+       (out,alpha)) tab
+
 (* compute beta (as Math. string) for the noisy max algorithm *)
-let noisy_max_expression
+let beta_noisy_max_expression
     (n_queries:int) (alpha:int) : string =
   (string_of_int n_queries)^"/(Exp[eps*"^(string_of_int alpha)^"/4])"
 
+let betas_noisy_max
+    (tab:(base*int) Table.t)
+  : (base*(int*string)) Table.t =
+  Table.map
+    (fun (v,alpha) ->
+       (v,(alpha,beta_noisy_max_expression (List.length v) alpha))) tab
+
 
 (* GENERAL *)
+
+let rec int_list_to_string (delim:string) (l:int list) : string =
+  let ss = List.map (fun n -> string_of_int n) l in
+  String.concat delim ss
 
 (* Write an alpha-beta annotated I/O table to file filename *)
 let write_table_to_file (filename:string) (tab:(base*(int*string)) Table.t) =
