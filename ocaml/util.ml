@@ -11,15 +11,6 @@ module Table = Map.Make(
   end)
 type table = int list Table.t
 
-(* compute beta (as Math. string) for the sparse algorithm *)
-let beta_sparse_expression
-    (c:int) (k:int) (alpha:int) : string =
-  let cs = string_of_int c in
-  let ks = string_of_int k in
-  let alphas = string_of_int alpha in
-  "(2*"^cs^") / (Exp[(eps*"^alphas^" / (8*"^cs^")) - Log["^ks^"]])"
-(* (2. *. cf) /. (exp ((eps *. alpha /. 8. *. cf) -. log kf)) *)
-
 (* compute beta (as a Math. string) for the numeric sparse algorithm *)
 let beta_numeric_sparse_expression
     (c:int) (k:int) (eps:float) (alpha:float) : float =
@@ -36,19 +27,6 @@ let du_above_threshold (x:int list) (y:int list) : int =
   assert(List.length x = List.length y);
   let z = List.map2 (fun xi yi -> abs (xi-yi)) x y in
   List.fold_left (fun acc zi -> if zi > acc then zi else acc) 0 z
-
-(* deterministic sparse AT algorithm *)
-let sparse (thresh:int) (c:int) (inp:int list) : int list =
-  let rec help l (cnt,res) =
-    match l with
-    | [] -> (cnt,res)
-    | x::xs ->
-      if (x >= thresh && cnt < c) then
-        help xs (cnt+1, 1::res)
-      else
-        help xs (cnt, 0::res) in
-  let (_,rev_out) = help inp (0,[]) in
-  List.rev rev_out
 
 (* deterministic numeric sparse AT algorithm *)
 let numeric_sparse (thresh:int) (c:int) (inp:int list) : int list =
@@ -111,6 +89,31 @@ let alphas
        let alpha = du inp inp_close in
        (out,alpha)) tab
 
+
+(* SVT *)
+
+(* deterministic sparse AT algorithm *)
+let sparse (thresh:int) (c:int) (inp:int list) : int list =
+  let rec help l (cnt,res) =
+    match l with
+    | [] -> (cnt,res)
+    | x::xs ->
+      if (x >= thresh && cnt < c) then
+        help xs (cnt+1, 1::res)
+      else
+        help xs (cnt, 0::res) in
+  let (_,rev_out) = help inp (0,[]) in
+  List.rev rev_out
+
+(* compute beta (as Math. string) for the sparse algorithm *)
+let beta_sparse_expression
+    (c:int) (k:int) (alpha:int) : string =
+  let cs = string_of_int c in
+  let ks = string_of_int k in
+  let alphas = string_of_int alpha in
+  "(2*"^cs^") / (Exp[(eps*"^alphas^" / (8*"^cs^")) - Log["^ks^"]])"
+(* (2. *. cf) /. (exp ((eps *. alpha /. 8. *. cf) -. log kf)) *)
+
 (* Custom function for du of discrete inputs for svt *)
 let svt_du
     (inp:int list)
@@ -145,7 +148,7 @@ let alphas_svt
        (out,alpha)) tab
 
 (* Here 'beta' should be specialized to take float to float *)
-let betas
+let betas_svt
     (c:int)
     (tab:(base*int) Table.t)
     (beta:int -> int -> int -> string) : (base*(int*string)) Table.t =
@@ -157,21 +160,18 @@ let rec int_list_to_string (delim:string) (l:int list) : string =
   let ss = List.map (fun n -> string_of_int n) l in
   String.concat delim ss
 
-(* For testing purposes *)
-let bogus_beta (x:float) : float = x
 
-(* Write an alpha-beta annotated I/O table to file filename *)
-let write_table_to_file (filename:string) (tab:(base*(int*string)) Table.t) =
-  let oc = open_out filename in
-  Table.iter
-    (fun inp (out,(alpha,beta)) ->
-       let input_string = int_list_to_string " " inp in
-       let output_string = int_list_to_string ";" out in
-       let alpha_string = string_of_int alpha in
-       (* let beta_string = string_of_float beta in *)
-       Printf.fprintf oc (format_of_string "%s > %s @ %s @@ %s\n")
-         input_string output_string alpha_string beta) tab;
-  close_out oc
+(* NOISY MAX *)
+
+(* Check LICS paper for deterministic function *)
+let noisy_max
+    (inp:int list)
+  : int =
+  match inp with
+  | [] -> failwith "Noisy max fails for empty lists"
+  | x::xs ->
+    List.fold_left
+      (fun acc elt -> if elt > acc then elt else acc) x inp
 
 let list_arg_max
     (inp:int list)
@@ -191,7 +191,6 @@ let list_arg_max
            else max1,max2) (max1,max2) inp in
     (l-r)
 
-
 (* Custom function for du of discrete inputs for noisy max *)
 let noisy_max_du
     (inp:int list)
@@ -199,4 +198,21 @@ let noisy_max_du
 
 (* compute beta (as Math. string) for the noisy max algorithm *)
 let noisy_max_expression
-    (alpha:int) : string = failwith "foo"
+    (n_queries:int) (alpha:int) : string =
+  (string_of_int n_queries)^"/(Exp[eps*"^(string_of_int alpha)^"/4])"
+
+
+(* GENERAL *)
+
+(* Write an alpha-beta annotated I/O table to file filename *)
+let write_table_to_file (filename:string) (tab:(base*(int*string)) Table.t) =
+  let oc = open_out filename in
+  Table.iter
+    (fun inp (out,(alpha,beta)) ->
+       let input_string = int_list_to_string " " inp in
+       let output_string = int_list_to_string ";" out in
+       let alpha_string = string_of_int alpha in
+       (* let beta_string = string_of_float beta in *)
+       Printf.fprintf oc (format_of_string "%s > %s @ %s @@ %s\n")
+         input_string output_string alpha_string beta) tab;
+  close_out oc
