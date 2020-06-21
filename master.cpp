@@ -1483,10 +1483,13 @@ void write_accuracy_inequalities(string s, map<string,string>& prob_map, set<str
   // substr includes start and excludes end
   string inp_str = s.substr(0,s.find(">")-1);
   string s1 = s.substr(s.find(">")+2);
-  string s2 = s.substr(s.find("@")+2);
-  string beta_str = s.substr(s.find("@@")+3);
-  string alpha_str = s2.substr(0,s2.length()-beta_str.length()-4);
-  string out_str = s1.substr(0,s1.length()-s2.length()-3);
+  // string s2 = s.substr(s.find("@")+2);
+  // string beta_str = s.substr(s.find("@@")+3);
+  // string alpha_str = s2.substr(0,s2.length()-beta_str.length()-4);
+  // string out_str = s1.substr(0,s1.length()-s2.length()-3);
+  string beta_str = s.substr(s.find("@")+2);
+  string out_str = s1.substr(0,s1.length()-beta_str.length()-3);
+
   // look up the probability expression for (inp_str+out_str) in
   // prob_map
   if(prob_map.find(inp_str+" "+out_str)==prob_map.end()) {
@@ -1504,9 +1507,14 @@ void write_accuracy_inequalities(string s, map<string,string>& prob_map, set<str
       seen.insert(prob_map[inp_str+" "+out_str]);
     }
 
+  #define BETTER_BOUNDS false
   // If[Resolve[ForAll[eps,eps > 0,(map) >= 1 - beta
   out << "If[Resolve[ForAll[eps, eps > 0, (";
-  out << "(" << prob_map[inp_str+" "+out_str] << ") \\[GreaterEqual] (1 - " << beta_str << "))]]";
+  out << "(" << prob_map[inp_str+" "+out_str] << ") \\[GreaterEqual] (1 - ";
+  if (BETTER_BOUNDS) {
+    out << "(2/3)*";
+  }
+  out << beta_str << "))]]";
 
   out << ",Print[\"OK\"]";
   out << "; Print[\"P("+out_str+"|"+inp_str+") >= 1 - beta\"]";
@@ -1514,7 +1522,11 @@ void write_accuracy_inequalities(string s, map<string,string>& prob_map, set<str
   out << ",(Print[\"Accuracy failure\"]";
   out << "; Print[\"P("+out_str+"|"+inp_str+") < beta\"]";
   out << "; Print[FindInstance[(eps > 0 && ";
-  out << prob_map[inp_str+" "+out_str] << " < (1 - " << beta_str << ")), eps, Reals]]";
+  out << prob_map[inp_str+" "+out_str] << " < (1 - ";
+  if (BETTER_BOUNDS) {
+    out << "(2/3)*";
+  }
+  out << beta_str << ")), eps, Reals]]";
   // out << "; Exit[])]" << endl;
   out << "; Null)]" << endl;
 

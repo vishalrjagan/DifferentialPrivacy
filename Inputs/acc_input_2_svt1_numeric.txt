@@ -1,0 +1,505 @@
+-5 5
+input int q0 -1 1;
+input int q1 -1 1;
+
+int one;
+one = 1;
+int zero;
+zero = 0;
+
+int c;
+c = 1;
+
+int gamma;
+gamma = -42;
+
+int input_thresh;
+input_thresh = 0;
+
+int count_det;
+count_det = 0;
+bool done_det;
+done_det = false;
+
+int out0_det;
+int out1_det;
+real out0_rand;
+real out1_rand;
+bool out0_det_is_bot;
+bool out1_det_is_bot;
+bool out0_rand_is_bot;
+bool out1_rand_is_bot;
+out0_det_is_bot = true;
+out1_det_is_bot = true;
+out0_rand_is_bot = true;
+out1_rand_is_bot = true;
+out0_det = zero;
+out1_det = zero;
+out0_rand = zero;
+out1_rand = zero;
+
+bool compare0_det;
+bool compare1_det;
+
+compare0_det = q0 >= input_thresh;
+
+if compare0_det then
+  out0_det = q0;
+  out0_det_is_bot = false;
+  count_det = count_det + one;
+fi;
+
+done_det = count_det >= c;
+if done_det then
+  bool RAND_CODE_STARTS_HERE;
+  int count_rand;
+  count_rand = 0;
+  bool done_rand;
+  done_rand = false;
+
+  real noisy_thresh0;
+  real noisy_thresh1;
+  bool compare0_rand;
+  bool compare1_rand;
+
+  noisy_thresh0 = Lap "( 9 * c ) / ( 4 * eps )" input_thresh;
+  noisy_q0 = Lap "( 9 * c ) / ( 2 * eps )" q0;
+
+  compare0_rand = noisy_q0 >= noisy_thresh0;
+
+  if compare0_rand then
+    out0_rand = noisy_q0;
+    out0_rand_is_bot = false;
+    count_rand = count_rand + one;
+  fi;
+
+  done_rand = count_rand >= c;
+  if done_rand then
+    bool FINAL_CODE_STARTS_HERE;
+    if out0_det_is_bot then
+      if out0_rand_is_bot then
+        if out1_det_is_bot then
+          if out1_rand_is_bot then
+            return one;
+          else
+            return zero;
+          fi;
+        else
+          if out1_rand_is_bot then
+            return zero;
+          else
+            bool within_gamma_minus;
+            bool within_gamma_plus;
+            int det_minus_gamma;
+            int det_plus_gamma;
+            real det_minus_gamma_typecast;
+            real det_plus_gamma_typecast;
+            det_minus_gamma = out1_det - gamma;
+            det_plus_gamma = out1_det + gamma;
+            det_minus_gamma_typecast = det_minus_gamma;
+            det_plus_gamma_typecast = det_plus_gamma;
+            within_gamma_minus = out1_rand > det_minus_gamma_typecast;
+            within_gamma_plus = out1_rand < det_plus_gamma_typecast;
+            bool within_gamma;
+            within_gamma = within_gamma_minus && within_gamma_plus;
+            if within_gamma then
+              return one;
+            else
+              return zero;
+            fi;
+          fi;
+        fi;
+      else
+        return zero;
+      fi;
+    else
+      if out0_rand_is_bot then
+        return zero;
+      else
+        bool within_gamma_minus;
+        bool within_gamma_plus;
+        int det_minus_gamma;
+        int det_plus_gamma;
+        real det_minus_gamma_typecast;
+        real det_plus_gamma_typecast;
+        det_minus_gamma = out0_det - gamma;
+        det_plus_gamma = out0_det + gamma;
+        det_minus_gamma_typecast = det_minus_gamma;
+        det_plus_gamma_typecast = det_plus_gamma;
+        within_gamma_minus = out0_rand > det_minus_gamma_typecast;
+        within_gamma_plus = out0_rand < det_plus_gamma_typecast;
+        bool within_gamma;
+        within_gamma = within_gamma_minus && within_gamma_plus;
+        if within_gamma then
+          if out1_det_is_bot then
+            if out1_rand_is_bot then
+              return one;
+            else
+              return zero;
+            fi;
+          else
+            if out1_rand_is_bot then
+              return zero;
+            else
+              bool within_gamma_minus;
+              bool within_gamma_plus;
+              int det_minus_gamma;
+              int det_plus_gamma;
+              real det_minus_gamma_typecast;
+              real det_plus_gamma_typecast;
+              det_minus_gamma = out1_det - gamma;
+              det_plus_gamma = out1_det + gamma;
+              det_minus_gamma_typecast = det_minus_gamma;
+              det_plus_gamma_typecast = det_plus_gamma;
+              within_gamma_minus = out1_rand > det_minus_gamma_typecast;
+              within_gamma_plus = out1_rand < det_plus_gamma_typecast;
+              bool within_gamma;
+              within_gamma = within_gamma_minus && within_gamma_plus;
+              if within_gamma then
+                return one;
+              else
+                return zero;
+              fi;
+            fi;
+          fi;
+        else
+          return zero;
+        fi;
+      fi;
+    fi;
+  fi;
+
+  noisy_thresh1 = Lap "( 9 * c ) / ( 4 * eps )" input_thresh;
+  noisy_q1 = Lap "( 9 * c ) / ( 2 * eps )" q1;
+
+  compare1_rand = noisy_q1 >= noisy_thresh1;
+
+  if compare1_rand then
+    out1_rand = noisy_q1;
+    out1_rand_is_bot = false;
+    count_rand = count_rand + one;
+  fi;
+
+  bool FINAL_CODE_STARTS_HERE;
+  if out0_det_is_bot then
+    if out0_rand_is_bot then
+      if out1_det_is_bot then
+        if out1_rand_is_bot then
+          return one;
+        else
+          return zero;
+        fi;
+      else
+        if out1_rand_is_bot then
+          return zero;
+        else
+          bool within_gamma_minus;
+          bool within_gamma_plus;
+          int det_minus_gamma;
+          int det_plus_gamma;
+          real det_minus_gamma_typecast;
+          real det_plus_gamma_typecast;
+          det_minus_gamma = out1_det - gamma;
+          det_plus_gamma = out1_det + gamma;
+          det_minus_gamma_typecast = det_minus_gamma;
+          det_plus_gamma_typecast = det_plus_gamma;
+          within_gamma_minus = out1_rand > det_minus_gamma_typecast;
+          within_gamma_plus = out1_rand < det_plus_gamma_typecast;
+          bool within_gamma;
+          within_gamma = within_gamma_minus && within_gamma_plus;
+          if within_gamma then
+            return one;
+          else
+            return zero;
+          fi;
+        fi;
+      fi;
+    else
+      return zero;
+    fi;
+  else
+    if out0_rand_is_bot then
+      return zero;
+    else
+      bool within_gamma_minus;
+      bool within_gamma_plus;
+      int det_minus_gamma;
+      int det_plus_gamma;
+      real det_minus_gamma_typecast;
+      real det_plus_gamma_typecast;
+      det_minus_gamma = out0_det - gamma;
+      det_plus_gamma = out0_det + gamma;
+      det_minus_gamma_typecast = det_minus_gamma;
+      det_plus_gamma_typecast = det_plus_gamma;
+      within_gamma_minus = out0_rand > det_minus_gamma_typecast;
+      within_gamma_plus = out0_rand < det_plus_gamma_typecast;
+      bool within_gamma;
+      within_gamma = within_gamma_minus && within_gamma_plus;
+      if within_gamma then
+        if out1_det_is_bot then
+          if out1_rand_is_bot then
+            return one;
+          else
+            return zero;
+          fi;
+        else
+          if out1_rand_is_bot then
+            return zero;
+          else
+            bool within_gamma_minus;
+            bool within_gamma_plus;
+            int det_minus_gamma;
+            int det_plus_gamma;
+            real det_minus_gamma_typecast;
+            real det_plus_gamma_typecast;
+            det_minus_gamma = out1_det - gamma;
+            det_plus_gamma = out1_det + gamma;
+            det_minus_gamma_typecast = det_minus_gamma;
+            det_plus_gamma_typecast = det_plus_gamma;
+            within_gamma_minus = out1_rand > det_minus_gamma_typecast;
+            within_gamma_plus = out1_rand < det_plus_gamma_typecast;
+            bool within_gamma;
+            within_gamma = within_gamma_minus && within_gamma_plus;
+            if within_gamma then
+              return one;
+            else
+              return zero;
+            fi;
+          fi;
+        fi;
+      else
+        return zero;
+      fi;
+    fi;
+  fi;
+fi;
+
+compare1_det = q1 >= input_thresh;
+
+if compare1_det then
+  out1_det = q1;
+  out1_det_is_bot = false;
+  count_det = count_det + one;
+fi;
+
+bool RAND_CODE_STARTS_HERE;
+int count_rand;
+count_rand = 0;
+bool done_rand;
+done_rand = false;
+
+real noisy_thresh0;
+real noisy_thresh1;
+bool compare0_rand;
+bool compare1_rand;
+
+noisy_thresh0 = Lap "( 9 * c ) / ( 4 * eps )" input_thresh;
+noisy_q0 = Lap "( 9 * c ) / ( 2 * eps )" q0;
+
+compare0_rand = noisy_q0 >= noisy_thresh0;
+
+if compare0_rand then
+  out0_rand = noisy_q0;
+  out0_rand_is_bot = false;
+  count_rand = count_rand + one;
+fi;
+
+done_rand = count_rand >= c;
+if done_rand then
+  bool FINAL_CODE_STARTS_HERE;
+  if out0_det_is_bot then
+    if out0_rand_is_bot then
+      if out1_det_is_bot then
+        if out1_rand_is_bot then
+          return one;
+        else
+          return zero;
+        fi;
+      else
+        if out1_rand_is_bot then
+          return zero;
+        else
+          bool within_gamma_minus;
+          bool within_gamma_plus;
+          int det_minus_gamma;
+          int det_plus_gamma;
+          real det_minus_gamma_typecast;
+          real det_plus_gamma_typecast;
+          det_minus_gamma = out1_det - gamma;
+          det_plus_gamma = out1_det + gamma;
+          det_minus_gamma_typecast = det_minus_gamma;
+          det_plus_gamma_typecast = det_plus_gamma;
+          within_gamma_minus = out1_rand > det_minus_gamma_typecast;
+          within_gamma_plus = out1_rand < det_plus_gamma_typecast;
+          bool within_gamma;
+          within_gamma = within_gamma_minus && within_gamma_plus;
+          if within_gamma then
+            return one;
+          else
+            return zero;
+          fi;
+        fi;
+      fi;
+    else
+      return zero;
+    fi;
+  else
+    if out0_rand_is_bot then
+      return zero;
+    else
+      bool within_gamma_minus;
+      bool within_gamma_plus;
+      int det_minus_gamma;
+      int det_plus_gamma;
+      real det_minus_gamma_typecast;
+      real det_plus_gamma_typecast;
+      det_minus_gamma = out0_det - gamma;
+      det_plus_gamma = out0_det + gamma;
+      det_minus_gamma_typecast = det_minus_gamma;
+      det_plus_gamma_typecast = det_plus_gamma;
+      within_gamma_minus = out0_rand > det_minus_gamma_typecast;
+      within_gamma_plus = out0_rand < det_plus_gamma_typecast;
+      bool within_gamma;
+      within_gamma = within_gamma_minus && within_gamma_plus;
+      if within_gamma then
+        if out1_det_is_bot then
+          if out1_rand_is_bot then
+            return one;
+          else
+            return zero;
+          fi;
+        else
+          if out1_rand_is_bot then
+            return zero;
+          else
+            bool within_gamma_minus;
+            bool within_gamma_plus;
+            int det_minus_gamma;
+            int det_plus_gamma;
+            real det_minus_gamma_typecast;
+            real det_plus_gamma_typecast;
+            det_minus_gamma = out1_det - gamma;
+            det_plus_gamma = out1_det + gamma;
+            det_minus_gamma_typecast = det_minus_gamma;
+            det_plus_gamma_typecast = det_plus_gamma;
+            within_gamma_minus = out1_rand > det_minus_gamma_typecast;
+            within_gamma_plus = out1_rand < det_plus_gamma_typecast;
+            bool within_gamma;
+            within_gamma = within_gamma_minus && within_gamma_plus;
+            if within_gamma then
+              return one;
+            else
+              return zero;
+            fi;
+          fi;
+        fi;
+      else
+        return zero;
+      fi;
+    fi;
+  fi;
+fi;
+
+noisy_thresh1 = Lap "( 9 * c ) / ( 4 * eps )" input_thresh;
+noisy_q1 = Lap "( 9 * c ) / ( 2 * eps )" q1;
+
+compare1_rand = noisy_q1 >= noisy_thresh1;
+
+if compare1_rand then
+  out1_rand = noisy_q1;
+  out1_rand_is_bot = false;
+  count_rand = count_rand + one;
+fi;
+
+bool FINAL_CODE_STARTS_HERE;
+if out0_det_is_bot then
+  if out0_rand_is_bot then
+    if out1_det_is_bot then
+      if out1_rand_is_bot then
+        return one;
+      else
+        return zero;
+      fi;
+    else
+      if out1_rand_is_bot then
+        return zero;
+      else
+        bool within_gamma_minus;
+        bool within_gamma_plus;
+        int det_minus_gamma;
+        int det_plus_gamma;
+        real det_minus_gamma_typecast;
+        real det_plus_gamma_typecast;
+        det_minus_gamma = out1_det - gamma;
+        det_plus_gamma = out1_det + gamma;
+        det_minus_gamma_typecast = det_minus_gamma;
+        det_plus_gamma_typecast = det_plus_gamma;
+        within_gamma_minus = out1_rand > det_minus_gamma_typecast;
+        within_gamma_plus = out1_rand < det_plus_gamma_typecast;
+        bool within_gamma;
+        within_gamma = within_gamma_minus && within_gamma_plus;
+        if within_gamma then
+          return one;
+        else
+          return zero;
+        fi;
+      fi;
+    fi;
+  else
+    return zero;
+  fi;
+else
+  if out0_rand_is_bot then
+    return zero;
+  else
+    bool within_gamma_minus;
+    bool within_gamma_plus;
+    int det_minus_gamma;
+    int det_plus_gamma;
+    real det_minus_gamma_typecast;
+    real det_plus_gamma_typecast;
+    det_minus_gamma = out0_det - gamma;
+    det_plus_gamma = out0_det + gamma;
+    det_minus_gamma_typecast = det_minus_gamma;
+    det_plus_gamma_typecast = det_plus_gamma;
+    within_gamma_minus = out0_rand > det_minus_gamma_typecast;
+    within_gamma_plus = out0_rand < det_plus_gamma_typecast;
+    bool within_gamma;
+    within_gamma = within_gamma_minus && within_gamma_plus;
+    if within_gamma then
+      if out1_det_is_bot then
+        if out1_rand_is_bot then
+          return one;
+        else
+          return zero;
+        fi;
+      else
+        if out1_rand_is_bot then
+          return zero;
+        else
+          bool within_gamma_minus;
+          bool within_gamma_plus;
+          int det_minus_gamma;
+          int det_plus_gamma;
+          real det_minus_gamma_typecast;
+          real det_plus_gamma_typecast;
+          det_minus_gamma = out1_det - gamma;
+          det_plus_gamma = out1_det + gamma;
+          det_minus_gamma_typecast = det_minus_gamma;
+          det_plus_gamma_typecast = det_plus_gamma;
+          within_gamma_minus = out1_rand > det_minus_gamma_typecast;
+          within_gamma_plus = out1_rand < det_plus_gamma_typecast;
+          bool within_gamma;
+          within_gamma = within_gamma_minus && within_gamma_plus;
+          if within_gamma then
+            return one;
+          else
+            return zero;
+          fi;
+        fi;
+      fi;
+    else
+      return zero;
+    fi;
+  fi;
+fi;
