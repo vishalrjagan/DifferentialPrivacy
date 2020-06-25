@@ -23,7 +23,8 @@ let make_table (left,right:int*int) (n_query:int) (f:base -> base) : table =
     else Table.add inp (g inp) acc in
   help (left,right) left 0 f [] Table.empty
 
-(* Sparse *)
+
+(* SPARSE *)
 
 (* deterministic sparse algorithm *)
 let sparse (thresh:int) (c:int) (inp:base) : base =
@@ -40,15 +41,15 @@ let sparse (thresh:int) (c:int) (inp:base) : base =
 
 (* compute beta (as Math. string) for the sparse algorithm *)
 let beta_sparse_expression
-    (c:int) (k:int) (alpha:float) : string =
+    (c:int) (k:int) (du:int) : string =
   let cs = string_of_int c in
   let ks = string_of_int k in
-  let alpha_s = string_of_float alpha in
-  "(2*"^cs^") / (Exp[(eps*"^alpha_s^" / (8*"^cs^")) - Log["^ks^"]])"
+  let du_s = string_of_int du in
+  "(2*"^cs^") / (Exp[(eps*"^du_s^" / (8*"^cs^")) - Log["^ks^"]])"
 
 (* Custom function for du (i.e. sufficient alpha) of discrete inputs
    for sparse *)
-let alpha_sparse
+let du_sparse
     (inp:base)
     (thresh:int)
     (c:int) : int =
@@ -69,28 +70,29 @@ let alpha_sparse
   | [] -> failwith "Empty input to alpha_sparse is not allowed"
   | i::xs -> help inp thresh 0 (abs (i-thresh))
 
-(* let alphas_sparse
- *     (thresh:int)
- *     (c:int)
- *     (tab:table)
- *   : (base*int) Table.t =
- *   Table.mapi
- *     (fun inp out ->
- *        let du = alpha_sparse inp thresh c in
- *        let alpha = du in
- *        (out,alpha)) tab *)
+let dus_sparse
+    (thresh:int)
+    (c:int)
+    (tab:table)
+  : (base*int) Table.t =
+  Table.mapi
+    (fun inp out ->
+       let du = du_sparse inp thresh c in
+       (out,du)) tab
 
 (* Here 'beta' should be specialized to take float to float *)
 let betas_sparse
+    (alphaGamma:float)
+    (compare:bool)
     (c:int)
     (thresh:int)
-    (tab:base Table.t)
-  : (base*string) Table.t =
+    (tab:(base*int) Table.t)
+  : (base*int*float*bool*string) Table.t =
   Table.mapi
-    (fun k v ->
-       (v,beta_sparse_expression c
-          (List.length k)
-          (float_of_int @@ alpha_sparse k thresh c))) tab
+    (fun inp (out,du) ->
+       (out,du,alphaGamma,false,
+        beta_sparse_expression c (List.length inp)
+          (du_sparse inp thresh c))) tab
 
 
 (* NOISY MAX *)
@@ -130,30 +132,30 @@ let list_arg_max
     (l-r)
 
 (* Custom function for du (i.e. sufficient alpha) of discrete inputs for noisy max *)
-let alpha_noisy_max
-    (inp:base)
-  : float = float_of_int @@ list_arg_max inp
+let du_noisy_max (inp:base) : int = list_arg_max inp
 
-(* let alphas_noisy_max
- *     (tab:table)
- *   : (base*int) Table.t =
- *   Table.mapi
- *     (fun inp out ->
- *        let du = alpha_noisy_max inp in
- *        let alpha = du in
- *        (out,alpha)) tab *)
+let dus_noisy_max
+    (tab:table)
+  : (base*int) Table.t =
+  Table.mapi
+    (fun inp out ->
+       let du = du_noisy_max inp in
+       (out,du)) tab
 
 (* compute beta (as Math. string) for the noisy max algorithm *)
 let beta_noisy_max_expression
-    (n_queries:int) (alpha:float) : string =
-  (string_of_int n_queries)^"/(Exp[eps*"^(string_of_float alpha)^"/4])"
+    (n_queries:int) (du:int) : string =
+  (string_of_int n_queries)^"/(Exp[eps*"^(string_of_int du)^"/4])"
 
 let betas_noisy_max
-    (tab:base Table.t)
-  : (base*string) Table.t =
+    (alphaGamma:float)
+    (compare:bool)
+    (tab:(base*int) Table.t)
+  : (base*int*float*bool*string) Table.t =
   Table.mapi
-    (fun k v ->
-       (v,beta_noisy_max_expression (List.length k) (alpha_noisy_max k))) tab
+    (fun inp (out,du) ->
+       (out,du,alphaGamma,compare,
+        beta_noisy_max_expression (List.length inp) du)) tab
 
 
 (* NUMERIC SPARSE *)
@@ -168,14 +170,27 @@ let beta_numeric_sparse_expression
   let alpha_str = string_of_float alpha in
   "("^k_str^"*4*"^c_str^")/(Exp[("^alpha_str^"*eps)/(9*"^c_str^")])"
 
-let betas_numeric_sparse
+let du_numeric_sparse = du_sparse
+
+let dus_numeric_sparse
+    (thresh:int)
     (c:int)
-    (alpha:float)
     (tab:base Table.t)
-    : (base*string) Table.t =
+  : (base*int) Table.t =
   Table.mapi
-    (fun k v ->
-    (v,beta_numeric_sparse_expression c (List.length k) alpha)) tab
+    (fun inp out ->
+    (out,du_numeric_sparse inp thresh c)) tab
+
+let betas_numeric_sparse
+    (alphaGamma:float)
+    (compare:bool)
+    (c:int)
+    (tab:(base*int) Table.t)
+    : (base*int*float*bool*string) Table.t =
+  Table.mapi
+    (fun inp (out,du) ->
+       (out,du,alphaGamma,compare,
+        beta_numeric_sparse_expression c (List.length inp) alphaGamma)) tab
 
 
 (* GENERAL *)
@@ -184,14 +199,20 @@ let rec int_list_to_string (delim:string) (l:base) : string =
   String.concat delim ss
 
 (* Write an alpha-beta annotated I/O table to file filename *)
-let write_table_to_file (filename:string) (tab:(base*string) Table.t) =
+let write_table_to_file
+    (filename:string)
+    (tab:(base*int*float*bool*string) Table.t) =
   let oc = open_out filename in
   Table.iter
-    (fun inp (out,beta_string) ->
+    (fun inp (out,du,alphaGamma,compare,beta_string) ->
        let input_string = int_list_to_string " " inp in
        let output_string = int_list_to_string ";" out in
-       Printf.fprintf oc (format_of_string "%s > %s @ %s\n")
-         input_string output_string beta_string) tab;
+       let du_string = string_of_int du in
+       let alphaGamma_string = string_of_float alphaGamma in
+       let compare_string = string_of_bool compare in
+       Printf.fprintf oc (format_of_string "%s > %s @ %s @@ %s @@@ %s @@@@ %s\n")
+         input_string output_string
+         du_string alphaGamma_string compare_string beta_string) tab;
   close_out oc
 
 let generate_io_table_sparse
@@ -201,7 +222,8 @@ let generate_io_table_sparse
     (thresh:int)
     (c:int) : unit =
   let t = make_table range n_queries (sparse thresh c) in
-  let t_beta = betas_sparse c thresh t in
+  let t_dus = dus_sparse thresh c t in
+  let t_beta = betas_sparse 0. false c thresh t_dus in
   write_table_to_file filename t_beta
 
 let generate_io_table_noisy_max
@@ -209,18 +231,21 @@ let generate_io_table_noisy_max
     (range:int*int)
     (n_queries:int) : unit =
   let t = make_table range n_queries noisy_max in
-  let t_beta = betas_noisy_max t in
+  let t_dus = dus_noisy_max t in
+  let t_beta = betas_noisy_max 0. false t_dus in
   write_table_to_file filename t_beta
 
+(* Need a separate parameter for alpha=gamma, since du is always calculated *)
 let generate_io_table_numeric_sparse
     (filename:string)
     (range:int*int)
     (n_queries:int)
     (thresh:int) (* UNUSED because of hack *)
-    (alpha:float)
+    (alphaGamma:float)
     (c:int) : unit =
   let t = make_table range n_queries numeric_sparse in
-  let t_beta = betas_numeric_sparse c alpha t in
+  let t_dus = dus_numeric_sparse thresh c t in
+  let t_beta = betas_numeric_sparse alphaGamma true c t_dus in
   write_table_to_file filename t_beta
 
 
