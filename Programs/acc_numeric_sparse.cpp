@@ -52,14 +52,14 @@ void weaved(ofstream& out, int k, int n) {
 
     // Rand (note: noisy_thresh0 must be sampled in preamble)
     out<<"real noisy_q"<<k<<";"<<endl;
-    out<<"noisy_q"<<k<<" = "<<"Lap \"( 9 * c ) / ( 2 * eps )\" q"<<k<<";"<<endl;
+    out<<"noisy_q"<<k<<" = "<<"Lap \"eps / ( 9 * c )\" q"<<k<<";"<<endl;
     out<<"compare"<<k<<"_rand = noisy_q"<<k<<" >= noisy_thresh"<<k<<";"<<endl;
     out<<"if compare"<<k<<"_rand"<<" then"<<endl;
     out<<"out"<<k<<"_rand = noisy_q"<<k<<";"<<endl;
     out<<"out"<<k<<"_rand_is_bot = false"<<";"<<endl;
     out<<"count_rand = count_rand + one"<<";"<<endl;
     out<<"real noisy_thresh"<<k+1<<";"<<endl;
-    out<<"noisy_thresh"<<k+1<<" = "<<"Lap \"( 9 * c ) / ( 4 * eps )\" thresh"<<";"<<endl;
+    out<<"noisy_thresh"<<k+1<<" = "<<"Lap \"( 4 * eps ) / ( 9 * c )\" thresh"<<";"<<endl;
     out<<"fi"<<";"<<endl;
 
     // Compare
@@ -96,8 +96,8 @@ void weaved(ofstream& out, int k, int n) {
     out<<"real plus_gamma"<<k<<";"<<endl;
     out<<"plus_gamma"<<k<<" = cast_det"<<k<<" + gamma"<<";"<<endl;
     out<<"bool conjunct1"<<";"<<endl;
-    out<<"conjunct1 = noisy_q"<<k<<" > minus_gamma"<<";"<<endl;
-    out<<"conjunct2 = noisy_q"<<k<<" < plus_gamma"<<";"<<endl;
+    out<<"conjunct1 = noisy_q"<<k<<" >= minus_gamma"<<";"<<endl;
+    out<<"conjunct2 = noisy_q"<<k<<" <= plus_gamma"<<";"<<endl;
     out<<"bool conjunction"<<";"<<endl;
     out<<"conjunction = conjunct1 && conjunct2"<<";"<<endl;
     out<<"bool not_conjunction"<<";"<<endl;
@@ -117,7 +117,8 @@ void weaved(ofstream& out, int k, int n) {
 
 int main()
 {
-	int n, c, gamma, thresh;
+	int n, c, thresh;
+  float gamma;
 	vector<int> t;
 	cout<<"Number of Queries: ";
 	cin>>n;
@@ -174,7 +175,7 @@ int main()
   out<<"real gamma"<<";"<<endl;
   out<<"gamma = "<<gamma<<";"<<endl;
   out<<"real noisy_thresh0"<<";"<<endl;
-  out<<"noisy_thresh0 = "<<"Lap \"( 9 * c ) / ( 4 * eps )\" thresh"<<";"<<endl;
+  out<<"noisy_thresh0 = "<<"Lap \"( 4 * eps ) / ( 9 * c )\" thresh"<<";"<<endl;
   weaved(out,0,n);
   out.close();
 }

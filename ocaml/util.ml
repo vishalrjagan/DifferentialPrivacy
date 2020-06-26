@@ -210,9 +210,13 @@ let write_table_to_file
        let du_string = string_of_int du in
        let alphaGamma_string = string_of_float alphaGamma in
        let compare_string = string_of_bool compare in
-       Printf.fprintf oc (format_of_string "%s > %s @ %s @@ %s @@@ %s @@@@ %s\n")
-         input_string output_string
-         du_string alphaGamma_string compare_string beta_string) tab;
+       (* Hacking: omit lines that won't be checked *)
+       if compare && ((float_of_int du) <= alphaGamma)
+       then ()
+       else
+         Printf.fprintf oc (format_of_string "%s > %s @ %s @@ %s @@@ %s @@@@ %s\n")
+           input_string output_string
+           du_string alphaGamma_string compare_string beta_string) tab;
   close_out oc
 
 let generate_io_table_sparse

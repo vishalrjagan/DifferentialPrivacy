@@ -7,6 +7,9 @@
 #include <string>
 #include <cstring>
 using namespace std;
+
+#define DEEP_DEBUG true
+
 int lineCount = 0;
 void RevTopSorts(vector<set<string>>& adj, map<string,int>& encoding, vector<vector<string>>& result);
 class Exp
@@ -617,6 +620,9 @@ bool assignment(map<string,Exp*>& vars, list<string> next, RealOrderAndTDLap& or
 				{
 					vars[target] = new RealExp(atof(tmp)); // We don't need to do this, since all real variable operations only depend on the ordering
 					order.assign(target,next.front());
+          if(DEEP_DEBUG) {
+            cout<< "PMK: next.front() is: "<< next.front() <<endl;
+          }
 				}
 			}
 		}
@@ -678,8 +684,14 @@ bool assignment(map<string,Exp*>& vars, list<string> next, RealOrderAndTDLap& or
 				else if(type=="int")
 					vars[target] = new BoolExp(compute(static_cast<IntExp*>(vars[var1])->eval, op,
 																			static_cast<IntExp*>(vars[var2])->eval));
-				else if(type=="real")
-					return false;
+				else {
+          if(type=="real") {
+            if(DEEP_DEBUG) {
+              cout << "Trying to compare real values and sadly cannot" << endl;
+            }
+            return false;
+          }
+        }
 			}
 		}
 	}
@@ -1121,6 +1133,10 @@ string evaluateWithInputs(set<string>& inputs, list<string>& pgm, RealOrderAndTD
     // over these pairs for a fixed input s.
 		for(map<string,string>::iterator j = result.begin();j!=result.end();j++)
 		{
+      #define DEBUG_SINGLE_RESULT true
+      if(DEBUG_SINGLE_RESULT) {
+        out<< j->first <<endl;
+      }
       // USEFUL DEBUGGING REGION
       string t = s+" "+j->first;
       // Note: out here is output.txt
@@ -1483,12 +1499,36 @@ void write_accuracy_inequalities(string s, map<string,string>& prob_map, set<str
   // substr includes start and excludes end
   string inp_str = s.substr(0,s.find(">")-1);
   string s1 = s.substr(s.find(">")+2);
+  string s2 = s.substr(s.find("@")+2);
+  string s3 = s.substr(s.find("@@")+3);
+  string s4 = s.substr(s.find("@@@")+4);
+  string beta_str = s.substr(s.find("@@@@")+5);
+  string out_str = s1.substr(0,s1.length()-s2.length()-3);
+  string du_str = s2.substr(0,s2.length()-s3.length()-4);
+  string alphaGamma_str = s3.substr(0,s3.length()-s4.length()-5);
+  string compare_str = s4.substr(0,s4.length()-beta_str.length()-6);
+
+  // bool compare;
+  // istringstream(compare_str) >> boolalpha >> compare;
+  // double alphaGamma = ::atof(alphaGamma_str.c_str());
+  // double du = ::atof(du_str.c_str());
+
+  // If alphaGamma is meaningful (ATM, just for numeric sparse)
+  // if(compare) {
+  //   // Corresponding inequality should be checked
+  //   if(du <= alphaGamma) {
+  //     return;
+  //   }
+  // }
+
+  // string inp_str = s.substr(0,s.find(">")-1);
+  // string s1 = s.substr(s.find(">")+2);
   // string s2 = s.substr(s.find("@")+2);
   // string beta_str = s.substr(s.find("@@")+3);
   // string alpha_str = s2.substr(0,s2.length()-beta_str.length()-4);
   // string out_str = s1.substr(0,s1.length()-s2.length()-3);
-  string beta_str = s.substr(s.find("@")+2);
-  string out_str = s1.substr(0,s1.length()-beta_str.length()-3);
+  // string beta_str = s.substr(s.find("@")+2);
+  // string out_str = s1.substr(0,s1.length()-beta_str.length()-3);
 
   // look up the probability expression for (inp_str+out_str) in
   // prob_map
@@ -1565,6 +1605,14 @@ int main(int argc, char** argv)
   // make a set of string inputs based on contents of adjacency relation
 	set<string> inputs;
 	generateInputList(inputs, "adjacency");
+  // inspect inputs
+  #define DEBUG_INPUT_LIST true
+  if(DEBUG_INPUT_LIST) {
+    cout << "DEBUG_INPUT_LIST" << "\n";
+		for(set<string>::iterator j = inputs.begin();j!=inputs.end();j++) {
+      cout << *j << "\n";
+    }
+  }
 	RealOrderAndTDLap order;
 	order.range = range;
 	map<string, string> prob_map;
@@ -1600,8 +1648,8 @@ int main(int argc, char** argv)
 	set<string> written_vars;
 
   #define ACCURACY true
-  // DIFF PRIVACY
-  if(!ACCURACY)
+  #define DIFF_PRIVACY false
+  if(DIFF_PRIVACY)
     {
       ifstream in;
       in.open("adjacency", ios::in);
@@ -1622,8 +1670,7 @@ int main(int argc, char** argv)
         }
       in.close();
     }
-  // ACCURACY
-  else
+  if(ACCURACY)
     {
       out.open("math_script.wl", ios::app);
       out << "(* What follows pertains to accuracy *)" << endl;

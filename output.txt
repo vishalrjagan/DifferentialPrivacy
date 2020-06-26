@@ -1,9 +1,19 @@
 HAHA:1:HAHA
+0
 -1 0|
-((assgn0)*(assgn3)*(assgn5)*(assgn0))
+((assgn4)) + ((assgn6)) + ((0))
+1
 -1 1|
-((assgn0)*(assgn7)*(assgn0))
+((assgn2))
+0
 0 0|
-((assgn0)*(assgn9)*(assgn0))
+((assgn10)) + ((assgn12)) + ((0))
+1
+0 1|
+((assgn8))
+0
 1 0|
-((assgn0)*(assgn11)*(assgn0))
+((assgn16)) + ((assgn18)) + ((0))
+1
+1 1|
+((assgn14))
