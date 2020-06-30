@@ -1,0 +1,75 @@
+-10 10
+input int q0 -2 -2;
+
+int one;
+one = 1;
+int zero;
+zero = 0;
+int thresh;
+thresh = 0;
+int gamma;
+gamma = 1;
+int c;
+c = 1;
+
+bool compare_det;
+compare_det = q0 >= thresh;
+
+real noisy_q0;
+noisy_q0 = Lap "eps / ( 9 * c )" q0;
+real noisy_thresh0;
+noisy_thresh0 = Lap "( 4 * eps ) / ( 9 * c )" thresh;
+
+bool compare_rand;
+compare_rand = noisy_q0 >= noisy_thresh;
+
+bool both_above;
+both_above = compare_det && compare_rand;
+
+bool not_compare_det;
+not_compare_det = ! compare_det;
+
+bool not_compare_rand;
+not_compare_rand = ! compare_rand;
+
+bool both_below;
+both_below = not_compare_det && not_compare_rand;
+
+if both_below then
+
+return one;
+
+fi;
+
+
+
+
+
+if both_above then
+
+int plus;
+int minus;
+plus = q0 + gamma;
+minus = q0 - gamma;
+
+real cast_plus;
+real cast_minus;
+cast_plus = plus;
+cast_minus = minus;
+
+bool below_plus;
+below_plus = noisy_q0 <= cast_plus;
+bool above_minus;
+above_minus = noisy_q0 >= cast_minus;
+bool within_gamma;
+within_gamma = below_plus && above_minus;
+
+if within_gamma then
+return one;
+else
+return zero;
+fi;
+
+else
+return zero;
+fi;

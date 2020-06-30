@@ -1,0 +1,62 @@
+-5 5
+input int q0 -2 2;
+
+int thresh;
+thresh = 0;
+int zero;
+zero = 0;
+int one;
+one = 1;
+int c;
+c = 1;
+int count;
+count = 0;
+bool rand;
+rand = false;
+
+bool det;
+det = q0 >= thresh;
+
+real noisy_thresh0;
+real noisy_q0;
+noisy_q0 = Lap "eps / ( 9 * c )" q0;
+noisy_thresh0 = Lap "( 4 * eps ) / ( 9 * c )" thresh;
+rand = noisy_q0 >= noisy_thresh0;
+
+bool not_det;
+bool not_rand;
+not_det = ! det;
+not_rand = ! rand;
+
+bool below;
+below = not_det && not_rand;
+if below then
+return one;
+fi;
+
+bool above;
+above = det && rand;
+if above then
+
+int gamma;
+gamma = 1;
+int plus_gamma;
+plus_gamma = q0 + gamma;
+int minus_gamma;
+minus_gamma = q0 - gamma;
+
+real cast1;
+real cast2;
+cast1 = plus_gamma;
+cast2 = minus_gamma;
+bool good1;
+good1 = noisy_q0 <= cast1;
+bool good2;
+good2 = noisy_q0 >= cast2;
+bool both;
+both = good1 && good2;
+if both then return one; else return zero; fi;
+
+else
+return zero;
+fi;

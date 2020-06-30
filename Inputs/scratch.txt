@@ -1,0 +1,4 @@
+real noisy_q0;
+noisy_q0 = Lap "eps / ( 9 * c )" q0;
+noisy_thresh0 = Lap "( 4 * eps ) / ( 9 * c )" q0;
+compare_rand = noisy_q0 >= noisy_thresh;

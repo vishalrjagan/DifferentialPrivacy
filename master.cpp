@@ -687,7 +687,7 @@ bool assignment(map<string,Exp*>& vars, list<string> next, RealOrderAndTDLap& or
 				else {
           if(type=="real") {
             if(DEEP_DEBUG) {
-              cout << "Trying to compare real values and sadly cannot" << endl;
+              cout << "Trying to compare real values" << endl;
             }
             return false;
           }
@@ -1648,7 +1648,7 @@ int main(int argc, char** argv)
 	set<string> written_vars;
 
   #define ACCURACY true
-  #define DIFF_PRIVACY false
+  #define DIFF_PRIVACY true
   if(DIFF_PRIVACY)
     {
       ifstream in;

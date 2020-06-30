@@ -20,6 +20,11 @@ out1_rand_is_bot = true;
 bool compare1_det;
 bool compare1_rand;
 
+bool t;
+bool f;
+t = true;
+f = false;
+
 int one;
 one = 1;
 int zero;

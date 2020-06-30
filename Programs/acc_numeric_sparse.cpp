@@ -89,18 +89,28 @@ void weaved(ofstream& out, int k, int n) {
     out<<"both_are_not_bot"<<k<<" = not_out"<<k<<"_det_is_bot && not_out"<<k<<"_rand_is_bot"<<";"<<endl;
 
     out<<"if both_are_not_bot"<<k<<" then"<<endl;
-    out<<"real cast_det"<<k<<";"<<endl;
-    out<<"cast_det"<<k<<" = out"<<k<<"_det"<<";"<<endl;
-    out<<"real minus_gamma"<<k<<";"<<endl;
-    out<<"minus_gamma"<<k<<" = cast_det"<<k<<" - gamma"<<";"<<endl;
-    out<<"real plus_gamma"<<k<<";"<<endl;
-    out<<"plus_gamma"<<k<<" = cast_det"<<k<<" + gamma"<<";"<<endl;
-    out<<"bool conjunct1"<<";"<<endl;
-    out<<"conjunct1 = noisy_q"<<k<<" >= minus_gamma"<<";"<<endl;
-    out<<"conjunct2 = noisy_q"<<k<<" <= plus_gamma"<<";"<<endl;
-    out<<"bool conjunction"<<";"<<endl;
+    // Integer vs real-valued gamma
+    out<<"int minus_gamma"<<k<<";"<<endl;
+    out<<"minus_gamma"<<k<<" = out"<<k<<"_det - gamma"<<";"<<endl;
+    out<<"int plus_gamma"<<k<<";"<<endl;
+    out<<"plus_gamma"<<k<<" = out"<<k<<"_det + gamma"<<";"<<endl;
+    out<<"real cast_minus"<<k<<";"<<endl;
+    out<<"real cast_plus"<<k<<";"<<endl;
+    out<<"cast_minus"<<k<<" = minus_gamma"<<k<<";"<<endl;
+    out<<"cast_plus"<<k<<" = plus_gamma"<<k<<";"<<endl;
+    out<<"conjunct1 = noisy_q"<<k<<" >= cast_minus"<<k<<";"<<endl;
+    out<<"conjunct2 = noisy_q"<<k<<" <= cast_plus"<<k<<";"<<endl;
+
+    // out<<"real cast_det"<<k<<";"<<endl;
+    // out<<"cast_det"<<k<<" = out"<<k<<"_det"<<";"<<endl;
+    // out<<"real minus_gamma"<<k<<";"<<endl;
+    // out<<"minus_gamma"<<k<<" = cast_det"<<k<<" - gamma"<<";"<<endl;
+    // out<<"real plus_gamma"<<k<<";"<<endl;
+    // out<<"plus_gamma"<<k<<" = cast_det"<<k<<" + gamma"<<";"<<endl;
+    // out<<"conjunct1 = noisy_q"<<k<<" >= minus_gamma"<<k<<";"<<endl;
+    // out<<"conjunct2 = noisy_q"<<k<<" <= plus_gamma"<<k<<";"<<endl;
+
     out<<"conjunction = conjunct1 && conjunct2"<<";"<<endl;
-    out<<"bool not_conjunction"<<";"<<endl;
     out<<"not_conjunction = ! conjunction"<<";"<<endl;
     out<<"if not_conjunction then"<<endl;
     out<<"return zero"<<";"<<endl;
@@ -117,8 +127,8 @@ void weaved(ofstream& out, int k, int n) {
 
 int main()
 {
-	int n, c, thresh;
-  float gamma;
+	int n, c, thresh, gamma;
+  // float gamma;
 	vector<int> t;
 	cout<<"Number of Queries: ";
 	cin>>n;
@@ -135,8 +145,11 @@ int main()
   out.open("../Inputs/acc_"+toString(n)+"_numeric_sparse.txt", ios::out);
   // Preamble, initialize variables
   out<<"-10 10"<<endl;
+  for(int j=0;j<n;j++) {
+    out<<"input int q"<<j<<" "<<left<<" "<<right<<";"<<endl;
+  }
   for(int i=0;i<n;i++) {
-    out<<"input int q"<<i<<" "<<left<<" "<<right<<";"<<endl;
+    // out<<"input int q"<<i<<" "<<left<<" "<<right<<";"<<endl;
     out<<"int out"<<i<<"_det"<<";"<<endl;
     out<<"out"<<i<<"_det = 0"<<";"<<endl;
     out<<"real out"<<i<<"_rand"<<";"<<endl;
@@ -170,9 +183,14 @@ int main()
   out<<"bool done_only_rand"<<";"<<endl;
   out<<"bool done_one"<<";"<<endl;
   out<<"bool done_none"<<";"<<endl;
+  out<<"bool conjunct1"<<";"<<endl;
+  out<<"bool conjunct2"<<";"<<endl;
+  out<<"bool conjunction"<<";"<<endl;
+  out<<"bool not_conjunction"<<";"<<endl;
   out<<"int thresh"<<";"<<endl;
   out<<"thresh = "<<thresh<<";"<<endl;
-  out<<"real gamma"<<";"<<endl;
+  // out<<"real gamma"<<";"<<endl;
+  out<<"int gamma"<<";"<<endl;
   out<<"gamma = "<<gamma<<";"<<endl;
   out<<"real noisy_thresh0"<<";"<<endl;
   out<<"noisy_thresh0 = "<<"Lap \"( 4 * eps ) / ( 9 * c )\" thresh"<<";"<<endl;

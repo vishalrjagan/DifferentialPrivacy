@@ -1,19 +1,109 @@
 HAHA:1:HAHA
 0
--1 0|
-((assgn4)) + ((assgn6)) + ((0))
+-1 -1 0|
+((assgn3)*(assgn5)*(assgn0)*(assgn0)) + ((assgn7)*(assgn8+assgn8)*(assgn5)*(assgn0))
 1
--1 1|
-((assgn2))
+-1 -1 1|
+((assgn7)*(assgn10+assgn11+assgn11)*(assgn0))
 0
-0 0|
-((assgn10)) + ((assgn12)) + ((0))
+-1 -2 0|
+((assgn3)*(assgn5)*(assgn0)*(assgn0)) + ((assgn7)*(assgn13+assgn13)*(assgn5)*(assgn0))
 1
-0 1|
-((assgn8))
+-1 -2 1|
+((assgn7)*(assgn15+assgn16+assgn16)*(assgn0))
 0
-1 0|
-((assgn16)) + ((assgn18)) + ((0))
+-1 0 0|
+((assgn3)*(assgn5)*(assgn0)*(assgn0)) + ((assgn7)*(assgn20+assgn21+assgn21)*(assgn0))
 1
-1 1|
-((assgn14))
+-1 0 1|
+((assgn0)*(assgn7)*(assgn18+assgn18)*(assgn5))
+0
+-1 1 0|
+((assgn3)*(assgn5)*(assgn0)*(assgn0)) + ((assgn7)*(assgn23+assgn24+assgn24)*(assgn0))
+0
+-1 2 0|
+((assgn3)*(assgn5)*(assgn0)*(assgn0)) + ((assgn0)*(assgn7)*(assgn26+assgn26)*(assgn5)) + ((assgn7)*(assgn28+assgn29+assgn29)*(assgn0))
+0
+-2 -1 0|
+((assgn31)*(assgn5)*(assgn0)*(assgn0)) + ((assgn33)*(assgn8+assgn8)*(assgn5)*(assgn0))
+1
+-2 -1 1|
+((assgn33)*(assgn10+assgn11+assgn11)*(assgn0))
+0
+-2 -2 0|
+((assgn31)*(assgn5)*(assgn0)*(assgn0)) + ((assgn33)*(assgn13+assgn13)*(assgn5)*(assgn0))
+1
+-2 -2 1|
+((assgn33)*(assgn15+assgn16+assgn16)*(assgn0))
+0
+-2 0 0|
+((assgn31)*(assgn5)*(assgn0)*(assgn0)) + ((assgn33)*(assgn20+assgn21+assgn21)*(assgn0))
+1
+-2 0 1|
+((assgn0)*(assgn33)*(assgn18+assgn18)*(assgn5))
+0
+-2 1 0|
+((assgn31)*(assgn5)*(assgn0)*(assgn0)) + ((assgn33)*(assgn23+assgn24+assgn24)*(assgn0))
+0
+-2 2 0|
+((assgn31)*(assgn5)*(assgn0)*(assgn0)) + ((assgn0)*(assgn33)*(assgn26+assgn26)*(assgn5)) + ((assgn33)*(assgn28+assgn29+assgn29)*(assgn0))
+0
+0 -1 0|
+((assgn37)*(assgn0)*(assgn0))
+1
+0 -1 1|
+((assgn0)*(assgn35)*(assgn5)*(assgn0))
+0
+0 -2 0|
+((assgn37)*(assgn0)*(assgn0))
+1
+0 -2 1|
+((assgn0)*(assgn35)*(assgn5)*(assgn0))
+0
+0 0 0|
+((assgn37)*(assgn0)*(assgn0))
+1
+0 0 1|
+((assgn0)*(assgn35)*(assgn5)*(assgn0))
+0
+0 1 0|
+((assgn37)*(assgn0)*(assgn0))
+1
+0 1 1|
+((assgn0)*(assgn35)*(assgn5)*(assgn0))
+0
+0 2 0|
+((assgn37)*(assgn0)*(assgn0))
+1
+0 2 1|
+((assgn0)*(assgn35)*(assgn5)*(assgn0))
+0
+1 -1 0|
+((assgn39)*(assgn0)*(assgn0))
+0
+1 -2 0|
+((assgn39)*(assgn0)*(assgn0))
+0
+1 0 0|
+((assgn39)*(assgn0)*(assgn0))
+0
+1 1 0|
+((assgn39)*(assgn0)*(assgn0))
+0
+1 2 0|
+((assgn39)*(assgn0)*(assgn0))
+0
+2 -1 0|
+((assgn0)*(assgn41)*(assgn5)*(assgn0)) + ((assgn43)*(assgn0)*(assgn0))
+0
+2 -2 0|
+((assgn0)*(assgn41)*(assgn5)*(assgn0)) + ((assgn43)*(assgn0)*(assgn0))
+0
+2 0 0|
+((assgn0)*(assgn41)*(assgn5)*(assgn0)) + ((assgn43)*(assgn0)*(assgn0))
+0
+2 1 0|
+((assgn0)*(assgn41)*(assgn5)*(assgn0)) + ((assgn43)*(assgn0)*(assgn0))
+0
+2 2 0|
+((assgn0)*(assgn41)*(assgn5)*(assgn0)) + ((assgn43)*(assgn0)*(assgn0))
