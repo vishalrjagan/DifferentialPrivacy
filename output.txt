@@ -1,109 +1,67 @@
 HAHA:1:HAHA
 0
--1 -1 0|
-((assgn3)*(assgn5)*(assgn0)*(assgn0)) + ((assgn7)*(assgn8+assgn8)*(assgn5)*(assgn0))
+-2 -2 -2 0|
+((assgn3)*(assgn5)*(assgn0)) + ((assgn0)*(assgn0)*(assgn7)*(assgn5)*(assgn0)*(assgn0)) + ((assgn0)*(assgn0)*(assgn0)*(assgn0)*(assgn9+assgn9)*(assgn5)*(assgn0)*(assgn0)*(assgn0))
 1
--1 -1 1|
-((assgn7)*(assgn10+assgn11+assgn11)*(assgn0))
+-2 -2 -2 1|
+((assgn0)*(assgn0)*(assgn0)*(assgn0)*(assgn0)*(assgn0)*(assgn13+assgn13+assgn13+assgn13+assgn13+assgn13)*(assgn5)*(assgn0)*(assgn0)*(assgn0))
 0
--1 -2 0|
-((assgn3)*(assgn5)*(assgn0)*(assgn0)) + ((assgn7)*(assgn13+assgn13)*(assgn5)*(assgn0))
+-2 -2 2 0|
+((assgn3)*(assgn5)*(assgn0)) + ((assgn0)*(assgn0)*(assgn7)*(assgn5)*(assgn0)*(assgn0)) + ((assgn0)*(assgn0)*(assgn36+assgn36+assgn41+assgn41+assgn45+assgn47+assgn45+assgn47+assgn52+assgn52+assgn56+assgn58+assgn56+assgn58+assgn62+assgn64+assgn66+assgn62+assgn64+assgn66)*(assgn0)*(assgn0)*(assgn5)*(assgn0)*(assgn0)*(assgn0)) + ((assgn0)*(assgn0)*(assgn71+assgn71)*(assgn0)*(assgn0)*(assgn5)*(assgn0)*(assgn0)*(assgn0)) + ((assgn0)*(assgn0)*(0)*(assgn0)*(assgn0)*(assgn5)*(assgn0)*(assgn0)*(assgn0)) + ((assgn0)*(assgn0)*(assgn0)*(assgn0)*(assgn73+assgn76+assgn73+assgn76+assgn80+assgn80)*(assgn5)*(assgn0)*(assgn0)*(assgn0))
 1
--1 -2 1|
-((assgn7)*(assgn15+assgn16+assgn16)*(assgn0))
+-2 -2 2 1|
+((assgn0)*(assgn0)*(assgn19+assgn19+assgn24+assgn24+assgn28+assgn30+assgn28+assgn30)*(assgn0)*(assgn0)*(assgn5)*(assgn0)*(assgn0)*(assgn0))
 0
--1 0 0|
-((assgn3)*(assgn5)*(assgn0)*(assgn0)) + ((assgn7)*(assgn20+assgn21+assgn21)*(assgn0))
+-2 2 -2 0|
+((assgn3)*(assgn5)*(assgn0)) + ((assgn0)*(assgn81+assgn82+assgn26)*(assgn0)*(assgn3)*(assgn0)*(assgn0)*(assgn0)) + ((assgn0)*(assgn84+assgn85+assgn43+assgn86+assgn54+assgn60)*(assgn0)*(assgn5)*(assgn0)*(assgn0)) + ((assgn0)*(assgn87)*(assgn0)*(assgn5)*(assgn0)*(assgn0)) + ((assgn0)*(0)*(assgn0)*(assgn5)*(assgn0)*(assgn0)) + ((assgn0)*(assgn0)*(assgn88+assgn89)*(assgn5)*(assgn0)*(assgn0))
 1
--1 0 1|
-((assgn0)*(assgn7)*(assgn18+assgn18)*(assgn5))
+-2 2 -2 1|
+((assgn0)*(assgn81+assgn82+assgn26)*(assgn0)*(assgn0)*(assgn0)*(assgn83)*(assgn0)*(assgn0)*(assgn0))
 0
--1 1 0|
-((assgn3)*(assgn5)*(assgn0)*(assgn0)) + ((assgn7)*(assgn23+assgn24+assgn24)*(assgn0))
-0
--1 2 0|
-((assgn3)*(assgn5)*(assgn0)*(assgn0)) + ((assgn0)*(assgn7)*(assgn26+assgn26)*(assgn5)) + ((assgn7)*(assgn28+assgn29+assgn29)*(assgn0))
-0
--2 -1 0|
-((assgn31)*(assgn5)*(assgn0)*(assgn0)) + ((assgn33)*(assgn8+assgn8)*(assgn5)*(assgn0))
+-2 2 2 0|
+((assgn3)*(assgn5)*(assgn0)) + ((assgn0)*(assgn81+assgn82+assgn26)*(assgn91+assgn38+assgn49)*(assgn0)*(assgn0)*(assgn0)*(assgn0)) + ((assgn0)*(assgn81+assgn82+assgn26)*(assgn92)*(assgn0)*(assgn0)*(assgn0)*(assgn0)) + ((assgn0)*(assgn81+assgn82+assgn26)*(0)*(assgn0)*(assgn0)*(assgn0)*(assgn0)) + ((assgn0)*(assgn81+assgn82+assgn26)*(assgn0)*(assgn93)*(assgn0)*(assgn0)*(assgn0)) + ((assgn0)*(assgn84+assgn85+assgn43+assgn86+assgn54+assgn60)*(assgn0)*(assgn5)*(assgn0)*(assgn0)) + ((assgn0)*(assgn87)*(assgn0)*(assgn5)*(assgn0)*(assgn0)) + ((assgn0)*(0)*(assgn0)*(assgn5)*(assgn0)*(assgn0)) + ((assgn0)*(assgn0)*(assgn88+assgn89)*(assgn5)*(assgn0)*(assgn0))
 1
--2 -1 1|
-((assgn33)*(assgn10+assgn11+assgn11)*(assgn0))
+-2 2 2 1|
+((assgn0)*(assgn81+assgn82+assgn26)*(assgn90+assgn21)*(assgn0)*(assgn0)*(assgn0)*(assgn0))
 0
--2 -2 0|
-((assgn31)*(assgn5)*(assgn0)*(assgn0)) + ((assgn33)*(assgn13+assgn13)*(assgn5)*(assgn0))
+2 -2 -2 0|
+((assgn90+assgn21)*(assgn3)*(assgn0)*(assgn0)) + ((assgn90+assgn21)*(assgn0)*(assgn0)*(assgn7)*(assgn0)*(assgn0)*(assgn0)) + ((assgn91+assgn38+assgn49)*(assgn5)*(assgn0)) + ((assgn92)*(assgn5)*(assgn0)) + ((0)*(assgn5)*(assgn0)) + ((assgn93)*(assgn5)*(assgn0))
 1
--2 -2 1|
-((assgn33)*(assgn15+assgn16+assgn16)*(assgn0))
+2 -2 -2 1|
+((assgn90+assgn21)*(assgn0)*(assgn0)*(assgn0)*(assgn0)*(assgn94+assgn94)*(assgn0)*(assgn0)*(assgn0))
 0
--2 0 0|
-((assgn31)*(assgn5)*(assgn0)*(assgn0)) + ((assgn33)*(assgn20+assgn21+assgn21)*(assgn0))
+2 -2 2 0|
+((assgn90+assgn21)*(assgn3)*(assgn0)*(assgn0)) + ((assgn90+assgn21)*(assgn0)*(assgn84+assgn85+assgn43+assgn86+assgn54+assgn60)*(assgn0)*(assgn0)*(assgn0)*(assgn0)) + ((assgn90+assgn21)*(assgn0)*(assgn87)*(assgn0)*(assgn0)*(assgn0)*(assgn0)) + ((assgn90+assgn21)*(assgn0)*(0)*(assgn0)*(assgn0)*(assgn0)*(assgn0)) + ((assgn90+assgn21)*(assgn0)*(assgn0)*(assgn88+assgn89)*(assgn0)*(assgn0)*(assgn0)) + ((assgn91+assgn38+assgn49)*(assgn5)*(assgn0)) + ((assgn92)*(assgn5)*(assgn0)) + ((0)*(assgn5)*(assgn0)) + ((assgn93)*(assgn5)*(assgn0))
 1
--2 0 1|
-((assgn0)*(assgn33)*(assgn18+assgn18)*(assgn5))
+2 -2 2 1|
+((assgn90+assgn21)*(assgn0)*(assgn81+assgn82+assgn26)*(assgn0)*(assgn0)*(assgn0)*(assgn0))
 0
--2 1 0|
-((assgn31)*(assgn5)*(assgn0)*(assgn0)) + ((assgn33)*(assgn23+assgn24+assgn24)*(assgn0))
-0
--2 2 0|
-((assgn31)*(assgn5)*(assgn0)*(assgn0)) + ((assgn0)*(assgn33)*(assgn26+assgn26)*(assgn5)) + ((assgn33)*(assgn28+assgn29+assgn29)*(assgn0))
-0
-0 -1 0|
-((assgn37)*(assgn0)*(assgn0))
+2 2 -1 0|
+((assgn90+assgn21)*(assgn91+assgn38+assgn49)*(assgn0)*(assgn0)) + ((assgn90+assgn21)*(assgn92)*(assgn0)*(assgn0)) + ((assgn90+assgn21)*(0)*(assgn0)*(assgn0)) + ((assgn90+assgn21)*(assgn93)*(assgn0)*(assgn0)) + ((assgn91+assgn38+assgn49)*(assgn5)*(assgn0)) + ((assgn92)*(assgn5)*(assgn0)) + ((0)*(assgn5)*(assgn0)) + ((assgn93)*(assgn5)*(assgn0))
 1
-0 -1 1|
-((assgn0)*(assgn35)*(assgn5)*(assgn0))
+2 2 -1 1|
+((assgn90+assgn21)*(assgn90+assgn21)*(assgn0)*(assgn0))
 0
-0 -2 0|
-((assgn37)*(assgn0)*(assgn0))
+2 2 -2 0|
+((assgn90+assgn21)*(assgn91+assgn38+assgn49)*(assgn0)*(assgn0)) + ((assgn90+assgn21)*(assgn92)*(assgn0)*(assgn0)) + ((assgn90+assgn21)*(0)*(assgn0)*(assgn0)) + ((assgn90+assgn21)*(assgn93)*(assgn0)*(assgn0)) + ((assgn91+assgn38+assgn49)*(assgn5)*(assgn0)) + ((assgn92)*(assgn5)*(assgn0)) + ((0)*(assgn5)*(assgn0)) + ((assgn93)*(assgn5)*(assgn0))
 1
-0 -2 1|
-((assgn0)*(assgn35)*(assgn5)*(assgn0))
+2 2 -2 1|
+((assgn90+assgn21)*(assgn90+assgn21)*(assgn0)*(assgn0))
 0
-0 0 0|
-((assgn37)*(assgn0)*(assgn0))
+2 2 0 0|
+((assgn90+assgn21)*(assgn91+assgn38+assgn49)*(assgn0)*(assgn0)) + ((assgn90+assgn21)*(assgn92)*(assgn0)*(assgn0)) + ((assgn90+assgn21)*(0)*(assgn0)*(assgn0)) + ((assgn90+assgn21)*(assgn93)*(assgn0)*(assgn0)) + ((assgn91+assgn38+assgn49)*(assgn5)*(assgn0)) + ((assgn92)*(assgn5)*(assgn0)) + ((0)*(assgn5)*(assgn0)) + ((assgn93)*(assgn5)*(assgn0))
 1
-0 0 1|
-((assgn0)*(assgn35)*(assgn5)*(assgn0))
+2 2 0 1|
+((assgn90+assgn21)*(assgn90+assgn21)*(assgn0)*(assgn0))
 0
-0 1 0|
-((assgn37)*(assgn0)*(assgn0))
+2 2 1 0|
+((assgn90+assgn21)*(assgn91+assgn38+assgn49)*(assgn0)*(assgn0)) + ((assgn90+assgn21)*(assgn92)*(assgn0)*(assgn0)) + ((assgn90+assgn21)*(0)*(assgn0)*(assgn0)) + ((assgn90+assgn21)*(assgn93)*(assgn0)*(assgn0)) + ((assgn91+assgn38+assgn49)*(assgn5)*(assgn0)) + ((assgn92)*(assgn5)*(assgn0)) + ((0)*(assgn5)*(assgn0)) + ((assgn93)*(assgn5)*(assgn0))
 1
-0 1 1|
-((assgn0)*(assgn35)*(assgn5)*(assgn0))
+2 2 1 1|
+((assgn90+assgn21)*(assgn90+assgn21)*(assgn0)*(assgn0))
 0
-0 2 0|
-((assgn37)*(assgn0)*(assgn0))
+2 2 2 0|
+((assgn90+assgn21)*(assgn91+assgn38+assgn49)*(assgn0)*(assgn0)) + ((assgn90+assgn21)*(assgn92)*(assgn0)*(assgn0)) + ((assgn90+assgn21)*(0)*(assgn0)*(assgn0)) + ((assgn90+assgn21)*(assgn93)*(assgn0)*(assgn0)) + ((assgn91+assgn38+assgn49)*(assgn5)*(assgn0)) + ((assgn92)*(assgn5)*(assgn0)) + ((0)*(assgn5)*(assgn0)) + ((assgn93)*(assgn5)*(assgn0))
 1
-0 2 1|
-((assgn0)*(assgn35)*(assgn5)*(assgn0))
-0
-1 -1 0|
-((assgn39)*(assgn0)*(assgn0))
-0
-1 -2 0|
-((assgn39)*(assgn0)*(assgn0))
-0
-1 0 0|
-((assgn39)*(assgn0)*(assgn0))
-0
-1 1 0|
-((assgn39)*(assgn0)*(assgn0))
-0
-1 2 0|
-((assgn39)*(assgn0)*(assgn0))
-0
-2 -1 0|
-((assgn0)*(assgn41)*(assgn5)*(assgn0)) + ((assgn43)*(assgn0)*(assgn0))
-0
-2 -2 0|
-((assgn0)*(assgn41)*(assgn5)*(assgn0)) + ((assgn43)*(assgn0)*(assgn0))
-0
-2 0 0|
-((assgn0)*(assgn41)*(assgn5)*(assgn0)) + ((assgn43)*(assgn0)*(assgn0))
-0
-2 1 0|
-((assgn0)*(assgn41)*(assgn5)*(assgn0)) + ((assgn43)*(assgn0)*(assgn0))
-0
-2 2 0|
-((assgn0)*(assgn41)*(assgn5)*(assgn0)) + ((assgn43)*(assgn0)*(assgn0))
+2 2 2 1|
+((assgn90+assgn21)*(assgn90+assgn21)*(assgn0)*(assgn0))

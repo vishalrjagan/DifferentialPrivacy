@@ -99,3 +99,37 @@ result_silent:
 	@ start=$$(date +%s); wolfram -script math_script.wl >bin.txt; grep -Fq "True" bin.txt; echo "$$?,\t $$((($$(date +%s)-start)))s,\t $$(wc -l < math_script.wl)"
 	@ cat bin.txt >>all_bin.txt
 	@ echo "-----------------------------------------------------------------------------------------" >>all_bin.txt
+
+### Accuracy ###
+
+# Variables
+TYPE?=0
+NUMQ?=1
+RANGEWIDTH?=2
+C?=1
+THRESH?=0
+ALPHA?=1
+
+# Rules
+acc_install_silent:
+	@ rm -rf io_table.txt
+	@ rm -rf output.txt
+	@ rm -rf math_script.wl
+	@ rm -rf *.out
+	@ rm ./ocaml/*.out
+	@ rm -rf master.err
+	@ rm -rf master.log
+	@ ocamlopt -o ./ocaml/util.out ./ocaml/util.ml
+	@ g++ --std=c++11 topological_sort.cpp master.cpp -o master.out
+
+acc_start_silent:
+	@ echo -n "$(INPUT),\t"
+
+# acc_util_silent:
+# 	@ ocamlopt -o ./ocaml/util.out ./ocaml/util.ml
+
+acc_io_silent:
+	@ start=$$(date +%s); ./ocaml/util.out $(TYPE) $(NUMQ) $(RANGEWIDTH) $(C) $(THRESH) $(ALPHA) && echo -n "$$((($$(date +%s)-start)))s,\t"
+
+acc_script_silent:
+	@ start=$$(date +%s); ./master.out $(FRAC) $(EPS) $(DELTA) "$(RANGE)" $(APPROACH) <AccuracyInputs/$(INPUT) >master.log 2>master.err && echo -n "$$((($$(date +%s)-start)))s,\t"

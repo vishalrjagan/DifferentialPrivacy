@@ -4,7 +4,7 @@ type base = int list
 module Table = Map.Make(
   struct
     type t = base
-    let compare = Pervasives.compare
+    let compare = Stdlib.compare
   end)
 type table = base Table.t
 
@@ -82,12 +82,12 @@ let dus_sparse
 
 (* Here 'beta' should be specialized to take float to float *)
 let betas_sparse
-    (alphaGamma:float)
+    (alphaGamma:int)
     (compare:bool)
     (c:int)
     (thresh:int)
     (tab:(base*int) Table.t)
-  : (base*int*float*bool*string) Table.t =
+  : (base*int*int*bool*string) Table.t =
   Table.mapi
     (fun inp (out,du) ->
        (out,du,alphaGamma,false,
@@ -148,10 +148,10 @@ let beta_noisy_max_expression
   (string_of_int n_queries)^"/(Exp[eps*"^(string_of_int du)^"/4])"
 
 let betas_noisy_max
-    (alphaGamma:float)
+    (alphaGamma:int)
     (compare:bool)
     (tab:(base*int) Table.t)
-  : (base*int*float*bool*string) Table.t =
+  : (base*int*int*bool*string) Table.t =
   Table.mapi
     (fun inp (out,du) ->
        (out,du,alphaGamma,compare,
@@ -165,9 +165,9 @@ let numeric_sparse
   [1]
 
 let beta_numeric_sparse_expression
-    (c:int) (k:int) (alpha:float) : string =
+    (c:int) (k:int) (alpha:int) : string =
   let c_str,k_str = string_of_int c,string_of_int k in
-  let alpha_str = string_of_float alpha in
+  let alpha_str = string_of_int alpha in
   "("^k_str^"*4*"^c_str^")/(Exp[("^alpha_str^"*eps)/(9*"^c_str^")])"
 
 let du_numeric_sparse = du_sparse
@@ -182,11 +182,11 @@ let dus_numeric_sparse
     (out,du_numeric_sparse inp thresh c)) tab
 
 let betas_numeric_sparse
-    (alphaGamma:float)
+    (alphaGamma:int)
     (compare:bool)
     (c:int)
     (tab:(base*int) Table.t)
-    : (base*int*float*bool*string) Table.t =
+    : (base*int*int*bool*string) Table.t =
   Table.mapi
     (fun inp (out,du) ->
        (out,du,alphaGamma,compare,
@@ -201,59 +201,115 @@ let rec int_list_to_string (delim:string) (l:base) : string =
 (* Write an alpha-beta annotated I/O table to file filename *)
 let write_table_to_file
     (filename:string)
-    (tab:(base*int*float*bool*string) Table.t) =
+    (tab:(base*int*int*bool*string) Table.t) =
   let oc = open_out filename in
   Table.iter
     (fun inp (out,du,alphaGamma,compare,beta_string) ->
        let input_string = int_list_to_string " " inp in
        let output_string = int_list_to_string ";" out in
        let du_string = string_of_int du in
-       let alphaGamma_string = string_of_float alphaGamma in
+       let alphaGamma_string = string_of_int alphaGamma in
        let compare_string = string_of_bool compare in
        (* Hacking: omit lines that won't be checked *)
-       if compare && ((float_of_int du) <= alphaGamma)
+       if compare && (du <= alphaGamma)
        then ()
        else
-         Printf.fprintf oc (format_of_string "%s > %s @ %s @@ %s @@@ %s @@@@ %s\n")
-           input_string output_string
-           du_string alphaGamma_string compare_string beta_string) tab;
+         Printf.fprintf oc (format_of_string "%s > %s @ %s\n")
+           input_string output_string beta_string) tab;
   close_out oc
 
 let generate_io_table_sparse
-    (filename:string)
-    (range:int*int)
-    (n_queries:int)
-    (thresh:int)
-    (c:int) : unit =
+    ?(file:string = "io_table.txt")
+    ~range:(range:int*int)
+    ~n_queries:(n_queries:int)
+    ?(thresh:int = 0)
+    ~c:(c:int)
+    () : unit =
   let t = make_table range n_queries (sparse thresh c) in
   let t_dus = dus_sparse thresh c t in
-  let t_beta = betas_sparse 0. false c thresh t_dus in
-  write_table_to_file filename t_beta
+  let t_beta = betas_sparse 0 false c thresh t_dus in
+  write_table_to_file file t_beta
 
 let generate_io_table_noisy_max
-    (filename:string)
-    (range:int*int)
-    (n_queries:int) : unit =
+    ?(file:string = "io_table.txt")
+    ~range:(range:int*int)
+    ~n_queries:(n_queries:int)
+    () : unit =
   let t = make_table range n_queries noisy_max in
   let t_dus = dus_noisy_max t in
-  let t_beta = betas_noisy_max 0. false t_dus in
-  write_table_to_file filename t_beta
+  let t_beta = betas_noisy_max 0 false t_dus in
+  write_table_to_file file t_beta
 
 (* Need a separate parameter for alpha=gamma, since du is always calculated *)
 let generate_io_table_numeric_sparse
-    (filename:string)
-    (range:int*int)
-    (n_queries:int)
-    (thresh:int) (* UNUSED because of hack *)
-    (alphaGamma:float)
-    (c:int) : unit =
+    ?(file:string = "io_table.txt")
+    ~range:(range:int*int)
+    ~n_queries:(n_queries:int)
+    ?(thresh:int = 0) (* UNUSED because of hack *)
+    ?(alphaGamma:int = 1)
+    ~c:(c:int)
+    () : unit =
   let t = make_table range n_queries numeric_sparse in
   let t_dus = dus_numeric_sparse thresh c t in
   let t_beta = betas_numeric_sparse alphaGamma true c t_dus in
-  write_table_to_file filename t_beta
+  write_table_to_file file t_beta
+
+let main () =
+  let args = Sys.argv in
+
+  if Array.length args <> 7 then
+    failwith "Expect six arguments";
+
+  let int_args = Stdlib.Array.mapi
+      (fun i elt ->
+         if i <> 0 then int_of_string elt
+         else -1) args in
+  let example_type = int_args.(1) in
+  assert(example_type = 0 ||
+         example_type = 1 ||
+         example_type = 2);
+  let numq = int_args.(2) in
+  assert(numq>=1);
+  let range = int_args.(3) in
+  assert(range>0);
+  let c = int_args.(4) in
+  assert(c>0);
+  let thresh = int_args.(5) in
+  assert(thresh>=0);
+  let alpha = int_args.(6) in
+  assert(alpha>=0);
+
+  (* Sparse *)
+  if example_type = 0 then
+    generate_io_table_sparse
+      ~range:(-range,range)
+      ~n_queries:numq
+      ~thresh:thresh
+      ~c:c
+      ()
+
+  (* Numeric sparse *)
+  else if example_type = 1 then
+    generate_io_table_numeric_sparse
+      ~range:(-range,range)
+      ~n_queries:numq
+      ~thresh:thresh
+      ~alphaGamma:alpha
+      ~c:c
+      ()
 
 
+  (* Noisy max *)
+  else if example_type = 2 then
+    generate_io_table_noisy_max
+      ~range:(-range,range)
+      ~n_queries:numq
+      ()
 
+  else
+    failwith "Unsupported example type"
+
+let _ = main ()
 
 
 (* OLD -------------------------------------------------- *)

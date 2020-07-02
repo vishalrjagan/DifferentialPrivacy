@@ -8,7 +8,16 @@
 #include <cstring>
 using namespace std;
 
-#define DEEP_DEBUG true
+#define DEEP_DEBUG false
+#define DEBUG_INPUT_LIST false
+#define DEBUG_SINGLE_RESULT false
+#define BETTER_BOUNDS false
+#define DEBUG_PROB_MAP false
+#define DEBUG_RESULTS false
+#define DEBUG_TOTAL_ORDER false
+
+#define ACCURACY true
+#define DIFF_PRIVACY false
 
 int lineCount = 0;
 void RevTopSorts(vector<set<string>>& adj, map<string,int>& encoding, vector<vector<string>>& result);
@@ -325,6 +334,10 @@ public:
 		}
 		else
 		{
+      if (DEBUG_TOTAL_ORDER) {
+        // cout << "total_order[" << (total_order.size()-1) << "]: " << total_order[total_order.size()-1] << endl;
+        cout << "exp_val(total_order[" << (total_order.size()-1) << "]): " << exp_val(total_order[total_order.size()-1]) << endl;
+      }
 			string cmd2 = cmd1+"/.{x -> "+exp_val(total_order[total_order.size()-1])+"}";
 			string var;
 			upper = exp_val(total_order[total_order.size()-1]);
@@ -598,7 +611,7 @@ bool assignment(map<string,Exp*>& vars, list<string> next, RealOrderAndTDLap& or
 				vars[target] = new IntExp(static_cast<IntExp*>(vars[next.front()]));
 			if(type=="real" && getType(vars, next.front())=="real")
 				vars[target] = new RealExp(static_cast<RealExp*>(vars[next.front()]));
-			if(type=="real" && getType(vars, next.front())=="int")
+			if(type=="real" && getType(vars, next.front())=="int") // Casting
 			{
 				vars[target] = new RealExp((float)(static_cast<IntExp*>(vars[next.front()])->eval));
 				// cout<<(float)(static_cast<IntExp*>(vars[next.front()])->eval)<<endl;
@@ -1133,7 +1146,6 @@ string evaluateWithInputs(set<string>& inputs, list<string>& pgm, RealOrderAndTD
     // over these pairs for a fixed input s.
 		for(map<string,string>::iterator j = result.begin();j!=result.end();j++)
 		{
-      #define DEBUG_SINGLE_RESULT true
       if(DEBUG_SINGLE_RESULT) {
         out<< j->first <<endl;
       }
@@ -1155,10 +1167,15 @@ void generateInputList(set<string>& inputs, string file)
 	string s;
 	while(getline(in,s))
 	{
-		string s1 = s.substr(0,s.find('~')-1);
-		string s2 = s.substr(s.find('~')+2);
-		inputs.insert(s1);
-		inputs.insert(s2);
+    if (DIFF_PRIVACY) {
+      string s1 = s.substr(0,s.find('~')-1);
+      string s2 = s.substr(s.find('~')+2);
+      inputs.insert(s1);
+      inputs.insert(s2);
+    } else if (ACCURACY) {
+      string s1 = s.substr(0,s.find('>')-1);
+      inputs.insert(s1);
+    }
 	}
 	in.close();
 }
@@ -1495,45 +1512,14 @@ void optimal_generateInequalities(string s, map<string,string>& prob_map, set<st
 void write_accuracy_inequalities(string s, map<string,string>& prob_map, set<string>& seen, set<string>& results, map<string, string>& intgr_cmds, set<string>& written_vars, char* frac, bool eps_var, string delta, string range, int num) {
 	ofstream out;
 	out.open("math_script.wl", ios::app);
-  string fraction(frac);
   // substr includes start and excludes end
   string inp_str = s.substr(0,s.find(">")-1);
   string s1 = s.substr(s.find(">")+2);
-  string s2 = s.substr(s.find("@")+2);
-  string s3 = s.substr(s.find("@@")+3);
-  string s4 = s.substr(s.find("@@@")+4);
-  string beta_str = s.substr(s.find("@@@@")+5);
-  string out_str = s1.substr(0,s1.length()-s2.length()-3);
-  string du_str = s2.substr(0,s2.length()-s3.length()-4);
-  string alphaGamma_str = s3.substr(0,s3.length()-s4.length()-5);
-  string compare_str = s4.substr(0,s4.length()-beta_str.length()-6);
+  string beta_str = s.substr(s.find("@")+2);
+  string out_str = s1.substr(0,s1.length()-beta_str.length()-3);
 
-  // bool compare;
-  // istringstream(compare_str) >> boolalpha >> compare;
-  // double alphaGamma = ::atof(alphaGamma_str.c_str());
-  // double du = ::atof(du_str.c_str());
-
-  // If alphaGamma is meaningful (ATM, just for numeric sparse)
-  // if(compare) {
-  //   // Corresponding inequality should be checked
-  //   if(du <= alphaGamma) {
-  //     return;
-  //   }
-  // }
-
-  // string inp_str = s.substr(0,s.find(">")-1);
-  // string s1 = s.substr(s.find(">")+2);
-  // string s2 = s.substr(s.find("@")+2);
-  // string beta_str = s.substr(s.find("@@")+3);
-  // string alpha_str = s2.substr(0,s2.length()-beta_str.length()-4);
-  // string out_str = s1.substr(0,s1.length()-s2.length()-3);
-  // string beta_str = s.substr(s.find("@")+2);
-  // string out_str = s1.substr(0,s1.length()-beta_str.length()-3);
-
-  // look up the probability expression for (inp_str+out_str) in
-  // prob_map
+  // look up the probability expression for (inp_str+out_str) in prob_map
   if(prob_map.find(inp_str+" "+out_str)==prob_map.end()) {
-    cout << inp_str+" "+out_str << endl;
     cout << "I/O pair: "+inp_str+" > "+out_str+" was not computed, FAIL" << endl;
     out.close();
     exit(0);
@@ -1547,7 +1533,6 @@ void write_accuracy_inequalities(string s, map<string,string>& prob_map, set<str
       seen.insert(prob_map[inp_str+" "+out_str]);
     }
 
-  #define BETTER_BOUNDS false
   // If[Resolve[ForAll[eps,eps > 0,(map) >= 1 - beta
   out << "If[Resolve[ForAll[eps, eps > 0, (";
   out << "(" << prob_map[inp_str+" "+out_str] << ") \\[GreaterEqual] (1 - ";
@@ -1569,7 +1554,6 @@ void write_accuracy_inequalities(string s, map<string,string>& prob_map, set<str
   out << beta_str << ")), eps, Reals]]";
   // out << "; Exit[])]" << endl;
   out << "; Null)]" << endl;
-
 	out.close();
 }
 
@@ -1602,11 +1586,15 @@ int main(int argc, char** argv)
 	out.close();
 	out.open("master.log", ios::out);
 	out.close();
-  // make a set of string inputs based on contents of adjacency relation
+  // make a set of string inputs based on contents of adjacency
+  // relation, OR, based on io_table.txt
 	set<string> inputs;
-	generateInputList(inputs, "adjacency");
+  if (DIFF_PRIVACY) {
+    generateInputList(inputs, "adjacency");
+  } else if (ACCURACY) {
+    generateInputList(inputs, "io_table.txt");
+  }
   // inspect inputs
-  #define DEBUG_INPUT_LIST true
   if(DEBUG_INPUT_LIST) {
     cout << "DEBUG_INPUT_LIST" << "\n";
 		for(set<string>::iterator j = inputs.begin();j!=inputs.end();j++) {
@@ -1622,7 +1610,6 @@ int main(int argc, char** argv)
   // doing so.
 	string ret_type = evaluateWithInputs(inputs, pgmTokens, order, prob_map, results, intgr_cmds);
   // inspect prob_map
-  #define DEBUG_PROB_MAP true
   if(DEBUG_PROB_MAP) {
     cout << "DEBUG_PROB_MAP" << "\n";
 		for(map<string,string>::iterator j = prob_map.begin();j!=prob_map.end();j++) {
@@ -1631,7 +1618,6 @@ int main(int argc, char** argv)
   }
   // inspect prob_map
   // inspect results
-  #define DEBUG_RESULTS true
   if(DEBUG_RESULTS) {
     cout << "DEBUG_RESULTS" << "\n";
 		for(set<string>::iterator j = results.begin();j!=results.end();j++) {
@@ -1647,9 +1633,7 @@ int main(int argc, char** argv)
 	set<string> seen;
 	set<string> written_vars;
 
-  #define ACCURACY true
-  #define DIFF_PRIVACY true
-  if(DIFF_PRIVACY)
+  if (DIFF_PRIVACY)
     {
       ifstream in;
       in.open("adjacency", ios::in);
@@ -1670,23 +1654,21 @@ int main(int argc, char** argv)
         }
       in.close();
     }
-  if(ACCURACY)
-    {
-      out.open("math_script.wl", ios::app);
-      out << "(* What follows pertains to accuracy *)" << endl;
-      out.close();
-      ifstream io_table;
-      io_table.open("./ocaml/io_table.txt", ios::in);
-      int i=0;
-      string s;
-      while(getline(io_table,s))
-        write_accuracy_inequalities(s, prob_map, seen, results, intgr_cmds, written_vars, argv[1], eps=="0", delta, range, i++);
-      io_table.close();
-    }
+  else if (ACCURACY) {
+    out.open("math_script.wl", ios::app);
+    out << "(* What follows pertains to accuracy *)" << endl;
+    out.close();
+    ifstream io_table;
+    io_table.open("io_table.txt", ios::in);
+    int i=0;
+    string s;
+    while(getline(io_table,s))
+      write_accuracy_inequalities(s, prob_map, seen, results, intgr_cmds, written_vars, argv[1], eps=="0", delta, range, i++);
+    io_table.close();
+  }
 
 	out.open("math_script.wl", ios::app);
 	out<<"Print[val]"<<endl;
 	out<<"Exit[]"<<endl;
 	out.close();
-
 }

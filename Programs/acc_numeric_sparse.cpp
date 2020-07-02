@@ -35,11 +35,6 @@ void weaved(ofstream& out, int k, int n) {
     out<<"return one"<<";"<<endl;
     out<<"fi"<<";"<<endl;
 
-    // Exactly one is done, some check must have failed, unreachable code
-    // out<<"if done_one then"<<endl;
-    // out<<"return zero"<<";"<<endl;
-    // out<<"fi"<<";"<<endl;
-
     // Neither is done, so continue
 
     // Det
@@ -50,17 +45,50 @@ void weaved(ofstream& out, int k, int n) {
     out<<"count_det = count_det + one"<<";"<<endl;
     out<<"fi"<<";"<<endl;
 
-    // Rand (note: noisy_thresh0 must be sampled in preamble)
+    // out<<"real noisy_thresh"<<k+1<<";"<<endl;
     out<<"real noisy_q"<<k<<";"<<endl;
     out<<"noisy_q"<<k<<" = "<<"Lap \"eps / ( 9 * c )\" q"<<k<<";"<<endl;
-    out<<"compare"<<k<<"_rand = noisy_q"<<k<<" >= noisy_thresh"<<k<<";"<<endl;
+
+    // Getting around no real <- real assignments
+    out<<"use_noisy_thresh0 = count_rand == zero"<<";"<<endl;
+
+    out<<"real out"<<k<<"_rand"<<";"<<endl;
+    out<<"if use_noisy_thresh0 then"<<endl;
+    out<<"compare"<<k<<"_rand = noisy_q"<<k<<" >= noisy_thresh0"<<";"<<endl;
     out<<"if compare"<<k<<"_rand"<<" then"<<endl;
     out<<"out"<<k<<"_rand = noisy_q"<<k<<";"<<endl;
     out<<"out"<<k<<"_rand_is_bot = false"<<";"<<endl;
     out<<"count_rand = count_rand + one"<<";"<<endl;
-    out<<"real noisy_thresh"<<k+1<<";"<<endl;
-    out<<"noisy_thresh"<<k+1<<" = "<<"Lap \"( 4 * eps ) / ( 9 * c )\" thresh"<<";"<<endl;
+    // out<<"noisy_thresh"<<k+1<<" = "<<"Lap \"( 4 * eps ) / ( 9 * c )\" thresh"<<";"<<endl;
+    out<<"else"<<endl;
+    out<<"out"<<k<<"_rand = 0"<<";"<<endl;
+    // out<<"noisy_thresh"<<k+1<<" = noisy_thresh"<<k<<";"<<endl;
     out<<"fi"<<";"<<endl;
+    out<<"else"<<endl;
+    out<<"compare"<<k<<"_rand = noisy_q"<<k<<" >= noisy_thresh1"<<";"<<endl;
+    out<<"if compare"<<k<<"_rand"<<" then"<<endl;
+    out<<"out"<<k<<"_rand = noisy_q"<<k<<";"<<endl;
+    out<<"out"<<k<<"_rand_is_bot = false"<<";"<<endl;
+    out<<"count_rand = count_rand + one"<<";"<<endl;
+    // out<<"noisy_thresh"<<k+1<<" = "<<"Lap \"( 4 * eps ) / ( 9 * c )\" thresh"<<";"<<endl;
+    out<<"else"<<endl;
+    out<<"out"<<k<<"_rand = 0"<<";"<<endl;
+    // out<<"noisy_thresh"<<k+1<<" = noisy_thresh"<<k<<";"<<endl;
+    out<<"fi"<<";"<<endl;
+    out<<"fi"<<";"<<endl;
+    // End: Getting around no real <- real assignments
+
+    // out<<"compare"<<k<<"_rand = noisy_q"<<k<<" >= noisy_thresh"<<k<<";"<<endl;
+    // out<<"real out"<<k<<"_rand"<<";"<<endl;
+    // out<<"if compare"<<k<<"_rand"<<" then"<<endl;
+    // out<<"out"<<k<<"_rand = noisy_q"<<k<<";"<<endl;
+    // out<<"out"<<k<<"_rand_is_bot = false"<<";"<<endl;
+    // out<<"count_rand = count_rand + one"<<";"<<endl;
+    // out<<"noisy_thresh"<<k+1<<" = "<<"Lap \"( 4 * eps ) / ( 9 * c )\" thresh"<<";"<<endl;
+    // out<<"else"<<endl;
+    // out<<"out"<<k<<"_rand = 0"<<";"<<endl;
+    // out<<"noisy_thresh"<<k+1<<" = noisy_thresh"<<k<<";"<<endl;
+    // out<<"fi"<<";"<<endl;
 
     // Compare
     out<<"bool not_out"<<k<<"_det_is_bot"<<";"<<endl;
@@ -88,33 +116,30 @@ void weaved(ofstream& out, int k, int n) {
     out<<"bool both_are_not_bot"<<k<<";"<<endl;
     out<<"both_are_not_bot"<<k<<" = not_out"<<k<<"_det_is_bot && not_out"<<k<<"_rand_is_bot"<<";"<<endl;
 
+
+    // Ensure reals get exactly one value in each branch of execution
+    out<<"real cast_minus"<<k<<";"<<endl;
+    out<<"real cast_plus"<<k<<";"<<endl;
+
     out<<"if both_are_not_bot"<<k<<" then"<<endl;
     // Integer vs real-valued gamma
     out<<"int minus_gamma"<<k<<";"<<endl;
     out<<"minus_gamma"<<k<<" = out"<<k<<"_det - gamma"<<";"<<endl;
     out<<"int plus_gamma"<<k<<";"<<endl;
     out<<"plus_gamma"<<k<<" = out"<<k<<"_det + gamma"<<";"<<endl;
-    out<<"real cast_minus"<<k<<";"<<endl;
-    out<<"real cast_plus"<<k<<";"<<endl;
     out<<"cast_minus"<<k<<" = minus_gamma"<<k<<";"<<endl;
     out<<"cast_plus"<<k<<" = plus_gamma"<<k<<";"<<endl;
     out<<"conjunct1 = noisy_q"<<k<<" >= cast_minus"<<k<<";"<<endl;
     out<<"conjunct2 = noisy_q"<<k<<" <= cast_plus"<<k<<";"<<endl;
-
-    // out<<"real cast_det"<<k<<";"<<endl;
-    // out<<"cast_det"<<k<<" = out"<<k<<"_det"<<";"<<endl;
-    // out<<"real minus_gamma"<<k<<";"<<endl;
-    // out<<"minus_gamma"<<k<<" = cast_det"<<k<<" - gamma"<<";"<<endl;
-    // out<<"real plus_gamma"<<k<<";"<<endl;
-    // out<<"plus_gamma"<<k<<" = cast_det"<<k<<" + gamma"<<";"<<endl;
-    // out<<"conjunct1 = noisy_q"<<k<<" >= minus_gamma"<<k<<";"<<endl;
-    // out<<"conjunct2 = noisy_q"<<k<<" <= plus_gamma"<<k<<";"<<endl;
 
     out<<"conjunction = conjunct1 && conjunct2"<<";"<<endl;
     out<<"not_conjunction = ! conjunction"<<";"<<endl;
     out<<"if not_conjunction then"<<endl;
     out<<"return zero"<<";"<<endl;
     out<<"fi"<<";"<<endl;
+    out<<"else"<<endl;
+    out<<"cast_minus"<<k<<" = 0"<<";"<<endl;
+    out<<"cast_plus"<<k<<" = 0"<<";"<<endl;
     out<<"fi"<<";"<<endl;
 
     // Generate next query's code
@@ -128,12 +153,14 @@ void weaved(ofstream& out, int k, int n) {
 int main()
 {
 	int n, c, thresh, gamma;
-  // float gamma;
-	vector<int> t;
 	cout<<"Number of Queries: ";
 	cin>>n;
 	cout<<"c: ";
 	cin>>c;
+  if (c > 2 || c < 1) {
+    cout<<"c > 2 and c < 1 not supported. Exiting."<<endl;
+    return -1;
+  }
 	cout<<"Range: ";
 	int left, right;
 	cin>>left>>right;
@@ -149,19 +176,14 @@ int main()
     out<<"input int q"<<j<<" "<<left<<" "<<right<<";"<<endl;
   }
   for(int i=0;i<n;i++) {
-    // out<<"input int q"<<i<<" "<<left<<" "<<right<<";"<<endl;
     out<<"int out"<<i<<"_det"<<";"<<endl;
     out<<"out"<<i<<"_det = 0"<<";"<<endl;
-    out<<"real out"<<i<<"_rand"<<";"<<endl;
-    // out<<"out"<<i<<"_rand = 0"<<";"<<endl;
     out<<"bool out"<<i<<"_det_is_bot"<<";"<<endl;
     out<<"out"<<i<<"_det_is_bot = true"<<";"<<endl;
     out<<"bool out"<<i<<"_rand_is_bot"<<";"<<endl;
     out<<"out"<<i<<"_rand_is_bot = true"<<";"<<endl;
     out<<"bool compare"<<i<<"_det"<<";"<<endl;
     out<<"bool compare"<<i<<"_rand"<<";"<<endl;
-    // out<<"real noisy_thresh"<<i<<";"<<endl;
-    // out<<"real noisy_q"<<i<<";"<<endl;
   }
   out<<endl;
   out<<"int one"<<";"<<endl;
@@ -189,11 +211,14 @@ int main()
   out<<"bool not_conjunction"<<";"<<endl;
   out<<"int thresh"<<";"<<endl;
   out<<"thresh = "<<thresh<<";"<<endl;
-  // out<<"real gamma"<<";"<<endl;
   out<<"int gamma"<<";"<<endl;
   out<<"gamma = "<<gamma<<";"<<endl;
   out<<"real noisy_thresh0"<<";"<<endl;
   out<<"noisy_thresh0 = "<<"Lap \"( 4 * eps ) / ( 9 * c )\" thresh"<<";"<<endl;
+  out<<"bool use_noisy_thresh0"<<";"<<endl;
+  out<<"use_noisy_thresh0 = true"<<";"<<endl;
+  out<<"real noisy_thresh1"<<";"<<endl;
+  out<<"noisy_thresh1 = "<<"Lap \"( 4 * eps ) / ( 9 * c )\" thresh"<<";"<<endl;
   weaved(out,0,n);
   out.close();
 }

@@ -1,5 +1,5 @@
 -10 10
-input int q0 -3 3;
+input int q0 -2 2;
 int out0_det;
 out0_det = 0;
 real out0_rand;
