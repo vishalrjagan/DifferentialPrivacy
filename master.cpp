@@ -8,14 +8,18 @@
 #include <cstring>
 using namespace std;
 
+// Debugging
 #define DEEP_DEBUG false
 #define DEBUG_INPUT_LIST false
 #define DEBUG_SINGLE_RESULT false
-#define BETTER_BOUNDS false
 #define DEBUG_PROB_MAP false
 #define DEBUG_RESULTS false
 #define DEBUG_TOTAL_ORDER false
 
+// Proving better-than-book accuracy bounds
+#define BETTER_BOUNDS true
+
+// Switch between proving privacy and accuracy
 #define ACCURACY true
 #define DIFF_PRIVACY false
 
@@ -1509,7 +1513,7 @@ void optimal_generateInequalities(string s, map<string,string>& prob_map, set<st
 	out.close();
 }
 
-void write_accuracy_inequalities(string s, map<string,string>& prob_map, set<string>& seen, set<string>& results, map<string, string>& intgr_cmds, set<string>& written_vars, char* frac, bool eps_var, string delta, string range, int num) {
+void write_accuracy_inequalities(string s, map<string,string>& prob_map, set<string>& seen, map<string, string>& intgr_cmds, set<string>& written_vars, string boundfactor) {
 	ofstream out;
 	out.open("math_script.wl", ios::app);
   // substr includes start and excludes end
@@ -1537,7 +1541,7 @@ void write_accuracy_inequalities(string s, map<string,string>& prob_map, set<str
   out << "If[Resolve[ForAll[eps, eps > 0, (";
   out << "(" << prob_map[inp_str+" "+out_str] << ") \\[GreaterEqual] (1 - ";
   if (BETTER_BOUNDS) {
-    out << "(2/3)*";
+    out << "(" << boundfactor << ")*";
   }
   out << beta_str << "))]]";
 
@@ -1549,7 +1553,7 @@ void write_accuracy_inequalities(string s, map<string,string>& prob_map, set<str
   out << "; Print[FindInstance[(eps > 0 && ";
   out << prob_map[inp_str+" "+out_str] << " < (1 - ";
   if (BETTER_BOUNDS) {
-    out << "(2/3)*";
+    out << "(" << boundfactor << ")*";
   }
   out << beta_str << ")), eps, Reals]]";
   // out << "; Exit[])]" << endl;
@@ -1564,6 +1568,7 @@ int main(int argc, char** argv)
 	string delta(argv[3]);
 	string range(argv[4]);
 	string approach(argv[5]);
+  string boundfactor(argv[6]);
 	string pgm;
 	cout<<"!"<<endl;
 	int t;
@@ -1663,7 +1668,7 @@ int main(int argc, char** argv)
     int i=0;
     string s;
     while(getline(io_table,s))
-      write_accuracy_inequalities(s, prob_map, seen, results, intgr_cmds, written_vars, argv[1], eps=="0", delta, range, i++);
+      write_accuracy_inequalities(s, prob_map, seen, intgr_cmds, written_vars, boundfactor);
     io_table.close();
   }
 

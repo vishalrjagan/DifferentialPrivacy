@@ -207,9 +207,9 @@ let write_table_to_file
     (fun inp (out,du,alphaGamma,compare,beta_string) ->
        let input_string = int_list_to_string " " inp in
        let output_string = int_list_to_string ";" out in
-       let du_string = string_of_int du in
-       let alphaGamma_string = string_of_int alphaGamma in
-       let compare_string = string_of_bool compare in
+       (* let du_string = string_of_int du in
+        * let alphaGamma_string = string_of_int alphaGamma in
+        * let compare_string = string_of_bool compare in *)
        (* Hacking: omit lines that won't be checked *)
        if compare && (du <= alphaGamma)
        then ()

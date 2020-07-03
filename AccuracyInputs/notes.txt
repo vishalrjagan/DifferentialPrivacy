@@ -1,0 +1,11 @@
+1. svt1-6 are like sparse but they reuse a single noisy threshold. May
+need to rewrite these to match Sparse. Or perhaps this is a chance to
+prove inaccuracy. If these verify, it still doesn't prove a general
+claim about the algorithm because we're only testing finite set of
+inputs.
+
+2. svt7 is the Sparse algorithm of Dwork and Roth 3. nmax5 comes from
+a paper. Does success for this one imply success for the less private
+(possibly more accurate) svt1-6?
+
+3. Where is the noisy max beta expression coming from?
