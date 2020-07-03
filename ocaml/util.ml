@@ -145,7 +145,9 @@ let dus_noisy_max
 (* compute beta (as Math. string) for the noisy max algorithm *)
 let beta_noisy_max_expression
     (n_queries:int) (du:int) : string =
-  (string_of_int n_queries)^"/(Exp[eps*"^(string_of_int du)^"/4])"
+  let du_s = string_of_int du in
+  let correct_du_s = "("^du_s^"/2)" in
+  (string_of_int n_queries)^"/(Exp[eps*"^correct_du_s^"/2])"
 
 let betas_noisy_max
     (alphaGamma:int)
@@ -211,7 +213,7 @@ let write_table_to_file
         * let alphaGamma_string = string_of_int alphaGamma in
         * let compare_string = string_of_bool compare in *)
        (* Hacking: omit lines that won't be checked *)
-       if compare && (du <= alphaGamma)
+       if compare && (du < alphaGamma)
        then ()
        else
          Printf.fprintf oc (format_of_string "%s > %s @ %s\n")
@@ -254,11 +256,39 @@ let generate_io_table_numeric_sparse
   let t_beta = betas_numeric_sparse alphaGamma true c t_dus in
   write_table_to_file file t_beta
 
+(* Laplace *)
+let laplace (inp:base) : base = [1]
+
+let beta_laplace_expression
+    (n_queries:int)
+    (gamma:int) : string =
+  (string_of_int n_queries)^"/(Exp[eps*"^(string_of_int gamma)^"])"
+
+let betas_laplace
+    (gamma:int)
+    (tab:base Table.t)
+  : (base*int*int*bool*string) Table.t =
+  Table.mapi
+    (fun inp out ->
+       (out,-1,gamma,false,
+        beta_laplace_expression (List.length inp) gamma)) tab
+
+let generate_io_table_laplace
+    ?(file:string = "io_table.txt")
+    ~range:(range:int*int)
+    ~n_queries:(n_queries:int)
+    ?(gamma:int = 1)
+    () : unit =
+  let t = make_table range n_queries laplace in
+  let t_beta = betas_laplace gamma t in
+  write_table_to_file file t_beta
+
+
 let main () =
   let args = Sys.argv in
 
-  if Array.length args <> 7 then
-    failwith "Expect six arguments";
+  if Array.length args <> 8 then
+    failwith "Expect seven arguments";
 
   let int_args = Stdlib.Array.mapi
       (fun i elt ->
@@ -267,7 +297,8 @@ let main () =
   let example_type = int_args.(1) in
   assert(example_type = 0 ||
          example_type = 1 ||
-         example_type = 2);
+         example_type = 2 ||
+         example_type = 3);
   let numq = int_args.(2) in
   assert(numq>=1);
   let range = int_args.(3) in
@@ -278,6 +309,8 @@ let main () =
   assert(thresh>=0);
   let alpha = int_args.(6) in
   assert(alpha>=0);
+  let gamma = int_args.(7) in
+  assert(gamma>=0);
 
   (* Sparse *)
   if example_type = 0 then
@@ -298,7 +331,6 @@ let main () =
       ~c:c
       ()
 
-
   (* Noisy max *)
   else if example_type = 2 then
     generate_io_table_noisy_max
@@ -306,66 +338,15 @@ let main () =
       ~n_queries:numq
       ()
 
+  (* Laplace mechanism *)
+  else if example_type = 3 then
+    generate_io_table_laplace
+      ~range:(-range,range)
+      ~n_queries:numq
+      ~gamma:gamma
+      ()
+
   else
     failwith "Unsupported example type"
 
 let _ = main ()
-
-
-(* OLD -------------------------------------------------- *)
-
-(* (\* each position must differ by no more than 1 *\)
- * let compare (v1:int list) (v2:int list) : bool =
- *   List.for_all2 (fun a b -> abs (a-b) <= 1) v1 v2
- *
- * (\* du(x,y) = norm_l_infinity(x-y) *\)
- * let du_above_threshold (x:int list) (y:int list) : int =
- *   assert(List.length x = List.length y);
- *   let z = List.map2 (fun xi yi -> abs (xi-yi)) x y in
- *   List.fold_left (fun acc zi -> if zi > acc then zi else acc) 0 z
- *
- * (\* deterministic numeric sparse AT algorithm *\)
- * let numeric_sparse (thresh:int) (c:int) (inp:int list) : int list =
- *   let rec help l (cnt,res) =
- *     match l with
- *     | [] -> (cnt,res)
- *     | x::xs ->
- *       if (x >= thresh && cnt < c) then
- *         help xs (cnt+1, x::res)
- *       else
- *         help xs (cnt, 0::res) in (\* careful assuming \bot=0 *\)
- *   let rev_out = snd @@ help inp (0,[]) in
- *   List.rev rev_out *)
-
-(* let get_closest
- *     (du:dist)
- *     (tab:table)
- *     (u,v:int list*int list) : int list =
- *   let io = Table.bindings tab in
- *   let disequals = List.filter
- *       (fun (inp,out) -> out <> v) io in
- *   let u_sorted = List.sort
- *       (fun (inp1,_) (inp2,_) ->
- *          Stdlib.compare (du u inp1) (du u inp2)) disequals in
- *   match u_sorted with
- *   | [] -> failwith "No disequal inputs, reconsider your input ranges,
- *     etc."
- *   | (inp,out)::xs -> inp
- *
- * (\* Determine alphas for given inputs based on distance metric for
- *    input space. That is, for u\in U, find a v\in U with minimal
- *    du(u,v) s.t. f(u)\neq f(v). Build a table from inputs to pairs of
- *    output and alpha. *\)
- * let alphas
- *     (tab:table)
- *     (\* (left,right:int*int)
- *      * (n_query:int) *\)
- *     (\* (u:int list) *\)
- *     (du:dist)
- * (\* (f:f_det) : int = *\)
- *   : (base*int) Table.t =
- *   Table.mapi
- *     (fun inp out ->
- *        let inp_close = get_closest du tab (inp,out) in
- *        let alpha = du inp inp_close in
- *        (out,alpha)) tab *)

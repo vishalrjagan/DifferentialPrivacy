@@ -1,3 +1,12 @@
+input_1_svt1.txt,	0s,	0s,	0,	 11s,	 17
+input_2_svt1.txt,	0s,	0s,	0,	 44s,	 28
+input_2_svt1_c2.txt,	0s,	0s,	0,	 72s,	 38
+input_3_svt1.txt,	0s,	0s,	0,	 99s,	 51
+input_3_svt1_c2.txt,	0s,	0s,	0,	 217s,	 67
+input_3_svt2.txt,	0s,	0s,	0,	 98s,	 51
+input_4_svt1.txt,	0s,	1s,	0,	 199s,	 110
+input_4_svt1_c2.txt,	0s,	1s,	0,	 462s,	 132
+
 input_1_svt1.txt
 OK
 P(0|-1) >= 1 - beta

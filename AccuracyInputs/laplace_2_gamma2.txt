@@ -1,0 +1,66 @@
+-10 10
+input int q0 -1 1;
+input int q1 -1 1;
+
+int one;
+one = 1;
+int zero;
+zero = 0;
+
+real noisy_q0;
+noisy_q0 = Lap "eps" q0;
+real noisy_q1;
+noisy_q1 = Lap "eps" q1;
+
+int gamma;
+gamma = 2;
+
+int plus0_gamma;
+int minus0_gamma;
+
+plus0_gamma = q0 + gamma;
+minus0_gamma = q0 - gamma;
+real cast_plus0;
+cast_plus0 = plus0_gamma;
+real cast_minus0;
+cast_minus0 = minus0_gamma;
+
+bool within_gamma_ball;
+bool le_plus;
+bool ge_minus;
+le_plus = noisy_q0 <= cast_plus0;
+ge_minus = cast_minus0 <= noisy_q0;
+
+within_gamma_ball = le_plus && ge_minus;
+bool not_within_gamma_ball;
+not_within_gamma_ball = ! within_gamma_ball;
+
+if not_within_gamma_ball then
+
+return zero;
+
+fi;
+
+int plus1_gamma;
+int minus1_gamma;
+
+plus1_gamma = q1 + gamma;
+minus1_gamma = q1 - gamma;
+real cast_plus1;
+cast_plus1 = plus1_gamma;
+real cast_minus1;
+cast_minus1 = minus1_gamma;
+
+le_plus = noisy_q1 <= cast_plus1;
+ge_minus = cast_minus1 <= noisy_q1;
+
+within_gamma_ball = le_plus && ge_minus;
+not_within_gamma_ball = ! within_gamma_ball;
+
+if not_within_gamma_ball then
+
+return zero;
+
+fi;
+
+return one;

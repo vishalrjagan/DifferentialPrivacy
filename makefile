@@ -29,13 +29,13 @@ clean:
 	@ rm -rf io_table.txt
 	@ rm -rf ./ocaml/*.out
 
-alpha_beta: alpha_beta.cpp
-	@ echo "Compiling alpha_beta.cpp..."
-	@ g++ --std=c++11 alpha_beta.cpp -o alpha_beta.out
+# alpha_beta: alpha_beta.cpp
+# 	@ echo "Compiling alpha_beta.cpp..."
+# 	@ g++ --std=c++11 alpha_beta.cpp -o alpha_beta.out
 
-deterministic_functions: deterministic_functions.cpp
-	@ echo "Compiling deterministic_functions.cpp..."
-	@ g++ --std=c++11 deterministic_functions.cpp -o deterministic_functions.out
+# deterministic_functions: deterministic_functions.cpp
+# 	@ echo "Compiling deterministic_functions.cpp..."
+# 	@ g++ --std=c++11 deterministic_functions.cpp -o deterministic_functions.out
 
 master: master.cpp
 	@ echo "Compiling master.cpp..."
@@ -111,10 +111,22 @@ RANGEWIDTH?=2
 C?=1
 THRESH?=0
 ALPHA?=1
+GAMMA?=1
 BOUNDFACTOR?=1
 PWD=$(shell pwd)
 
 # Rules
+acc_install:
+	rm -rf io_table.txt
+	rm -rf output.txt
+	rm -rf math_script.wl
+	rm -rf *.out
+	rm -rf ./ocaml/*.out
+	rm -rf master.err
+	rm -rf master.log
+	ocamlopt -o ./ocaml/util.out ./ocaml/util.ml
+	g++ --std=c++11 topological_sort.cpp master.cpp -o master.out
+
 acc_install_silent:
 	@ rm -rf io_table.txt
 	@ rm -rf output.txt
@@ -126,7 +138,12 @@ acc_install_silent:
 	@ ocamlopt -o ./ocaml/util.out ./ocaml/util.ml
 	@ g++ --std=c++11 topological_sort.cpp master.cpp -o master.out
 
+acc: acc_start acc_io acc_script acc_result
+
 acc_silent: acc_start_silent acc_io_silent acc_script_silent acc_result_silent
+
+acc_start:
+	echo -n "$(INPUT),\t"
 
 acc_start_silent:
 	@ echo -n "$(INPUT),\t"
@@ -134,11 +151,23 @@ acc_start_silent:
 acc_util_silent:
 	@ ocamlopt -o ./ocaml/util.out ./ocaml/util.ml
 
+acc_io:
+	start=$$(date +%s); ./ocaml/util.out $(TYPE) $(NUMQ) $(RANGEWIDTH) $(C) $(THRESH) $(ALPHA) $(GAMMA) && echo -n "$$((($$(date +%s)-start)))s,\t"
+
 acc_io_silent:
-	@ start=$$(date +%s); ./ocaml/util.out $(TYPE) $(NUMQ) $(RANGEWIDTH) $(C) $(THRESH) $(ALPHA) && echo -n "$$((($$(date +%s)-start)))s,\t"
+	@ start=$$(date +%s); ./ocaml/util.out $(TYPE) $(NUMQ) $(RANGEWIDTH) $(C) $(THRESH) $(ALPHA) $(GAMMA) && echo -n "$$((($$(date +%s)-start)))s,\t"
+
+acc_script:
+	start=$$(date +%s); ./master.out $(FRAC) $(EPS) $(DELTA) "$(RANGE)" $(APPROACH) $(BOUNDFACTOR) <AccuracyInputs/$(INPUT) >master.log 2>master.err && echo -n "$$((($$(date +%s)-start)))s,\t"
 
 acc_script_silent:
 	@ start=$$(date +%s); ./master.out $(FRAC) $(EPS) $(DELTA) "$(RANGE)" $(APPROACH) $(BOUNDFACTOR) <AccuracyInputs/$(INPUT) >master.log 2>master.err && echo -n "$$((($$(date +%s)-start)))s,\t"
+
+acc_result:
+	echo $(INPUT) >>acc_all_bin.txt
+	start=$$(date +%s); wolfram -script math_script.wl >acc_bin.txt; grep -Fq "True" acc_bin.txt; echo "$$?,\t $$((($$(date +%s)-start)))s,\t $$(wc -l < math_script.wl)"
+	cat acc_bin.txt >>acc_all_bin.txt
+	echo "-----------------------------------------------------------------------------------------" >>acc_all_bin.txt
 
 acc_result_silent:
 	@ echo $(INPUT) >>acc_all_bin.txt
