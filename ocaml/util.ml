@@ -41,11 +41,11 @@ let sparse (thresh:int) (c:int) (inp:base) : base =
 
 (* compute beta (as Math. string) for the sparse algorithm *)
 let beta_sparse_expression
-    (c:int) (k:int) (du:int) : string =
+    (c:int) (k:int) (du:int) (factor:string) : string =
   let cs = string_of_int c in
   let ks = string_of_int k in
   let du_s = string_of_int du in
-  "(2*"^cs^") / (Exp[(eps*"^du_s^" / (8*"^cs^")) - Log["^ks^"]])"
+  "("^factor^")*("^"(2*"^cs^"*"^ks^") / (Exp[(eps*"^du_s^" / (8*"^cs^"))]))"
 
 (* Custom function for du (i.e. sufficient alpha) of discrete inputs
    for sparse *)
@@ -83,6 +83,7 @@ let dus_sparse
 (* Here 'beta' should be specialized to take float to float *)
 let betas_sparse
     (alphaGamma:int)
+    (factor:string)
     (compare:bool)
     (c:int)
     (thresh:int)
@@ -92,7 +93,7 @@ let betas_sparse
     (fun inp (out,du) ->
        (out,du,alphaGamma,false,
         beta_sparse_expression c (List.length inp)
-          (du_sparse inp thresh c))) tab
+          (du_sparse inp thresh c) factor)) tab
 
 
 (* NOISY MAX *)
@@ -144,20 +145,21 @@ let dus_noisy_max
 
 (* compute beta (as Math. string) for the noisy max algorithm *)
 let beta_noisy_max_expression
-    (n_queries:int) (du:int) : string =
+    (n_queries:int) (du:int) (factor:string) : string =
   let du_s = string_of_int du in
   let correct_du_s = "("^du_s^"/2)" in
-  (string_of_int n_queries)^"/(Exp[eps*"^correct_du_s^"/2])"
+  "("^factor^")*("^(string_of_int n_queries)^" / (Exp[eps*"^correct_du_s^"/2]))"
 
 let betas_noisy_max
     (alphaGamma:int)
+    (factor:string)
     (compare:bool)
     (tab:(base*int) Table.t)
   : (base*int*int*bool*string) Table.t =
   Table.mapi
     (fun inp (out,du) ->
        (out,du,alphaGamma,compare,
-        beta_noisy_max_expression (List.length inp) du)) tab
+        beta_noisy_max_expression (List.length inp) du factor)) tab
 
 
 (* NUMERIC SPARSE *)
@@ -167,10 +169,10 @@ let numeric_sparse
   [1]
 
 let beta_numeric_sparse_expression
-    (c:int) (k:int) (alpha:int) : string =
+    (c:int) (k:int) (alpha:int) (factor:string) : string =
   let c_str,k_str = string_of_int c,string_of_int k in
   let alpha_str = string_of_int alpha in
-  "("^k_str^"*4*"^c_str^")/(Exp[("^alpha_str^"*eps)/(9*"^c_str^")])"
+  "("^factor^")*(("^k_str^"*4*"^c_str^") / (Exp[("^alpha_str^"*eps)/(9*"^c_str^")]))"
 
 let du_numeric_sparse = du_sparse
 
@@ -185,6 +187,7 @@ let dus_numeric_sparse
 
 let betas_numeric_sparse
     (alphaGamma:int)
+    (factor:string)
     (compare:bool)
     (c:int)
     (tab:(base*int) Table.t)
@@ -192,7 +195,7 @@ let betas_numeric_sparse
   Table.mapi
     (fun inp (out,du) ->
        (out,du,alphaGamma,compare,
-        beta_numeric_sparse_expression c (List.length inp) alphaGamma)) tab
+        beta_numeric_sparse_expression c (List.length inp) alphaGamma factor)) tab
 
 
 (* GENERAL *)
@@ -226,20 +229,22 @@ let generate_io_table_sparse
     ~n_queries:(n_queries:int)
     ?(thresh:int = 0)
     ~c:(c:int)
+    ~factor:(factor:string)
     () : unit =
   let t = make_table range n_queries (sparse thresh c) in
   let t_dus = dus_sparse thresh c t in
-  let t_beta = betas_sparse 0 false c thresh t_dus in
+  let t_beta = betas_sparse 0 factor false c thresh t_dus in
   write_table_to_file file t_beta
 
 let generate_io_table_noisy_max
     ?(file:string = "io_table.txt")
     ~range:(range:int*int)
     ~n_queries:(n_queries:int)
+    ~factor:(factor:string)
     () : unit =
   let t = make_table range n_queries noisy_max in
   let t_dus = dus_noisy_max t in
-  let t_beta = betas_noisy_max 0 false t_dus in
+  let t_beta = betas_noisy_max 0 factor false t_dus in
   write_table_to_file file t_beta
 
 (* Need a separate parameter for alpha=gamma, since du is always calculated *)
@@ -250,10 +255,11 @@ let generate_io_table_numeric_sparse
     ?(thresh:int = 0) (* UNUSED because of hack *)
     ?(alphaGamma:int = 1)
     ~c:(c:int)
+    ~factor:(factor:string)
     () : unit =
   let t = make_table range n_queries numeric_sparse in
   let t_dus = dus_numeric_sparse thresh c t in
-  let t_beta = betas_numeric_sparse alphaGamma true c t_dus in
+  let t_beta = betas_numeric_sparse alphaGamma factor true c t_dus in
   write_table_to_file file t_beta
 
 (* Laplace *)
@@ -261,39 +267,43 @@ let laplace (inp:base) : base = [1]
 
 let beta_laplace_expression
     (n_queries:int)
-    (gamma:int) : string =
-  (string_of_int n_queries)^"/(Exp[eps*"^(string_of_int gamma)^"])"
+    (gamma:int)
+    (factor:string): string =
+  "("^factor^")*("^(string_of_int n_queries)^"/(Exp[eps*"^(string_of_int gamma)^"]))"
 
 let betas_laplace
     (gamma:int)
+    (factor:string)
     (tab:base Table.t)
   : (base*int*int*bool*string) Table.t =
   Table.mapi
     (fun inp out ->
        (out,-1,gamma,false,
-        beta_laplace_expression (List.length inp) gamma)) tab
+        beta_laplace_expression (List.length inp) gamma factor)) tab
 
 let generate_io_table_laplace
     ?(file:string = "io_table.txt")
     ~range:(range:int*int)
     ~n_queries:(n_queries:int)
     ?(gamma:int = 1)
+    ~factor:(factor:string)
     () : unit =
   let t = make_table range n_queries laplace in
-  let t_beta = betas_laplace gamma t in
+  let t_beta = betas_laplace gamma factor t in
   write_table_to_file file t_beta
 
 
 let main () =
   let args = Sys.argv in
 
-  if Array.length args <> 8 then
-    failwith "Expect seven arguments";
+  if Array.length args <> 9 then
+    failwith "Expect 8 arguments";
 
   let int_args = Stdlib.Array.mapi
       (fun i elt ->
-         if i <> 0 then int_of_string elt
+         if i <> 0 && i <> 8 then int_of_string elt
          else -1) args in
+  let factor = args.(8) in
   let example_type = int_args.(1) in
   assert(example_type = 0 ||
          example_type = 1 ||
@@ -319,6 +329,7 @@ let main () =
       ~n_queries:numq
       ~thresh:thresh
       ~c:c
+      ~factor:factor
       ()
 
   (* Numeric sparse *)
@@ -329,6 +340,7 @@ let main () =
       ~thresh:thresh
       ~alphaGamma:alpha
       ~c:c
+      ~factor:factor
       ()
 
   (* Noisy max *)
@@ -336,6 +348,7 @@ let main () =
     generate_io_table_noisy_max
       ~range:(-range,range)
       ~n_queries:numq
+      ~factor:factor
       ()
 
   (* Laplace mechanism *)
@@ -344,6 +357,7 @@ let main () =
       ~range:(-range,range)
       ~n_queries:numq
       ~gamma:gamma
+      ~factor:factor
       ()
 
   else

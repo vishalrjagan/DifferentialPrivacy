@@ -16,8 +16,8 @@ using namespace std;
 #define DEBUG_RESULTS false
 #define DEBUG_TOTAL_ORDER false
 
-// Proving better-than-book accuracy bounds
-#define BETTER_BOUNDS true
+// Better-than-book accuracy bounds
+// #define BETTER_BOUNDS true
 
 // Switch between proving privacy and accuracy
 #define ACCURACY true
@@ -1513,7 +1513,7 @@ void optimal_generateInequalities(string s, map<string,string>& prob_map, set<st
 	out.close();
 }
 
-void write_accuracy_inequalities(string s, map<string,string>& prob_map, set<string>& seen, map<string, string>& intgr_cmds, set<string>& written_vars, string boundfactor) {
+void write_accuracy_inequalities(string s, map<string,string>& prob_map, set<string>& seen, map<string, string>& intgr_cmds, set<string>& written_vars) {
 	ofstream out;
 	out.open("math_script.wl", ios::app);
   // substr includes start and excludes end
@@ -1540,9 +1540,9 @@ void write_accuracy_inequalities(string s, map<string,string>& prob_map, set<str
   // If[Resolve[ForAll[eps,eps > 0,(map) >= 1 - beta
   out << "If[Resolve[ForAll[eps, eps > 0, (";
   out << "(" << prob_map[inp_str+" "+out_str] << ") \\[GreaterEqual] (1 - ";
-  if (BETTER_BOUNDS) {
-    out << "(" << boundfactor << ")*";
-  }
+  // if (BETTER_BOUNDS) {
+  //   out << "(" << boundfactor << ")*";
+  // }
   out << beta_str << "))]]";
 
   out << ",Print[\"OK\"]";
@@ -1552,9 +1552,9 @@ void write_accuracy_inequalities(string s, map<string,string>& prob_map, set<str
   out << "; Print[\"P("+out_str+"|"+inp_str+") < beta\"]";
   out << "; Print[FindInstance[(eps > 0 && ";
   out << prob_map[inp_str+" "+out_str] << " < (1 - ";
-  if (BETTER_BOUNDS) {
-    out << "(" << boundfactor << ")*";
-  }
+  // if (BETTER_BOUNDS) {
+  //   out << "(" << boundfactor << ")*";
+  // }
   out << beta_str << ")), eps, Reals]]";
   // out << "; Exit[])]" << endl;
   out << "; Null)]" << endl;
@@ -1568,7 +1568,7 @@ int main(int argc, char** argv)
 	string delta(argv[3]);
 	string range(argv[4]);
 	string approach(argv[5]);
-  string boundfactor(argv[6]);
+  // string boundfactor(argv[6]);
 	string pgm;
 	cout<<"!"<<endl;
 	int t;
@@ -1668,7 +1668,7 @@ int main(int argc, char** argv)
     int i=0;
     string s;
     while(getline(io_table,s))
-      write_accuracy_inequalities(s, prob_map, seen, intgr_cmds, written_vars, boundfactor);
+      write_accuracy_inequalities(s, prob_map, seen, intgr_cmds, written_vars);
     io_table.close();
   }
 

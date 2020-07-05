@@ -1,0 +1,180 @@
+-5 5
+input int q0 -1 1;
+input int q1 -1 1;
+input int q2 -1 1;
+input int q3 -1 1;
+int t0;
+t0 = 0;
+int t1;
+t1 = 0;
+int t2;
+t2 = 0;
+int t3;
+t3 = 0;
+int c;
+c = 2;
+int del;
+del = 1;
+bool b;
+bool out0;
+out0 = false;
+q0 = q0 - t0;
+bool out1;
+out1 = false;
+q1 = q1 - t1;
+bool out2;
+out2 = false;
+q2 = q2 - t2;
+bool out3;
+out3 = false;
+q3 = q3 - t3;
+int one;
+one = 1;
+int zero;
+zero = 0;
+int count;
+count = 0;
+real rhs0;
+rhs0 = Lap "eps / ( 2 * c * del )" zero;
+real lhs0;
+lhs0 = Lap "eps / ( 4 * c * del )" q0;
+out0 = lhs0 >= rhs0;
+if out0 then
+count = count + one;
+b = count >= c;
+if b then return out0 out1 out2 out3; fi;
+real rhs1;
+rhs1 = Lap "eps / ( 2 * c * del )" zero;
+real lhs1;
+lhs1 = Lap "eps / ( 4 * c * del )" q1;
+out1 = lhs1 >= rhs1;
+if out1 then
+count = count + one;
+b = count >= c;
+if b then return out0 out1 out2 out3; fi;
+real rhs2;
+rhs2 = Lap "eps / ( 2 * c * del )" zero;
+real lhs2;
+lhs2 = Lap "eps / ( 4 * c * del )" q2;
+out2 = lhs2 >= rhs2;
+if out2 then
+count = count + one;
+b = count >= c;
+if b then return out0 out1 out2 out3; fi;
+real rhs3;
+rhs3 = Lap "eps / ( 2 * c * del )" zero;
+real lhs3;
+lhs3 = Lap "eps / ( 4 * c * del )" q3;
+out3 = lhs3 >= rhs3;
+if out3 then
+count = count + one;
+b = count >= c;
+if b then return out0 out1 out2 out3; fi;
+fi;
+else 
+real lhs3;
+lhs3 = Lap "eps / ( 4 * c * del )" q3;
+out3 = lhs3 >= rhs2;
+if out3 then
+count = count + one;
+b = count >= c;
+if b then return out0 out1 out2 out3; fi;
+fi;
+fi;
+else 
+real lhs2;
+lhs2 = Lap "eps / ( 4 * c * del )" q2;
+out2 = lhs2 >= rhs1;
+if out2 then
+count = count + one;
+b = count >= c;
+if b then return out0 out1 out2 out3; fi;
+real rhs2;
+rhs2 = Lap "eps / ( 2 * c * del )" zero;
+real lhs3;
+lhs3 = Lap "eps / ( 4 * c * del )" q3;
+out3 = lhs3 >= rhs2;
+if out3 then
+count = count + one;
+b = count >= c;
+if b then return out0 out1 out2 out3; fi;
+fi;
+else 
+real lhs3;
+lhs3 = Lap "eps / ( 4 * c * del )" q3;
+out3 = lhs3 >= rhs1;
+if out3 then
+count = count + one;
+b = count >= c;
+if b then return out0 out1 out2 out3; fi;
+fi;
+fi;
+fi;
+else 
+real lhs1;
+lhs1 = Lap "eps / ( 4 * c * del )" q1;
+out1 = lhs1 >= rhs0;
+if out1 then
+count = count + one;
+b = count >= c;
+if b then return out0 out1 out2 out3; fi;
+real rhs1;
+rhs1 = Lap "eps / ( 2 * c * del )" zero;
+real lhs2;
+lhs2 = Lap "eps / ( 4 * c * del )" q2;
+out2 = lhs2 >= rhs1;
+if out2 then
+count = count + one;
+b = count >= c;
+if b then return out0 out1 out2 out3; fi;
+real rhs2;
+rhs2 = Lap "eps / ( 2 * c * del )" zero;
+real lhs3;
+lhs3 = Lap "eps / ( 4 * c * del )" q3;
+out3 = lhs3 >= rhs2;
+if out3 then
+count = count + one;
+b = count >= c;
+if b then return out0 out1 out2 out3; fi;
+fi;
+else 
+real lhs3;
+lhs3 = Lap "eps / ( 4 * c * del )" q3;
+out3 = lhs3 >= rhs1;
+if out3 then
+count = count + one;
+b = count >= c;
+if b then return out0 out1 out2 out3; fi;
+fi;
+fi;
+else 
+real lhs2;
+lhs2 = Lap "eps / ( 4 * c * del )" q2;
+out2 = lhs2 >= rhs0;
+if out2 then
+count = count + one;
+b = count >= c;
+if b then return out0 out1 out2 out3; fi;
+real rhs1;
+rhs1 = Lap "eps / ( 2 * c * del )" zero;
+real lhs3;
+lhs3 = Lap "eps / ( 4 * c * del )" q3;
+out3 = lhs3 >= rhs1;
+if out3 then
+count = count + one;
+b = count >= c;
+if b then return out0 out1 out2 out3; fi;
+fi;
+else 
+real lhs3;
+lhs3 = Lap "eps / ( 4 * c * del )" q3;
+out3 = lhs3 >= rhs0;
+if out3 then
+count = count + one;
+b = count >= c;
+if b then return out0 out1 out2 out3; fi;
+fi;
+fi;
+fi;
+fi;
+return out0 out1 out2 out3; fi;

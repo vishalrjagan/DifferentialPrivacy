@@ -1,1783 +1,379 @@
 HAHA:1:HAHA
--1 -1 -1 -1 0;0;0;0|
-((assgn19+assgn19+assgn19+assgn19+assgn19+assgn19+assgn19+assgn19+assgn19+assgn19+assgn19+assgn19+assgn19+assgn19+assgn19+assgn19+assgn19+assgn19+assgn19+assgn19+assgn19+assgn19+assgn19+assgn19))
--1 -1 -1 -1 0;0;0;1|
-((assgn13+assgn13+assgn13+assgn13+assgn13+assgn13))
--1 -1 -1 -1 0;0;1;0|
-((assgn13+assgn13+assgn13+assgn13+assgn13+assgn13))
--1 -1 -1 -1 0;0;1;1|
-((assgn8+assgn8+assgn8+assgn8))
--1 -1 -1 -1 0;1;0;0|
-((assgn13+assgn13+assgn13+assgn13+assgn13+assgn13))
--1 -1 -1 -1 0;1;0;1|
-((assgn8+assgn8+assgn8+assgn8))
--1 -1 -1 -1 0;1;1;0|
-((assgn6+assgn6))
--1 -1 -1 -1 1;0;0;0|
-((assgn13+assgn13+assgn13+assgn13+assgn13+assgn13))
--1 -1 -1 -1 1;0;0;1|
-((assgn8+assgn8+assgn8+assgn8))
--1 -1 -1 -1 1;0;1;0|
-((assgn6+assgn6))
--1 -1 -1 -1 1;1;0;0|
-((assgn4+assgn4))
--1 -1 -1 0 0;0;0;0|
-((assgn46+assgn49+assgn46+assgn49+assgn53+assgn53+assgn46+assgn49+assgn46+assgn49+assgn53+assgn53+assgn46+assgn49+assgn46+assgn49+assgn53+assgn53+assgn58+assgn58+assgn58+assgn58+assgn58+assgn58))
--1 -1 -1 0 0;0;0;1|
-((assgn44+assgn44+assgn44+assgn44+assgn44+assgn44))
--1 -1 -1 0 0;0;1;0|
-((assgn32+assgn35+assgn32+assgn35+assgn39+assgn39))
--1 -1 -1 0 0;0;1;1|
-((assgn24+assgn24+assgn30+assgn30))
--1 -1 -1 0 0;1;0;0|
-((assgn32+assgn35+assgn32+assgn35+assgn39+assgn39))
--1 -1 -1 0 0;1;0;1|
-((assgn24+assgn24+assgn30+assgn30))
--1 -1 -1 0 0;1;1;0|
-((assgn6+assgn6))
--1 -1 -1 0 1;0;0;0|
-((assgn32+assgn35+assgn32+assgn35+assgn39+assgn39))
--1 -1 -1 0 1;0;0;1|
-((assgn24+assgn24+assgn30+assgn30))
--1 -1 -1 0 1;0;1;0|
-((assgn6+assgn6))
--1 -1 -1 0 1;1;0;0|
-((assgn4+assgn4))
--1 -1 -1 1 0;0;0;0|
-((assgn85+assgn88+assgn85+assgn88+assgn92+assgn92+assgn85+assgn88+assgn85+assgn88+assgn92+assgn92+assgn85+assgn88+assgn85+assgn88+assgn92+assgn92+assgn97+assgn97+assgn97+assgn97+assgn97+assgn97))
--1 -1 -1 1 0;0;0;1|
-((assgn83+assgn83+assgn83+assgn83+assgn83+assgn83))
--1 -1 -1 1 0;0;1;0|
-((assgn71+assgn74+assgn71+assgn74+assgn78+assgn78))
--1 -1 -1 1 0;0;1;1|
-((assgn63+assgn63+assgn69+assgn69))
--1 -1 -1 1 0;1;0;0|
-((assgn71+assgn74+assgn71+assgn74+assgn78+assgn78))
--1 -1 -1 1 0;1;0;1|
-((assgn63+assgn63+assgn69+assgn69))
--1 -1 -1 1 0;1;1;0|
-((assgn6+assgn6))
--1 -1 -1 1 1;0;0;0|
-((assgn71+assgn74+assgn71+assgn74+assgn78+assgn78))
--1 -1 -1 1 1;0;0;1|
-((assgn63+assgn63+assgn69+assgn69))
--1 -1 -1 1 1;0;1;0|
-((assgn6+assgn6))
--1 -1 -1 1 1;1;0;0|
-((assgn4+assgn4))
--1 -1 0 -1 0;0;0;0|
-((assgn49+assgn46+assgn53+assgn53+assgn46+assgn49+assgn49+assgn46+assgn53+assgn53+assgn46+assgn49+assgn58+assgn58+assgn58+assgn58+assgn58+assgn58+assgn46+assgn49+assgn46+assgn49+assgn53+assgn53))
--1 -1 0 -1 0;0;0;1|
-((assgn32+assgn35+assgn32+assgn35+assgn39+assgn39))
--1 -1 0 -1 0;0;1;0|
-((assgn44+assgn44+assgn44+assgn44+assgn44+assgn44))
--1 -1 0 -1 0;0;1;1|
-((assgn30+assgn30+assgn24+assgn24))
--1 -1 0 -1 0;1;0;0|
-((assgn35+assgn32+assgn39+assgn39+assgn32+assgn35))
--1 -1 0 -1 0;1;0;1|
-((assgn101+assgn104+assgn101+assgn104))
--1 -1 0 -1 0;1;1;0|
-((assgn98+assgn99))
--1 -1 0 -1 1;0;0;0|
-((assgn35+assgn32+assgn39+assgn39+assgn32+assgn35))
--1 -1 0 -1 1;0;0;1|
-((assgn101+assgn104+assgn101+assgn104))
--1 -1 0 -1 1;0;1;0|
-((assgn98+assgn99))
--1 -1 0 -1 1;1;0;0|
-((assgn4+assgn4))
--1 -1 0 0 0;0;0;0|
-((assgn137+assgn137+assgn139+assgn142+assgn139+assgn142+assgn137+assgn137+assgn139+assgn142+assgn139+assgn142+assgn144+assgn147+assgn144+assgn147+assgn151+assgn151+assgn144+assgn147+assgn144+assgn147+assgn151+assgn151))
--1 -1 0 0 0;0;0;1|
-((assgn128+assgn131+assgn128+assgn131+assgn135+assgn135))
--1 -1 0 0 0;0;1;0|
-((assgn128+assgn131+assgn128+assgn131+assgn135+assgn135))
--1 -1 0 0 0;0;1;1|
-((assgn126+assgn126+assgn126+assgn126))
--1 -1 0 0 0;1;0;0|
-((assgn116+assgn116+assgn118+assgn121+assgn118+assgn121))
--1 -1 0 0 0;1;0;1|
-((assgn106+assgn109+assgn111+assgn114))
--1 -1 0 0 0;1;1;0|
-((assgn98+assgn99))
--1 -1 0 0 1;0;0;0|
-((assgn116+assgn116+assgn118+assgn121+assgn118+assgn121))
--1 -1 0 0 1;0;0;1|
-((assgn106+assgn109+assgn111+assgn114))
--1 -1 0 0 1;0;1;0|
-((assgn98+assgn99))
--1 -1 0 0 1;1;0;0|
-((assgn4+assgn4))
--1 -1 0 1 0;0;0;0|
-((assgn205+assgn207+assgn209+assgn212+assgn214+assgn217+assgn205+assgn207+assgn209+assgn212+assgn214+assgn217+assgn219+assgn222+assgn219+assgn222+assgn226+assgn226+assgn228+assgn231+assgn228+assgn231+assgn235+assgn235))
--1 -1 0 1 0;0;0;1|
-((assgn196+assgn199+assgn196+assgn199+assgn203+assgn203))
--1 -1 0 1 0;0;1;0|
-((assgn187+assgn190+assgn187+assgn190+assgn194+assgn194))
--1 -1 0 1 0;0;1;1|
-((assgn180+assgn180+assgn185+assgn185))
--1 -1 0 1 0;1;0;0|
-((assgn163+assgn165+assgn167+assgn170+assgn172+assgn175))
--1 -1 0 1 0;1;0;1|
-((assgn153+assgn156+assgn158+assgn161))
--1 -1 0 1 0;1;1;0|
-((assgn98+assgn99))
--1 -1 0 1 1;0;0;0|
-((assgn163+assgn165+assgn167+assgn170+assgn172+assgn175))
--1 -1 0 1 1;0;0;1|
-((assgn153+assgn156+assgn158+assgn161))
--1 -1 0 1 1;0;1;0|
-((assgn98+assgn99))
--1 -1 0 1 1;1;0;0|
-((assgn4+assgn4))
--1 -1 1 -1 0;0;0;0|
-((assgn88+assgn85+assgn92+assgn92+assgn85+assgn88+assgn88+assgn85+assgn92+assgn92+assgn85+assgn88+assgn97+assgn97+assgn97+assgn97+assgn97+assgn97+assgn85+assgn88+assgn85+assgn88+assgn92+assgn92))
--1 -1 1 -1 0;0;0;1|
-((assgn71+assgn74+assgn71+assgn74+assgn78+assgn78))
--1 -1 1 -1 0;0;1;0|
-((assgn83+assgn83+assgn83+assgn83+assgn83+assgn83))
--1 -1 1 -1 0;0;1;1|
-((assgn69+assgn69+assgn63+assgn63))
--1 -1 1 -1 0;1;0;0|
-((assgn74+assgn71+assgn78+assgn78+assgn71+assgn74))
--1 -1 1 -1 0;1;0;1|
-((assgn239+assgn242+assgn239+assgn242))
--1 -1 1 -1 0;1;1;0|
-((assgn236+assgn237))
--1 -1 1 -1 1;0;0;0|
-((assgn74+assgn71+assgn78+assgn78+assgn71+assgn74))
--1 -1 1 -1 1;0;0;1|
-((assgn239+assgn242+assgn239+assgn242))
--1 -1 1 -1 1;0;1;0|
-((assgn236+assgn237))
--1 -1 1 -1 1;1;0;0|
-((assgn4+assgn4))
--1 -1 1 0 0;0;0;0|
-((assgn207+assgn205+assgn214+assgn217+assgn209+assgn212+assgn207+assgn205+assgn214+assgn217+assgn209+assgn212+assgn228+assgn231+assgn228+assgn231+assgn235+assgn235+assgn219+assgn222+assgn219+assgn222+assgn226+assgn226))
--1 -1 1 0 0;0;0;1|
-((assgn187+assgn190+assgn187+assgn190+assgn194+assgn194))
--1 -1 1 0 0;0;1;0|
-((assgn196+assgn199+assgn196+assgn199+assgn203+assgn203))
--1 -1 1 0 0;0;1;1|
-((assgn185+assgn185+assgn180+assgn180))
--1 -1 1 0 0;1;0;0|
-((assgn165+assgn163+assgn172+assgn175+assgn167+assgn170))
--1 -1 1 0 0;1;0;1|
-((assgn244+assgn247+assgn249+assgn252))
--1 -1 1 0 0;1;1;0|
-((assgn236+assgn237))
--1 -1 1 0 1;0;0;0|
-((assgn165+assgn163+assgn172+assgn175+assgn167+assgn170))
--1 -1 1 0 1;0;0;1|
-((assgn244+assgn247+assgn249+assgn252))
--1 -1 1 0 1;0;1;0|
-((assgn236+assgn237))
--1 -1 1 0 1;1;0;0|
-((assgn4+assgn4))
--1 -1 1 1 0;0;0;0|
-((assgn285+assgn285+assgn287+assgn290+assgn287+assgn290+assgn285+assgn285+assgn287+assgn290+assgn287+assgn290+assgn292+assgn295+assgn292+assgn295+assgn299+assgn299+assgn292+assgn295+assgn292+assgn295+assgn299+assgn299))
--1 -1 1 1 0;0;0;1|
-((assgn276+assgn279+assgn276+assgn279+assgn283+assgn283))
--1 -1 1 1 0;0;1;0|
-((assgn276+assgn279+assgn276+assgn279+assgn283+assgn283))
--1 -1 1 1 0;0;1;1|
-((assgn274+assgn274+assgn274+assgn274))
--1 -1 1 1 0;1;0;0|
-((assgn264+assgn264+assgn266+assgn269+assgn266+assgn269))
--1 -1 1 1 0;1;0;1|
-((assgn254+assgn257+assgn259+assgn262))
--1 -1 1 1 0;1;1;0|
-((assgn236+assgn237))
--1 -1 1 1 1;0;0;0|
-((assgn264+assgn264+assgn266+assgn269+assgn266+assgn269))
--1 -1 1 1 1;0;0;1|
-((assgn254+assgn257+assgn259+assgn262))
--1 -1 1 1 1;0;1;0|
-((assgn236+assgn237))
--1 -1 1 1 1;1;0;0|
-((assgn4+assgn4))
--1 0 -1 -1 0;0;0;0|
-((assgn53+assgn53+assgn49+assgn46+assgn49+assgn46+assgn58+assgn58+assgn58+assgn58+assgn58+assgn58+assgn49+assgn46+assgn53+assgn53+assgn46+assgn49+assgn49+assgn46+assgn53+assgn53+assgn46+assgn49))
--1 0 -1 -1 0;0;0;1|
-((assgn35+assgn32+assgn39+assgn39+assgn32+assgn35))
--1 0 -1 -1 0;0;1;0|
-((assgn35+assgn32+assgn39+assgn39+assgn32+assgn35))
--1 0 -1 -1 0;0;1;1|
-((assgn101+assgn104+assgn101+assgn104))
--1 0 -1 -1 0;1;0;0|
-((assgn44+assgn44+assgn44+assgn44+assgn44+assgn44))
--1 0 -1 -1 0;1;0;1|
-((assgn30+assgn30+assgn24+assgn24))
--1 0 -1 -1 0;1;1;0|
-((assgn99+assgn98))
--1 0 -1 -1 1;0;0;0|
-((assgn39+assgn39+assgn35+assgn32+assgn35+assgn32))
--1 0 -1 -1 1;0;0;1|
-((assgn104+assgn101+assgn104+assgn101))
--1 0 -1 -1 1;0;1;0|
-((assgn302+assgn302))
--1 0 -1 -1 1;1;0;0|
-((assgn300+assgn301))
--1 0 -1 0 0;0;0;0|
-((assgn139+assgn142+assgn137+assgn137+assgn142+assgn139+assgn144+assgn147+assgn144+assgn147+assgn151+assgn151+assgn137+assgn137+assgn139+assgn142+assgn139+assgn142+assgn147+assgn144+assgn151+assgn151+assgn144+assgn147))
--1 0 -1 0 0;0;0;1|
-((assgn131+assgn128+assgn135+assgn135+assgn128+assgn131))
--1 0 -1 0 0;0;1;0|
-((assgn116+assgn116+assgn118+assgn121+assgn118+assgn121))
--1 0 -1 0 0;0;1;1|
-((assgn106+assgn109+assgn111+assgn114))
--1 0 -1 0 0;1;0;0|
-((assgn128+assgn131+assgn128+assgn131+assgn135+assgn135))
--1 0 -1 0 0;1;0;1|
-((assgn126+assgn126+assgn126+assgn126))
--1 0 -1 0 0;1;1;0|
-((assgn99+assgn98))
--1 0 -1 0 1;0;0;0|
-((assgn118+assgn121+assgn116+assgn116+assgn121+assgn118))
--1 0 -1 0 1;0;0;1|
-((assgn109+assgn106+assgn114+assgn111))
--1 0 -1 0 1;0;1;0|
-((assgn302+assgn302))
--1 0 -1 0 1;1;0;0|
-((assgn300+assgn301))
--1 0 -1 1 0;0;0;0|
-((assgn209+assgn212+assgn205+assgn207+assgn217+assgn214+assgn219+assgn222+assgn219+assgn222+assgn226+assgn226+assgn205+assgn207+assgn209+assgn212+assgn214+assgn217+assgn231+assgn228+assgn235+assgn235+assgn228+assgn231))
--1 0 -1 1 0;0;0;1|
-((assgn199+assgn196+assgn203+assgn203+assgn196+assgn199))
--1 0 -1 1 0;0;1;0|
-((assgn163+assgn165+assgn167+assgn170+assgn172+assgn175))
--1 0 -1 1 0;0;1;1|
-((assgn153+assgn156+assgn158+assgn161))
--1 0 -1 1 0;1;0;0|
-((assgn187+assgn190+assgn187+assgn190+assgn194+assgn194))
--1 0 -1 1 0;1;0;1|
-((assgn180+assgn180+assgn185+assgn185))
--1 0 -1 1 0;1;1;0|
-((assgn99+assgn98))
--1 0 -1 1 1;0;0;0|
-((assgn167+assgn170+assgn163+assgn165+assgn175+assgn172))
--1 0 -1 1 1;0;0;1|
-((assgn156+assgn153+assgn161+assgn158))
--1 0 -1 1 1;0;1;0|
-((assgn302+assgn302))
--1 0 -1 1 1;1;0;0|
-((assgn300+assgn301))
--1 0 0 -1 0;0;0;0|
-((assgn142+assgn139+assgn142+assgn139+assgn137+assgn137+assgn147+assgn144+assgn151+assgn151+assgn144+assgn147+assgn147+assgn144+assgn151+assgn151+assgn144+assgn147+assgn137+assgn137+assgn139+assgn142+assgn139+assgn142))
--1 0 0 -1 0;0;0;1|
-((assgn116+assgn116+assgn118+assgn121+assgn118+assgn121))
--1 0 0 -1 0;0;1;0|
-((assgn131+assgn128+assgn135+assgn135+assgn128+assgn131))
--1 0 0 -1 0;0;1;1|
-((assgn111+assgn114+assgn106+assgn109))
--1 0 0 -1 0;1;0;0|
-((assgn131+assgn128+assgn135+assgn135+assgn128+assgn131))
--1 0 0 -1 0;1;0;1|
-((assgn111+assgn114+assgn106+assgn109))
--1 0 0 -1 0;1;1;0|
-((assgn307+assgn307))
--1 0 0 -1 1;0;0;0|
-((assgn121+assgn118+assgn121+assgn118+assgn116+assgn116))
--1 0 0 -1 1;0;0;1|
-((assgn306+assgn306+assgn306+assgn306))
--1 0 0 -1 1;0;1;0|
-((assgn303+assgn304))
--1 0 0 -1 1;1;0;0|
-((assgn300+assgn301))
--1 0 0 0 0;0;0;0|
-((assgn327+assgn327+assgn327+assgn327+assgn327+assgn327+assgn329+assgn329+assgn331+assgn334+assgn331+assgn334+assgn329+assgn329+assgn331+assgn334+assgn331+assgn334+assgn329+assgn329+assgn331+assgn334+assgn331+assgn334))
--1 0 0 0 0;0;0;1|
-((assgn320+assgn320+assgn322+assgn325+assgn322+assgn325))
--1 0 0 0 0;0;1;0|
-((assgn320+assgn320+assgn322+assgn325+assgn322+assgn325))
--1 0 0 0 0;0;1;1|
-((assgn315+assgn318+assgn315+assgn318))
--1 0 0 0 0;1;0;0|
-((assgn320+assgn320+assgn322+assgn325+assgn322+assgn325))
--1 0 0 0 0;1;0;1|
-((assgn315+assgn318+assgn315+assgn318))
--1 0 0 0 0;1;1;0|
-((assgn307+assgn307))
--1 0 0 0 1;0;0;0|
-((assgn313+assgn313+assgn313+assgn313+assgn313+assgn313))
--1 0 0 0 1;0;0;1|
-((assgn309+assgn309+assgn311+assgn311))
--1 0 0 0 1;0;1;0|
-((assgn303+assgn304))
--1 0 0 0 1;1;0;0|
-((assgn300+assgn301))
--1 0 0 1 0;0;0;0|
-((assgn377+assgn379+assgn377+assgn379+assgn381+assgn381+assgn383+assgn385+assgn387+assgn390+assgn392+assgn395+assgn383+assgn385+assgn387+assgn390+assgn392+assgn395+assgn397+assgn397+assgn399+assgn402+assgn399+assgn402))
--1 0 0 1 0;0;0;1|
-((assgn370+assgn370+assgn372+assgn375+assgn372+assgn375))
--1 0 0 1 0;0;1;0|
-((assgn356+assgn358+assgn360+assgn363+assgn365+assgn368))
--1 0 0 1 0;0;1;1|
-((assgn346+assgn349+assgn351+assgn354))
--1 0 0 1 0;1;0;0|
-((assgn356+assgn358+assgn360+assgn363+assgn365+assgn368))
--1 0 0 1 0;1;0;1|
-((assgn346+assgn349+assgn351+assgn354))
--1 0 0 1 0;1;1;0|
-((assgn307+assgn307))
--1 0 0 1 1;0;0;0|
-((assgn340+assgn342+assgn340+assgn342+assgn344+assgn344))
--1 0 0 1 1;0;0;1|
-((assgn336+assgn336+assgn338+assgn338))
--1 0 0 1 1;0;1;0|
-((assgn303+assgn304))
--1 0 0 1 1;1;0;0|
-((assgn300+assgn301))
--1 0 1 -1 0;0;0;0|
-((assgn212+assgn209+assgn217+assgn214+assgn205+assgn207+assgn222+assgn219+assgn226+assgn226+assgn219+assgn222+assgn231+assgn228+assgn235+assgn235+assgn228+assgn231+assgn205+assgn207+assgn209+assgn212+assgn214+assgn217))
--1 0 1 -1 0;0;0;1|
-((assgn163+assgn165+assgn167+assgn170+assgn172+assgn175))
--1 0 1 -1 0;0;1;0|
-((assgn199+assgn196+assgn203+assgn203+assgn196+assgn199))
--1 0 1 -1 0;0;1;1|
-((assgn158+assgn161+assgn153+assgn156))
--1 0 1 -1 0;1;0;0|
-((assgn190+assgn187+assgn194+assgn194+assgn187+assgn190))
--1 0 1 -1 0;1;0;1|
-((assgn249+assgn252+assgn244+assgn247))
--1 0 1 -1 0;1;1;0|
-((assgn409+assgn410))
--1 0 1 -1 1;0;0;0|
-((assgn170+assgn167+assgn175+assgn172+assgn163+assgn165))
--1 0 1 -1 1;0;0;1|
-((assgn406+assgn408+assgn406+assgn408))
--1 0 1 -1 1;0;1;0|
-((assgn403+assgn404))
--1 0 1 -1 1;1;0;0|
-((assgn300+assgn301))
--1 0 1 0 0;0;0;0|
-((assgn379+assgn377+assgn381+assgn381+assgn377+assgn379+assgn385+assgn383+assgn392+assgn395+assgn387+assgn390+assgn397+assgn397+assgn399+assgn402+assgn399+assgn402+assgn383+assgn385+assgn387+assgn390+assgn392+assgn395))
--1 0 1 0 0;0;0;1|
-((assgn356+assgn358+assgn360+assgn363+assgn365+assgn368))
--1 0 1 0 0;0;1;0|
-((assgn370+assgn370+assgn372+assgn375+assgn372+assgn375))
--1 0 1 0 0;0;1;1|
-((assgn351+assgn354+assgn346+assgn349))
--1 0 1 0 0;1;0;0|
-((assgn358+assgn356+assgn365+assgn368+assgn360+assgn363))
--1 0 1 0 0;1;0;1|
-((assgn420+assgn423+assgn420+assgn423))
--1 0 1 0 0;1;1;0|
-((assgn409+assgn410))
--1 0 1 0 1;0;0;0|
-((assgn342+assgn340+assgn344+assgn344+assgn340+assgn342))
--1 0 1 0 1;0;0;1|
-((assgn412+assgn414+assgn416+assgn418))
--1 0 1 0 1;0;1;0|
-((assgn403+assgn404))
--1 0 1 0 1;1;0;0|
-((assgn300+assgn301))
--1 0 1 1 0;0;0;0|
-((assgn475+assgn475+assgn477+assgn479+assgn477+assgn479+assgn481+assgn481+assgn483+assgn486+assgn483+assgn486+assgn488+assgn490+assgn492+assgn495+assgn497+assgn500+assgn488+assgn490+assgn492+assgn495+assgn497+assgn500))
--1 0 1 1 0;0;0;1|
-((assgn461+assgn463+assgn465+assgn468+assgn470+assgn473))
--1 0 1 1 0;0;1;0|
-((assgn461+assgn463+assgn465+assgn468+assgn470+assgn473))
--1 0 1 1 0;0;1;1|
-((assgn456+assgn459+assgn456+assgn459))
--1 0 1 1 0;1;0;0|
-((assgn449+assgn449+assgn451+assgn454+assgn451+assgn454))
--1 0 1 1 0;1;0;1|
-((assgn439+assgn442+assgn444+assgn447))
--1 0 1 1 0;1;1;0|
-((assgn409+assgn410))
--1 0 1 1 1;0;0;0|
-((assgn433+assgn433+assgn435+assgn437+assgn435+assgn437))
--1 0 1 1 1;0;0;1|
-((assgn425+assgn427+assgn429+assgn431))
--1 0 1 1 1;0;1;0|
-((assgn403+assgn404))
--1 0 1 1 1;1;0;0|
-((assgn300+assgn301))
--1 1 -1 -1 0;0;0;0|
-((assgn92+assgn92+assgn88+assgn85+assgn88+assgn85+assgn97+assgn97+assgn97+assgn97+assgn97+assgn97+assgn88+assgn85+assgn92+assgn92+assgn85+assgn88+assgn88+assgn85+assgn92+assgn92+assgn85+assgn88))
--1 1 -1 -1 0;0;0;1|
-((assgn74+assgn71+assgn78+assgn78+assgn71+assgn74))
--1 1 -1 -1 0;0;1;0|
-((assgn74+assgn71+assgn78+assgn78+assgn71+assgn74))
--1 1 -1 -1 0;0;1;1|
-((assgn239+assgn242+assgn239+assgn242))
--1 1 -1 -1 0;1;0;0|
-((assgn83+assgn83+assgn83+assgn83+assgn83+assgn83))
--1 1 -1 -1 0;1;0;1|
-((assgn69+assgn69+assgn63+assgn63))
--1 1 -1 -1 0;1;1;0|
-((assgn237+assgn236))
--1 1 -1 -1 1;0;0;0|
-((assgn78+assgn78+assgn74+assgn71+assgn74+assgn71))
--1 1 -1 -1 1;0;0;1|
-((assgn242+assgn239+assgn242+assgn239))
--1 1 -1 -1 1;0;1;0|
-((assgn503+assgn503))
--1 1 -1 -1 1;1;0;0|
-((assgn501+assgn502))
--1 1 -1 0 0;0;0;0|
-((assgn214+assgn217+assgn207+assgn205+assgn212+assgn209+assgn228+assgn231+assgn228+assgn231+assgn235+assgn235+assgn207+assgn205+assgn214+assgn217+assgn209+assgn212+assgn222+assgn219+assgn226+assgn226+assgn219+assgn222))
--1 1 -1 0 0;0;0;1|
-((assgn190+assgn187+assgn194+assgn194+assgn187+assgn190))
--1 1 -1 0 0;0;1;0|
-((assgn165+assgn163+assgn172+assgn175+assgn167+assgn170))
--1 1 -1 0 0;0;1;1|
-((assgn244+assgn247+assgn249+assgn252))
--1 1 -1 0 0;1;0;0|
-((assgn196+assgn199+assgn196+assgn199+assgn203+assgn203))
--1 1 -1 0 0;1;0;1|
-((assgn185+assgn185+assgn180+assgn180))
--1 1 -1 0 0;1;1;0|
-((assgn237+assgn236))
--1 1 -1 0 1;0;0;0|
-((assgn172+assgn175+assgn165+assgn163+assgn170+assgn167))
--1 1 -1 0 1;0;0;1|
-((assgn247+assgn244+assgn252+assgn249))
--1 1 -1 0 1;0;1;0|
-((assgn503+assgn503))
--1 1 -1 0 1;1;0;0|
-((assgn501+assgn502))
--1 1 -1 1 0;0;0;0|
-((assgn287+assgn290+assgn285+assgn285+assgn290+assgn287+assgn292+assgn295+assgn292+assgn295+assgn299+assgn299+assgn285+assgn285+assgn287+assgn290+assgn287+assgn290+assgn295+assgn292+assgn299+assgn299+assgn292+assgn295))
--1 1 -1 1 0;0;0;1|
-((assgn279+assgn276+assgn283+assgn283+assgn276+assgn279))
--1 1 -1 1 0;0;1;0|
-((assgn264+assgn264+assgn266+assgn269+assgn266+assgn269))
--1 1 -1 1 0;0;1;1|
-((assgn254+assgn257+assgn259+assgn262))
--1 1 -1 1 0;1;0;0|
-((assgn276+assgn279+assgn276+assgn279+assgn283+assgn283))
--1 1 -1 1 0;1;0;1|
-((assgn274+assgn274+assgn274+assgn274))
--1 1 -1 1 0;1;1;0|
-((assgn237+assgn236))
--1 1 -1 1 1;0;0;0|
-((assgn266+assgn269+assgn264+assgn264+assgn269+assgn266))
--1 1 -1 1 1;0;0;1|
-((assgn257+assgn254+assgn262+assgn259))
--1 1 -1 1 1;0;1;0|
-((assgn503+assgn503))
--1 1 -1 1 1;1;0;0|
-((assgn501+assgn502))
--1 1 0 -1 0;0;0;0|
-((assgn217+assgn214+assgn212+assgn209+assgn207+assgn205+assgn231+assgn228+assgn235+assgn235+assgn228+assgn231+assgn222+assgn219+assgn226+assgn226+assgn219+assgn222+assgn207+assgn205+assgn214+assgn217+assgn209+assgn212))
--1 1 0 -1 0;0;0;1|
-((assgn165+assgn163+assgn172+assgn175+assgn167+assgn170))
--1 1 0 -1 0;0;1;0|
-((assgn190+assgn187+assgn194+assgn194+assgn187+assgn190))
--1 1 0 -1 0;0;1;1|
-((assgn249+assgn252+assgn244+assgn247))
--1 1 0 -1 0;1;0;0|
-((assgn199+assgn196+assgn203+assgn203+assgn196+assgn199))
--1 1 0 -1 0;1;0;1|
-((assgn158+assgn161+assgn153+assgn156))
--1 1 0 -1 0;1;1;0|
-((assgn410+assgn409))
--1 1 0 -1 1;0;0;0|
-((assgn175+assgn172+assgn170+assgn167+assgn165+assgn163))
--1 1 0 -1 1;0;0;1|
-((assgn408+assgn406+assgn408+assgn406))
--1 1 0 -1 1;0;1;0|
-((assgn504+assgn505))
--1 1 0 -1 1;1;0;0|
-((assgn501+assgn502))
--1 1 0 0 0;0;0;0|
-((assgn381+assgn381+assgn379+assgn377+assgn379+assgn377+assgn397+assgn397+assgn399+assgn402+assgn399+assgn402+assgn385+assgn383+assgn392+assgn395+assgn387+assgn390+assgn385+assgn383+assgn392+assgn395+assgn387+assgn390))
--1 1 0 0 0;0;0;1|
-((assgn358+assgn356+assgn365+assgn368+assgn360+assgn363))
--1 1 0 0 0;0;1;0|
-((assgn358+assgn356+assgn365+assgn368+assgn360+assgn363))
--1 1 0 0 0;0;1;1|
-((assgn420+assgn423+assgn420+assgn423))
--1 1 0 0 0;1;0;0|
-((assgn370+assgn370+assgn372+assgn375+assgn372+assgn375))
--1 1 0 0 0;1;0;1|
-((assgn351+assgn354+assgn346+assgn349))
--1 1 0 0 0;1;1;0|
-((assgn410+assgn409))
--1 1 0 0 1;0;0;0|
-((assgn344+assgn344+assgn342+assgn340+assgn342+assgn340))
--1 1 0 0 1;0;0;1|
-((assgn414+assgn412+assgn418+assgn416))
--1 1 0 0 1;0;1;0|
-((assgn504+assgn505))
--1 1 0 0 1;1;0;0|
-((assgn501+assgn502))
--1 1 0 1 0;0;0;0|
-((assgn477+assgn479+assgn475+assgn475+assgn479+assgn477+assgn488+assgn490+assgn492+assgn495+assgn497+assgn500+assgn481+assgn481+assgn483+assgn486+assgn483+assgn486+assgn490+assgn488+assgn497+assgn500+assgn492+assgn495))
--1 1 0 1 0;0;0;1|
-((assgn463+assgn461+assgn470+assgn473+assgn465+assgn468))
--1 1 0 1 0;0;1;0|
-((assgn449+assgn449+assgn451+assgn454+assgn451+assgn454))
--1 1 0 1 0;0;1;1|
-((assgn439+assgn442+assgn444+assgn447))
--1 1 0 1 0;1;0;0|
-((assgn461+assgn463+assgn465+assgn468+assgn470+assgn473))
--1 1 0 1 0;1;0;1|
-((assgn456+assgn459+assgn456+assgn459))
--1 1 0 1 0;1;1;0|
-((assgn410+assgn409))
--1 1 0 1 1;0;0;0|
-((assgn435+assgn437+assgn433+assgn433+assgn437+assgn435))
--1 1 0 1 1;0;0;1|
-((assgn427+assgn425+assgn431+assgn429))
--1 1 0 1 1;0;1;0|
-((assgn504+assgn505))
--1 1 0 1 1;1;0;0|
-((assgn501+assgn502))
--1 1 1 -1 0;0;0;0|
-((assgn290+assgn287+assgn290+assgn287+assgn285+assgn285+assgn295+assgn292+assgn299+assgn299+assgn292+assgn295+assgn295+assgn292+assgn299+assgn299+assgn292+assgn295+assgn285+assgn285+assgn287+assgn290+assgn287+assgn290))
--1 1 1 -1 0;0;0;1|
-((assgn264+assgn264+assgn266+assgn269+assgn266+assgn269))
--1 1 1 -1 0;0;1;0|
-((assgn279+assgn276+assgn283+assgn283+assgn276+assgn279))
--1 1 1 -1 0;0;1;1|
-((assgn259+assgn262+assgn254+assgn257))
--1 1 1 -1 0;1;0;0|
-((assgn279+assgn276+assgn283+assgn283+assgn276+assgn279))
--1 1 1 -1 0;1;0;1|
-((assgn259+assgn262+assgn254+assgn257))
--1 1 1 -1 0;1;1;0|
-((assgn510+assgn510))
--1 1 1 -1 1;0;0;0|
-((assgn269+assgn266+assgn269+assgn266+assgn264+assgn264))
--1 1 1 -1 1;0;0;1|
-((assgn509+assgn509+assgn509+assgn509))
--1 1 1 -1 1;0;1;0|
-((assgn506+assgn507))
--1 1 1 -1 1;1;0;0|
-((assgn501+assgn502))
--1 1 1 0 0;0;0;0|
-((assgn479+assgn477+assgn479+assgn477+assgn475+assgn475+assgn490+assgn488+assgn497+assgn500+assgn492+assgn495+assgn490+assgn488+assgn497+assgn500+assgn492+assgn495+assgn481+assgn481+assgn483+assgn486+assgn483+assgn486))
--1 1 1 0 0;0;0;1|
-((assgn449+assgn449+assgn451+assgn454+assgn451+assgn454))
--1 1 1 0 0;0;1;0|
-((assgn463+assgn461+assgn470+assgn473+assgn465+assgn468))
--1 1 1 0 0;0;1;1|
-((assgn444+assgn447+assgn439+assgn442))
--1 1 1 0 0;1;0;0|
-((assgn463+assgn461+assgn470+assgn473+assgn465+assgn468))
--1 1 1 0 0;1;0;1|
-((assgn444+assgn447+assgn439+assgn442))
--1 1 1 0 0;1;1;0|
-((assgn510+assgn510))
--1 1 1 0 1;0;0;0|
-((assgn437+assgn435+assgn437+assgn435+assgn433+assgn433))
--1 1 1 0 1;0;0;1|
-((assgn512+assgn512+assgn514+assgn514))
--1 1 1 0 1;0;1;0|
-((assgn506+assgn507))
--1 1 1 0 1;1;0;0|
-((assgn501+assgn502))
--1 1 1 1 0;0;0;0|
-((assgn534+assgn534+assgn534+assgn534+assgn534+assgn534+assgn536+assgn536+assgn538+assgn541+assgn538+assgn541+assgn536+assgn536+assgn538+assgn541+assgn538+assgn541+assgn536+assgn536+assgn538+assgn541+assgn538+assgn541))
--1 1 1 1 0;0;0;1|
-((assgn527+assgn527+assgn529+assgn532+assgn529+assgn532))
--1 1 1 1 0;0;1;0|
-((assgn527+assgn527+assgn529+assgn532+assgn529+assgn532))
--1 1 1 1 0;0;1;1|
-((assgn522+assgn525+assgn522+assgn525))
--1 1 1 1 0;1;0;0|
-((assgn527+assgn527+assgn529+assgn532+assgn529+assgn532))
--1 1 1 1 0;1;0;1|
-((assgn522+assgn525+assgn522+assgn525))
--1 1 1 1 0;1;1;0|
-((assgn510+assgn510))
--1 1 1 1 1;0;0;0|
-((assgn520+assgn520+assgn520+assgn520+assgn520+assgn520))
--1 1 1 1 1;0;0;1|
-((assgn516+assgn516+assgn518+assgn518))
--1 1 1 1 1;0;1;0|
-((assgn506+assgn507))
--1 1 1 1 1;1;0;0|
-((assgn501+assgn502))
-0 -1 -1 -1 0;0;0;0|
-((assgn58+assgn58+assgn58+assgn58+assgn58+assgn58+assgn53+assgn53+assgn49+assgn46+assgn49+assgn46+assgn53+assgn53+assgn49+assgn46+assgn49+assgn46+assgn53+assgn53+assgn49+assgn46+assgn49+assgn46))
-0 -1 -1 -1 0;0;0;1|
-((assgn39+assgn39+assgn35+assgn32+assgn35+assgn32))
-0 -1 -1 -1 0;0;1;0|
-((assgn39+assgn39+assgn35+assgn32+assgn35+assgn32))
-0 -1 -1 -1 0;0;1;1|
-((assgn104+assgn101+assgn104+assgn101))
-0 -1 -1 -1 0;1;0;0|
-((assgn39+assgn39+assgn35+assgn32+assgn35+assgn32))
-0 -1 -1 -1 0;1;0;1|
-((assgn104+assgn101+assgn104+assgn101))
-0 -1 -1 -1 0;1;1;0|
-((assgn302+assgn302))
-0 -1 -1 -1 1;0;0;0|
-((assgn44+assgn44+assgn44+assgn44+assgn44+assgn44))
-0 -1 -1 -1 1;0;0;1|
-((assgn30+assgn30+assgn24+assgn24))
-0 -1 -1 -1 1;0;1;0|
-((assgn99+assgn98))
-0 -1 -1 -1 1;1;0;0|
-((assgn301+assgn300))
-0 -1 -1 0 0;0;0;0|
-((assgn144+assgn147+assgn144+assgn147+assgn151+assgn151+assgn139+assgn142+assgn137+assgn137+assgn142+assgn139+assgn139+assgn142+assgn137+assgn137+assgn142+assgn139+assgn151+assgn151+assgn147+assgn144+assgn147+assgn144))
-0 -1 -1 0 0;0;0;1|
-((assgn135+assgn135+assgn131+assgn128+assgn131+assgn128))
-0 -1 -1 0 0;0;1;0|
-((assgn118+assgn121+assgn116+assgn116+assgn121+assgn118))
-0 -1 -1 0 0;0;1;1|
-((assgn109+assgn106+assgn114+assgn111))
-0 -1 -1 0 0;1;0;0|
-((assgn118+assgn121+assgn116+assgn116+assgn121+assgn118))
-0 -1 -1 0 0;1;0;1|
-((assgn109+assgn106+assgn114+assgn111))
-0 -1 -1 0 0;1;1;0|
-((assgn302+assgn302))
-0 -1 -1 0 1;0;0;0|
-((assgn128+assgn131+assgn128+assgn131+assgn135+assgn135))
-0 -1 -1 0 1;0;0;1|
-((assgn126+assgn126+assgn126+assgn126))
-0 -1 -1 0 1;0;1;0|
-((assgn99+assgn98))
-0 -1 -1 0 1;1;0;0|
-((assgn301+assgn300))
-0 -1 -1 1 0;0;0;0|
-((assgn219+assgn222+assgn219+assgn222+assgn226+assgn226+assgn209+assgn212+assgn205+assgn207+assgn217+assgn214+assgn209+assgn212+assgn205+assgn207+assgn217+assgn214+assgn235+assgn235+assgn231+assgn228+assgn231+assgn228))
-0 -1 -1 1 0;0;0;1|
-((assgn203+assgn203+assgn199+assgn196+assgn199+assgn196))
-0 -1 -1 1 0;0;1;0|
-((assgn167+assgn170+assgn163+assgn165+assgn175+assgn172))
-0 -1 -1 1 0;0;1;1|
-((assgn156+assgn153+assgn161+assgn158))
-0 -1 -1 1 0;1;0;0|
-((assgn167+assgn170+assgn163+assgn165+assgn175+assgn172))
-0 -1 -1 1 0;1;0;1|
-((assgn156+assgn153+assgn161+assgn158))
-0 -1 -1 1 0;1;1;0|
-((assgn302+assgn302))
-0 -1 -1 1 1;0;0;0|
-((assgn187+assgn190+assgn187+assgn190+assgn194+assgn194))
-0 -1 -1 1 1;0;0;1|
-((assgn180+assgn180+assgn185+assgn185))
-0 -1 -1 1 1;0;1;0|
-((assgn99+assgn98))
-0 -1 -1 1 1;1;0;0|
-((assgn301+assgn300))
-0 -1 0 -1 0;0;0;0|
-((assgn147+assgn144+assgn151+assgn151+assgn144+assgn147+assgn142+assgn139+assgn142+assgn139+assgn137+assgn137+assgn151+assgn151+assgn147+assgn144+assgn147+assgn144+assgn139+assgn142+assgn137+assgn137+assgn142+assgn139))
-0 -1 0 -1 0;0;0;1|
-((assgn118+assgn121+assgn116+assgn116+assgn121+assgn118))
-0 -1 0 -1 0;0;1;0|
-((assgn135+assgn135+assgn131+assgn128+assgn131+assgn128))
-0 -1 0 -1 0;0;1;1|
-((assgn114+assgn111+assgn109+assgn106))
-0 -1 0 -1 0;1;0;0|
-((assgn121+assgn118+assgn121+assgn118+assgn116+assgn116))
-0 -1 0 -1 0;1;0;1|
-((assgn306+assgn306+assgn306+assgn306))
-0 -1 0 -1 0;1;1;0|
-((assgn303+assgn304))
-0 -1 0 -1 1;0;0;0|
-((assgn131+assgn128+assgn135+assgn135+assgn128+assgn131))
-0 -1 0 -1 1;0;0;1|
-((assgn111+assgn114+assgn106+assgn109))
-0 -1 0 -1 1;0;1;0|
-((assgn307+assgn307))
-0 -1 0 -1 1;1;0;0|
-((assgn301+assgn300))
-0 -1 0 0 0;0;0;0|
-((assgn329+assgn329+assgn331+assgn334+assgn331+assgn334+assgn327+assgn327+assgn327+assgn327+assgn327+assgn327+assgn331+assgn334+assgn329+assgn329+assgn334+assgn331+assgn331+assgn334+assgn329+assgn329+assgn334+assgn331))
-0 -1 0 0 0;0;0;1|
-((assgn322+assgn325+assgn320+assgn320+assgn325+assgn322))
-0 -1 0 0 0;0;1;0|
-((assgn322+assgn325+assgn320+assgn320+assgn325+assgn322))
-0 -1 0 0 0;0;1;1|
-((assgn318+assgn315+assgn318+assgn315))
-0 -1 0 0 0;1;0;0|
-((assgn313+assgn313+assgn313+assgn313+assgn313+assgn313))
-0 -1 0 0 0;1;0;1|
-((assgn309+assgn309+assgn311+assgn311))
-0 -1 0 0 0;1;1;0|
-((assgn303+assgn304))
-0 -1 0 0 1;0;0;0|
-((assgn320+assgn320+assgn322+assgn325+assgn322+assgn325))
-0 -1 0 0 1;0;0;1|
-((assgn315+assgn318+assgn315+assgn318))
-0 -1 0 0 1;0;1;0|
-((assgn307+assgn307))
-0 -1 0 0 1;1;0;0|
-((assgn301+assgn300))
-0 -1 0 1 0;0;0;0|
-((assgn383+assgn385+assgn387+assgn390+assgn392+assgn395+assgn377+assgn379+assgn377+assgn379+assgn381+assgn381+assgn387+assgn390+assgn383+assgn385+assgn395+assgn392+assgn399+assgn402+assgn397+assgn397+assgn402+assgn399))
-0 -1 0 1 0;0;0;1|
-((assgn372+assgn375+assgn370+assgn370+assgn375+assgn372))
-0 -1 0 1 0;0;1;0|
-((assgn360+assgn363+assgn356+assgn358+assgn368+assgn365))
-0 -1 0 1 0;0;1;1|
-((assgn349+assgn346+assgn354+assgn351))
-0 -1 0 1 0;1;0;0|
-((assgn340+assgn342+assgn340+assgn342+assgn344+assgn344))
-0 -1 0 1 0;1;0;1|
-((assgn336+assgn336+assgn338+assgn338))
-0 -1 0 1 0;1;1;0|
-((assgn303+assgn304))
-0 -1 0 1 1;0;0;0|
-((assgn356+assgn358+assgn360+assgn363+assgn365+assgn368))
-0 -1 0 1 1;0;0;1|
-((assgn346+assgn349+assgn351+assgn354))
-0 -1 0 1 1;0;1;0|
-((assgn307+assgn307))
-0 -1 0 1 1;1;0;0|
-((assgn301+assgn300))
-0 -1 1 -1 0;0;0;0|
-((assgn222+assgn219+assgn226+assgn226+assgn219+assgn222+assgn212+assgn209+assgn217+assgn214+assgn205+assgn207+assgn235+assgn235+assgn231+assgn228+assgn231+assgn228+assgn209+assgn212+assgn205+assgn207+assgn217+assgn214))
-0 -1 1 -1 0;0;0;1|
-((assgn167+assgn170+assgn163+assgn165+assgn175+assgn172))
-0 -1 1 -1 0;0;1;0|
-((assgn203+assgn203+assgn199+assgn196+assgn199+assgn196))
-0 -1 1 -1 0;0;1;1|
-((assgn161+assgn158+assgn156+assgn153))
-0 -1 1 -1 0;1;0;0|
-((assgn170+assgn167+assgn175+assgn172+assgn163+assgn165))
-0 -1 1 -1 0;1;0;1|
-((assgn406+assgn408+assgn406+assgn408))
-0 -1 1 -1 0;1;1;0|
-((assgn403+assgn404))
-0 -1 1 -1 1;0;0;0|
-((assgn190+assgn187+assgn194+assgn194+assgn187+assgn190))
-0 -1 1 -1 1;0;0;1|
-((assgn249+assgn252+assgn244+assgn247))
-0 -1 1 -1 1;0;1;0|
-((assgn409+assgn410))
-0 -1 1 -1 1;1;0;0|
-((assgn301+assgn300))
-0 -1 1 0 0;0;0;0|
-((assgn385+assgn383+assgn392+assgn395+assgn387+assgn390+assgn379+assgn377+assgn381+assgn381+assgn377+assgn379+assgn399+assgn402+assgn397+assgn397+assgn402+assgn399+assgn387+assgn390+assgn383+assgn385+assgn395+assgn392))
-0 -1 1 0 0;0;0;1|
-((assgn360+assgn363+assgn356+assgn358+assgn368+assgn365))
-0 -1 1 0 0;0;1;0|
-((assgn372+assgn375+assgn370+assgn370+assgn375+assgn372))
-0 -1 1 0 0;0;1;1|
-((assgn354+assgn351+assgn349+assgn346))
-0 -1 1 0 0;1;0;0|
-((assgn342+assgn340+assgn344+assgn344+assgn340+assgn342))
-0 -1 1 0 0;1;0;1|
-((assgn412+assgn414+assgn416+assgn418))
-0 -1 1 0 0;1;1;0|
-((assgn403+assgn404))
-0 -1 1 0 1;0;0;0|
-((assgn358+assgn356+assgn365+assgn368+assgn360+assgn363))
-0 -1 1 0 1;0;0;1|
-((assgn420+assgn423+assgn420+assgn423))
-0 -1 1 0 1;0;1;0|
-((assgn409+assgn410))
-0 -1 1 0 1;1;0;0|
-((assgn301+assgn300))
-0 -1 1 1 0;0;0;0|
-((assgn481+assgn481+assgn483+assgn486+assgn483+assgn486+assgn475+assgn475+assgn477+assgn479+assgn477+assgn479+assgn492+assgn495+assgn488+assgn490+assgn500+assgn497+assgn492+assgn495+assgn488+assgn490+assgn500+assgn497))
-0 -1 1 1 0;0;0;1|
-((assgn465+assgn468+assgn461+assgn463+assgn473+assgn470))
-0 -1 1 1 0;0;1;0|
-((assgn465+assgn468+assgn461+assgn463+assgn473+assgn470))
-0 -1 1 1 0;0;1;1|
-((assgn459+assgn456+assgn459+assgn456))
-0 -1 1 1 0;1;0;0|
-((assgn433+assgn433+assgn435+assgn437+assgn435+assgn437))
-0 -1 1 1 0;1;0;1|
-((assgn425+assgn427+assgn429+assgn431))
-0 -1 1 1 0;1;1;0|
-((assgn403+assgn404))
-0 -1 1 1 1;0;0;0|
-((assgn449+assgn449+assgn451+assgn454+assgn451+assgn454))
-0 -1 1 1 1;0;0;1|
-((assgn439+assgn442+assgn444+assgn447))
-0 -1 1 1 1;0;1;0|
-((assgn409+assgn410))
-0 -1 1 1 1;1;0;0|
-((assgn301+assgn300))
-0 0 -1 -1 0;0;0;0|
-((assgn151+assgn151+assgn147+assgn144+assgn147+assgn144+assgn151+assgn151+assgn147+assgn144+assgn147+assgn144+assgn142+assgn139+assgn142+assgn139+assgn137+assgn137+assgn142+assgn139+assgn142+assgn139+assgn137+assgn137))
-0 0 -1 -1 0;0;0;1|
-((assgn121+assgn118+assgn121+assgn118+assgn116+assgn116))
-0 0 -1 -1 0;0;1;0|
-((assgn121+assgn118+assgn121+assgn118+assgn116+assgn116))
-0 0 -1 -1 0;0;1;1|
-((assgn306+assgn306+assgn306+assgn306))
-0 0 -1 -1 0;1;0;0|
-((assgn135+assgn135+assgn131+assgn128+assgn131+assgn128))
-0 0 -1 -1 0;1;0;1|
-((assgn114+assgn111+assgn109+assgn106))
-0 0 -1 -1 0;1;1;0|
-((assgn304+assgn303))
-0 0 -1 -1 1;0;0;0|
-((assgn135+assgn135+assgn131+assgn128+assgn131+assgn128))
-0 0 -1 -1 1;0;0;1|
-((assgn114+assgn111+assgn109+assgn106))
-0 0 -1 -1 1;0;1;0|
-((assgn304+assgn303))
-0 0 -1 -1 1;1;0;0|
-((assgn542+assgn542))
-0 0 -1 0 0;0;0;0|
-((assgn331+assgn334+assgn329+assgn329+assgn334+assgn331+assgn331+assgn334+assgn329+assgn329+assgn334+assgn331+assgn327+assgn327+assgn327+assgn327+assgn327+assgn327+assgn334+assgn331+assgn334+assgn331+assgn329+assgn329))
-0 0 -1 0 0;0;0;1|
-((assgn325+assgn322+assgn325+assgn322+assgn320+assgn320))
-0 0 -1 0 0;0;1;0|
-((assgn313+assgn313+assgn313+assgn313+assgn313+assgn313))
-0 0 -1 0 0;0;1;1|
-((assgn309+assgn309+assgn311+assgn311))
-0 0 -1 0 0;1;0;0|
-((assgn322+assgn325+assgn320+assgn320+assgn325+assgn322))
-0 0 -1 0 0;1;0;1|
-((assgn318+assgn315+assgn318+assgn315))
-0 0 -1 0 0;1;1;0|
-((assgn304+assgn303))
-0 0 -1 0 1;0;0;0|
-((assgn322+assgn325+assgn320+assgn320+assgn325+assgn322))
-0 0 -1 0 1;0;0;1|
-((assgn318+assgn315+assgn318+assgn315))
-0 0 -1 0 1;0;1;0|
-((assgn304+assgn303))
-0 0 -1 0 1;1;0;0|
-((assgn542+assgn542))
-0 0 -1 1 0;0;0;0|
-((assgn387+assgn390+assgn383+assgn385+assgn395+assgn392+assgn387+assgn390+assgn383+assgn385+assgn395+assgn392+assgn377+assgn379+assgn377+assgn379+assgn381+assgn381+assgn402+assgn399+assgn402+assgn399+assgn397+assgn397))
-0 0 -1 1 0;0;0;1|
-((assgn375+assgn372+assgn375+assgn372+assgn370+assgn370))
-0 0 -1 1 0;0;1;0|
-((assgn340+assgn342+assgn340+assgn342+assgn344+assgn344))
-0 0 -1 1 0;0;1;1|
-((assgn336+assgn336+assgn338+assgn338))
-0 0 -1 1 0;1;0;0|
-((assgn360+assgn363+assgn356+assgn358+assgn368+assgn365))
-0 0 -1 1 0;1;0;1|
-((assgn349+assgn346+assgn354+assgn351))
-0 0 -1 1 0;1;1;0|
-((assgn304+assgn303))
-0 0 -1 1 1;0;0;0|
-((assgn360+assgn363+assgn356+assgn358+assgn368+assgn365))
-0 0 -1 1 1;0;0;1|
-((assgn349+assgn346+assgn354+assgn351))
-0 0 -1 1 1;0;1;0|
-((assgn304+assgn303))
-0 0 -1 1 1;1;0;0|
-((assgn542+assgn542))
-0 0 0 -1 0;0;0;0|
-((assgn334+assgn331+assgn334+assgn331+assgn329+assgn329+assgn334+assgn331+assgn334+assgn331+assgn329+assgn329+assgn334+assgn331+assgn334+assgn331+assgn329+assgn329+assgn327+assgn327+assgn327+assgn327+assgn327+assgn327))
-0 0 0 -1 0;0;0;1|
-((assgn313+assgn313+assgn313+assgn313+assgn313+assgn313))
-0 0 0 -1 0;0;1;0|
-((assgn325+assgn322+assgn325+assgn322+assgn320+assgn320))
-0 0 0 -1 0;0;1;1|
-((assgn311+assgn311+assgn309+assgn309))
-0 0 0 -1 0;1;0;0|
-((assgn325+assgn322+assgn325+assgn322+assgn320+assgn320))
-0 0 0 -1 0;1;0;1|
-((assgn311+assgn311+assgn309+assgn309))
-0 0 0 -1 0;1;1;0|
-((assgn543+assgn543))
-0 0 0 -1 1;0;0;0|
-((assgn325+assgn322+assgn325+assgn322+assgn320+assgn320))
-0 0 0 -1 1;0;0;1|
-((assgn311+assgn311+assgn309+assgn309))
-0 0 0 -1 1;0;1;0|
-((assgn543+assgn543))
-0 0 0 -1 1;1;0;0|
-((assgn542+assgn542))
-0 0 0 0 0;0;0;0|
-((assgn549+assgn549+assgn549+assgn549+assgn549+assgn549+assgn549+assgn549+assgn549+assgn549+assgn549+assgn549+assgn549+assgn549+assgn549+assgn549+assgn549+assgn549+assgn549+assgn549+assgn549+assgn549+assgn549+assgn549))
-0 0 0 0 0;0;0;1|
-((assgn547+assgn547+assgn547+assgn547+assgn547+assgn547))
-0 0 0 0 0;0;1;0|
-((assgn547+assgn547+assgn547+assgn547+assgn547+assgn547))
-0 0 0 0 0;0;1;1|
-((assgn545+assgn545+assgn545+assgn545))
-0 0 0 0 0;1;0;0|
-((assgn547+assgn547+assgn547+assgn547+assgn547+assgn547))
-0 0 0 0 0;1;0;1|
-((assgn545+assgn545+assgn545+assgn545))
-0 0 0 0 0;1;1;0|
-((assgn543+assgn543))
-0 0 0 0 1;0;0;0|
-((assgn547+assgn547+assgn547+assgn547+assgn547+assgn547))
-0 0 0 0 1;0;0;1|
-((assgn545+assgn545+assgn545+assgn545))
-0 0 0 0 1;0;1;0|
-((assgn543+assgn543))
-0 0 0 0 1;1;0;0|
-((assgn542+assgn542))
-0 0 0 1 0;0;0;0|
-((assgn563+assgn565+assgn563+assgn565+assgn567+assgn567+assgn563+assgn565+assgn563+assgn565+assgn567+assgn567+assgn563+assgn565+assgn563+assgn565+assgn567+assgn567+assgn569+assgn569+assgn569+assgn569+assgn569+assgn569))
-0 0 0 1 0;0;0;1|
-((assgn561+assgn561+assgn561+assgn561+assgn561+assgn561))
-0 0 0 1 0;0;1;0|
-((assgn555+assgn557+assgn555+assgn557+assgn559+assgn559))
-0 0 0 1 0;0;1;1|
-((assgn551+assgn551+assgn553+assgn553))
-0 0 0 1 0;1;0;0|
-((assgn555+assgn557+assgn555+assgn557+assgn559+assgn559))
-0 0 0 1 0;1;0;1|
-((assgn551+assgn551+assgn553+assgn553))
-0 0 0 1 0;1;1;0|
-((assgn543+assgn543))
-0 0 0 1 1;0;0;0|
-((assgn555+assgn557+assgn555+assgn557+assgn559+assgn559))
-0 0 0 1 1;0;0;1|
-((assgn551+assgn551+assgn553+assgn553))
-0 0 0 1 1;0;1;0|
-((assgn543+assgn543))
-0 0 0 1 1;1;0;0|
-((assgn542+assgn542))
-0 0 1 -1 0;0;0;0|
-((assgn390+assgn387+assgn395+assgn392+assgn383+assgn385+assgn390+assgn387+assgn395+assgn392+assgn383+assgn385+assgn402+assgn399+assgn402+assgn399+assgn397+assgn397+assgn377+assgn379+assgn377+assgn379+assgn381+assgn381))
-0 0 1 -1 0;0;0;1|
-((assgn340+assgn342+assgn340+assgn342+assgn344+assgn344))
-0 0 1 -1 0;0;1;0|
-((assgn375+assgn372+assgn375+assgn372+assgn370+assgn370))
-0 0 1 -1 0;0;1;1|
-((assgn338+assgn338+assgn336+assgn336))
-0 0 1 -1 0;1;0;0|
-((assgn363+assgn360+assgn368+assgn365+assgn356+assgn358))
-0 0 1 -1 0;1;0;1|
-((assgn416+assgn418+assgn412+assgn414))
-0 0 1 -1 0;1;1;0|
-((assgn570+assgn571))
-0 0 1 -1 1;0;0;0|
-((assgn363+assgn360+assgn368+assgn365+assgn356+assgn358))
-0 0 1 -1 1;0;0;1|
-((assgn416+assgn418+assgn412+assgn414))
-0 0 1 -1 1;0;1;0|
-((assgn570+assgn571))
-0 0 1 -1 1;1;0;0|
-((assgn542+assgn542))
-0 0 1 0 0;0;0;0|
-((assgn565+assgn563+assgn567+assgn567+assgn563+assgn565+assgn565+assgn563+assgn567+assgn567+assgn563+assgn565+assgn569+assgn569+assgn569+assgn569+assgn569+assgn569+assgn563+assgn565+assgn563+assgn565+assgn567+assgn567))
-0 0 1 0 0;0;0;1|
-((assgn555+assgn557+assgn555+assgn557+assgn559+assgn559))
-0 0 1 0 0;0;1;0|
-((assgn561+assgn561+assgn561+assgn561+assgn561+assgn561))
-0 0 1 0 0;0;1;1|
-((assgn553+assgn553+assgn551+assgn551))
-0 0 1 0 0;1;0;0|
-((assgn557+assgn555+assgn559+assgn559+assgn555+assgn557))
-0 0 1 0 0;1;0;1|
-((assgn573+assgn575+assgn573+assgn575))
-0 0 1 0 0;1;1;0|
-((assgn570+assgn571))
-0 0 1 0 1;0;0;0|
-((assgn557+assgn555+assgn559+assgn559+assgn555+assgn557))
-0 0 1 0 1;0;0;1|
-((assgn573+assgn575+assgn573+assgn575))
-0 0 1 0 1;0;1;0|
-((assgn570+assgn571))
-0 0 1 0 1;1;0;0|
-((assgn542+assgn542))
-0 0 1 1 0;0;0;0|
-((assgn599+assgn599+assgn601+assgn603+assgn601+assgn603+assgn599+assgn599+assgn601+assgn603+assgn601+assgn603+assgn605+assgn607+assgn605+assgn607+assgn609+assgn609+assgn605+assgn607+assgn605+assgn607+assgn609+assgn609))
-0 0 1 1 0;0;0;1|
-((assgn593+assgn595+assgn593+assgn595+assgn597+assgn597))
-0 0 1 1 0;0;1;0|
-((assgn593+assgn595+assgn593+assgn595+assgn597+assgn597))
-0 0 1 1 0;0;1;1|
-((assgn591+assgn591+assgn591+assgn591))
-0 0 1 1 0;1;0;0|
-((assgn585+assgn585+assgn587+assgn589+assgn587+assgn589))
-0 0 1 1 0;1;0;1|
-((assgn577+assgn579+assgn581+assgn583))
-0 0 1 1 0;1;1;0|
-((assgn570+assgn571))
-0 0 1 1 1;0;0;0|
-((assgn585+assgn585+assgn587+assgn589+assgn587+assgn589))
-0 0 1 1 1;0;0;1|
-((assgn577+assgn579+assgn581+assgn583))
-0 0 1 1 1;0;1;0|
-((assgn570+assgn571))
-0 0 1 1 1;1;0;0|
-((assgn542+assgn542))
-0 1 -1 -1 0;0;0;0|
-((assgn226+assgn226+assgn222+assgn219+assgn222+assgn219+assgn235+assgn235+assgn231+assgn228+assgn231+assgn228+assgn212+assgn209+assgn217+assgn214+assgn205+assgn207+assgn212+assgn209+assgn217+assgn214+assgn205+assgn207))
-0 1 -1 -1 0;0;0;1|
-((assgn170+assgn167+assgn175+assgn172+assgn163+assgn165))
-0 1 -1 -1 0;0;1;0|
-((assgn170+assgn167+assgn175+assgn172+assgn163+assgn165))
-0 1 -1 -1 0;0;1;1|
-((assgn406+assgn408+assgn406+assgn408))
-0 1 -1 -1 0;1;0;0|
-((assgn203+assgn203+assgn199+assgn196+assgn199+assgn196))
-0 1 -1 -1 0;1;0;1|
-((assgn161+assgn158+assgn156+assgn153))
-0 1 -1 -1 0;1;1;0|
-((assgn404+assgn403))
-0 1 -1 -1 1;0;0;0|
-((assgn194+assgn194+assgn190+assgn187+assgn190+assgn187))
-0 1 -1 -1 1;0;0;1|
-((assgn252+assgn249+assgn247+assgn244))
-0 1 -1 -1 1;0;1;0|
-((assgn505+assgn504))
-0 1 -1 -1 1;1;0;0|
-((assgn610+assgn611))
-0 1 -1 0 0;0;0;0|
-((assgn392+assgn395+assgn385+assgn383+assgn390+assgn387+assgn399+assgn402+assgn397+assgn397+assgn402+assgn399+assgn379+assgn377+assgn381+assgn381+assgn377+assgn379+assgn390+assgn387+assgn395+assgn392+assgn383+assgn385))
-0 1 -1 0 0;0;0;1|
-((assgn363+assgn360+assgn368+assgn365+assgn356+assgn358))
-0 1 -1 0 0;0;1;0|
-((assgn342+assgn340+assgn344+assgn344+assgn340+assgn342))
-0 1 -1 0 0;0;1;1|
-((assgn412+assgn414+assgn416+assgn418))
-0 1 -1 0 0;1;0;0|
-((assgn372+assgn375+assgn370+assgn370+assgn375+assgn372))
-0 1 -1 0 0;1;0;1|
-((assgn354+assgn351+assgn349+assgn346))
-0 1 -1 0 0;1;1;0|
-((assgn404+assgn403))
-0 1 -1 0 1;0;0;0|
-((assgn365+assgn368+assgn358+assgn356+assgn363+assgn360))
-0 1 -1 0 1;0;0;1|
-((assgn423+assgn420+assgn423+assgn420))
-0 1 -1 0 1;0;1;0|
-((assgn505+assgn504))
-0 1 -1 0 1;1;0;0|
-((assgn610+assgn611))
-0 1 -1 1 0;0;0;0|
-((assgn483+assgn486+assgn481+assgn481+assgn486+assgn483+assgn492+assgn495+assgn488+assgn490+assgn500+assgn497+assgn475+assgn475+assgn477+assgn479+assgn477+assgn479+assgn495+assgn492+assgn500+assgn497+assgn488+assgn490))
-0 1 -1 1 0;0;0;1|
-((assgn468+assgn465+assgn473+assgn470+assgn461+assgn463))
-0 1 -1 1 0;0;1;0|
-((assgn433+assgn433+assgn435+assgn437+assgn435+assgn437))
-0 1 -1 1 0;0;1;1|
-((assgn425+assgn427+assgn429+assgn431))
-0 1 -1 1 0;1;0;0|
-((assgn465+assgn468+assgn461+assgn463+assgn473+assgn470))
-0 1 -1 1 0;1;0;1|
-((assgn459+assgn456+assgn459+assgn456))
-0 1 -1 1 0;1;1;0|
-((assgn404+assgn403))
-0 1 -1 1 1;0;0;0|
-((assgn451+assgn454+assgn449+assgn449+assgn454+assgn451))
-0 1 -1 1 1;0;0;1|
-((assgn442+assgn439+assgn447+assgn444))
-0 1 -1 1 1;0;1;0|
-((assgn505+assgn504))
-0 1 -1 1 1;1;0;0|
-((assgn610+assgn611))
-0 1 0 -1 0;0;0;0|
-((assgn395+assgn392+assgn390+assgn387+assgn385+assgn383+assgn402+assgn399+assgn402+assgn399+assgn397+assgn397+assgn390+assgn387+assgn395+assgn392+assgn383+assgn385+assgn379+assgn377+assgn381+assgn381+assgn377+assgn379))
-0 1 0 -1 0;0;0;1|
-((assgn342+assgn340+assgn344+assgn344+assgn340+assgn342))
-0 1 0 -1 0;0;1;0|
-((assgn363+assgn360+assgn368+assgn365+assgn356+assgn358))
-0 1 0 -1 0;0;1;1|
-((assgn416+assgn418+assgn412+assgn414))
-0 1 0 -1 0;1;0;0|
-((assgn375+assgn372+assgn375+assgn372+assgn370+assgn370))
-0 1 0 -1 0;1;0;1|
-((assgn338+assgn338+assgn336+assgn336))
-0 1 0 -1 0;1;1;0|
-((assgn571+assgn570))
-0 1 0 -1 1;0;0;0|
-((assgn368+assgn365+assgn363+assgn360+assgn358+assgn356))
-0 1 0 -1 1;0;0;1|
-((assgn418+assgn416+assgn414+assgn412))
-0 1 0 -1 1;0;1;0|
-((assgn612+assgn612))
-0 1 0 -1 1;1;0;0|
-((assgn610+assgn611))
-0 1 0 0 0;0;0;0|
-((assgn567+assgn567+assgn565+assgn563+assgn565+assgn563+assgn569+assgn569+assgn569+assgn569+assgn569+assgn569+assgn565+assgn563+assgn567+assgn567+assgn563+assgn565+assgn565+assgn563+assgn567+assgn567+assgn563+assgn565))
-0 1 0 0 0;0;0;1|
-((assgn557+assgn555+assgn559+assgn559+assgn555+assgn557))
-0 1 0 0 0;0;1;0|
-((assgn557+assgn555+assgn559+assgn559+assgn555+assgn557))
-0 1 0 0 0;0;1;1|
-((assgn573+assgn575+assgn573+assgn575))
-0 1 0 0 0;1;0;0|
-((assgn561+assgn561+assgn561+assgn561+assgn561+assgn561))
-0 1 0 0 0;1;0;1|
-((assgn553+assgn553+assgn551+assgn551))
-0 1 0 0 0;1;1;0|
-((assgn571+assgn570))
-0 1 0 0 1;0;0;0|
-((assgn559+assgn559+assgn557+assgn555+assgn557+assgn555))
-0 1 0 0 1;0;0;1|
-((assgn575+assgn573+assgn575+assgn573))
-0 1 0 0 1;0;1;0|
-((assgn612+assgn612))
-0 1 0 0 1;1;0;0|
-((assgn610+assgn611))
-0 1 0 1 0;0;0;0|
-((assgn601+assgn603+assgn599+assgn599+assgn603+assgn601+assgn605+assgn607+assgn605+assgn607+assgn609+assgn609+assgn599+assgn599+assgn601+assgn603+assgn601+assgn603+assgn607+assgn605+assgn609+assgn609+assgn605+assgn607))
-0 1 0 1 0;0;0;1|
-((assgn595+assgn593+assgn597+assgn597+assgn593+assgn595))
-0 1 0 1 0;0;1;0|
-((assgn585+assgn585+assgn587+assgn589+assgn587+assgn589))
-0 1 0 1 0;0;1;1|
-((assgn577+assgn579+assgn581+assgn583))
-0 1 0 1 0;1;0;0|
-((assgn593+assgn595+assgn593+assgn595+assgn597+assgn597))
-0 1 0 1 0;1;0;1|
-((assgn591+assgn591+assgn591+assgn591))
-0 1 0 1 0;1;1;0|
-((assgn571+assgn570))
-0 1 0 1 1;0;0;0|
-((assgn587+assgn589+assgn585+assgn585+assgn589+assgn587))
-0 1 0 1 1;0;0;1|
-((assgn579+assgn577+assgn583+assgn581))
-0 1 0 1 1;0;1;0|
-((assgn612+assgn612))
-0 1 0 1 1;1;0;0|
-((assgn610+assgn611))
-0 1 1 -1 0;0;0;0|
-((assgn486+assgn483+assgn486+assgn483+assgn481+assgn481+assgn495+assgn492+assgn500+assgn497+assgn488+assgn490+assgn495+assgn492+assgn500+assgn497+assgn488+assgn490+assgn475+assgn475+assgn477+assgn479+assgn477+assgn479))
-0 1 1 -1 0;0;0;1|
-((assgn433+assgn433+assgn435+assgn437+assgn435+assgn437))
-0 1 1 -1 0;0;1;0|
-((assgn468+assgn465+assgn473+assgn470+assgn461+assgn463))
-0 1 1 -1 0;0;1;1|
-((assgn429+assgn431+assgn425+assgn427))
-0 1 1 -1 0;1;0;0|
-((assgn468+assgn465+assgn473+assgn470+assgn461+assgn463))
-0 1 1 -1 0;1;0;1|
-((assgn429+assgn431+assgn425+assgn427))
-0 1 1 -1 0;1;1;0|
-((assgn615+assgn615))
-0 1 1 -1 1;0;0;0|
-((assgn454+assgn451+assgn454+assgn451+assgn449+assgn449))
-0 1 1 -1 1;0;0;1|
-((assgn514+assgn514+assgn512+assgn512))
-0 1 1 -1 1;0;1;0|
-((assgn613+assgn614))
-0 1 1 -1 1;1;0;0|
-((assgn610+assgn611))
-0 1 1 0 0;0;0;0|
-((assgn603+assgn601+assgn603+assgn601+assgn599+assgn599+assgn607+assgn605+assgn609+assgn609+assgn605+assgn607+assgn607+assgn605+assgn609+assgn609+assgn605+assgn607+assgn599+assgn599+assgn601+assgn603+assgn601+assgn603))
-0 1 1 0 0;0;0;1|
-((assgn585+assgn585+assgn587+assgn589+assgn587+assgn589))
-0 1 1 0 0;0;1;0|
-((assgn595+assgn593+assgn597+assgn597+assgn593+assgn595))
-0 1 1 0 0;0;1;1|
-((assgn581+assgn583+assgn577+assgn579))
-0 1 1 0 0;1;0;0|
-((assgn595+assgn593+assgn597+assgn597+assgn593+assgn595))
-0 1 1 0 0;1;0;1|
-((assgn581+assgn583+assgn577+assgn579))
-0 1 1 0 0;1;1;0|
-((assgn615+assgn615))
-0 1 1 0 1;0;0;0|
-((assgn589+assgn587+assgn589+assgn587+assgn585+assgn585))
-0 1 1 0 1;0;0;1|
-((assgn617+assgn617+assgn617+assgn617))
-0 1 1 0 1;0;1;0|
-((assgn613+assgn614))
-0 1 1 0 1;1;0;0|
-((assgn610+assgn611))
-0 1 1 1 0;0;0;0|
-((assgn635+assgn635+assgn635+assgn635+assgn635+assgn635+assgn637+assgn637+assgn639+assgn641+assgn639+assgn641+assgn637+assgn637+assgn639+assgn641+assgn639+assgn641+assgn637+assgn637+assgn639+assgn641+assgn639+assgn641))
-0 1 1 1 0;0;0;1|
-((assgn629+assgn629+assgn631+assgn633+assgn631+assgn633))
-0 1 1 1 0;0;1;0|
-((assgn629+assgn629+assgn631+assgn633+assgn631+assgn633))
-0 1 1 1 0;0;1;1|
-((assgn625+assgn627+assgn625+assgn627))
-0 1 1 1 0;1;0;0|
-((assgn629+assgn629+assgn631+assgn633+assgn631+assgn633))
-0 1 1 1 0;1;0;1|
-((assgn625+assgn627+assgn625+assgn627))
-0 1 1 1 0;1;1;0|
-((assgn615+assgn615))
-0 1 1 1 1;0;0;0|
-((assgn623+assgn623+assgn623+assgn623+assgn623+assgn623))
-0 1 1 1 1;0;0;1|
-((assgn619+assgn619+assgn621+assgn621))
-0 1 1 1 1;0;1;0|
-((assgn613+assgn614))
-0 1 1 1 1;1;0;0|
-((assgn610+assgn611))
-1 -1 -1 -1 0;0;0;0|
-((assgn97+assgn97+assgn97+assgn97+assgn97+assgn97+assgn92+assgn92+assgn88+assgn85+assgn88+assgn85+assgn92+assgn92+assgn88+assgn85+assgn88+assgn85+assgn92+assgn92+assgn88+assgn85+assgn88+assgn85))
-1 -1 -1 -1 0;0;0;1|
-((assgn78+assgn78+assgn74+assgn71+assgn74+assgn71))
-1 -1 -1 -1 0;0;1;0|
-((assgn78+assgn78+assgn74+assgn71+assgn74+assgn71))
-1 -1 -1 -1 0;0;1;1|
-((assgn242+assgn239+assgn242+assgn239))
-1 -1 -1 -1 0;1;0;0|
-((assgn78+assgn78+assgn74+assgn71+assgn74+assgn71))
-1 -1 -1 -1 0;1;0;1|
-((assgn242+assgn239+assgn242+assgn239))
-1 -1 -1 -1 0;1;1;0|
-((assgn503+assgn503))
-1 -1 -1 -1 1;0;0;0|
-((assgn83+assgn83+assgn83+assgn83+assgn83+assgn83))
-1 -1 -1 -1 1;0;0;1|
-((assgn69+assgn69+assgn63+assgn63))
-1 -1 -1 -1 1;0;1;0|
-((assgn237+assgn236))
-1 -1 -1 -1 1;1;0;0|
-((assgn502+assgn501))
-1 -1 -1 0 0;0;0;0|
-((assgn228+assgn231+assgn228+assgn231+assgn235+assgn235+assgn214+assgn217+assgn207+assgn205+assgn212+assgn209+assgn214+assgn217+assgn207+assgn205+assgn212+assgn209+assgn226+assgn226+assgn222+assgn219+assgn222+assgn219))
-1 -1 -1 0 0;0;0;1|
-((assgn194+assgn194+assgn190+assgn187+assgn190+assgn187))
-1 -1 -1 0 0;0;1;0|
-((assgn172+assgn175+assgn165+assgn163+assgn170+assgn167))
-1 -1 -1 0 0;0;1;1|
-((assgn247+assgn244+assgn252+assgn249))
-1 -1 -1 0 0;1;0;0|
-((assgn172+assgn175+assgn165+assgn163+assgn170+assgn167))
-1 -1 -1 0 0;1;0;1|
-((assgn247+assgn244+assgn252+assgn249))
-1 -1 -1 0 0;1;1;0|
-((assgn503+assgn503))
-1 -1 -1 0 1;0;0;0|
-((assgn196+assgn199+assgn196+assgn199+assgn203+assgn203))
-1 -1 -1 0 1;0;0;1|
-((assgn185+assgn185+assgn180+assgn180))
-1 -1 -1 0 1;0;1;0|
-((assgn237+assgn236))
-1 -1 -1 0 1;1;0;0|
-((assgn502+assgn501))
-1 -1 -1 1 0;0;0;0|
-((assgn292+assgn295+assgn292+assgn295+assgn299+assgn299+assgn287+assgn290+assgn285+assgn285+assgn290+assgn287+assgn287+assgn290+assgn285+assgn285+assgn290+assgn287+assgn299+assgn299+assgn295+assgn292+assgn295+assgn292))
-1 -1 -1 1 0;0;0;1|
-((assgn283+assgn283+assgn279+assgn276+assgn279+assgn276))
-1 -1 -1 1 0;0;1;0|
-((assgn266+assgn269+assgn264+assgn264+assgn269+assgn266))
-1 -1 -1 1 0;0;1;1|
-((assgn257+assgn254+assgn262+assgn259))
-1 -1 -1 1 0;1;0;0|
-((assgn266+assgn269+assgn264+assgn264+assgn269+assgn266))
-1 -1 -1 1 0;1;0;1|
-((assgn257+assgn254+assgn262+assgn259))
-1 -1 -1 1 0;1;1;0|
-((assgn503+assgn503))
-1 -1 -1 1 1;0;0;0|
-((assgn276+assgn279+assgn276+assgn279+assgn283+assgn283))
-1 -1 -1 1 1;0;0;1|
-((assgn274+assgn274+assgn274+assgn274))
-1 -1 -1 1 1;0;1;0|
-((assgn237+assgn236))
-1 -1 -1 1 1;1;0;0|
-((assgn502+assgn501))
-1 -1 0 -1 0;0;0;0|
-((assgn231+assgn228+assgn235+assgn235+assgn228+assgn231+assgn217+assgn214+assgn212+assgn209+assgn207+assgn205+assgn226+assgn226+assgn222+assgn219+assgn222+assgn219+assgn214+assgn217+assgn207+assgn205+assgn212+assgn209))
-1 -1 0 -1 0;0;0;1|
-((assgn172+assgn175+assgn165+assgn163+assgn170+assgn167))
-1 -1 0 -1 0;0;1;0|
-((assgn194+assgn194+assgn190+assgn187+assgn190+assgn187))
-1 -1 0 -1 0;0;1;1|
-((assgn252+assgn249+assgn247+assgn244))
-1 -1 0 -1 0;1;0;0|
-((assgn175+assgn172+assgn170+assgn167+assgn165+assgn163))
-1 -1 0 -1 0;1;0;1|
-((assgn408+assgn406+assgn408+assgn406))
-1 -1 0 -1 0;1;1;0|
-((assgn504+assgn505))
-1 -1 0 -1 1;0;0;0|
-((assgn199+assgn196+assgn203+assgn203+assgn196+assgn199))
-1 -1 0 -1 1;0;0;1|
-((assgn158+assgn161+assgn153+assgn156))
-1 -1 0 -1 1;0;1;0|
-((assgn410+assgn409))
-1 -1 0 -1 1;1;0;0|
-((assgn502+assgn501))
-1 -1 0 0 0;0;0;0|
-((assgn397+assgn397+assgn399+assgn402+assgn399+assgn402+assgn381+assgn381+assgn379+assgn377+assgn379+assgn377+assgn392+assgn395+assgn385+assgn383+assgn390+assgn387+assgn392+assgn395+assgn385+assgn383+assgn390+assgn387))
-1 -1 0 0 0;0;0;1|
-((assgn365+assgn368+assgn358+assgn356+assgn363+assgn360))
-1 -1 0 0 0;0;1;0|
-((assgn365+assgn368+assgn358+assgn356+assgn363+assgn360))
-1 -1 0 0 0;0;1;1|
-((assgn423+assgn420+assgn423+assgn420))
-1 -1 0 0 0;1;0;0|
-((assgn344+assgn344+assgn342+assgn340+assgn342+assgn340))
-1 -1 0 0 0;1;0;1|
-((assgn414+assgn412+assgn418+assgn416))
-1 -1 0 0 0;1;1;0|
-((assgn504+assgn505))
-1 -1 0 0 1;0;0;0|
-((assgn370+assgn370+assgn372+assgn375+assgn372+assgn375))
-1 -1 0 0 1;0;0;1|
-((assgn351+assgn354+assgn346+assgn349))
-1 -1 0 0 1;0;1;0|
-((assgn410+assgn409))
-1 -1 0 0 1;1;0;0|
-((assgn502+assgn501))
-1 -1 0 1 0;0;0;0|
-((assgn488+assgn490+assgn492+assgn495+assgn497+assgn500+assgn477+assgn479+assgn475+assgn475+assgn479+assgn477+assgn483+assgn486+assgn481+assgn481+assgn486+assgn483+assgn497+assgn500+assgn490+assgn488+assgn495+assgn492))
-1 -1 0 1 0;0;0;1|
-((assgn470+assgn473+assgn463+assgn461+assgn468+assgn465))
-1 -1 0 1 0;0;1;0|
-((assgn451+assgn454+assgn449+assgn449+assgn454+assgn451))
-1 -1 0 1 0;0;1;1|
-((assgn442+assgn439+assgn447+assgn444))
-1 -1 0 1 0;1;0;0|
-((assgn435+assgn437+assgn433+assgn433+assgn437+assgn435))
-1 -1 0 1 0;1;0;1|
-((assgn427+assgn425+assgn431+assgn429))
-1 -1 0 1 0;1;1;0|
-((assgn504+assgn505))
-1 -1 0 1 1;0;0;0|
-((assgn461+assgn463+assgn465+assgn468+assgn470+assgn473))
-1 -1 0 1 1;0;0;1|
-((assgn456+assgn459+assgn456+assgn459))
-1 -1 0 1 1;0;1;0|
-((assgn410+assgn409))
-1 -1 0 1 1;1;0;0|
-((assgn502+assgn501))
-1 -1 1 -1 0;0;0;0|
-((assgn295+assgn292+assgn299+assgn299+assgn292+assgn295+assgn290+assgn287+assgn290+assgn287+assgn285+assgn285+assgn299+assgn299+assgn295+assgn292+assgn295+assgn292+assgn287+assgn290+assgn285+assgn285+assgn290+assgn287))
-1 -1 1 -1 0;0;0;1|
-((assgn266+assgn269+assgn264+assgn264+assgn269+assgn266))
-1 -1 1 -1 0;0;1;0|
-((assgn283+assgn283+assgn279+assgn276+assgn279+assgn276))
-1 -1 1 -1 0;0;1;1|
-((assgn262+assgn259+assgn257+assgn254))
-1 -1 1 -1 0;1;0;0|
-((assgn269+assgn266+assgn269+assgn266+assgn264+assgn264))
-1 -1 1 -1 0;1;0;1|
-((assgn509+assgn509+assgn509+assgn509))
-1 -1 1 -1 0;1;1;0|
-((assgn506+assgn507))
-1 -1 1 -1 1;0;0;0|
-((assgn279+assgn276+assgn283+assgn283+assgn276+assgn279))
-1 -1 1 -1 1;0;0;1|
-((assgn259+assgn262+assgn254+assgn257))
-1 -1 1 -1 1;0;1;0|
-((assgn510+assgn510))
-1 -1 1 -1 1;1;0;0|
-((assgn502+assgn501))
-1 -1 1 0 0;0;0;0|
-((assgn490+assgn488+assgn497+assgn500+assgn492+assgn495+assgn479+assgn477+assgn479+assgn477+assgn475+assgn475+assgn497+assgn500+assgn490+assgn488+assgn495+assgn492+assgn483+assgn486+assgn481+assgn481+assgn486+assgn483))
-1 -1 1 0 0;0;0;1|
-((assgn451+assgn454+assgn449+assgn449+assgn454+assgn451))
-1 -1 1 0 0;0;1;0|
-((assgn470+assgn473+assgn463+assgn461+assgn468+assgn465))
-1 -1 1 0 0;0;1;1|
-((assgn447+assgn444+assgn442+assgn439))
-1 -1 1 0 0;1;0;0|
-((assgn437+assgn435+assgn437+assgn435+assgn433+assgn433))
-1 -1 1 0 0;1;0;1|
-((assgn512+assgn512+assgn514+assgn514))
-1 -1 1 0 0;1;1;0|
-((assgn506+assgn507))
-1 -1 1 0 1;0;0;0|
-((assgn463+assgn461+assgn470+assgn473+assgn465+assgn468))
-1 -1 1 0 1;0;0;1|
-((assgn444+assgn447+assgn439+assgn442))
-1 -1 1 0 1;0;1;0|
-((assgn510+assgn510))
-1 -1 1 0 1;1;0;0|
-((assgn502+assgn501))
-1 -1 1 1 0;0;0;0|
-((assgn536+assgn536+assgn538+assgn541+assgn538+assgn541+assgn534+assgn534+assgn534+assgn534+assgn534+assgn534+assgn538+assgn541+assgn536+assgn536+assgn541+assgn538+assgn538+assgn541+assgn536+assgn536+assgn541+assgn538))
-1 -1 1 1 0;0;0;1|
-((assgn529+assgn532+assgn527+assgn527+assgn532+assgn529))
-1 -1 1 1 0;0;1;0|
-((assgn529+assgn532+assgn527+assgn527+assgn532+assgn529))
-1 -1 1 1 0;0;1;1|
-((assgn525+assgn522+assgn525+assgn522))
-1 -1 1 1 0;1;0;0|
-((assgn520+assgn520+assgn520+assgn520+assgn520+assgn520))
-1 -1 1 1 0;1;0;1|
-((assgn516+assgn516+assgn518+assgn518))
-1 -1 1 1 0;1;1;0|
-((assgn506+assgn507))
-1 -1 1 1 1;0;0;0|
-((assgn527+assgn527+assgn529+assgn532+assgn529+assgn532))
-1 -1 1 1 1;0;0;1|
-((assgn522+assgn525+assgn522+assgn525))
-1 -1 1 1 1;0;1;0|
-((assgn510+assgn510))
-1 -1 1 1 1;1;0;0|
-((assgn502+assgn501))
-1 0 -1 -1 0;0;0;0|
-((assgn235+assgn235+assgn231+assgn228+assgn231+assgn228+assgn226+assgn226+assgn222+assgn219+assgn222+assgn219+assgn217+assgn214+assgn212+assgn209+assgn207+assgn205+assgn217+assgn214+assgn212+assgn209+assgn207+assgn205))
-1 0 -1 -1 0;0;0;1|
-((assgn175+assgn172+assgn170+assgn167+assgn165+assgn163))
-1 0 -1 -1 0;0;1;0|
-((assgn175+assgn172+assgn170+assgn167+assgn165+assgn163))
-1 0 -1 -1 0;0;1;1|
-((assgn408+assgn406+assgn408+assgn406))
-1 0 -1 -1 0;1;0;0|
-((assgn194+assgn194+assgn190+assgn187+assgn190+assgn187))
-1 0 -1 -1 0;1;0;1|
-((assgn252+assgn249+assgn247+assgn244))
-1 0 -1 -1 0;1;1;0|
-((assgn505+assgn504))
-1 0 -1 -1 1;0;0;0|
-((assgn203+assgn203+assgn199+assgn196+assgn199+assgn196))
-1 0 -1 -1 1;0;0;1|
-((assgn161+assgn158+assgn156+assgn153))
-1 0 -1 -1 1;0;1;0|
-((assgn404+assgn403))
-1 0 -1 -1 1;1;0;0|
-((assgn611+assgn610))
-1 0 -1 0 0;0;0;0|
-((assgn399+assgn402+assgn397+assgn397+assgn402+assgn399+assgn392+assgn395+assgn385+assgn383+assgn390+assgn387+assgn381+assgn381+assgn379+assgn377+assgn379+assgn377+assgn395+assgn392+assgn390+assgn387+assgn385+assgn383))
-1 0 -1 0 0;0;0;1|
-((assgn368+assgn365+assgn363+assgn360+assgn358+assgn356))
-1 0 -1 0 0;0;1;0|
-((assgn344+assgn344+assgn342+assgn340+assgn342+assgn340))
-1 0 -1 0 0;0;1;1|
-((assgn414+assgn412+assgn418+assgn416))
-1 0 -1 0 0;1;0;0|
-((assgn365+assgn368+assgn358+assgn356+assgn363+assgn360))
-1 0 -1 0 0;1;0;1|
-((assgn423+assgn420+assgn423+assgn420))
-1 0 -1 0 0;1;1;0|
-((assgn505+assgn504))
-1 0 -1 0 1;0;0;0|
-((assgn372+assgn375+assgn370+assgn370+assgn375+assgn372))
-1 0 -1 0 1;0;0;1|
-((assgn354+assgn351+assgn349+assgn346))
-1 0 -1 0 1;0;1;0|
-((assgn404+assgn403))
-1 0 -1 0 1;1;0;0|
-((assgn611+assgn610))
-1 0 -1 1 0;0;0;0|
-((assgn492+assgn495+assgn488+assgn490+assgn500+assgn497+assgn483+assgn486+assgn481+assgn481+assgn486+assgn483+assgn477+assgn479+assgn475+assgn475+assgn479+assgn477+assgn500+assgn497+assgn495+assgn492+assgn490+assgn488))
-1 0 -1 1 0;0;0;1|
-((assgn473+assgn470+assgn468+assgn465+assgn463+assgn461))
-1 0 -1 1 0;0;1;0|
-((assgn435+assgn437+assgn433+assgn433+assgn437+assgn435))
-1 0 -1 1 0;0;1;1|
-((assgn427+assgn425+assgn431+assgn429))
-1 0 -1 1 0;1;0;0|
-((assgn451+assgn454+assgn449+assgn449+assgn454+assgn451))
-1 0 -1 1 0;1;0;1|
-((assgn442+assgn439+assgn447+assgn444))
-1 0 -1 1 0;1;1;0|
-((assgn505+assgn504))
-1 0 -1 1 1;0;0;0|
-((assgn465+assgn468+assgn461+assgn463+assgn473+assgn470))
-1 0 -1 1 1;0;0;1|
-((assgn459+assgn456+assgn459+assgn456))
-1 0 -1 1 1;0;1;0|
-((assgn404+assgn403))
-1 0 -1 1 1;1;0;0|
-((assgn611+assgn610))
-1 0 0 -1 0;0;0;0|
-((assgn402+assgn399+assgn402+assgn399+assgn397+assgn397+assgn395+assgn392+assgn390+assgn387+assgn385+assgn383+assgn395+assgn392+assgn390+assgn387+assgn385+assgn383+assgn381+assgn381+assgn379+assgn377+assgn379+assgn377))
-1 0 0 -1 0;0;0;1|
-((assgn344+assgn344+assgn342+assgn340+assgn342+assgn340))
-1 0 0 -1 0;0;1;0|
-((assgn368+assgn365+assgn363+assgn360+assgn358+assgn356))
-1 0 0 -1 0;0;1;1|
-((assgn418+assgn416+assgn414+assgn412))
-1 0 0 -1 0;1;0;0|
-((assgn368+assgn365+assgn363+assgn360+assgn358+assgn356))
-1 0 0 -1 0;1;0;1|
-((assgn418+assgn416+assgn414+assgn412))
-1 0 0 -1 0;1;1;0|
-((assgn612+assgn612))
-1 0 0 -1 1;0;0;0|
-((assgn375+assgn372+assgn375+assgn372+assgn370+assgn370))
-1 0 0 -1 1;0;0;1|
-((assgn338+assgn338+assgn336+assgn336))
-1 0 0 -1 1;0;1;0|
-((assgn571+assgn570))
-1 0 0 -1 1;1;0;0|
-((assgn611+assgn610))
-1 0 0 0 0;0;0;0|
-((assgn569+assgn569+assgn569+assgn569+assgn569+assgn569+assgn567+assgn567+assgn565+assgn563+assgn565+assgn563+assgn567+assgn567+assgn565+assgn563+assgn565+assgn563+assgn567+assgn567+assgn565+assgn563+assgn565+assgn563))
-1 0 0 0 0;0;0;1|
-((assgn559+assgn559+assgn557+assgn555+assgn557+assgn555))
-1 0 0 0 0;0;1;0|
-((assgn559+assgn559+assgn557+assgn555+assgn557+assgn555))
-1 0 0 0 0;0;1;1|
-((assgn575+assgn573+assgn575+assgn573))
-1 0 0 0 0;1;0;0|
-((assgn559+assgn559+assgn557+assgn555+assgn557+assgn555))
-1 0 0 0 0;1;0;1|
-((assgn575+assgn573+assgn575+assgn573))
-1 0 0 0 0;1;1;0|
-((assgn612+assgn612))
-1 0 0 0 1;0;0;0|
-((assgn561+assgn561+assgn561+assgn561+assgn561+assgn561))
-1 0 0 0 1;0;0;1|
-((assgn553+assgn553+assgn551+assgn551))
-1 0 0 0 1;0;1;0|
-((assgn571+assgn570))
-1 0 0 0 1;1;0;0|
-((assgn611+assgn610))
-1 0 0 1 0;0;0;0|
-((assgn605+assgn607+assgn605+assgn607+assgn609+assgn609+assgn601+assgn603+assgn599+assgn599+assgn603+assgn601+assgn601+assgn603+assgn599+assgn599+assgn603+assgn601+assgn609+assgn609+assgn607+assgn605+assgn607+assgn605))
-1 0 0 1 0;0;0;1|
-((assgn597+assgn597+assgn595+assgn593+assgn595+assgn593))
-1 0 0 1 0;0;1;0|
-((assgn587+assgn589+assgn585+assgn585+assgn589+assgn587))
-1 0 0 1 0;0;1;1|
-((assgn579+assgn577+assgn583+assgn581))
-1 0 0 1 0;1;0;0|
-((assgn587+assgn589+assgn585+assgn585+assgn589+assgn587))
-1 0 0 1 0;1;0;1|
-((assgn579+assgn577+assgn583+assgn581))
-1 0 0 1 0;1;1;0|
-((assgn612+assgn612))
-1 0 0 1 1;0;0;0|
-((assgn593+assgn595+assgn593+assgn595+assgn597+assgn597))
-1 0 0 1 1;0;0;1|
-((assgn591+assgn591+assgn591+assgn591))
-1 0 0 1 1;0;1;0|
-((assgn571+assgn570))
-1 0 0 1 1;1;0;0|
-((assgn611+assgn610))
-1 0 1 -1 0;0;0;0|
-((assgn495+assgn492+assgn500+assgn497+assgn488+assgn490+assgn486+assgn483+assgn486+assgn483+assgn481+assgn481+assgn500+assgn497+assgn495+assgn492+assgn490+assgn488+assgn477+assgn479+assgn475+assgn475+assgn479+assgn477))
-1 0 1 -1 0;0;0;1|
-((assgn435+assgn437+assgn433+assgn433+assgn437+assgn435))
-1 0 1 -1 0;0;1;0|
-((assgn473+assgn470+assgn468+assgn465+assgn463+assgn461))
-1 0 1 -1 0;0;1;1|
-((assgn431+assgn429+assgn427+assgn425))
-1 0 1 -1 0;1;0;0|
-((assgn454+assgn451+assgn454+assgn451+assgn449+assgn449))
-1 0 1 -1 0;1;0;1|
-((assgn514+assgn514+assgn512+assgn512))
-1 0 1 -1 0;1;1;0|
-((assgn613+assgn614))
-1 0 1 -1 1;0;0;0|
-((assgn468+assgn465+assgn473+assgn470+assgn461+assgn463))
-1 0 1 -1 1;0;0;1|
-((assgn429+assgn431+assgn425+assgn427))
-1 0 1 -1 1;0;1;0|
-((assgn615+assgn615))
-1 0 1 -1 1;1;0;0|
-((assgn611+assgn610))
-1 0 1 0 0;0;0;0|
-((assgn607+assgn605+assgn609+assgn609+assgn605+assgn607+assgn603+assgn601+assgn603+assgn601+assgn599+assgn599+assgn609+assgn609+assgn607+assgn605+assgn607+assgn605+assgn601+assgn603+assgn599+assgn599+assgn603+assgn601))
-1 0 1 0 0;0;0;1|
-((assgn587+assgn589+assgn585+assgn585+assgn589+assgn587))
-1 0 1 0 0;0;1;0|
-((assgn597+assgn597+assgn595+assgn593+assgn595+assgn593))
-1 0 1 0 0;0;1;1|
-((assgn583+assgn581+assgn579+assgn577))
-1 0 1 0 0;1;0;0|
-((assgn589+assgn587+assgn589+assgn587+assgn585+assgn585))
-1 0 1 0 0;1;0;1|
-((assgn617+assgn617+assgn617+assgn617))
-1 0 1 0 0;1;1;0|
-((assgn613+assgn614))
-1 0 1 0 1;0;0;0|
-((assgn595+assgn593+assgn597+assgn597+assgn593+assgn595))
-1 0 1 0 1;0;0;1|
-((assgn581+assgn583+assgn577+assgn579))
-1 0 1 0 1;0;1;0|
-((assgn615+assgn615))
-1 0 1 0 1;1;0;0|
-((assgn611+assgn610))
-1 0 1 1 0;0;0;0|
-((assgn637+assgn637+assgn639+assgn641+assgn639+assgn641+assgn635+assgn635+assgn635+assgn635+assgn635+assgn635+assgn639+assgn641+assgn637+assgn637+assgn641+assgn639+assgn639+assgn641+assgn637+assgn637+assgn641+assgn639))
-1 0 1 1 0;0;0;1|
-((assgn631+assgn633+assgn629+assgn629+assgn633+assgn631))
-1 0 1 1 0;0;1;0|
-((assgn631+assgn633+assgn629+assgn629+assgn633+assgn631))
-1 0 1 1 0;0;1;1|
-((assgn627+assgn625+assgn627+assgn625))
-1 0 1 1 0;1;0;0|
-((assgn623+assgn623+assgn623+assgn623+assgn623+assgn623))
-1 0 1 1 0;1;0;1|
-((assgn619+assgn619+assgn621+assgn621))
-1 0 1 1 0;1;1;0|
-((assgn613+assgn614))
-1 0 1 1 1;0;0;0|
-((assgn629+assgn629+assgn631+assgn633+assgn631+assgn633))
-1 0 1 1 1;0;0;1|
-((assgn625+assgn627+assgn625+assgn627))
-1 0 1 1 1;0;1;0|
-((assgn615+assgn615))
-1 0 1 1 1;1;0;0|
-((assgn611+assgn610))
-1 1 -1 -1 0;0;0;0|
-((assgn299+assgn299+assgn295+assgn292+assgn295+assgn292+assgn299+assgn299+assgn295+assgn292+assgn295+assgn292+assgn290+assgn287+assgn290+assgn287+assgn285+assgn285+assgn290+assgn287+assgn290+assgn287+assgn285+assgn285))
-1 1 -1 -1 0;0;0;1|
-((assgn269+assgn266+assgn269+assgn266+assgn264+assgn264))
-1 1 -1 -1 0;0;1;0|
-((assgn269+assgn266+assgn269+assgn266+assgn264+assgn264))
-1 1 -1 -1 0;0;1;1|
-((assgn509+assgn509+assgn509+assgn509))
-1 1 -1 -1 0;1;0;0|
-((assgn283+assgn283+assgn279+assgn276+assgn279+assgn276))
-1 1 -1 -1 0;1;0;1|
-((assgn262+assgn259+assgn257+assgn254))
-1 1 -1 -1 0;1;1;0|
-((assgn507+assgn506))
-1 1 -1 -1 1;0;0;0|
-((assgn283+assgn283+assgn279+assgn276+assgn279+assgn276))
-1 1 -1 -1 1;0;0;1|
-((assgn262+assgn259+assgn257+assgn254))
-1 1 -1 -1 1;0;1;0|
-((assgn507+assgn506))
-1 1 -1 -1 1;1;0;0|
-((assgn642+assgn642))
-1 1 -1 0 0;0;0;0|
-((assgn497+assgn500+assgn490+assgn488+assgn495+assgn492+assgn497+assgn500+assgn490+assgn488+assgn495+assgn492+assgn479+assgn477+assgn479+assgn477+assgn475+assgn475+assgn486+assgn483+assgn486+assgn483+assgn481+assgn481))
-1 1 -1 0 0;0;0;1|
-((assgn454+assgn451+assgn454+assgn451+assgn449+assgn449))
-1 1 -1 0 0;0;1;0|
-((assgn437+assgn435+assgn437+assgn435+assgn433+assgn433))
-1 1 -1 0 0;0;1;1|
-((assgn512+assgn512+assgn514+assgn514))
-1 1 -1 0 0;1;0;0|
-((assgn470+assgn473+assgn463+assgn461+assgn468+assgn465))
-1 1 -1 0 0;1;0;1|
-((assgn447+assgn444+assgn442+assgn439))
-1 1 -1 0 0;1;1;0|
-((assgn507+assgn506))
-1 1 -1 0 1;0;0;0|
-((assgn470+assgn473+assgn463+assgn461+assgn468+assgn465))
-1 1 -1 0 1;0;0;1|
-((assgn447+assgn444+assgn442+assgn439))
-1 1 -1 0 1;0;1;0|
-((assgn507+assgn506))
-1 1 -1 0 1;1;0;0|
-((assgn642+assgn642))
-1 1 -1 1 0;0;0;0|
-((assgn538+assgn541+assgn536+assgn536+assgn541+assgn538+assgn538+assgn541+assgn536+assgn536+assgn541+assgn538+assgn534+assgn534+assgn534+assgn534+assgn534+assgn534+assgn541+assgn538+assgn541+assgn538+assgn536+assgn536))
-1 1 -1 1 0;0;0;1|
-((assgn532+assgn529+assgn532+assgn529+assgn527+assgn527))
-1 1 -1 1 0;0;1;0|
-((assgn520+assgn520+assgn520+assgn520+assgn520+assgn520))
-1 1 -1 1 0;0;1;1|
-((assgn516+assgn516+assgn518+assgn518))
-1 1 -1 1 0;1;0;0|
-((assgn529+assgn532+assgn527+assgn527+assgn532+assgn529))
-1 1 -1 1 0;1;0;1|
-((assgn525+assgn522+assgn525+assgn522))
-1 1 -1 1 0;1;1;0|
-((assgn507+assgn506))
-1 1 -1 1 1;0;0;0|
-((assgn529+assgn532+assgn527+assgn527+assgn532+assgn529))
-1 1 -1 1 1;0;0;1|
-((assgn525+assgn522+assgn525+assgn522))
-1 1 -1 1 1;0;1;0|
-((assgn507+assgn506))
-1 1 -1 1 1;1;0;0|
-((assgn642+assgn642))
-1 1 0 -1 0;0;0;0|
-((assgn500+assgn497+assgn495+assgn492+assgn490+assgn488+assgn500+assgn497+assgn495+assgn492+assgn490+assgn488+assgn486+assgn483+assgn486+assgn483+assgn481+assgn481+assgn479+assgn477+assgn479+assgn477+assgn475+assgn475))
-1 1 0 -1 0;0;0;1|
-((assgn437+assgn435+assgn437+assgn435+assgn433+assgn433))
-1 1 0 -1 0;0;1;0|
-((assgn454+assgn451+assgn454+assgn451+assgn449+assgn449))
-1 1 0 -1 0;0;1;1|
-((assgn514+assgn514+assgn512+assgn512))
-1 1 0 -1 0;1;0;0|
-((assgn473+assgn470+assgn468+assgn465+assgn463+assgn461))
-1 1 0 -1 0;1;0;1|
-((assgn431+assgn429+assgn427+assgn425))
-1 1 0 -1 0;1;1;0|
-((assgn614+assgn613))
-1 1 0 -1 1;0;0;0|
-((assgn473+assgn470+assgn468+assgn465+assgn463+assgn461))
-1 1 0 -1 1;0;0;1|
-((assgn431+assgn429+assgn427+assgn425))
-1 1 0 -1 1;0;1;0|
-((assgn614+assgn613))
-1 1 0 -1 1;1;0;0|
-((assgn642+assgn642))
-1 1 0 0 0;0;0;0|
-((assgn609+assgn609+assgn607+assgn605+assgn607+assgn605+assgn609+assgn609+assgn607+assgn605+assgn607+assgn605+assgn603+assgn601+assgn603+assgn601+assgn599+assgn599+assgn603+assgn601+assgn603+assgn601+assgn599+assgn599))
-1 1 0 0 0;0;0;1|
-((assgn589+assgn587+assgn589+assgn587+assgn585+assgn585))
-1 1 0 0 0;0;1;0|
-((assgn589+assgn587+assgn589+assgn587+assgn585+assgn585))
-1 1 0 0 0;0;1;1|
-((assgn617+assgn617+assgn617+assgn617))
-1 1 0 0 0;1;0;0|
-((assgn597+assgn597+assgn595+assgn593+assgn595+assgn593))
-1 1 0 0 0;1;0;1|
-((assgn583+assgn581+assgn579+assgn577))
-1 1 0 0 0;1;1;0|
-((assgn614+assgn613))
-1 1 0 0 1;0;0;0|
-((assgn597+assgn597+assgn595+assgn593+assgn595+assgn593))
-1 1 0 0 1;0;0;1|
-((assgn583+assgn581+assgn579+assgn577))
-1 1 0 0 1;0;1;0|
-((assgn614+assgn613))
-1 1 0 0 1;1;0;0|
-((assgn642+assgn642))
-1 1 0 1 0;0;0;0|
-((assgn639+assgn641+assgn637+assgn637+assgn641+assgn639+assgn639+assgn641+assgn637+assgn637+assgn641+assgn639+assgn635+assgn635+assgn635+assgn635+assgn635+assgn635+assgn641+assgn639+assgn641+assgn639+assgn637+assgn637))
-1 1 0 1 0;0;0;1|
-((assgn633+assgn631+assgn633+assgn631+assgn629+assgn629))
-1 1 0 1 0;0;1;0|
-((assgn623+assgn623+assgn623+assgn623+assgn623+assgn623))
-1 1 0 1 0;0;1;1|
-((assgn619+assgn619+assgn621+assgn621))
-1 1 0 1 0;1;0;0|
-((assgn631+assgn633+assgn629+assgn629+assgn633+assgn631))
-1 1 0 1 0;1;0;1|
-((assgn627+assgn625+assgn627+assgn625))
-1 1 0 1 0;1;1;0|
-((assgn614+assgn613))
-1 1 0 1 1;0;0;0|
-((assgn631+assgn633+assgn629+assgn629+assgn633+assgn631))
-1 1 0 1 1;0;0;1|
-((assgn627+assgn625+assgn627+assgn625))
-1 1 0 1 1;0;1;0|
-((assgn614+assgn613))
-1 1 0 1 1;1;0;0|
-((assgn642+assgn642))
-1 1 1 -1 0;0;0;0|
-((assgn541+assgn538+assgn541+assgn538+assgn536+assgn536+assgn541+assgn538+assgn541+assgn538+assgn536+assgn536+assgn541+assgn538+assgn541+assgn538+assgn536+assgn536+assgn534+assgn534+assgn534+assgn534+assgn534+assgn534))
-1 1 1 -1 0;0;0;1|
-((assgn520+assgn520+assgn520+assgn520+assgn520+assgn520))
-1 1 1 -1 0;0;1;0|
-((assgn532+assgn529+assgn532+assgn529+assgn527+assgn527))
-1 1 1 -1 0;0;1;1|
-((assgn518+assgn518+assgn516+assgn516))
-1 1 1 -1 0;1;0;0|
-((assgn532+assgn529+assgn532+assgn529+assgn527+assgn527))
-1 1 1 -1 0;1;0;1|
-((assgn518+assgn518+assgn516+assgn516))
-1 1 1 -1 0;1;1;0|
-((assgn643+assgn643))
-1 1 1 -1 1;0;0;0|
-((assgn532+assgn529+assgn532+assgn529+assgn527+assgn527))
-1 1 1 -1 1;0;0;1|
-((assgn518+assgn518+assgn516+assgn516))
-1 1 1 -1 1;0;1;0|
-((assgn643+assgn643))
-1 1 1 -1 1;1;0;0|
-((assgn642+assgn642))
-1 1 1 0 0;0;0;0|
-((assgn641+assgn639+assgn641+assgn639+assgn637+assgn637+assgn641+assgn639+assgn641+assgn639+assgn637+assgn637+assgn641+assgn639+assgn641+assgn639+assgn637+assgn637+assgn635+assgn635+assgn635+assgn635+assgn635+assgn635))
-1 1 1 0 0;0;0;1|
-((assgn623+assgn623+assgn623+assgn623+assgn623+assgn623))
-1 1 1 0 0;0;1;0|
-((assgn633+assgn631+assgn633+assgn631+assgn629+assgn629))
-1 1 1 0 0;0;1;1|
-((assgn621+assgn621+assgn619+assgn619))
-1 1 1 0 0;1;0;0|
-((assgn633+assgn631+assgn633+assgn631+assgn629+assgn629))
-1 1 1 0 0;1;0;1|
-((assgn621+assgn621+assgn619+assgn619))
-1 1 1 0 0;1;1;0|
-((assgn643+assgn643))
-1 1 1 0 1;0;0;0|
-((assgn633+assgn631+assgn633+assgn631+assgn629+assgn629))
-1 1 1 0 1;0;0;1|
-((assgn621+assgn621+assgn619+assgn619))
-1 1 1 0 1;0;1;0|
-((assgn643+assgn643))
-1 1 1 0 1;1;0;0|
-((assgn642+assgn642))
-1 1 1 1 0;0;0;0|
-((assgn649+assgn649+assgn649+assgn649+assgn649+assgn649+assgn649+assgn649+assgn649+assgn649+assgn649+assgn649+assgn649+assgn649+assgn649+assgn649+assgn649+assgn649+assgn649+assgn649+assgn649+assgn649+assgn649+assgn649))
-1 1 1 1 0;0;0;1|
-((assgn647+assgn647+assgn647+assgn647+assgn647+assgn647))
-1 1 1 1 0;0;1;0|
-((assgn647+assgn647+assgn647+assgn647+assgn647+assgn647))
-1 1 1 1 0;0;1;1|
-((assgn645+assgn645+assgn645+assgn645))
-1 1 1 1 0;1;0;0|
-((assgn647+assgn647+assgn647+assgn647+assgn647+assgn647))
-1 1 1 1 0;1;0;1|
-((assgn645+assgn645+assgn645+assgn645))
-1 1 1 1 0;1;1;0|
-((assgn643+assgn643))
-1 1 1 1 1;0;0;0|
-((assgn647+assgn647+assgn647+assgn647+assgn647+assgn647))
-1 1 1 1 1;0;0;1|
-((assgn645+assgn645+assgn645+assgn645))
-1 1 1 1 1;0;1;0|
-((assgn643+assgn643))
-1 1 1 1 1;1;0;0|
-((assgn642+assgn642))
+-1 -1 -1 0;0;0|
+((assgn14+assgn14+assgn14+assgn14+assgn14+assgn14))
+-1 -1 -1 0;0;1|
+((assgn12+assgn12))
+-1 -1 -1 0;1;0|
+((assgn5)*(assgn10))
+-1 -1 -1 0;1;1|
+((assgn5)*(assgn3))
+-1 -1 -1 1;0;0|
+((assgn3)*(assgn9+assgn9))
+-1 -1 -1 1;0;1|
+((assgn3)*(assgn5))
+-1 -1 -1 1;1;0|
+((assgn3)*(assgn3))
+-1 -1 0 0;0;0|
+((assgn29+assgn31+assgn29+assgn31+assgn33+assgn33))
+-1 -1 0 0;0;1|
+((assgn27+assgn27))
+-1 -1 0 0;1;0|
+((assgn5)*(assgn25))
+-1 -1 0 0;1;1|
+((assgn5)*(assgn24))
+-1 -1 0 1;0;0|
+((assgn3)*(assgn20+assgn23))
+-1 -1 0 1;0;1|
+((assgn3)*(assgn18))
+-1 -1 0 1;1;0|
+((assgn3)*(assgn3))
+-1 -1 1 0;0;0|
+((assgn48+assgn50+assgn48+assgn50+assgn52+assgn52))
+-1 -1 1 0;0;1|
+((assgn46+assgn46))
+-1 -1 1 0;1;0|
+((assgn5)*(assgn44))
+-1 -1 1 0;1;1|
+((assgn5)*(assgn43))
+-1 -1 1 1;0;0|
+((assgn3)*(assgn39+assgn42))
+-1 -1 1 1;0;1|
+((assgn3)*(assgn37))
+-1 -1 1 1;1;0|
+((assgn3)*(assgn3))
+-1 0 -1 0;0;0|
+((assgn31+assgn29+assgn33+assgn33+assgn29+assgn31))
+-1 0 -1 0;0;1|
+((assgn56+assgn58))
+-1 0 -1 0;1;0|
+((assgn18)*(assgn10))
+-1 0 -1 0;1;1|
+((assgn18)*(assgn3))
+-1 0 -1 1;0;0|
+((assgn3)*(assgn23+assgn20))
+-1 0 -1 1;0;1|
+((assgn3)*(assgn54))
+-1 0 -1 1;1;0|
+((assgn3)*(assgn24))
+-1 0 0 0;0;0|
+((assgn68+assgn68+assgn70+assgn72+assgn70+assgn72))
+-1 0 0 0;0;1|
+((assgn64+assgn66))
+-1 0 0 0;1;0|
+((assgn18)*(assgn25))
+-1 0 0 0;1;1|
+((assgn18)*(assgn24))
+-1 0 0 1;0;0|
+((assgn3)*(assgn62+assgn62))
+-1 0 0 1;0;1|
+((assgn3)*(assgn60))
+-1 0 0 1;1;0|
+((assgn3)*(assgn24))
+-1 0 1 0;0;0|
+((assgn84+assgn86+assgn88+assgn90+assgn92+assgn94))
+-1 0 1 0;0;1|
+((assgn80+assgn82))
+-1 0 1 0;1;0|
+((assgn18)*(assgn44))
+-1 0 1 0;1;1|
+((assgn18)*(assgn43))
+-1 0 1 1;0;0|
+((assgn3)*(assgn76+assgn78))
+-1 0 1 1;0;1|
+((assgn3)*(assgn74))
+-1 0 1 1;1;0|
+((assgn3)*(assgn24))
+-1 1 -1 0;0;0|
+((assgn50+assgn48+assgn52+assgn52+assgn48+assgn50))
+-1 1 -1 0;0;1|
+((assgn98+assgn100))
+-1 1 -1 0;1;0|
+((assgn37)*(assgn10))
+-1 1 -1 0;1;1|
+((assgn37)*(assgn3))
+-1 1 -1 1;0;0|
+((assgn3)*(assgn42+assgn39))
+-1 1 -1 1;0;1|
+((assgn3)*(assgn96))
+-1 1 -1 1;1;0|
+((assgn3)*(assgn43))
+-1 1 0 0;0;0|
+((assgn86+assgn84+assgn92+assgn94+assgn88+assgn90))
+-1 1 0 0;0;1|
+((assgn104+assgn106))
+-1 1 0 0;1;0|
+((assgn37)*(assgn25))
+-1 1 0 0;1;1|
+((assgn37)*(assgn24))
+-1 1 0 1;0;0|
+((assgn3)*(assgn78+assgn76))
+-1 1 0 1;0;1|
+((assgn3)*(assgn102))
+-1 1 0 1;1;0|
+((assgn3)*(assgn43))
+-1 1 1 0;0;0|
+((assgn116+assgn116+assgn118+assgn120+assgn118+assgn120))
+-1 1 1 0;0;1|
+((assgn112+assgn114))
+-1 1 1 0;1;0|
+((assgn37)*(assgn44))
+-1 1 1 0;1;1|
+((assgn37)*(assgn43))
+-1 1 1 1;0;0|
+((assgn3)*(assgn110+assgn110))
+-1 1 1 1;0;1|
+((assgn3)*(assgn108))
+-1 1 1 1;1;0|
+((assgn3)*(assgn43))
+0 -1 -1 0;0;0|
+((assgn33+assgn33+assgn31+assgn29+assgn31+assgn29))
+0 -1 -1 0;0;1|
+((assgn58+assgn56))
+0 -1 -1 0;1;0|
+((assgn54)*(assgn10))
+0 -1 -1 0;1;1|
+((assgn54)*(assgn3))
+0 -1 -1 1;0;0|
+((assgn24)*(assgn9+assgn9))
+0 -1 -1 1;0;1|
+((assgn24)*(assgn5))
+0 -1 -1 1;1;0|
+((assgn24)*(assgn3))
+0 -1 0 0;0;0|
+((assgn70+assgn72+assgn68+assgn68+assgn72+assgn70))
+0 -1 0 0;0;1|
+((assgn66+assgn64))
+0 -1 0 0;1;0|
+((assgn54)*(assgn25))
+0 -1 0 0;1;1|
+((assgn54)*(assgn24))
+0 -1 0 1;0;0|
+((assgn24)*(assgn20+assgn23))
+0 -1 0 1;0;1|
+((assgn24)*(assgn18))
+0 -1 0 1;1;0|
+((assgn24)*(assgn3))
+0 -1 1 0;0;0|
+((assgn88+assgn90+assgn84+assgn86+assgn94+assgn92))
+0 -1 1 0;0;1|
+((assgn82+assgn80))
+0 -1 1 0;1;0|
+((assgn54)*(assgn44))
+0 -1 1 0;1;1|
+((assgn54)*(assgn43))
+0 -1 1 1;0;0|
+((assgn24)*(assgn39+assgn42))
+0 -1 1 1;0;1|
+((assgn24)*(assgn37))
+0 -1 1 1;1;0|
+((assgn24)*(assgn3))
+0 0 -1 0;0;0|
+((assgn72+assgn70+assgn72+assgn70+assgn68+assgn68))
+0 0 -1 0;0;1|
+((assgn122+assgn122))
+0 0 -1 0;1;0|
+((assgn60)*(assgn10))
+0 0 -1 0;1;1|
+((assgn60)*(assgn3))
+0 0 -1 1;0;0|
+((assgn24)*(assgn23+assgn20))
+0 0 -1 1;0;1|
+((assgn24)*(assgn54))
+0 0 -1 1;1;0|
+((assgn24)*(assgn24))
+0 0 0 0;0;0|
+((assgn126+assgn126+assgn126+assgn126+assgn126+assgn126))
+0 0 0 0;0;1|
+((assgn124+assgn124))
+0 0 0 0;1;0|
+((assgn60)*(assgn25))
+0 0 0 0;1;1|
+((assgn60)*(assgn24))
+0 0 0 1;0;0|
+((assgn24)*(assgn62+assgn62))
+0 0 0 1;0;1|
+((assgn24)*(assgn60))
+0 0 0 1;1;0|
+((assgn24)*(assgn24))
+0 0 1 0;0;0|
+((assgn130+assgn132+assgn130+assgn132+assgn134+assgn134))
+0 0 1 0;0;1|
+((assgn128+assgn128))
+0 0 1 0;1;0|
+((assgn60)*(assgn44))
+0 0 1 0;1;1|
+((assgn60)*(assgn43))
+0 0 1 1;0;0|
+((assgn24)*(assgn76+assgn78))
+0 0 1 1;0;1|
+((assgn24)*(assgn74))
+0 0 1 1;1;0|
+((assgn24)*(assgn24))
+0 1 -1 0;0;0|
+((assgn90+assgn88+assgn94+assgn92+assgn84+assgn86))
+0 1 -1 0;0;1|
+((assgn136+assgn138))
+0 1 -1 0;1;0|
+((assgn74)*(assgn10))
+0 1 -1 0;1;1|
+((assgn74)*(assgn3))
+0 1 -1 1;0;0|
+((assgn24)*(assgn42+assgn39))
+0 1 -1 1;0;1|
+((assgn24)*(assgn96))
+0 1 -1 1;1;0|
+((assgn24)*(assgn43))
+0 1 0 0;0;0|
+((assgn132+assgn130+assgn134+assgn134+assgn130+assgn132))
+0 1 0 0;0;1|
+((assgn140+assgn142))
+0 1 0 0;1;0|
+((assgn74)*(assgn25))
+0 1 0 0;1;1|
+((assgn74)*(assgn24))
+0 1 0 1;0;0|
+((assgn24)*(assgn78+assgn76))
+0 1 0 1;0;1|
+((assgn24)*(assgn102))
+0 1 0 1;1;0|
+((assgn24)*(assgn43))
+0 1 1 0;0;0|
+((assgn148+assgn148+assgn150+assgn152+assgn150+assgn152))
+0 1 1 0;0;1|
+((assgn144+assgn146))
+0 1 1 0;1;0|
+((assgn74)*(assgn44))
+0 1 1 0;1;1|
+((assgn74)*(assgn43))
+0 1 1 1;0;0|
+((assgn24)*(assgn110+assgn110))
+0 1 1 1;0;1|
+((assgn24)*(assgn108))
+0 1 1 1;1;0|
+((assgn24)*(assgn43))
+1 -1 -1 0;0;0|
+((assgn52+assgn52+assgn50+assgn48+assgn50+assgn48))
+1 -1 -1 0;0;1|
+((assgn100+assgn98))
+1 -1 -1 0;1;0|
+((assgn96)*(assgn10))
+1 -1 -1 0;1;1|
+((assgn96)*(assgn3))
+1 -1 -1 1;0;0|
+((assgn43)*(assgn9+assgn9))
+1 -1 -1 1;0;1|
+((assgn43)*(assgn5))
+1 -1 -1 1;1;0|
+((assgn43)*(assgn3))
+1 -1 0 0;0;0|
+((assgn92+assgn94+assgn86+assgn84+assgn90+assgn88))
+1 -1 0 0;0;1|
+((assgn106+assgn104))
+1 -1 0 0;1;0|
+((assgn96)*(assgn25))
+1 -1 0 0;1;1|
+((assgn96)*(assgn24))
+1 -1 0 1;0;0|
+((assgn43)*(assgn20+assgn23))
+1 -1 0 1;0;1|
+((assgn43)*(assgn18))
+1 -1 0 1;1;0|
+((assgn43)*(assgn3))
+1 -1 1 0;0;0|
+((assgn118+assgn120+assgn116+assgn116+assgn120+assgn118))
+1 -1 1 0;0;1|
+((assgn114+assgn112))
+1 -1 1 0;1;0|
+((assgn96)*(assgn44))
+1 -1 1 0;1;1|
+((assgn96)*(assgn43))
+1 -1 1 1;0;0|
+((assgn43)*(assgn39+assgn42))
+1 -1 1 1;0;1|
+((assgn43)*(assgn37))
+1 -1 1 1;1;0|
+((assgn43)*(assgn3))
+1 0 -1 0;0;0|
+((assgn94+assgn92+assgn90+assgn88+assgn86+assgn84))
+1 0 -1 0;0;1|
+((assgn138+assgn136))
+1 0 -1 0;1;0|
+((assgn102)*(assgn10))
+1 0 -1 0;1;1|
+((assgn102)*(assgn3))
+1 0 -1 1;0;0|
+((assgn43)*(assgn23+assgn20))
+1 0 -1 1;0;1|
+((assgn43)*(assgn54))
+1 0 -1 1;1;0|
+((assgn43)*(assgn24))
+1 0 0 0;0;0|
+((assgn134+assgn134+assgn132+assgn130+assgn132+assgn130))
+1 0 0 0;0;1|
+((assgn142+assgn140))
+1 0 0 0;1;0|
+((assgn102)*(assgn25))
+1 0 0 0;1;1|
+((assgn102)*(assgn24))
+1 0 0 1;0;0|
+((assgn43)*(assgn62+assgn62))
+1 0 0 1;0;1|
+((assgn43)*(assgn60))
+1 0 0 1;1;0|
+((assgn43)*(assgn24))
+1 0 1 0;0;0|
+((assgn150+assgn152+assgn148+assgn148+assgn152+assgn150))
+1 0 1 0;0;1|
+((assgn146+assgn144))
+1 0 1 0;1;0|
+((assgn102)*(assgn44))
+1 0 1 0;1;1|
+((assgn102)*(assgn43))
+1 0 1 1;0;0|
+((assgn43)*(assgn76+assgn78))
+1 0 1 1;0;1|
+((assgn43)*(assgn74))
+1 0 1 1;1;0|
+((assgn43)*(assgn24))
+1 1 -1 0;0;0|
+((assgn120+assgn118+assgn120+assgn118+assgn116+assgn116))
+1 1 -1 0;0;1|
+((assgn154+assgn154))
+1 1 -1 0;1;0|
+((assgn108)*(assgn10))
+1 1 -1 0;1;1|
+((assgn108)*(assgn3))
+1 1 -1 1;0;0|
+((assgn43)*(assgn42+assgn39))
+1 1 -1 1;0;1|
+((assgn43)*(assgn96))
+1 1 -1 1;1;0|
+((assgn43)*(assgn43))
+1 1 0 0;0;0|
+((assgn152+assgn150+assgn152+assgn150+assgn148+assgn148))
+1 1 0 0;0;1|
+((assgn156+assgn156))
+1 1 0 0;1;0|
+((assgn108)*(assgn25))
+1 1 0 0;1;1|
+((assgn108)*(assgn24))
+1 1 0 1;0;0|
+((assgn43)*(assgn78+assgn76))
+1 1 0 1;0;1|
+((assgn43)*(assgn102))
+1 1 0 1;1;0|
+((assgn43)*(assgn43))
+1 1 1 0;0;0|
+((assgn160+assgn160+assgn160+assgn160+assgn160+assgn160))
+1 1 1 0;0;1|
+((assgn158+assgn158))
+1 1 1 0;1;0|
+((assgn108)*(assgn44))
+1 1 1 0;1;1|
+((assgn108)*(assgn43))
+1 1 1 1;0;0|
+((assgn43)*(assgn110+assgn110))
+1 1 1 1;0;1|
+((assgn43)*(assgn108))
+1 1 1 1;1;0|
+((assgn43)*(assgn43))

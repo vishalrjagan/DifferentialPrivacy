@@ -1,0 +1,29 @@
+-5 5
+input int q0 -1 1;
+int t0;
+t0 = 0;
+int c;
+c = 1;
+int del;
+del = 1;
+bool b;
+bool out0;
+out0 = false;
+q0 = q0 - t0;
+int one;
+one = 1;
+int zero;
+zero = 0;
+int count;
+count = 0;
+real rhs0;
+rhs0 = Lap "eps / ( 2 * c * del )" zero;
+real lhs0;
+lhs0 = Lap "eps / ( 4 * c * del )" q0;
+out0 = lhs0 >= rhs0;
+if out0 then
+count = count + one;
+b = count >= c;
+if b then return out0; fi;
+fi;
+return out0; fi;

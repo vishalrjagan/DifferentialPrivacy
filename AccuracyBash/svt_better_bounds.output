@@ -1,0 +1,37 @@
+# Factor 1/2
+input_3_svt1.txt,	0s,	1s,	1,	 98s,	 51
+input_3_svt1_c2.txt,	0s,	0s,	1,	 217s,	 67
+input_3_svt2.txt,	0s,	0s,	1,	 99s,	 51
+input_3_svt2_c2.txt,	0s,	0s,	1,	 91s,	 53
+
+# Factor 1/4
+input_3_svt1.txt,	0s,	0s,	1,	 103s,	 51
+input_3_svt1_c2.txt,	0s,	0s,	1,	 217s,	 67
+input_3_svt2.txt,	0s,	0s,	1,	 99s,	 51
+input_3_svt2_c2.txt,	0s,	0s,	1,	 96s,	 53
+
+# Factor 1/8
+input_3_svt1.txt,	0s,	0s,	0,	 109s,	 51
+input_3_svt1_c2.txt,	0s,	0s,	1,	 216s,	 67
+input_3_svt2.txt,	0s,	0s,	0,	 112s,	 51
+input_3_svt2_c2.txt,	0s,	0s,	1,	 92s,	 53
+
+# Factor 1/6 for c=1 and 1/16 for c=2
+input_3_svt1.txt,	0s,	0s,	1,	 99s,	 51
+input_3_svt1_c2.txt,	0s,	0s,	0,	 218s,	 67
+input_3_svt2.txt,	0s,	0s,	1,	 101s,	 51
+input_3_svt2_c2.txt,	0s,	0s,	0,	 112s,	 53
+
+Factor 1/7 for c=1 and 1/12 for c=2
+input_3_svt1.txt,	0s,	0s,	0,	 111s,	 51
+input_3_svt1_c2.txt,	0s,	0s,	1,	 215s,	 67
+input_3_svt2.txt,	0s,	0s,	0,	 110s,	 51
+input_3_svt2_c2.txt,	0s,	0s,	1,	 91s,	 53
+
+Factor 1/14 for c=2
+input_3_svt1_c2.txt,	0s,	0s,	0,	 216s,	 67
+input_3_svt2_c2.txt,	0s,	0s,	0,	 102s,	 53
+
+Factor 1/13 for c=2
+input_3_svt1_c2.txt,	0s,	0s,	1,	 220s,	 67
+input_3_svt2_c2.txt,	0s,	1s,	0,	 95s,	 53
