@@ -35,3 +35,170 @@ input_3_svt2_c2.txt,	0s,	0s,	0,	 102s,	 53
 Factor 1/13 for c=2
 input_3_svt1_c2.txt,	0s,	0s,	1,	 220s,	 67
 input_3_svt2_c2.txt,	0s,	1s,	0,	 95s,	 53
+
+
+Gathering epsilons and failing inputs
+
+Failure at 1/7
+input_3_svt1.txt,	0s,	1s,	0,	 104s,	 51
+Accuracy failure
+P(0;0;1|-1 -1 0) < beta
+{{eps -> 67/106}}
+Accuracy failure
+P(0;0;1|-1 -1 1) < beta
+{{eps -> 17/10}}
+
+Failure at 1/14
+input_3_svt1_c2.txt,	0s,	1s,	0,	 317s,	 83
+Accuracy failure
+P(0;0;0|-1 -1 -1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(0;0;1|-1 -1 0) < beta
+{{eps -> 27}}
+Accuracy failure
+P(0;0;1|-1 -1 1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(0;1;0|-1 0 -1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(0;1;0|-1 0 0) < beta
+{{eps -> 27}}
+Accuracy failure
+P(0;1;0|-1 0 1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(0;1;0|-1 1 -1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(0;1;0|-1 1 0) < beta
+{{eps -> 27}}
+Accuracy failure
+P(0;1;0|-1 1 1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1;0;0|0 -1 -1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1;0;0|0 -1 0) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1;0;0|0 -1 1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1;0;0|0 0 -1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1;0;0|0 0 0) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1;0;0|0 0 1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1;0;0|0 1 -1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1;0;0|0 1 0) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1;0;0|0 1 1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1;0;0|1 -1 -1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1;0;0|1 -1 0) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1;0;0|1 -1 1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1;0;0|1 0 -1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1;0;0|1 0 0) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1;0;0|1 0 1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1;0;0|1 1 -1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1;0;0|1 1 0) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1;0;0|1 1 1) < beta
+{{eps -> 27}}
+
+Failure at 1/7
+input_3_svt2.txt,	0s,	0s,	0,	 110s,	 51
+Accuracy failure
+P(0;0;1|-1 -1 0) < beta
+{{eps -> 67/106}}
+Accuracy failure
+P(0;0;1|-1 -1 1) < beta
+{{eps -> 17/10}}
+
+Failure at 1/13
+input_3_svt2_c2.txt,	0s,	0s,	0,	 96s,	 53
+OK
+P(0;0;0|-1 -1 -1) >= 1 - beta
+OK
+P(0;0;1|-1 -1 0) >= 1 - beta
+Accuracy failure
+P(0;0;1|-1 -1 1) < beta
+{{eps -> 17/10}}
+OK
+P(0;1;0|-1 0 -1) >= 1 - beta
+OK
+P(0;1;1|-1 0 0) >= 1 - beta
+OK
+P(0;1;1|-1 0 1) >= 1 - beta
+Accuracy failure
+P(0;1;0|-1 1 -1) < beta
+{{eps -> 50/19}}
+OK
+P(0;1;1|-1 1 0) >= 1 - beta
+Accuracy failure
+P(0;1;1|-1 1 1) < beta
+{{eps -> 50/19}}
+OK
+P(1;0;0|0 -1 -1) >= 1 - beta
+OK
+P(1;0;1|0 -1 0) >= 1 - beta
+OK
+P(1;0;1|0 -1 1) >= 1 - beta
+OK
+P(1;1;0|0 0 -1) >= 1 - beta
+OK
+P(1;1;0|0 0 0) >= 1 - beta
+OK
+P(1;1;0|0 0 1) >= 1 - beta
+OK
+P(1;1;0|0 1 -1) >= 1 - beta
+OK
+P(1;1;0|0 1 0) >= 1 - beta
+OK
+P(1;1;0|0 1 1) >= 1 - beta
+OK
+P(1;0;0|1 -1 -1) >= 1 - beta
+OK
+P(1;0;1|1 -1 0) >= 1 - beta
+Accuracy failure
+P(1;0;1|1 -1 1) < beta
+{{eps -> 50/19}}
+OK
+P(1;1;0|1 0 -1) >= 1 - beta
+OK
+P(1;1;0|1 0 0) >= 1 - beta
+OK
+P(1;1;0|1 0 1) >= 1 - beta
+OK
+P(1;1;0|1 1 -1) >= 1 - beta
+OK
+P(1;1;0|1 1 0) >= 1 - beta
+OK
+P(1;1;0|1 1 1) >= 1 - beta
+True

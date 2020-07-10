@@ -1,8 +1,8 @@
 -10 10
-input int q0 -2 2;
-input int q1 -2 2;
-input int q2 -2 2;
-input int q3 -2 2;
+input int q0 -1 1;
+input int q1 -1 1;
+input int q2 -1 1;
+input int q3 -1 1;
 int out0_det;
 out0_det = 0;
 bool out0_det_is_bot;
@@ -62,7 +62,7 @@ bool not_conjunction;
 int thresh;
 thresh = 0;
 int gamma;
-gamma = 2;
+gamma = 0;
 real noisy_thresh0;
 noisy_thresh0 = Lap "( 4 * eps ) / ( 9 * c )" thresh;
 bool use_noisy_thresh0;

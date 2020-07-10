@@ -1,0 +1,288 @@
+make acc_install_silent
+
+# nmax5 (-1,1)
+
+
+# |Q| = 3
+make acc_silent INPUT=input_3_nmax5_width1.txt TYPE=2 NUMQ=3 RANGEWIDTH=1 BOUNDFACTOR=1/2
+
+input_3_nmax5_width1.txt,	0s,	0s,	1,	 147s,	 69
+
+make acc_silent INPUT=input_3_nmax5_width1.txt TYPE=2 NUMQ=3 RANGEWIDTH=1 BOUNDFACTOR=1/8
+input_3_nmax5_width1.txt,	0s,	0s,	0,	 165s,	 69
+
+make acc_silent INPUT=input_3_nmax5_width1.txt TYPE=2 NUMQ=3 RANGEWIDTH=1 BOUNDFACTOR=1/4
+input_3_nmax5_width1.txt,	0s,	0s,	1,	 154s,	 69
+
+make acc_silent INPUT=input_3_nmax5_width1.txt TYPE=2 NUMQ=3 RANGEWIDTH=1 BOUNDFACTOR=1/6
+input_3_nmax5_width1.txt,	0s,	0s,	0,	 165s,	 69
+
+make acc_silent INPUT=input_3_nmax5_width1.txt TYPE=2 NUMQ=3 RANGEWIDTH=1 BOUNDFACTOR=1/5
+input_3_nmax5_width1.txt,	0s,	0s,	0,	 176s,	 69
+
+
+# |Q| = 4
+make acc_silent INPUT=input_4_nmax5.txt TYPE=2 NUMQ=4 RANGEWIDTH=1 BOUNDFACTOR=1/2
+input_4_nmax5.txt,	0s,	2s,	1,	 851s,	 181
+
+make acc_silent INPUT=input_4_nmax5.txt TYPE=2 NUMQ=4 RANGEWIDTH=1 BOUNDFACTOR=1/5
+input_4_nmax5.txt,	0s,	3s,	0,	 910s,	 181
+
+make acc_silent INPUT=input_4_nmax5.txt TYPE=2 NUMQ=4 RANGEWIDTH=1 BOUNDFACTOR=1/4
+input_4_nmax5.txt,	0s,	2s,	1,	 874s,	 181
+
+Getting epsilon and failure inputs
+input_3_nmax5_width1.txt,	0s,	1s,	0,	 163s,	 69
+Accuracy failure
+P(0|-1 -1 -1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(2|-1 -1 0) < beta
+{{eps -> 61/27}}
+Accuracy failure
+P(2|-1 -1 1) < beta
+{{eps -> 67/54}}
+Accuracy failure
+P(1|-1 0 -1) < beta
+{{eps -> 67/196}}
+Accuracy failure
+P(1|-1 0 0) < beta
+{{eps -> 27/82}}
+Accuracy failure
+P(2|-1 0 1) < beta
+{{eps -> 67/82}}
+Accuracy failure
+P(1|-1 1 -1) < beta
+{{eps -> 67/391}}
+Accuracy failure
+P(1|-1 1 0) < beta
+{{eps -> 67/289}}
+Accuracy failure
+P(1|-1 1 1) < beta
+{{eps -> 27/163}}
+Accuracy failure
+P(0|0 -1 -1) < beta
+{{eps -> 67/196}}
+Accuracy failure
+P(0|0 -1 0) < beta
+{{eps -> 27/82}}
+Accuracy failure
+P(2|0 -1 1) < beta
+{{eps -> 67/82}}
+Accuracy failure
+P(0|0 0 -1) < beta
+{{eps -> 27/82}}
+Accuracy failure
+P(0|0 0 0) < beta
+{{eps -> 27}}
+Accuracy failure
+P(2|0 0 1) < beta
+{{eps -> 67/27}}
+Accuracy failure
+P(1|0 1 -1) < beta
+{{eps -> 67/289}}
+Accuracy failure
+P(1|0 1 0) < beta
+{{eps -> 67/196}}
+Accuracy failure
+P(1|0 1 1) < beta
+{{eps -> 27/82}}
+Accuracy failure
+P(0|1 -1 -1) < beta
+{{eps -> 67/391}}
+Accuracy failure
+P(0|1 -1 0) < beta
+{{eps -> 67/289}}
+Accuracy failure
+P(0|1 -1 1) < beta
+{{eps -> 27/163}}
+Accuracy failure
+P(0|1 0 -1) < beta
+{{eps -> 67/289}}
+Accuracy failure
+P(0|1 0 0) < beta
+{{eps -> 67/196}}
+Accuracy failure
+P(0|1 0 1) < beta
+{{eps -> 27/82}}
+Accuracy failure
+P(0|1 1 -1) < beta
+{{eps -> 27/163}}
+Accuracy failure
+P(0|1 1 0) < beta
+{{eps -> 27/82}}
+Accuracy failure
+P(0|1 1 1) < beta
+{{eps -> 27}}
+True
+
+input_4_nmax5.txt,	0s,	2s,	0,	 874s,	 181
+OK
+P(0|-1 -1 -1 -1) >= 1 - beta
+Accuracy failure
+P(3|-1 -1 -1 0) < beta
+{{eps -> 52/23}}
+Accuracy failure
+P(3|-1 -1 -1 1) < beta
+{{eps -> 26/23}}
+Accuracy failure
+P(2|-1 -1 0 -1) < beta
+{{eps -> 52/23}}
+OK
+P(2|-1 -1 0 0) >= 1 - beta
+OK
+P(3|-1 -1 0 1) >= 1 - beta
+Accuracy failure
+P(2|-1 -1 1 -1) < beta
+{{eps -> 26/23}}
+OK
+P(2|-1 -1 1 0) >= 1 - beta
+OK
+P(2|-1 -1 1 1) >= 1 - beta
+OK
+P(1|-1 0 -1 -1) >= 1 - beta
+OK
+P(1|-1 0 -1 0) >= 1 - beta
+OK
+P(3|-1 0 -1 1) >= 1 - beta
+OK
+P(1|-1 0 0 -1) >= 1 - beta
+OK
+P(1|-1 0 0 0) >= 1 - beta
+OK
+P(3|-1 0 0 1) >= 1 - beta
+OK
+P(2|-1 0 1 -1) >= 1 - beta
+OK
+P(2|-1 0 1 0) >= 1 - beta
+OK
+P(2|-1 0 1 1) >= 1 - beta
+OK
+P(1|-1 1 -1 -1) >= 1 - beta
+OK
+P(1|-1 1 -1 0) >= 1 - beta
+OK
+P(1|-1 1 -1 1) >= 1 - beta
+OK
+P(1|-1 1 0 -1) >= 1 - beta
+OK
+P(1|-1 1 0 0) >= 1 - beta
+OK
+P(1|-1 1 0 1) >= 1 - beta
+OK
+P(1|-1 1 1 -1) >= 1 - beta
+OK
+P(1|-1 1 1 0) >= 1 - beta
+OK
+P(1|-1 1 1 1) >= 1 - beta
+OK
+P(0|0 -1 -1 -1) >= 1 - beta
+OK
+P(0|0 -1 -1 0) >= 1 - beta
+OK
+P(3|0 -1 -1 1) >= 1 - beta
+OK
+P(0|0 -1 0 -1) >= 1 - beta
+OK
+P(0|0 -1 0 0) >= 1 - beta
+OK
+P(3|0 -1 0 1) >= 1 - beta
+OK
+P(2|0 -1 1 -1) >= 1 - beta
+OK
+P(2|0 -1 1 0) >= 1 - beta
+OK
+P(2|0 -1 1 1) >= 1 - beta
+OK
+P(0|0 0 -1 -1) >= 1 - beta
+OK
+P(0|0 0 -1 0) >= 1 - beta
+OK
+P(3|0 0 -1 1) >= 1 - beta
+OK
+P(0|0 0 0 -1) >= 1 - beta
+OK
+P(0|0 0 0 0) >= 1 - beta
+Accuracy failure
+P(3|0 0 0 1) < beta
+{{eps -> 52/23}}
+OK
+P(2|0 0 1 -1) >= 1 - beta
+Accuracy failure
+P(2|0 0 1 0) < beta
+{{eps -> 52/23}}
+OK
+P(2|0 0 1 1) >= 1 - beta
+OK
+P(1|0 1 -1 -1) >= 1 - beta
+OK
+P(1|0 1 -1 0) >= 1 - beta
+OK
+P(1|0 1 -1 1) >= 1 - beta
+OK
+P(1|0 1 0 -1) >= 1 - beta
+OK
+P(1|0 1 0 0) >= 1 - beta
+OK
+P(1|0 1 0 1) >= 1 - beta
+OK
+P(1|0 1 1 -1) >= 1 - beta
+OK
+P(1|0 1 1 0) >= 1 - beta
+OK
+P(1|0 1 1 1) >= 1 - beta
+OK
+P(0|1 -1 -1 -1) >= 1 - beta
+OK
+P(0|1 -1 -1 0) >= 1 - beta
+OK
+P(0|1 -1 -1 1) >= 1 - beta
+OK
+P(0|1 -1 0 -1) >= 1 - beta
+OK
+P(0|1 -1 0 0) >= 1 - beta
+OK
+P(0|1 -1 0 1) >= 1 - beta
+OK
+P(0|1 -1 1 -1) >= 1 - beta
+OK
+P(0|1 -1 1 0) >= 1 - beta
+OK
+P(0|1 -1 1 1) >= 1 - beta
+OK
+P(0|1 0 -1 -1) >= 1 - beta
+OK
+P(0|1 0 -1 0) >= 1 - beta
+OK
+P(0|1 0 -1 1) >= 1 - beta
+OK
+P(0|1 0 0 -1) >= 1 - beta
+OK
+P(0|1 0 0 0) >= 1 - beta
+OK
+P(0|1 0 0 1) >= 1 - beta
+OK
+P(0|1 0 1 -1) >= 1 - beta
+OK
+P(0|1 0 1 0) >= 1 - beta
+OK
+P(0|1 0 1 1) >= 1 - beta
+OK
+P(0|1 1 -1 -1) >= 1 - beta
+OK
+P(0|1 1 -1 0) >= 1 - beta
+OK
+P(0|1 1 -1 1) >= 1 - beta
+OK
+P(0|1 1 0 -1) >= 1 - beta
+OK
+P(0|1 1 0 0) >= 1 - beta
+OK
+P(0|1 1 0 1) >= 1 - beta
+OK
+P(0|1 1 1 -1) >= 1 - beta
+OK
+P(0|1 1 1 0) >= 1 - beta
+OK
+P(0|1 1 1 1) >= 1 - beta
+True

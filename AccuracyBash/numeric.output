@@ -1,0 +1,122 @@
+make acc_install_silent
+
+# |Q|=1
+make acc_silent INPUT=acc_1_numeric_c1_width1_gamma0.txt TYPE=1 NUMQ=1 RANGEWIDTH=1 ALPHA=0
+make acc_silent INPUT=acc_1_numeric_c1_width1_gamma1.txt TYPE=1 NUMQ=1 RANGEWIDTH=1 ALPHA=1
+
+# |Q|=2
+make acc_silent INPUT=acc_2_numeric_c1_width1_gamma0.txt TYPE=1 NUMQ=2 RANGEWIDTH=1 ALPHA=0
+make acc_silent INPUT=acc_2_numeric_c1_width1_gamma1.txt TYPE=1 NUMQ=2 RANGEWIDTH=1 ALPHA=1
+## range (-2,2)
+make acc_silent INPUT=acc_2_numeric_c1_width2_gamma0.txt TYPE=1 NUMQ=2 RANGEWIDTH=2 ALPHA=0
+make acc_silent INPUT=acc_2_numeric_c1_width2_gamma1.txt TYPE=1 NUMQ=2 RANGEWIDTH=2 ALPHA=1
+make acc_silent INPUT=acc_2_numeric_c1_width2_gamma2.txt TYPE=1 NUMQ=2 RANGEWIDTH=2 ALPHA=2
+## c=2
+make acc_silent INPUT=acc_2_numeric_c2_width1_gamma0.txt TYPE=1 NUMQ=2 C=2 RANGEWIDTH=1 ALPHA=0
+make acc_silent INPUT=acc_2_numeric_c2_width1_gamma1.txt TYPE=1 NUMQ=2 C=2 RANGEWIDTH=1 ALPHA=1
+
+
+acc_1_numeric_c1_width1_gamma0.txt,	0s,	0s,	1,	 11s,	 24
+acc_1_numeric_c1_width1_gamma1.txt,	0s,	0s,	1,	 18s,	 17
+acc_2_numeric_c1_width1_gamma0.txt,	0s,	0s,	1,	 32s,	 43
+acc_2_numeric_c1_width1_gamma1.txt,	0s,	0s,	1,	 65s,	 27
+acc_2_numeric_c1_width2_gamma0.txt,	0s,	1s,	1,	 109s,	 96
+acc_2_numeric_c1_width2_gamma1.txt,	0s,	1s,	1,	 287s,	 71
+acc_2_numeric_c1_width2_gamma2.txt,	0s,	1s,	1,	 68s,	 29
+acc_2_numeric_c2_width1_gamma0.txt,	0s,	0s,	1,	 28s,	 44
+acc_2_numeric_c2_width1_gamma1.txt,	0s,	0s,	1,	 65s,	 27
+
+
+#|Q|=3, range (-1,1)
+## c=1
+make acc_silent INPUT=acc_3_numeric_c1_width1_gamma0.txt TYPE=1 NUMQ=3 RANGEWIDTH=1 ALPHA=0
+make acc_silent INPUT=acc_3_numeric_c1_width1_gamma1.txt TYPE=1 NUMQ=3 RANGEWIDTH=1 ALPHA=1
+make acc_silent INPUT=acc_3_numeric_c1_width1_gamma2.txt TYPE=1 NUMQ=3 RANGEWIDTH=1 ALPHA=2
+## c=2
+make acc_silent INPUT=acc_3_numeric_c2_width1_gamma0.txt TYPE=1 NUMQ=3 RANGEWIDTH=1 C=2 ALPHA=0
+make acc_silent INPUT=acc_3_numeric_c2_width1_gamma1.txt TYPE=1 NUMQ=3 RANGEWIDTH=1 C=2 ALPHA=1
+make acc_silent INPUT=acc_3_numeric_c2_width1_gamma2.txt TYPE=1 NUMQ=3 RANGEWIDTH=1 C=2 ALPHA=2
+
+acc_3_numeric_c1_width1_gamma0.txt,	0s,	0s,	1,	 81s,	 78
+acc_3_numeric_c1_width1_gamma1.txt,	0s,	0s,	1,	 178s,	 45
+acc_3_numeric_c1_width1_gamma2.txt,	0s,	0s,	1,	 1s,	 4
+acc_3_numeric_c2_width1_gamma0.txt,	0s,	1s,	1,	 79s,	 80
+acc_3_numeric_c2_width1_gamma1.txt,	0s,	0s,	1,	 169s,	 42
+acc_3_numeric_c2_width1_gamma2.txt,	0s,	0s,	1,	 1s,	 4
+
+#|Q|=3, range (-2,2), c=2
+make acc_silent INPUT=acc_3_numeric_c2_width2_gamma0.txt TYPE=1 NUMQ=3 RANGEWIDTH=2 C=2 ALPHA=0
+make acc_silent INPUT=acc_3_numeric_c2_width2_gamma1.txt TYPE=1 NUMQ=3 RANGEWIDTH=2 C=2 ALPHA=1
+make acc_silent INPUT=acc_3_numeric_c2_width2_gamma2.txt TYPE=1 NUMQ=3 RANGEWIDTH=2 C=2 ALPHA=2
+
+acc_3_numeric_c2_width2_gamma0.txt,	0s,	5s,	1,	 696s,	 310
+acc_3_numeric_c2_width2_gamma1.txt,	0s,	2s,	1,	 1537s,	 203
+acc_3_numeric_c2_width2_gamma2.txt,	0s,	1s,	1,	 170s,	 44
+
+#|Q|=4, range (-2,2), c=2
+make acc_silent INPUT=acc_4_numeric_c2_width2_gamma0.txt TYPE=1 NUMQ=4 RANGEWIDTH=2 C=2 ALPHA=0
+make acc_silent INPUT=acc_4_numeric_c2_width2_gamma1.txt TYPE=1 NUMQ=4 RANGEWIDTH=2 C=2 ALPHA=1
+make acc_silent INPUT=acc_4_numeric_c2_width2_gamma2.txt TYPE=1 NUMQ=4 RANGEWIDTH=2 C=2 ALPHA=2
+
+acc_4_numeric_c2_width2_gamma0.txt,	0s,	42s,	1,	 2780s,	 1082
+acc_4_numeric_c2_width2_gamma1.txt,	0s,	18s,	1,	 5783s,	 635
+acc_4_numeric_c2_width2_gamma2.txt,	0s,	3s,	1,	 315s,	 88
+
+
+# Filling in gaps for width 2
+# 1 1 0
+make acc_silent INPUT=acc_1_numeric_c1_width2_gamma0.txt TYPE=1 NUMQ=1 RANGEWIDTH=2 ALPHA=0
+# 1 1 1
+make acc_silent INPUT=acc_1_numeric_c1_width2_gamma1.txt TYPE=1 NUMQ=1 RANGEWIDTH=2 ALPHA=1
+# 2 2 0
+make acc_silent INPUT=acc_2_numeric_c2_width2_gamma0.txt TYPE=1 NUMQ=2 C=2 RANGEWIDTH=2 ALPHA=0
+# 2 2 1
+make acc_silent INPUT=acc_2_numeric_c2_width2_gamma1.txt TYPE=1 NUMQ=2 C=2 RANGEWIDTH=2 ALPHA=1
+
+acc_1_numeric_c1_width2_gamma0.txt,	0s,	0s,	1,	 19s,	 34
+acc_1_numeric_c1_width2_gamma1.txt,	0s,	0s,	1,	 36s,	 27
+acc_2_numeric_c2_width2_gamma0.txt,	0s,	1s,	1,	 100s,	 98
+acc_2_numeric_c2_width2_gamma1.txt,	0s,	0s,	1,	 296s,	 71
+
+# Filling in gaps for width 1
+make acc_silent INPUT=acc_4_numeric_c1_width1_gamma0.txt TYPE=1 NUMQ=4 RANGEWIDTH=1 ALPHA=0
+make acc_silent INPUT=acc_4_numeric_c1_width1_gamma1.txt TYPE=1 NUMQ=4 RANGEWIDTH=1 ALPHA=1
+make acc_silent INPUT=acc_4_numeric_c2_width1_gamma0.txt TYPE=1 NUMQ=4 RANGEWIDTH=1 C=2 ALPHA=0
+make acc_silent INPUT=acc_4_numeric_c2_width1_gamma1.txt TYPE=1 NUMQ=4 RANGEWIDTH=1 C=2 ALPHA=1
+
+acc_4_numeric_c1_width1_gamma0.txt,	0s,	3s,	1,	 158s,	 153
+acc_4_numeric_c1_width1_gamma1.txt,	0s,	2s,	1,	 332s,	 83
+acc_4_numeric_c2_width1_gamma0.txt,	0s,	4s,	1,	 159s,	 156
+acc_4_numeric_c2_width1_gamma1.txt,	0s,	1s,	1,	 311s,	 68
+
+
+# Filling in gaps for width 2
+# 4 1 0
+make acc_silent INPUT=acc_4_numeric_c1_width2_gamma0.txt TYPE=1 NUMQ=4 RANGEWIDTH=2 ALPHA=0
+# 4 1 1
+make acc_silent INPUT=acc_4_numeric_c1_width2_gamma1.txt TYPE=1 NUMQ=4 RANGEWIDTH=2 ALPHA=1
+
+acc_4_numeric_c1_width2_gamma0.txt,	0s,	31s,	1,	 2836s,	 1068
+acc_4_numeric_c1_width2_gamma1.txt,	0s,	20s,	1,	 6065s,	 735
+
+# 3 1 0
+make acc_silent INPUT=acc_3_numeric_c1_width2_gamma0.txt TYPE=1 NUMQ=3 RANGEWIDTH=2 ALPHA=0
+# 3 1 1
+make acc_silent INPUT=acc_3_numeric_c1_width2_gamma1.txt TYPE=1 NUMQ=3 RANGEWIDTH=2 ALPHA=1
+
+acc_3_numeric_c1_width2_gamma0.txt,	0s,	3s,	1,	 730s,	 304
+acc_3_numeric_c1_width2_gamma1.txt,	0s,	2s,	1,	 1669s,	 215
+
+# 2 2 2
+make acc_silent INPUT=acc_2_numeric_c2_width2_gamma2.txt TYPE=1 NUMQ=2 RANGEWIDTH=2 C=2 ALPHA=2
+# 4 1 2
+make acc_silent INPUT=acc_4_numeric_c1_width2_gamma2.txt TYPE=1 NUMQ=4 RANGEWIDTH=2 C=1 ALPHA=2
+# 3 1 2
+make acc_silent INPUT=acc_3_numeric_c1_width2_gamma2.txt TYPE=1 NUMQ=3 RANGEWIDTH=2 C=1 ALPHA=2
+# 1 1 2
+make acc_silent INPUT=acc_1_numeric_c1_width2_gamma2.txt TYPE=1 NUMQ=1 RANGEWIDTH=2 C=1 ALPHA=2
+
+acc_2_numeric_c2_width2_gamma2.txt,	0s,	0s,	1,	 66s,	 27
+acc_4_numeric_c1_width2_gamma2.txt,	0s,	7s,	1,	 350s,	 199
+acc_3_numeric_c1_width2_gamma2.txt,	0s,	1s,	1,	 181s,	 63
+acc_1_numeric_c1_width2_gamma2.txt,	0s,	0s,	1,	 19s,	 17

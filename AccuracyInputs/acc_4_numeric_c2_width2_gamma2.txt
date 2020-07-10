@@ -41,7 +41,7 @@ one = 1;
 int zero;
 zero = 0;
 int c;
-c = 1;
+c = 2;
 int count_det;
 count_det = 0;
 int count_rand;

@@ -1,0 +1,291 @@
+make acc_install_silent
+
+make acc_silent INPUT=acc_3_numeric_c1_width1_gamma0.txt TYPE=1 NUMQ=3 RANGEWIDTH=1 ALPHA=0 BOUNDFACTOR=1/2
+make acc_silent INPUT=acc_3_numeric_c2_width1_gamma0.txt TYPE=1 NUMQ=3 RANGEWIDTH=1 C=2 ALPHA=0 BOUNDFACTOR=1/2
+
+make acc_silent INPUT=acc_3_numeric_c1_width1_gamma1.txt TYPE=1 NUMQ=3 RANGEWIDTH=1 ALPHA=1 BOUNDFACTOR=1/2
+make acc_silent INPUT=acc_3_numeric_c2_width1_gamma1.txt TYPE=1 NUMQ=3 RANGEWIDTH=1 C=2 ALPHA=1 BOUNDFACTOR=1/2
+
+acc_3_numeric_c1_width1_gamma0.txt,	0s,	1s,	1,	 77s,	 78
+acc_3_numeric_c2_width1_gamma0.txt,	0s,	1s,	1,	 77s,	 80
+acc_3_numeric_c1_width1_gamma1.txt,	0s,	0s,	1,	 171s,	 45
+acc_3_numeric_c2_width1_gamma1.txt,	0s,	0s,	1,	 160s,	 42
+
+make acc_silent INPUT=acc_3_numeric_c1_width1_gamma0.txt TYPE=1 NUMQ=3 RANGEWIDTH=1 ALPHA=0 BOUNDFACTOR=1/4
+make acc_silent INPUT=acc_3_numeric_c2_width1_gamma0.txt TYPE=1 NUMQ=3 RANGEWIDTH=1 C=2 ALPHA=0 BOUNDFACTOR=1/4
+
+make acc_silent INPUT=acc_3_numeric_c1_width1_gamma1.txt TYPE=1 NUMQ=3 RANGEWIDTH=1 ALPHA=1 BOUNDFACTOR=1/4
+make acc_silent INPUT=acc_3_numeric_c2_width1_gamma1.txt TYPE=1 NUMQ=3 RANGEWIDTH=1 C=2 ALPHA=1 BOUNDFACTOR=1/4
+
+acc_3_numeric_c1_width1_gamma0.txt,	0s,	1s,	1,	 77s,	 78
+acc_3_numeric_c2_width1_gamma0.txt,	0s,	1s,	1,	 78s,	 80
+acc_3_numeric_c1_width1_gamma1.txt,	0s,	1s,	0,	 173s,	 45
+acc_3_numeric_c2_width1_gamma1.txt,	0s,	1s,	1,	 161s,	 42
+
+make acc_silent INPUT=acc_3_numeric_c1_width1_gamma0.txt TYPE=1 NUMQ=3 RANGEWIDTH=1 ALPHA=0 BOUNDFACTOR=1/8
+make acc_silent INPUT=acc_3_numeric_c2_width1_gamma0.txt TYPE=1 NUMQ=3 RANGEWIDTH=1 C=2 ALPHA=0 BOUNDFACTOR=1/8
+
+make acc_silent INPUT=acc_3_numeric_c1_width1_gamma1.txt TYPE=1 NUMQ=3 RANGEWIDTH=1 ALPHA=1 BOUNDFACTOR=1/3
+make acc_silent INPUT=acc_3_numeric_c2_width1_gamma1.txt TYPE=1 NUMQ=3 RANGEWIDTH=1 C=2 ALPHA=1 BOUNDFACTOR=1/8
+
+acc_3_numeric_c1_width1_gamma0.txt,	0s,	1s,	0,	 78s,	 78
+acc_3_numeric_c2_width1_gamma0.txt,	0s,	1s,	1,	 75s,	 80
+acc_3_numeric_c1_width1_gamma1.txt,	0s,	1s,	1,	 174s,	 45
+acc_3_numeric_c2_width1_gamma1.txt,	0s,	0s,	0,	 161s,	 42
+
+make acc_silent INPUT=acc_3_numeric_c1_width1_gamma0.txt TYPE=1 NUMQ=3 RANGEWIDTH=1 ALPHA=0 BOUNDFACTOR=1/6
+make acc_silent INPUT=acc_3_numeric_c2_width1_gamma0.txt TYPE=1 NUMQ=3 RANGEWIDTH=1 C=2 ALPHA=0 BOUNDFACTOR=1/16
+
+make acc_silent INPUT=acc_3_numeric_c1_width1_gamma1.txt TYPE=1 NUMQ=3 RANGEWIDTH=1 ALPHA=1 BOUNDFACTOR=1/16
+make acc_silent INPUT=acc_3_numeric_c2_width1_gamma1.txt TYPE=1 NUMQ=3 RANGEWIDTH=1 C=2 ALPHA=1 BOUNDFACTOR=1/6
+
+acc_3_numeric_c1_width1_gamma0.txt,	0s,	1s,	1,	 78s,	 78
+acc_3_numeric_c2_width1_gamma0.txt,	0s,	1s,	0,	 81s,	 80
+acc_3_numeric_c1_width1_gamma1.txt,	0s,	1s,	0,	 177s,	 45
+acc_3_numeric_c2_width1_gamma1.txt,	0s,	1s,	0,	 167s,	 42
+
+make acc_silent INPUT=acc_3_numeric_c1_width1_gamma0.txt TYPE=1 NUMQ=3 RANGEWIDTH=1 ALPHA=0 BOUNDFACTOR=1/7
+make acc_silent INPUT=acc_3_numeric_c2_width1_gamma0.txt TYPE=1 NUMQ=3 RANGEWIDTH=1 C=2 ALPHA=0 BOUNDFACTOR=1/12
+
+
+make acc_silent INPUT=acc_3_numeric_c2_width1_gamma1.txt TYPE=1 NUMQ=3 RANGEWIDTH=1 C=2 ALPHA=1 BOUNDFACTOR=1/5
+
+acc_3_numeric_c1_width1_gamma0.txt,	0s,	1s,	1,	 78s,	 78
+acc_3_numeric_c2_width1_gamma0.txt,	0s,	1s,	1,	 77s,	 80
+acc_3_numeric_c2_width1_gamma1.txt,	0s,	1s,	1,	 162s,	 42
+
+
+make acc_silent INPUT=acc_3_numeric_c2_width1_gamma0.txt TYPE=1 NUMQ=3 RANGEWIDTH=1 C=2 ALPHA=0 BOUNDFACTOR=1/14
+
+acc_3_numeric_c2_width1_gamma0.txt,	0s,	1s,	1,	 76s,	 80
+
+make acc_silent INPUT=acc_3_numeric_c2_width1_gamma0.txt TYPE=1 NUMQ=3 RANGEWIDTH=1 C=2 ALPHA=0 BOUNDFACTOR=1/15
+
+acc_3_numeric_c2_width1_gamma0.txt,	0s,	1s,	0,	 76s,	 80
+
+# Getting epsilons and failure inputs
+
+# Failure at 1/8
+acc_3_numeric_c1_width1_gamma0.txt,	0s,	1s,	0,	 77s,	 78
+OK
+P(1|-1 -1 -1) >= 1 - beta
+Accuracy failure
+P(1|-1 -1 0) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|-1 -1 1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|-1 0 -1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|-1 0 0) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|-1 0 1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|-1 1 -1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|-1 1 0) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|-1 1 1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|0 -1 -1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|0 -1 0) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|0 -1 1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|0 0 -1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|0 0 0) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|0 0 1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|0 1 -1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|0 1 0) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|0 1 1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|1 -1 -1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|1 -1 0) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|1 -1 1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|1 0 -1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|1 0 0) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|1 0 1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|1 1 -1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|1 1 0) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|1 1 1) < beta
+{{eps -> 27}}
+True
+
+# Failure at 1/15
+acc_3_numeric_c2_width1_gamma0.txt,	0s,	1s,	0,	 76s,	 80
+OK
+P(1|-1 -1 -1) >= 1 - beta
+Accuracy failure
+P(1|-1 -1 0) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|-1 -1 1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|-1 0 -1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|-1 0 0) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|-1 0 1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|-1 1 -1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|-1 1 0) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|-1 1 1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|0 -1 -1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|0 -1 0) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|0 -1 1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|0 0 -1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|0 0 0) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|0 0 1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|0 1 -1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|0 1 0) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|0 1 1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|1 -1 -1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|1 -1 0) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|1 -1 1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|1 0 -1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|1 0 0) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|1 0 1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|1 1 -1) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|1 1 0) < beta
+{{eps -> 27}}
+Accuracy failure
+P(1|1 1 1) < beta
+{{eps -> 27}}
+True
+
+# Failure at 1/4
+acc_3_numeric_c1_width1_gamma1.txt,	0s,	0s,	0,	 174s,	 45
+OK
+P(1|-1 -1 -1) >= 1 - beta
+Accuracy failure
+P(1|-1 -1 1) < beta
+{{eps -> 37}}
+OK
+P(1|-1 1 -1) >= 1 - beta
+OK
+P(1|-1 1 0) >= 1 - beta
+OK
+P(1|-1 1 1) >= 1 - beta
+OK
+P(1|1 -1 -1) >= 1 - beta
+OK
+P(1|1 -1 0) >= 1 - beta
+OK
+P(1|1 -1 1) >= 1 - beta
+OK
+P(1|1 0 -1) >= 1 - beta
+OK
+P(1|1 0 0) >= 1 - beta
+OK
+P(1|1 0 1) >= 1 - beta
+OK
+P(1|1 1 -1) >= 1 - beta
+OK
+P(1|1 1 0) >= 1 - beta
+OK
+P(1|1 1 1) >= 1 - beta
+True
+
+# Failure at 1/6
+acc_3_numeric_c2_width1_gamma1.txt,	0s,	0s,	0,	 166s,	 42
+OK
+P(1|-1 -1 -1) >= 1 - beta
+OK
+P(1|-1 -1 1) >= 1 - beta
+OK
+P(1|-1 1 -1) >= 1 - beta
+Accuracy failure
+P(1|-1 1 1) < beta
+{{eps -> 59}}
+OK
+P(1|1 -1 -1) >= 1 - beta
+Accuracy failure
+P(1|1 -1 1) < beta
+{{eps -> 59}}
+OK
+P(1|1 1 -1) >= 1 - beta
+OK
+P(1|1 1 0) >= 1 - beta
+OK
+P(1|1 1 1) >= 1 - beta
+True
