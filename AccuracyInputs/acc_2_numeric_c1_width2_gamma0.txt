@@ -1,8 +1,6 @@
 -10 10
 input int q0 -2 2;
 input int q1 -2 2;
-input int q2 -2 2;
-input int q3 -2 2;
 int out0_det;
 out0_det = 0;
 bool out0_det_is_bot;
@@ -19,22 +17,6 @@ bool out1_rand_is_bot;
 out1_rand_is_bot = true;
 bool compare1_det;
 bool compare1_rand;
-int out2_det;
-out2_det = 0;
-bool out2_det_is_bot;
-out2_det_is_bot = true;
-bool out2_rand_is_bot;
-out2_rand_is_bot = true;
-bool compare2_det;
-bool compare2_rand;
-int out3_det;
-out3_det = 0;
-bool out3_det_is_bot;
-out3_det_is_bot = true;
-bool out3_rand_is_bot;
-out3_rand_is_bot = true;
-bool compare3_det;
-bool compare3_rand;
 
 int one;
 one = 1;
@@ -62,7 +44,7 @@ bool not_conjunction;
 int thresh;
 thresh = 0;
 int gamma;
-gamma = 2;
+gamma = 0;
 real noisy_thresh0;
 noisy_thresh0 = Lap "( 4 * eps ) / ( 9 * c )" thresh;
 bool use_noisy_thresh0;
@@ -220,157 +202,5 @@ fi;
 else
 cast_minus1 = 0;
 cast_plus1 = 0;
-fi;
-done_det = count_det >= c;
-done_rand = count_rand >= c;
-not_done_det = ! done_det;
-not_done_rand = ! done_rand;
-done_both = done_det && done_rand;
-done_only_det = done_det && not_done_rand;
-done_only_rand = not_done_det && done_rand;
-done_one = done_only_det || done_only_rand;
-done_none = not_done_det && not_done_rand;
-if done_both then
-return one;
-fi;
-compare2_det = q2 >= thresh;
-if compare2_det then
-out2_det = q2;
-out2_det_is_bot = false;
-count_det = count_det + one;
-fi;
-real noisy_q2;
-noisy_q2 = Lap "eps / ( 9 * c )" q2;
-use_noisy_thresh0 = count_rand == zero;
-real out2_rand;
-if use_noisy_thresh0 then
-compare2_rand = noisy_q2 >= noisy_thresh0;
-if compare2_rand then
-out2_rand = noisy_q2;
-out2_rand_is_bot = false;
-count_rand = count_rand + one;
-else
-out2_rand = 0;
-fi;
-else
-compare2_rand = noisy_q2 >= noisy_thresh1;
-if compare2_rand then
-out2_rand = noisy_q2;
-out2_rand_is_bot = false;
-count_rand = count_rand + one;
-else
-out2_rand = 0;
-fi;
-fi;
-bool not_out2_det_is_bot;
-bool not_out2_rand_is_bot;
-not_out2_det_is_bot = ! out2_det_is_bot;
-not_out2_rand_is_bot = ! out2_rand_is_bot;
-bool only_one_is_bot2;
-bool only_det_is_bot2;
-bool only_rand_is_bot2;
-only_det_is_bot2 = out2_det_is_bot && not_out2_rand_is_bot;
-only_rand_is_bot2 = out2_rand_is_bot && not_out2_det_is_bot;
-only_one_is_bot2 = only_det_is_bot2 || only_rand_is_bot2;
-if only_one_is_bot2 then
-return zero;
-fi;
-bool both_are_not_bot2;
-both_are_not_bot2 = not_out2_det_is_bot && not_out2_rand_is_bot;
-real cast_minus2;
-real cast_plus2;
-if both_are_not_bot2 then
-int minus_gamma2;
-minus_gamma2 = out2_det - gamma;
-int plus_gamma2;
-plus_gamma2 = out2_det + gamma;
-cast_minus2 = minus_gamma2;
-cast_plus2 = plus_gamma2;
-conjunct1 = noisy_q2 >= cast_minus2;
-conjunct2 = noisy_q2 <= cast_plus2;
-conjunction = conjunct1 && conjunct2;
-not_conjunction = ! conjunction;
-if not_conjunction then
-return zero;
-fi;
-else
-cast_minus2 = 0;
-cast_plus2 = 0;
-fi;
-done_det = count_det >= c;
-done_rand = count_rand >= c;
-not_done_det = ! done_det;
-not_done_rand = ! done_rand;
-done_both = done_det && done_rand;
-done_only_det = done_det && not_done_rand;
-done_only_rand = not_done_det && done_rand;
-done_one = done_only_det || done_only_rand;
-done_none = not_done_det && not_done_rand;
-if done_both then
-return one;
-fi;
-compare3_det = q3 >= thresh;
-if compare3_det then
-out3_det = q3;
-out3_det_is_bot = false;
-count_det = count_det + one;
-fi;
-real noisy_q3;
-noisy_q3 = Lap "eps / ( 9 * c )" q3;
-use_noisy_thresh0 = count_rand == zero;
-real out3_rand;
-if use_noisy_thresh0 then
-compare3_rand = noisy_q3 >= noisy_thresh0;
-if compare3_rand then
-out3_rand = noisy_q3;
-out3_rand_is_bot = false;
-count_rand = count_rand + one;
-else
-out3_rand = 0;
-fi;
-else
-compare3_rand = noisy_q3 >= noisy_thresh1;
-if compare3_rand then
-out3_rand = noisy_q3;
-out3_rand_is_bot = false;
-count_rand = count_rand + one;
-else
-out3_rand = 0;
-fi;
-fi;
-bool not_out3_det_is_bot;
-bool not_out3_rand_is_bot;
-not_out3_det_is_bot = ! out3_det_is_bot;
-not_out3_rand_is_bot = ! out3_rand_is_bot;
-bool only_one_is_bot3;
-bool only_det_is_bot3;
-bool only_rand_is_bot3;
-only_det_is_bot3 = out3_det_is_bot && not_out3_rand_is_bot;
-only_rand_is_bot3 = out3_rand_is_bot && not_out3_det_is_bot;
-only_one_is_bot3 = only_det_is_bot3 || only_rand_is_bot3;
-if only_one_is_bot3 then
-return zero;
-fi;
-bool both_are_not_bot3;
-both_are_not_bot3 = not_out3_det_is_bot && not_out3_rand_is_bot;
-real cast_minus3;
-real cast_plus3;
-if both_are_not_bot3 then
-int minus_gamma3;
-minus_gamma3 = out3_det - gamma;
-int plus_gamma3;
-plus_gamma3 = out3_det + gamma;
-cast_minus3 = minus_gamma3;
-cast_plus3 = plus_gamma3;
-conjunct1 = noisy_q3 >= cast_minus3;
-conjunct2 = noisy_q3 <= cast_plus3;
-conjunction = conjunct1 && conjunct2;
-not_conjunction = ! conjunction;
-if not_conjunction then
-return zero;
-fi;
-else
-cast_minus3 = 0;
-cast_plus3 = 0;
 fi;
 return one;

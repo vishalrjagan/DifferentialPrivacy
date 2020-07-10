@@ -168,11 +168,17 @@ let numeric_sparse
   (* Modeling in DiPC. What an ad-hack! *)
   [1]
 
-let beta_numeric_sparse_expression
+let beta_numeric_sparse_expression_dwork_roth
     (c:int) (k:int) (alpha:int) (factor:string) : string =
   let c_str,k_str = string_of_int c,string_of_int k in
   let alpha_str = string_of_int alpha in
   "("^factor^")*(("^k_str^"*4*"^c_str^") / (Exp[("^alpha_str^"*eps)/(9*"^c_str^")]))"
+
+let beta_numeric_sparse_expression_better
+    (c:int) (k:int) (alpha:int) (factor:string) : string =
+  let c_str,k_str = string_of_int c,string_of_int k in
+  let alpha_str = string_of_int alpha in
+  "("^factor^")*(((2*"^k_str^" + 1)*"^c_str^") / (Exp[("^alpha_str^"*eps)/(9*"^c_str^")]))"
 
 let du_numeric_sparse = du_sparse
 
@@ -195,7 +201,7 @@ let betas_numeric_sparse
   Table.mapi
     (fun inp (out,du) ->
        (out,du,alphaGamma,compare,
-        beta_numeric_sparse_expression c (List.length inp) alphaGamma factor)) tab
+        beta_numeric_sparse_expression_better c (List.length inp) alphaGamma factor)) tab
 
 
 (* GENERAL *)

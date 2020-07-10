@@ -12,7 +12,7 @@ t2 = 0;
 int t3;
 t3 = 0;
 int c;
-c = 4;
+c = 3;
 int del;
 del = 1;
 bool out0;
