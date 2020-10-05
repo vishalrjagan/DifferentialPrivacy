@@ -8,7 +8,7 @@ module Table = Map.Make(
   end)
 type table = base Table.t
 
-(* Make a table for the f's I/O relation over range. Note, f should *
+(* Make a table for f's I/O relation over given range. Note, f should *
    be a function like numeric_sparse, but specialized to be an int *
    list -> int list. E.g. 'make_table (2,3) (2) (+1)' builds a map containing:
    [([2,2]-> [3,3]),([2,3] -> [3,4]),([3,2] -> [4,3]),([3,3] -> [4,4])]*)

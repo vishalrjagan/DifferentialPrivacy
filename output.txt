@@ -1,9 +1,0 @@
-HAHA:1:HAHA
--2 0|
-((assgn3)*(assgn5)*(assgn0))
--2 1|
-((assgn0)*(assgn0)*(assgn7)*(assgn5)*(assgn0))
-2 0|
-((assgn17+assgn19+assgn21)*(assgn5)*(assgn0)) + ((assgn24)*(assgn5)*(assgn0)) + ((0)*(assgn5)*(assgn0)) + ((assgn26)*(assgn5)*(assgn0))
-2 1|
-((assgn11+assgn13)*(assgn5)*(assgn0))

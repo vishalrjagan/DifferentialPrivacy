@@ -16,9 +16,6 @@ using namespace std;
 #define DEBUG_RESULTS false
 #define DEBUG_TOTAL_ORDER false
 
-// Better-than-book accuracy bounds
-// #define BETTER_BOUNDS true
-
 // Switch between proving privacy and accuracy
 #define ACCURACY true
 #define DIFF_PRIVACY false
@@ -1420,7 +1417,6 @@ void optimal_generateInequalities(string s, map<string,string>& prob_map, set<st
     // Inputs may not ever produce output j
 		if(prob_map.find(s1+" "+*j)==prob_map.end() && prob_map.find(s2+" "+*j)==prob_map.end())
 			continue;
-    // The message in Print[...] is not true, no?
 		if(prob_map.find(s1+" "+*j)==prob_map.end() || prob_map.find(s2+" "+*j)==prob_map.end())
 		{
 			cout<<"HARD FAIL "<<s1<<": "<<s2<<": "<<*j<<endl;
@@ -1440,7 +1436,6 @@ void optimal_generateInequalities(string s, map<string,string>& prob_map, set<st
 				out<<"If[Resolve[ForAll[eps, "+range+", (";
 			else
 				out<<"If[Resolve[(";
-      // DEBUG IMPORTANCE
 			out<<"("+prob_map[s1+" "+*j]<<") \\[LessEqual] Exp["+fraction+" * eps] * ("<<prob_map[s2+" "+*j]<<"))";
 			if(eps_var)
 				out<<"]";
@@ -1540,9 +1535,6 @@ void write_accuracy_inequalities(string s, map<string,string>& prob_map, set<str
   // If[Resolve[ForAll[eps,eps > 0,(map) >= 1 - beta
   out << "If[Resolve[ForAll[eps, eps > 0, (";
   out << "(" << prob_map[inp_str+" "+out_str] << ") \\[GreaterEqual] (1 - ";
-  // if (BETTER_BOUNDS) {
-  //   out << "(" << boundfactor << ")*";
-  // }
   out << beta_str << "))]]";
 
   out << ",Print[\"OK\"]";
@@ -1552,9 +1544,6 @@ void write_accuracy_inequalities(string s, map<string,string>& prob_map, set<str
   out << "; Print[\"P("+out_str+"|"+inp_str+") < beta\"]";
   out << "; Print[FindInstance[(eps > 0 && ";
   out << prob_map[inp_str+" "+out_str] << " < (1 - ";
-  // if (BETTER_BOUNDS) {
-  //   out << "(" << boundfactor << ")*";
-  // }
   out << beta_str << ")), eps, Reals]]";
   // out << "; Exit[])]" << endl;
   out << "; Null)]" << endl;
@@ -1568,7 +1557,6 @@ int main(int argc, char** argv)
 	string delta(argv[3]);
 	string range(argv[4]);
 	string approach(argv[5]);
-  // string boundfactor(argv[6]);
 	string pgm;
 	cout<<"!"<<endl;
 	int t;
@@ -1581,7 +1569,7 @@ int main(int argc, char** argv)
 	list<string> pgmTokens = tokenize(pgm);
 	ofstream out;
 	out.open("output.txt", ios::out);
-	out<<"HAHA:"<<argv[5]<<":HAHA"<<endl;
+	out<<"FOO:"<<argv[5]<<":FOO"<<endl;
 	out.close();
 	out.open("math_script.wl", ios::out);
 	if(eps!="0")
@@ -1599,7 +1587,6 @@ int main(int argc, char** argv)
   } else if (ACCURACY) {
     generateInputList(inputs, "io_table.txt");
   }
-  // inspect inputs
   if(DEBUG_INPUT_LIST) {
     cout << "DEBUG_INPUT_LIST" << "\n";
 		for(set<string>::iterator j = inputs.begin();j!=inputs.end();j++) {
@@ -1614,22 +1601,18 @@ int main(int argc, char** argv)
   // Evaluate program for all inputs in inputs, populate prob_map in
   // doing so.
 	string ret_type = evaluateWithInputs(inputs, pgmTokens, order, prob_map, results, intgr_cmds);
-  // inspect prob_map
   if(DEBUG_PROB_MAP) {
     cout << "DEBUG_PROB_MAP" << "\n";
 		for(map<string,string>::iterator j = prob_map.begin();j!=prob_map.end();j++) {
       cout << j->first << " --> " << j->second << "\n";
     }
   }
-  // inspect prob_map
-  // inspect results
   if(DEBUG_RESULTS) {
     cout << "DEBUG_RESULTS" << "\n";
 		for(set<string>::iterator j = results.begin();j!=results.end();j++) {
       cout << *j << "\n";
     }
   }
-  // inspect results
 	out.open("math_script.wl", ios::app);
 	out<<"val = True"<<endl;
 	if((++lineCount)%10==0)
@@ -1648,8 +1631,6 @@ int main(int argc, char** argv)
       if(approach=="1") // don't generate output for counterexamples
         {
           while(getline(in,s))
-            // I suspect written_vars keeps the memory of which
-            // Math. Integrate/Limit expressions need to be written.
             optimal_generateInequalities(s, prob_map, seen, results, intgr_cmds, written_vars, argv[1], eps=="0", delta, range, i++);
         }
       else

@@ -1,5 +1,0 @@
-OK
-P(1|-2) >= 1 - beta
-OK
-P(1|2) >= 1 - beta
-True

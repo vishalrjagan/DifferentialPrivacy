@@ -1,15 +1,12 @@
-rm -rf final.txt
-echo "Input,              AdjTime,WritTime,  o/p, RunTime, LineCount" >>final.txt
-echo "--------------------------------------------------------------------------------T1" >>final.txt
-./Bash/table1.sh >>final.txt
-echo "--------------------------------------------------------------------------------T2" >>final.txt
-./Bash/table2.sh >>final.txt
-echo "--------------------------------------------------------------------------------T3" >>final.txt
-./Bash/table3.sh >>final.txt
-echo "--------------------------------------------------------------------------------T4" >>final.txt
-./Bash/table4.sh >>final.txt
-echo "--------------------------------------------------------------------------------T5" >>final.txt
-./Bash/table5.sh >>final.txt
-echo "--------------------------------------------------------------------------------T6" >>final.txt
-./Bash/table6.sh >>final.txt
-echo "----------------------------------------------------------------------------------" >>final.txt
+rm -rf script_output.txt
+echo "Input,              AdjTime,WritTime,  o/p, RunTime, LineCount" >>script_output.txt
+echo "--------------------------------------------------------------------------------T1" >>script_output.txt
+./AccuracyBash/scripts/table2a.sh >>script_output.txt
+echo "--------------------------------------------------------------------------------T2" >>script_output.txt
+./AccuracyBash/scripts/table2b.sh >>script_output.txt
+echo "--------------------------------------------------------------------------------T3" >>script_output.txt
+./AccuracyBash/scripts/table2c.sh >>script_output.txt
+echo "--------------------------------------------------------------------------------T4" >>script_output.txt
+./AccuracyBash/scripts/table3.sh >>script_output.txt
+
+# Split these into separate scripts: just add the echos to the existing scripts
