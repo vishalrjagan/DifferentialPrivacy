@@ -1,0 +1,283 @@
+laplace_2_gamma1.txt
+OK
+P(1|-1 -1) >= 1 - beta
+OK
+P(1|-1 0) >= 1 - beta
+OK
+P(1|-1 1) >= 1 - beta
+OK
+P(1|0 -1) >= 1 - beta
+OK
+P(1|0 0) >= 1 - beta
+OK
+P(1|0 1) >= 1 - beta
+OK
+P(1|1 -1) >= 1 - beta
+OK
+P(1|1 0) >= 1 - beta
+OK
+P(1|1 1) >= 1 - beta
+True
+-----------------------------------------------------------------------------------------
+laplace_2_gamma2.txt
+OK
+P(1|-1 -1) >= 1 - beta
+OK
+P(1|-1 0) >= 1 - beta
+OK
+P(1|-1 1) >= 1 - beta
+OK
+P(1|0 -1) >= 1 - beta
+OK
+P(1|0 0) >= 1 - beta
+OK
+P(1|0 1) >= 1 - beta
+OK
+P(1|1 -1) >= 1 - beta
+OK
+P(1|1 0) >= 1 - beta
+OK
+P(1|1 1) >= 1 - beta
+True
+-----------------------------------------------------------------------------------------
+laplace_2_gamma3.txt
+OK
+P(1|-1 -1) >= 1 - beta
+OK
+P(1|-1 0) >= 1 - beta
+OK
+P(1|-1 1) >= 1 - beta
+OK
+P(1|0 -1) >= 1 - beta
+OK
+P(1|0 0) >= 1 - beta
+OK
+P(1|0 1) >= 1 - beta
+OK
+P(1|1 -1) >= 1 - beta
+OK
+P(1|1 0) >= 1 - beta
+OK
+P(1|1 1) >= 1 - beta
+True
+-----------------------------------------------------------------------------------------
+laplace_2_width2_gamma1.txt
+OK
+P(1|-2 -2) >= 1 - beta
+OK
+P(1|-2 -1) >= 1 - beta
+OK
+P(1|-2 0) >= 1 - beta
+OK
+P(1|-2 1) >= 1 - beta
+OK
+P(1|-2 2) >= 1 - beta
+OK
+P(1|-1 -2) >= 1 - beta
+OK
+P(1|-1 -1) >= 1 - beta
+OK
+P(1|-1 0) >= 1 - beta
+OK
+P(1|-1 1) >= 1 - beta
+OK
+P(1|-1 2) >= 1 - beta
+OK
+P(1|0 -2) >= 1 - beta
+OK
+P(1|0 -1) >= 1 - beta
+OK
+P(1|0 0) >= 1 - beta
+OK
+P(1|0 1) >= 1 - beta
+OK
+P(1|0 2) >= 1 - beta
+OK
+P(1|1 -2) >= 1 - beta
+OK
+P(1|1 -1) >= 1 - beta
+OK
+P(1|1 0) >= 1 - beta
+OK
+P(1|1 1) >= 1 - beta
+OK
+P(1|1 2) >= 1 - beta
+OK
+P(1|2 -2) >= 1 - beta
+OK
+P(1|2 -1) >= 1 - beta
+OK
+P(1|2 0) >= 1 - beta
+OK
+P(1|2 1) >= 1 - beta
+OK
+P(1|2 2) >= 1 - beta
+True
+-----------------------------------------------------------------------------------------
+laplace_2_width2_gamma2.txt
+OK
+P(1|-2 -2) >= 1 - beta
+OK
+P(1|-2 -1) >= 1 - beta
+OK
+P(1|-2 0) >= 1 - beta
+OK
+P(1|-2 1) >= 1 - beta
+OK
+P(1|-2 2) >= 1 - beta
+OK
+P(1|-1 -2) >= 1 - beta
+OK
+P(1|-1 -1) >= 1 - beta
+OK
+P(1|-1 0) >= 1 - beta
+OK
+P(1|-1 1) >= 1 - beta
+OK
+P(1|-1 2) >= 1 - beta
+OK
+P(1|0 -2) >= 1 - beta
+OK
+P(1|0 -1) >= 1 - beta
+OK
+P(1|0 0) >= 1 - beta
+OK
+P(1|0 1) >= 1 - beta
+OK
+P(1|0 2) >= 1 - beta
+OK
+P(1|1 -2) >= 1 - beta
+OK
+P(1|1 -1) >= 1 - beta
+OK
+P(1|1 0) >= 1 - beta
+OK
+P(1|1 1) >= 1 - beta
+OK
+P(1|1 2) >= 1 - beta
+OK
+P(1|2 -2) >= 1 - beta
+OK
+P(1|2 -1) >= 1 - beta
+OK
+P(1|2 0) >= 1 - beta
+OK
+P(1|2 1) >= 1 - beta
+OK
+P(1|2 2) >= 1 - beta
+True
+-----------------------------------------------------------------------------------------
+laplace_2_width2_gamma3.txt
+OK
+P(1|-2 -2) >= 1 - beta
+OK
+P(1|-2 -1) >= 1 - beta
+OK
+P(1|-2 0) >= 1 - beta
+OK
+P(1|-2 1) >= 1 - beta
+OK
+P(1|-2 2) >= 1 - beta
+OK
+P(1|-1 -2) >= 1 - beta
+OK
+P(1|-1 -1) >= 1 - beta
+OK
+P(1|-1 0) >= 1 - beta
+OK
+P(1|-1 1) >= 1 - beta
+OK
+P(1|-1 2) >= 1 - beta
+OK
+P(1|0 -2) >= 1 - beta
+OK
+P(1|0 -1) >= 1 - beta
+OK
+P(1|0 0) >= 1 - beta
+OK
+P(1|0 1) >= 1 - beta
+OK
+P(1|0 2) >= 1 - beta
+OK
+P(1|1 -2) >= 1 - beta
+OK
+P(1|1 -1) >= 1 - beta
+OK
+P(1|1 0) >= 1 - beta
+OK
+P(1|1 1) >= 1 - beta
+OK
+P(1|1 2) >= 1 - beta
+OK
+P(1|2 -2) >= 1 - beta
+OK
+P(1|2 -1) >= 1 - beta
+OK
+P(1|2 0) >= 1 - beta
+OK
+P(1|2 1) >= 1 - beta
+OK
+P(1|2 2) >= 1 - beta
+True
+-----------------------------------------------------------------------------------------
+input_3_svt2_c2.txt
+OK
+P(0;0;0|-1 -1 -1) >= 1 - beta
+OK
+P(0;0;1|-1 -1 0) >= 1 - beta
+Accuracy failure
+P(0;0;1|-1 -1 1) < beta
+{{eps -> 17/10}}
+OK
+P(0;1;0|-1 0 -1) >= 1 - beta
+OK
+P(0;1;1|-1 0 0) >= 1 - beta
+OK
+P(0;1;1|-1 0 1) >= 1 - beta
+Accuracy failure
+P(0;1;0|-1 1 -1) < beta
+{{eps -> 50/19}}
+OK
+P(0;1;1|-1 1 0) >= 1 - beta
+Accuracy failure
+P(0;1;1|-1 1 1) < beta
+{{eps -> 50/19}}
+OK
+P(1;0;0|0 -1 -1) >= 1 - beta
+OK
+P(1;0;1|0 -1 0) >= 1 - beta
+OK
+P(1;0;1|0 -1 1) >= 1 - beta
+OK
+P(1;1;0|0 0 -1) >= 1 - beta
+OK
+P(1;1;0|0 0 0) >= 1 - beta
+OK
+P(1;1;0|0 0 1) >= 1 - beta
+OK
+P(1;1;0|0 1 -1) >= 1 - beta
+OK
+P(1;1;0|0 1 0) >= 1 - beta
+OK
+P(1;1;0|0 1 1) >= 1 - beta
+OK
+P(1;0;0|1 -1 -1) >= 1 - beta
+OK
+P(1;0;1|1 -1 0) >= 1 - beta
+Accuracy failure
+P(1;0;1|1 -1 1) < beta
+{{eps -> 50/19}}
+OK
+P(1;1;0|1 0 -1) >= 1 - beta
+OK
+P(1;1;0|1 0 0) >= 1 - beta
+OK
+P(1;1;0|1 0 1) >= 1 - beta
+OK
+P(1;1;0|1 1 -1) >= 1 - beta
+OK
+P(1;1;0|1 1 0) >= 1 - beta
+OK
+P(1;1;0|1 1 1) >= 1 - beta
+True
+-----------------------------------------------------------------------------------------

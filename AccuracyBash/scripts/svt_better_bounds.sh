@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 make acc_install_silent
 
 
