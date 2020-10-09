@@ -1,6 +1,4 @@
-# Hello
-
-Before reading on, please note the following about the tool
+Hello. Before reading on, please note the following about the tool
 (reiterating the first two paragraphs of Section 7 from the paper):
 
 1. The tool handles only loop-free programs with finite, discrete
@@ -19,7 +17,7 @@ Before reading on, please note the following about the tool
    from the paper.
 
 
-# Directory Contents
+## Directory Contents
 
 - Inputs: input programs.
 - Scripts: scripts for running the tool and generating data from the paper.
@@ -30,7 +28,7 @@ Before reading on, please note the following about the tool
 - `ocaml/util.ml`: code for generating I/O tables.
 
 
-# High-level workflow
+## High-level workflow
 
 The tool uses Wolfram's proprietary Mathematica software. If you
  cannot obtain a license and install it on the provided VirtualBox
@@ -56,13 +54,13 @@ The tool uses Wolfram's proprietary Mathematica software. If you
   tool.
 
 
-# Verifying results from the paper
+## Verifying results from the paper
 
 The data for tables in the paper can be generated using the shell
 scripts in the `Scripts` directory. For example, to run the tool on the
 programs from Table 2(c), execute
 
-```> Scripts/run_table2c.sh```
+> Scripts/run_table2c.sh
 
 from the project root.
 
@@ -85,14 +83,14 @@ a given table by running the corresponding make command in the
 corresponding script. For example, to check the first row in Table 3,
 first build the project with:
 
-```> make acc_install_silent```
+> make acc_install_silent
 
 And then the corresponding make command from `table3.sh`:
 
-```> make acc_silent INPUT=input_1_numeric_c1_width1_gamma1.txt TYPE=1 NUMQ=1 RANGEWIDTH=1 ALPHA=1```
+> make acc_silent INPUT=input_1_numeric_c1_width1_gamma1.txt TYPE=1 NUMQ=1 RANGEWIDTH=1 ALPHA=1
 
 
-# Summary of makefile
+## Summary of makefile
 
 The makefile and all Scripts should be run from the project root
 directory. In the disk image this is `~/Desktop/DiPC`. Below are two
@@ -101,14 +99,14 @@ parameter is described below.
 
 (For those who cannot access Mathematica):
 
-```> make acc_silent_no_math INPUT=<filename> TYPE=<t> NUMQ=<n> RANGEWIDTH=<w> ALPHA=<k> GAMMA=<g>```
+> make acc_silent_no_math INPUT=<filename> TYPE=<t> NUMQ=<n> RANGEWIDTH=<w> ALPHA=<k> GAMMA=<g>
 
 This will generate a `math_script.wl` in the root directory, but will
 not run Mathematica.
 
 (For those who can access Mathematica):
 
-```> make acc_silent INPUT=<filename> TYPE=<t> NUMQ=<n> RANGEWIDTH=<w> ALPHA=<k> GAMMA=<g>```
+> make acc_silent INPUT=<filename> TYPE=<t> NUMQ=<n> RANGEWIDTH=<w> ALPHA=<k> GAMMA=<g>
 
 Both uses of `make` above will activate two phases of the tool. The
 first phase generates the I/O table that we use to represent
@@ -135,7 +133,7 @@ Meanings of the makefile parameters:
 - BOUNDFACTOR: rational number between 0 and 1, e.g. 1/2, 1/4, 1/8.
 
 
-# Programs from the paper
+## Programs from the paper
 
 Input programs from the paper can be found in the Inputs
 directory. The name format of input files is as follows.
@@ -150,14 +148,14 @@ For a file named input_X_algo_options.txt:
         - gammaY: value of gamma=alpha in the case of Numeric sparse, and gamma in the case of Laplace mechanism.
 
 
-# Input program syntax
+## Input program syntax
 
 The syntax for input programs resembles assembly syntax.
 
 IMPORTANT: Every component should be space separated. Eg: var1+var2
 needs to be written as "var1 + var2".
 
-## Rules
+### Rules
 
 1.	The first line of the input program contains two integers separated by a space. These two numbers denote the RANGE of the integers in this program. Eg: If the line reads "-5 5", then the range for all integers in the program would be the integers in the interval [-5,5].
 
@@ -240,7 +238,7 @@ needs to be written as "var1 + var2".
 		The command <statement> is executed with probability <math_exp> and not executed with probability 1-<math_exp>.
 		Eg: Prob{1/(Exp[eps]+1)} out1 = ! q1;
 
-## Note
+### Note
 
 1. We don't have assignments of the form var1 = var2 + 3. In the
    arithmetic statement, both the operands must be variables. "var1 =
