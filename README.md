@@ -23,11 +23,11 @@ Before reading on, please note the following about the tool
 
 - Inputs: input programs.
 - Scripts: scripts for running the tool and generating data from the paper.
-- makefile: several parameters need to be specified, depending on
+- `makefile`: several parameters need to be specified, depending on
   program type.
-- master.cpp: Code to process input programs and generate Mathematica
+- `master.cpp`: Code to process input programs and generate Mathematica
   scripts.
-- ocaml/util.ml: code for generating I/O tables.
+- `ocaml/util.ml`: code for generating I/O tables.
 
 
 # High-level workflow
@@ -45,7 +45,7 @@ The tool uses Wolfram's proprietary Mathematica software. If you
   and accept all default choices during installation, and: answer yes
   to Wolfram Script Integration and no to Vernier devices. To generate
   the data for tables in the paper, run the corresponding shell
-  scripts `run_*.sh` in the Scripts directory. Each script invokes
+  scripts `run_*.sh` in the `Scripts` directory. Each script invokes
   `make` using the appropriate input program and some parameters,
   generates a Mathematica script, calls Mathematica on the script, and
   displays the results. All you need from the Mathematica installation
@@ -59,19 +59,19 @@ The tool uses Wolfram's proprietary Mathematica software. If you
 # Verifying results from the paper
 
 The data for tables in the paper can be generated using the shell
-scripts in the Scripts directory. For example, to run the tool on the
+scripts in the `Scripts` directory. For example, to run the tool on the
 programs from Table 2(c), execute
 
-"> Scripts/run_table2c.sh"
+```> Scripts/run_table2c.sh```
 
 from the project root.
 
-Each of the scripts in Scripts/run_*.sh will display a concise summary
-of the run, including times for each component of the tool and whether
-or not accuracy was verified.
+Each of the scripts in `Scripts/run_*.sh` will display a concise
+summary of the run, including times for each component of the tool and
+whether or not accuracy was verified.
 
 Additionally, each invocation of a script from Scripts will append
-output from Mathematica runs to a file named acc_all_bin.txt. This
+output from Mathematica runs to a file named `acc_all_bin.txt`. This
 file can be inspected to find accuracy counterexamples.
 
 NOTE: Depending on which script, this could take on the order of a few
@@ -85,55 +85,54 @@ a given table by running the corresponding make command in the
 corresponding script. For example, to check the first row in Table 3,
 first build the project with:
 
-> make acc_install_silent
+```> make acc_install_silent```
 
-And then the corresponding make command from table3.sh:
+And then the corresponding make command from `table3.sh`:
 
-> make acc_silent INPUT=input_1_numeric_c1_width1_gamma1.txt TYPE=1 NUMQ=1 RANGEWIDTH=1 ALPHA=1
+```> make acc_silent INPUT=input_1_numeric_c1_width1_gamma1.txt TYPE=1 NUMQ=1 RANGEWIDTH=1 ALPHA=1```
 
 
 # Summary of makefile
 
 The makefile and all Scripts should be run from the project root
-directory. In the disk image this is '~/Desktop/DiPC'. Below are two
+directory. In the disk image this is `~/Desktop/DiPC`. Below are two
 `make` commands which give some control over running the tool. Each
 parameter is described below.
 
 (For those who cannot access Mathematica):
 
-make acc_silent_no_math INPUT=<filename> TYPE=<t> NUMQ=<n> RANGEWIDTH=<w> ALPHA=<k> GAMMA=<g>
+```> make acc_silent_no_math INPUT=<filename> TYPE=<t> NUMQ=<n> RANGEWIDTH=<w> ALPHA=<k> GAMMA=<g>```
 
-This will generate a math_script.wl in the root directory, but will
+This will generate a `math_script.wl` in the root directory, but will
 not run Mathematica.
 
 (For those who can access Mathematica):
 
-make acc_silent INPUT=<filename> TYPE=<t> NUMQ=<n> RANGEWIDTH=<w> ALPHA=<k> GAMMA=<g>
+```> make acc_silent INPUT=<filename> TYPE=<t> NUMQ=<n> RANGEWIDTH=<w> ALPHA=<k> GAMMA=<g>```
 
 Both uses of `make` above will activate two phases of the tool. The
 first phase generates the I/O table that we use to represent
 deterministic functions that correspond to non-randomized
-algorithms. The I/O table is named "io_table.txt". The second phase
+algorithms. The I/O table is named `io_table.txt`. The second phase
 reads the input program and generates a Mathematica script called
 `math_script.wl`. The third phase, which is omitted by `make
 acc_silent_no_math`, runs Mathematica on the generated script.
 
 Meanings of the makefile parameters:
 
-TYPE:
-    - INPUT: relative path to input program, e.g. from the project root: Inputs/input_1_svt1.txt
-    - TYPE = 0 (Sparse or SparseVariant)
-           = 1 (Numeric sparse)
-           = 2 (Noisy max)
-           = 3 (Laplace mechanism)
-    - NUMQ: Integer >= 1, the number of queries
-    - RANGEWIDTH: the range for each query. E.g. RANGEWIDTH=2 means each query ranges over [-2,2]
-    - C: number of above threshold queries to seek. Only pertinent
-    to TYPES 0, 1
-    - THRESH: threshold, only pertinent to TYPES 0, 1
-    - ALPHA: alpha accuracy parameter
-    - GAMMA: gamma accuracy parameter
-    - BOUNDFACTOR: rational number between 0 and 1, e.g. 1/2, 1/4, 1/8.
+- INPUT: relative path to input program, e.g. from the project root: Inputs/input_1_svt1.txt
+- TYPE:
+  - 0 (Sparse or SparseVariant)
+  - 1 (Numeric sparse)
+  - 2 (Noisy max)
+  - 3 (Laplace mechanism)
+- NUMQ: Integer >= 1, the number of queries
+- RANGEWIDTH: the range for each query. E.g. RANGEWIDTH=2 means each query ranges over [-2,2]
+- C: number of above threshold queries to seek. Only pertinent to TYPES 0, 1
+- THRESH: threshold, only pertinent to TYPES 0, 1
+- ALPHA: alpha accuracy parameter
+- GAMMA: gamma accuracy parameter
+- BOUNDFACTOR: rational number between 0 and 1, e.g. 1/2, 1/4, 1/8.
 
 
 # Programs from the paper
@@ -141,30 +140,28 @@ TYPE:
 Input programs from the paper can be found in the Inputs
 directory. The name format of input files is as follows.
 
-input_X_algo_options.txt:
-	X: The number of queries in the program.
-	algo: The name of the algorithm used. Note: svt1 refers to the
-SparseVariant algorithm in the paper and svt2 refers to
-Sparse, nmax5 refers to NoisyMax in the paper.
-	options:
-		cY: The count variable c=Y.
-        widthY: the width of the interval for the input range.
-        gammaY: value of gamma=alpha in the case of Numeric sparse, and gamma in the case of Laplace mechanism.
+For a file named input_X_algo_options.txt:
+
+- X: The number of queries in the program.
+- algo: The name of the algorithm used. Note: svt1 refers to the SparseVariant algorithm in the paper and svt2 refers to Sparse, nmax5 refers to NoisyMax in the paper.
+- options:
+		- cY: The count variable c=Y.
+        - widthY: the width of the interval for the input range.
+        - gammaY: value of gamma=alpha in the case of Numeric sparse, and gamma in the case of Laplace mechanism.
 
 
 # Input program syntax
 
-NOTE: The input program should be present in the file <filename> in
-the folder Inputs.
+The syntax for input programs resembles assembly syntax.
 
-The syntax for input programs is a bit like assembly syntax.
 IMPORTANT: Every component should be space separated. Eg: var1+var2
 needs to be written as "var1 + var2".
 
-RULES FOR INPUT PROGRAM:
+## Rules
 
-1)	The first line of the input program contains two integers separated by a space. These two numbers denote the RANGE of the integers in this program. Eg: If the line reads "-5 5", then the range for all integers in the program would be the integers in the interval [-5,5].
-	2)	The subsequent lines are the code for the program. The first
+1.	The first line of the input program contains two integers separated by a space. These two numbers denote the RANGE of the integers in this program. Eg: If the line reads "-5 5", then the range for all integers in the program would be the integers in the interval [-5,5].
+
+2.	The subsequent lines are the code for the program. The first
 			lines denote the input to the program. Each of the input
 			variables is listed in a separate line. The syntax is:
 			input <var_type> <var_name> <min_val> <max_val>;
@@ -173,8 +170,8 @@ RULES FOR INPUT PROGRAM:
 		string with no newline or space characters and the first
 		character is an alphabet.
 		<min_val> to <max_val> is the range we allow the inputs to take for this variable.
-	3) IMPORTANT: The real variables get treated as constant variables. They should be assigned values only once in every branch of execution. If not, then this would lead to the previous assignment statements being completely ignored.
-	4) The remaining program allows the following commands:
+3. IMPORTANT: The real variables get treated as constant variables. They should be assigned values only once in every branch of execution. If not, then this would lead to the previous assignment statements being completely ignored.
+4. The remaining program allows the following commands:
 		a) <var_type> <var_name>;
 			This is a variable declaration statement.
 				<var_type>, the type of the variable, can be "int", "bool" or "real", denoting integer, boolean and real variables respectively.
@@ -243,7 +240,12 @@ RULES FOR INPUT PROGRAM:
 		The command <statement> is executed with probability <math_exp> and not executed with probability 1-<math_exp>.
 		Eg: Prob{1/(Exp[eps]+1)} out1 = ! q1;
 
-NOTE:
+## Note
 
-1) We don't have assignments of the form var1 = var2 + 3. In the arithmetic statement, both the operands must be variables. "var1 = var2 + 3" must be written as "int three; three = 3; var1 = var2 + three;"
-2) In the entire program, individual tokens must be separated by spaces. i.e., "var=var1+var2;" needs to be written as "var = var1 + var2;"
+1. We don't have assignments of the form var1 = var2 + 3. In the
+   arithmetic statement, both the operands must be variables. "var1 =
+   var2 + 3" must be written as "int three; three = 3; var1 = var2 +
+   three;"
+2. In the entire program, individual tokens must be separated by
+   spaces. i.e., "var=var1+var2;" needs to be written as "var = var1 +
+   var2;"
